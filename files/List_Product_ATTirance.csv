@@ -1,0 +1,340 @@
+Code,Name,Name KH,Category Code,Unit ID,Cost,Price,Alert Quantity, Tax Rate Name,Tax Method,Subcategory Code,Product Variants Separated by |,Supplier1(No),Supplier2(No),Supplier3(No),Supplier4(No),Supplier5(No),Custom Field 1,Custom Field 2,Custom Field 3,Custom Field 4,Custom Field 5,Custom Field 6,Image,Type(standard or service)
+3000187,60-Refreshing Cleansing Gel 150ml,,MARIA GALLAND RETAIL,1,0,47.8,,, exclusive,CLEANSERS ,,,,,,,,,,,,,no_image.png,standard
+3000181,61-Gentle Cleansing Milk 200ml,,MARIA GALLAND RETAIL,1,0,47.4,,, exclusive,CLEANSERS ,,,,,,,,,,,,,no_image.png,standard
+3000182,62-Mattifying Hydrating Lotion 200ml,,MARIA GALLAND RETAIL,1,0,47.6,,, exclusive,CLEANSERS ,,,,,,,,,,,,,no_image.png,standard
+3000184,64-Silky Soft lotion 200ml,,MARIA GALLAND RETAIL,1,0,49.4,,, exclusive,CLEANSERS ,,,,,,,,,,,,,no_image.png,standard
+3000609,65A-Eye  Make up Remover Lotion 125ml,,MARIA GALLAND RETAIL,1,0,47.9,,, exclusive,CLEANSERS ,,,,,,,,,,,,,no_image.png,standard
+3000186,66-Gentle Exfoliator 50ml,,MARIA GALLAND RETAIL,1,0,41.9,,, exclusive,CLEANSERS ,,,,,,,,,,,,,no_image.png,standard
+3001089,67-Cleansing oil 120ml,,MARIA GALLAND RETAIL,1,0,56.5,,, exclusive,CLEANSERS ,,,,,,,,,,,,,no_image.png,standard
+970218,2-Creamy Soft Mask 50ml,,MARIA GALLAND RETAIL,1,0,66.4,,, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+970219,5-Rejuvenating Cream 50ml,,MARIA GALLAND RETAIL,1,0,81.6,,, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+3000561,5A-Cell Rejuvenating Cream 50ml,,MARIA GALLAND RETAIL,1,0,157.9,,, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+970220,5B-Super Rejuvenating Cream 50ml,,MARIA GALLAND RETAIL,1,0,68.43,,, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+3000562,5C-Cell Rejuvenating Serum 30ml,,MARIA GALLAND RETAIL,1,0,121.3,,, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+970221,17B-Special Cream for Sensitive Skin 50ml,,MARIA GALLAND RETAIL,1,0,89.2,,, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+1410050,41-Gentle Exfoliating Cream for the face 550ml,,MARIA GALLAND RETAIL,1,0,0,,, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+3001344,81-Cell Rejuvenating Caviar Mask 50ml,,MARIA GALLAND RETAIL,1,0,119.4,,, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+1089050,89-Principle Moisture Cream 50ml,,MARIA GALLAND RETAIL,1,0,109.3,,, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+1093015,93-Enriched Eye Cream 15ml,,MARIA GALLAND RETAIL,1,0,77,,, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+3001011,001-Caviar 10x2.5ml,,MARIA GALLAND RETAIL,1,0,22.5,,, exclusive,LIGNE ESSENCES,,,,,,,,,,,,,no_image.png,standard
+3001304,002-Orchidee noire 10x2.5ml,,MARIA GALLAND RETAIL,1,0,22.5,,, exclusive,LIGNE ESSENCES,,,,,,,,,,,,,no_image.png,standard
+3001305,003-Malachite 10x2.5ml,,MARIA GALLAND RETAIL,1,0,22.5,,, exclusive,LIGNE ESSENCES,,,,,,,,,,,,,no_image.png,standard
+3001014,004-Truffe Blanche 10x2.5ml,,MARIA GALLAND RETAIL,1,0,22.5,,, exclusive,LIGNE ESSENCES,,,,,,,,,,,,,no_image.png,standard
+3001015,005-Argent 10x2.5ml,,MARIA GALLAND RETAIL,1,0,22.5,,, exclusive,LIGNE ESSENCES,,,,,,,,,,,,,no_image.png,standard
+3001016,006-Or 10x2.5ml,,MARIA GALLAND RETAIL,1,0,22.5,,, exclusive,LIGNE ESSENCES,,,,,,,,,,,,,no_image.png,standard
+3001017,007-Eye 10x2.5ml,,MARIA GALLAND RETAIL,1,0,25,,, exclusive,LIGNE ESSENCES,,,,,,,,,,,,,no_image.png,standard
+1090030,90-Firming Neck Cream 30ml,,MARIA GALLAND RETAIL,1,0,0,,, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+970413,91-Ultra anti Wrinkle Cream 50ml,,MARIA GALLAND RETAIL,1,0,0,,, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+970247,92-Hydrating Cooling Mask 75ml,,MARIA GALLAND RETAIL,1,0,0,,, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+970416,94-Extra Active 3.6 Omege Comlex 30ml,,MARIA GALLAND RETAIL,1,0,0,,, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+970248,95-Eye conture Colling Mask 30ml,,MARIA GALLAND RETAIL,1,0,72.4,,, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+1008000,96-Intensive Hydrating Cream 50ml,,MARIA GALLAND RETAIL,1,0,80,,, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+3000074,96A-Intensive Hydrating Cream Plus 50ml,,MARIA GALLAND RETAIL,1,0,101.7,,, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+1008500,96B-Hydra nutritive Cream 50ml,,MARIA GALLAND RETAIL,1,0,86.1,,, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+970252,98-Intensive Action Hydrating Serum 30ml,,MARIA GALLAND RETAIL,1,0,86,,, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+3001553,99-Glov Moisturiser Nude 10-30ml-V,,MARIA GALLAND RETAIL,1,0,43.01,,, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+3001556,99-Glov Moisturiser Nude 20-30ml-V,,MARIA GALLAND RETAIL,1,0,43.01,,, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+3001559,99-Glov Moisturiser Nude 30-30ml-V,,MARIA GALLAND RETAIL,1,0,43.01,,, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+3001509,100-Hydra lift Eye Cream 15ml,,MARIA GALLAND RETAIL,1,0,0,,, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+3000912,100B-Lift Eye Mask Patch(5pcs),,MARIA GALLAND RETAIL,1,0,0,,, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+970317,153-Intense Action Firming Mask 50ml,,MARIA GALLAND RETAIL,1,0,77.1,,, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+1813150,131-Precious Mask 50ml,,MARIA GALLAND RETAIL,1,0,0,,, exclusive,PRECIOUS LINE,,,,,,,,,,,,,no_image.png,standard
+3001650,340-Lumin Eclat Serum -30ml-V,,MARIA GALLAND RETAIL,1,0,87,,, exclusive,PRECIOUS LINE,,,,,,,,,,,,,no_image.png,standard
+3001595,360-Lumin Eclat Silky Cream -50ml-V,,MARIA GALLAND RETAIL,1,0,85.5,,, exclusive,PRECIOUS LINE,,,,,,,,,,,,,no_image.png,standard
+970273,213-Gentle Soothing Cream 50ml,,MARIA GALLAND RETAIL,1,0,80.9,,, exclusive,TENDERNESS LINE,,,,,,,,,,,,,no_image.png,standard
+3001154,214-Gentle Soothing Infinity Serum 30ml,,MARIA GALLAND RETAIL,1,0,91.8,,, exclusive,TENDERNESS LINE,,,,,,,,,,,,,no_image.png,standard
+3000923,215-Gentle Soothing Facial Oil 30ml,,MARIA GALLAND RETAIL,1,0,80,,, exclusive,TENDERNESS LINE,,,,,,,,,,,,,no_image.png,standard
+3001150,216-Tendresse Mask 50ml,,MARIA GALLAND RETAIL,1,0,81.9,,, exclusive,TENDERNESS LINE,,,,,,,,,,,,,no_image.png,standard
+3001363,220-Serum Cellulaire 2x15ml,,MARIA GALLAND RETAIL,1,0,97,,, exclusive,TENDERNESS LINE,,,,,,,,,,,,,no_image.png,standard
+3001367,221-Cream Cellulaire 50ml,,MARIA GALLAND RETAIL,1,0,112,,, exclusive,TENDERNESS LINE,,,,,,,,,,,,,no_image.png,standard
+3000972,249-Profilift Serum 3D 30ml,,MARIA GALLAND RETAIL,1,0,70.8,,, exclusive,PROFITLIFT LINE,,,,,,,,,,,,,no_image.png,standard
+970514,250-Profilift Firming Cream 50ml,,MARIA GALLAND RETAIL,1,0,92.4,,, exclusive,PROFITLIFT LINE,,,,,,,,,,,,,no_image.png,standard
+1970515,251-Profflift Intensive Cure 4x7ml,,MARIA GALLAND RETAIL,1,0,185.1,,, exclusive,PROFITLIFT LINE,,,,,,,,,,,,,no_image.png,standard
+3001092,300-Velvet Skin Matiffying Cream 50ml,,MARIA GALLAND RETAIL,1,0,76,,, exclusive,MATITY LINE,,,,,,,,,,,,,no_image.png,standard
+3001095,301-Perfecting Pore Refiner 30ml,,MARIA GALLAND RETAIL,1,0,80.2,,, exclusive,MATITY LINE,,,,,,,,,,,,,no_image.png,standard
+3001099,302-Purifying  Exfoliating Mask 75ml,,MARIA GALLAND RETAIL,1,0,73,,, exclusive,MATITY LINE,,,,,,,,,,,,,no_image.png,standard
+1800050,800-Perfecting Lift Cream 50ml,,MARIA GALLAND RETAIL,1,0,0,,, exclusive,LIFT TREATMENT,,,,,,,,,,,,,no_image.png,standard
+1802030,802-Perfecting Lift Serum 30ml,,MARIA GALLAND RETAIL,1,0,202,,, exclusive,LIFT TREATMENT,,,,,,,,,,,,,no_image.png,standard
+3000363,1000-Cream Mille 50ml,,MARIA GALLAND RETAIL,1,0,560.1,,, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3000367,1005-Radiance Cream Mille 50ml,,MARIA GALLAND RETAIL,1,0,336.6,,, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3000354,1006-Hydrating Cream Mille 50ml,,MARIA GALLAND RETAIL,1,0,396.4,,, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3000371,1010-Radiance serum Mille 30ml,,MARIA GALLAND RETAIL,1,0,360.9,,, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3000392,1012-Hydrating Serum Mille 30ml,,MARIA GALLAND RETAIL,1,0,342.4,,, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3000395,1020-Eye Contoure Cream Mille 15ml,,MARIA GALLAND RETAIL,1,0,168.3,,, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3000376,1030-Radiance Mask Mille 50ml,,MARIA GALLAND RETAIL,1,0,233.7,,, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3000400,1040-Body Cream Mille 200ml,,MARIA GALLAND RETAIL,1,0,224.4,,, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3000402,1050-Cleansing Milk Mille 200ml,,MARIA GALLAND RETAIL,1,0,99.1,,, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3000406,1060-Toning lotion Mille 200ml,,MARIA GALLAND RETAIL,1,0,99.1,,, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3000982,1070-Teint Mille Lumiere beige rose 100 30ml,,MARIA GALLAND RETAIL,1,0,215.1,,, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3000986,1070-Teint Mille Lumiere beige rose 200 30ml,,MARIA GALLAND RETAIL,1,0,215.1,,, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3000989,1070-Teint Mille Lumiere beige rose 300 30ml,,MARIA GALLAND RETAIL,1,0,215.1,,, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3000992,1070-Radiance Foundation Nude 30ml,,MARIA GALLAND RETAIL,1,0,215.1,,, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3001493,916-MULTIFUNCTIONAL Face Mask 50ml,,MARIA GALLAND RETAIL,1,0,44.9,,, exclusive,HOMME GALLAND,,,,,,,,,,,,,no_image.png,standard
+3000680,180-Shinny Bronzing Powder SPF12 ,,MARIA GALLAND RETAIL,1,0,65.5,,, exclusive,HELIOSOIN,,,,,,,,,,,,,no_image.png,standard
+3001570,184-Radiance Blush Stick -V,,MARIA GALLAND RETAIL,1,0,0,,, exclusive,HELIOSOIN,,,,,,,,,,,,,no_image.png,standard
+3000660,193-Protective Care for the face SPF30 50ml,,MARIA GALLAND RETAIL,1,0,41.8,,, exclusive,HELIOSOIN,,,,,,,,,,,,,no_image.png,standard
+3000663,194-Protective Care for the face SPF50 75ml,,MARIA GALLAND RETAIL,1,0,58.5,,, exclusive,HELIOSOIN,,,,,,,,,,,,,no_image.png,standard
+3000665,196-Satin Prot Care F&B SPF25 200ml,,MARIA GALLAND RETAIL,1,0,58.5,,, exclusive,HELIOSOIN,,,,,,,,,,,,,no_image.png,standard
+3000668,197-Self Tanning Face &Body 150ml,,MARIA GALLAND RETAIL,1,0,58.5,,, exclusive,HELIOSOIN,,,,,,,,,,,,,no_image.png,standard
+3000671,198-After Sun Face & Body 200ml,,MARIA GALLAND RETAIL,1,0,58.5,,, exclusive,HELIOSOIN,,,,,,,,,,,,,no_image.png,standard
+3001548,200-Gentle Protect SPRAY SPF 150ml-V,,MARIA GALLAND RETAIL,1,0,59.3,,, exclusive,HELIOSOIN,,,,,,,,,,,,,no_image.png,standard
+3001102,202-After sun Gel for Face and Body 200ml,,MARIA GALLAND RETAIL,1,0,66.2,,, exclusive,HELIOSOIN,,,,,,,,,,,,,no_image.png,standard
+3001360,204-Masque Apres-Soleil 75ml,,MARIA GALLAND RETAIL,1,0,67.6,,, exclusive,HELIOSOIN,,,,,,,,,,,,,no_image.png,standard
+3001188,D-110 Glycolic Acid Cleansing Gel 125ml,,MARIA GALLAND RETAIL,1,0,52.5,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001181,D-120 Gentle Double effect cleansing gel 200ml,,MARIA GALLAND RETAIL,1,0,56.8,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001191,D-210 Medium-strength peeling 50ml,,MARIA GALLAND RETAIL,1,0,58.4,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001196,D-220 Intensive Peeling 50ml,,MARIA GALLAND RETAIL,1,0,58.2,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001201,D-300 soothing Cleansing Mask 50ml,,MARIA GALLAND RETAIL,1,0,67.3,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001205,D-410 Glycolic Acid exfoliating pads 60pads,,MARIA GALLAND RETAIL,1,0,91.1,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001208,D-420 Moisturising and soothing toner 100ml,,MARIA GALLAND RETAIL,1,0,56.9,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001212,D-510 SOS anti impurity gel 8ml,,MARIA GALLAND RETAIL,1,0,37.7,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001215,D-520 Anti Pigmentation Brightening Serum 30ml,,MARIA GALLAND RETAIL,1,0,97.1,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001255,D-521 Alpha Arbutin Serum 12ml,,MARIA GALLAND RETAIL,1,0,57.3,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001219,D-530 Anti Redness Serum 30ml,,MARIA GALLAND RETAIL,1,0,97.1,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001223,D-540 Anti Dryness Serum 30ml,,MARIA GALLAND RETAIL,1,0,97.1,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001236,D-710 Oily Skin control cream 50ml,,MARIA GALLAND RETAIL,1,0,57.6,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001240,D-720 Anti Pigmentation Brightening Cream 50ml,,MARIA GALLAND RETAIL,1,0,87.1,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001244,D-730 Anti redness Cream 50ml,,MARIA GALLAND RETAIL,1,0,90.2,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001248,D-740 Anti Dryness Cream 50ml,,MARIA GALLAND RETAIL,1,0,90.2,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001257,D-820 Anti Pigmentation Brightning Mask 50ml,,MARIA GALLAND RETAIL,1,0,68.1,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001260,D-830 Anti Redness Mask 50ml,,MARIA GALLAND RETAIL,1,0,68.1,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001263,D-840 Anti Dryness Mask 50ml,,MARIA GALLAND RETAIL,1,0,68,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001232,D-900 Eye Gel Cream 15ml,,MARIA GALLAND RETAIL,1,0,69.2,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001252,D-920 UV Protection Fluid SPF30 50ml,,MARIA GALLAND RETAIL,1,0,67.9,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001105,24-Anti Aging Baim for Nail and Nails ,,MARIA GALLAND RETAIL,1,0,48.6,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+3001372,401-Anti Cellutite Essence 10x15ml,,MARIA GALLAND RETAIL,1,0,22.5,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+3001373,402-Shaping and Sculpting Essence 10x15ml,,MARIA GALLAND RETAIL,1,0,25.5,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+3001376,403-Firming and Toning Essence 10x15ml,,MARIA GALLAND RETAIL,1,0,22.5,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+3001457,430-D-tox Cooling Gel 200ml,,MARIA GALLAND RETAIL,1,0,67.9,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+3000444,410-Body Shapping Cream 200ml,,MARIA GALLAND RETAIL,1,0,105.7,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+3000440,411-Body Shapping Supplement 125ml,,MARIA GALLAND RETAIL,1,0,77.3,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+3000442,412-Smoothing Body Scrub 150ml,,MARIA GALLAND RETAIL,1,0,58,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+3000445,414-soothing Body Oil 100ml,,MARIA GALLAND RETAIL,1,0,63.6,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+3000947,414A-Caressing Massage Oil 100ml,,MARIA GALLAND RETAIL,1,0,78.5,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+1970825,422-Velvet Body Balm 200ml,,MARIA GALLAND RETAIL,1,0,61.6,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+1970924,424-Protective Hand Cream 50ml,,MARIA GALLAND RETAIL,1,0,46.2,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+3001528,427-Post -Epil Anti Regrowth Gel 100ml,,MARIA GALLAND RETAIL,1,0,54.7,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+3001347,719-Activ Age Serum 30ml,,MARIA GALLAND RETAIL,1,0,200.1,,, exclusive,ACTIVE AGE,,,,,,,,,,,,,no_image.png,standard
+3001351,720-Activ Age Fine Cream 50ml,,MARIA GALLAND RETAIL,1,0,252.5,,, exclusive,ACTIVE AGE,,,,,,,,,,,,,no_image.png,standard
+3001356,721-Activ Age Freshness and Comford Mask 50ml,,MARIA GALLAND RETAIL,1,0,140.2,,, exclusive,ACTIVE AGE,,,,,,,,,,,,,no_image.png,standard
+3001534,722-Activ Age Spray 50ml,,MARIA GALLAND RETAIL,1,0,55,,, exclusive,ACTIVE AGE,,,,,,,,,,,,,no_image.png,standard
+3001625,799-PERF.Complexion Serum Found -10-V 30ml,,MARIA GALLAND RETAIL,1,0,0,,, exclusive,ACTIVE AGE,,,,,,,,,,,,,no_image.png,standard
+3001626,799-PERF.Complexion Serum Found -20-V 30ml,,MARIA GALLAND RETAIL,1,0,0,,, exclusive,ACTIVE AGE,,,,,,,,,,,,,no_image.png,standard
+3001627,799-PERF.Complexion Serum Found -30-V 30ml,,MARIA GALLAND RETAIL,1,0,0,,, exclusive,ACTIVE AGE,,,,,,,,,,,,,no_image.png,standard
+3001628,799-PERF.Complexion Serum Found -40-V 30ml,,MARIA GALLAND RETAIL,1,0,0,,, exclusive,ACTIVE AGE,,,,,,,,,,,,,no_image.png,standard
+3001462,22J-Cell Protecting Primer SPF20 30ml,,MARIA GALLAND RETAIL,1,0,0,,, exclusive,SOIN SPECIFIQUE,,,,,,,,,,,,,no_image.png,standard
+3001465,22N-Cell Boosting Serum 30ml,,MARIA GALLAND RETAIL,1,0,0,,, exclusive,SOIN SPECIFIQUE,,,,,,,,,,,,,no_image.png,standard
+3000188,60-Refreshing Cleansing Gel 200ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,CLEANSERS ,,,,,,,,,,,,,no_image.png,standard
+3000189,61-Gentle Cleansing Milk 500ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,CLEANSERS ,,,,,,,,,,,,,no_image.png,standard
+3000190,62-Mattifying Hydrating Lotion 500ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,CLEANSERS ,,,,,,,,,,,,,no_image.png,standard
+3000193,64-Silky Soft lotion 500ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,CLEANSERS ,,,,,,,,,,,,,no_image.png,standard
+3000611,65A-Eye  Make up Remover Lotion 125ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,CLEANSERS ,,,,,,,,,,,,,no_image.png,standard
+3000196,66-Gentle Exfoliator 50ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,CLEANSERS ,,,,,,,,,,,,,no_image.png,standard
+3001091,67-Cleansing oil 200ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,CLEANSERS ,,,,,,,,,,,,,no_image.png,standard
+970300,2-Creamy Soft Mask 225ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+970301,5-Rejuvenating Cream 460ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+3001073,5A-Cell Rejuvenating Cream 125ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+970397,5B-Super Rejuvenating Cream 125ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+3000566,5C-Cell Rejuvenating Serum 60ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+970303,17B-Special Cream for Sensitive Skin 460ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+3000420,18-Special Care Cream 125ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+2410250,41-Gentle Exfoliating Cream for the face 225ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+3001345,81-Cell Rejuvenating Caviar Mask 225ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+2089250,89-Principle Moisture Cream 225ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+3000412,93-Enriched Eye Cream 60ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+3001018,001-Caviar 15ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,LIGNE ESSENCES,,,,,,,,,,,,,no_image.png,standard
+3001019,002-Orchidee noire 15ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,LIGNE ESSENCES,,,,,,,,,,,,,no_image.png,standard
+3001020,003-Malachite 15ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,LIGNE ESSENCES,,,,,,,,,,,,,no_image.png,standard
+3001021,004-Truffe Blanche 15ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,LIGNE ESSENCES,,,,,,,,,,,,,no_image.png,standard
+3001022,005-Argent 15ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,LIGNE ESSENCES,,,,,,,,,,,,,no_image.png,standard
+3001023,006-Or 15ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,LIGNE ESSENCES,,,,,,,,,,,,,no_image.png,standard
+3001024,007-Eye 15ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,LIGNE ESSENCES,,,,,,,,,,,,,no_image.png,standard
+3001680,3A-Modelling Complex Anti-Age 10x440g,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SPECIAL CABIN,,,,,,,,,,,,,no_image.png,standard
+3001682,33-Ultimate pro Active Enhancer 120ml-C,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SPECIAL CABIN,,,,,,,,,,,,,no_image.png,standard
+36400,Foam Mask Warming Effect 400ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SPECIAL CABIN,,,,,,,,,,,,,no_image.png,standard
+3000283,30A-Thalasso Mask XXL 20x33Gr,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SPECIAL CABIN,,,,,,,,,,,,,no_image.png,standard
+3001314,3C-Modelling Eye Zone Mask 20x6gr,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SPECIAL CABIN,,,,,,,,,,,,,no_image.png,standard
+2070015,7C-Lotion 20x15ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SPECIAL CABIN,,,,,,,,,,,,,no_image.png,standard
+970558,88-Modelling Cream 460ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+2090125,90-Firming Nech Cream 125ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+970414,91-Ultra Anti Wrinkle Wrinkle Cream 225ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+970559,92-HYDRATING Cooling Mask 225ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+970417,94-Extra Active 3.6Omega Complex 25ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+970528,95-Eye contour cooling Mask 30ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+970580,96-Intensive Hydrating Cream 225ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+3001160,96A-Intensive Hydrating Cream Plus 125ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+970581,96B-Hydra Nutritive Cream 225ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+970527,98-Intensive Action Hydrating Serum 25ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+3000152,100-Hydra Lift Eye Cream 60ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+970326,153-Intense Action Firming Mask 225ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+3001651,340-Lumin Eclat Serum -60ml-V,,MARIA GALLAND CABIN,1,0,0,,, exclusive,PRECIOUS LINE,,,,,,,,,,,,,no_image.png,standard
+3001596,360-Lumin Eclat Silky Cream -125ml-V,,MARIA GALLAND CABIN,1,0,0,,, exclusive,PRECIOUS LINE,,,,,,,,,,,,,no_image.png,standard
+3001598,380-Lumin Eclat Mask 225ml-C,,MARIA GALLAND CABIN,1,0,0,,, exclusive,PRECIOUS LINE,,,,,,,,,,,,,no_image.png,standard
+3000416,213-Gentle Soothing Cream 125ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,TENDERNESS LINE,,,,,,,,,,,,,no_image.png,standard
+3001155,214-Gentle Soothing Infinity Serum 126ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,TENDERNESS LINE,,,,,,,,,,,,,no_image.png,standard
+3000925,215-Gentle Soothing Facial Oil 60ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,TENDERNESS LINE,,,,,,,,,,,,,no_image.png,standard
+3001152,216-Tendresse Mask 225ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,TENDERNESS LINE,,,,,,,,,,,,,no_image.png,standard
+3001364,220-Serum Cellulaire 100ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,TENDERNESS LINE,,,,,,,,,,,,,no_image.png,standard
+3001368,221-Cream Cellulaire 100ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,TENDERNESS LINE,,,,,,,,,,,,,no_image.png,standard
+3000974,249-Profilift Serum 60ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,PROFITLIFT LINE,,,,,,,,,,,,,no_image.png,standard
+970518,250-Profilift Firming Cream 125ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,PROFITLIFT LINE,,,,,,,,,,,,,no_image.png,standard
+3001094,300-Velvet Skin Matiffying Cream 125ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,MATITY LINE,,,,,,,,,,,,,no_image.png,standard
+3001098,301-Perfecting Pore Refiner 60ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,MATITY LINE,,,,,,,,,,,,,no_image.png,standard
+3001101,302-Purifying  Exfoliating Mask 200ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,MATITY LINE,,,,,,,,,,,,,no_image.png,standard
+3000411,800-Perfecting Lift Cream 125ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,LIFT TREATMENT,,,,,,,,,,,,,no_image.png,standard
+3000364,1000-Cream Mille 150ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3000368,1005-Radiance Cream Mille 75ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3000355,1006-Hydrating Cream Mille 75ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3000373,1010-Radiance serum Mille 50ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3000393,1012-Hydrating Serum Mille 50ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3000396,1020-Eye Contoure Cream Mille 50ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3000378,1030-Radiance Mask Mille 150ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3000404,1050-Cleansing Milk Mille 400ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3000408,1060-Toning lotion Mille 400ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3000387,3M-Perfect peptide Mile 10Feuilles,,MARIA GALLAND CABIN,1,0,0,,, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3000385,3-Celluxe Mile 10x2ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3001361,204-After Sun Mask face 200ml-C ,,MARIA GALLAND CABIN,1,0,0,,, exclusive,HELIOSOIN,,,,,,,,,,,,,no_image.png,standard
+3001189,D-110 Glycolic Acid Cleansing Gel 200ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001183,D-120 Gentle Double effect cleansing gel 400ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001194,D-210 Medium-strength peeling 125ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001198,D-220 Intensive Peeling 125ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001200,D-230 Intensive Peeling Mask 125ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001203,D-300 soothing Cleansing Mask 225ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001207,D-410 Glycolic Acid exfoliating pads 60pads,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001210,D-420 Moisturising and soothing toner 200ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001214,D-510 SOS anti impurity gel 15ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001217,D-520 Anti Pigmentation Brightening Serum 50ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001221,D-530 Anti Redness Serum 50ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001225,D-540 Anti Dryness Serum 50ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001227,D-600 Powder Mask 10x20g,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001228,D-610 Oily skin and impurity control lotion 10x100ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001229,D-620 Anti pingmentation Brightening Lotion 10x100ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001230,D-630 Anti redness Lotion 10x100ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001231,d-640 Anti dryness lotion 10x100ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001238,D-710 Oily Skin control cream 150ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001242,D-720 Anti Pigmentation Brightening Cream 125ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001246,D-730 Anti redness Cream 125ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001250,D-740 Anti Dryness Cream 125ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001234,D-900 Eye Gel Cream 50ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001254,D-920 UV Protection Fluid SPF30 50ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+500242,Gentle Exfoliating Salt 1kg,,MARIA GALLAND CABIN,1,0,0,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+970412,4B-Modelling Care Body ceam 225ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+970422,4-Body Modelling Complex 10Sachets,,MARIA GALLAND CABIN,1,0,0,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+3001107,24-Anti Aging Baim for Nail and Nails ,,MARIA GALLAND CABIN,1,0,0,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+3001380,401-Anti Cellutite Essence 200ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+3001381,402-Shaping and Sculpting Essence 200ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+3001382,403-Firming and Toning Essence 200ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+3001460,430-D-tox Cooling Gel 500ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+3001456,450-Natural Marine Mud 4kgs,,MARIA GALLAND CABIN,1,0,0,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+3001454,460-Remineralising peel off Body mask 10x150kg,,MARIA GALLAND CABIN,1,0,0,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+3000908,410-Body Shapping Cream 275ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+3000909,411-Body Shapping Supplement 200ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+3000524,412-Smoothing Body Scrub 460ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+3000451,414-soothing Body Oil 200ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+3000949,414A-Caressing Massage Oil 200ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+3001453,414B-Essential Massage Oil 1000ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+3001088,419-Fluide Anti Cellulite Effect 200ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+2971023,422-Velvet Body Balm 275ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+3001530,427-Post -Epil Anti Regrowth Gel 225ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+3001609,454-Fine Exfoliating Sea Salt 1kg,,MARIA GALLAND CABIN,1,0,0,,, exclusive,BODY,,,,,,,,,,,,,no_image.png,standard
+3001350,719-Activ Age Serum 60ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,ACTIVE AGE,,,,,,,,,,,,,no_image.png,standard
+3001354,720-Activ Age Fine Cream 125ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,ACTIVE AGE,,,,,,,,,,,,,no_image.png,standard
+3001359,721-Activ Age Freshness and Comford Mask 225ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,ACTIVE AGE,,,,,,,,,,,,,no_image.png,standard
+3001543,722-Activ Age Spray 50ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,ACTIVE AGE,,,,,,,,,,,,,no_image.png,standard
+3001464,22J-Cell Protecting Primer SPF20 60ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SOIN SPECIFIQUE,,,,,,,,,,,,,no_image.png,standard
+3001467,22N-Cell Boosting Serum 60ml,,MARIA GALLAND CABIN,1,0,0,,, exclusive,SOIN SPECIFIQUE,,,,,,,,,,,,,no_image.png,standard
+3001506,Refreshing Radiance Mask ,,MG PROMOTIONS & ONE SHOT,1,0,0,,, exclusive,ACEROLA,,,,,,,,,,,,,no_image.png,standard
+3001594,Soin Pivonine Divine ,,MG PROMOTIONS & ONE SHOT,1,0,0,,, exclusive,WHITE PEONY,,,,,,,,,,,,,no_image.png,standard
+3001670,0010-Essence Mille Peerle Sublime 30ml-V,,MG PROMOTIONS & ONE SHOT,1,0,0,,, exclusive,MILLE PEARL,,,,,,,,,,,,,no_image.png,standard
+3001671,1000-Mille Pearl Cream 50ml-v 50ml,,MG PROMOTIONS & ONE SHOT,1,0,0,,, exclusive,MILLE PEARL,,,,,,,,,,,,,no_image.png,standard
+3001672,1000-Mille Perle Sublime Treatment ,,MG PROMOTIONS & ONE SHOT,1,0,0,,, exclusive,MILLE PEARL,,,,,,,,,,,,,no_image.png,standard
+3001676,0010-Essence Mille Peerle Sublime 30ml-T,,MG PROMOTIONS & ONE SHOT,1,0,0,,, exclusive,MILLE PEARL,,,,,,,,,,,,,no_image.png,standard
+5001867,Sales Folder Mille Perle Sublime English,,MG PROMOTIONS & ONE SHOT,1,0,0,,, exclusive,MILLE PEARL,,,,,,,,,,,,,no_image.png,standard
+5001866,Sales Folder Mille Perle Sublime French,,MG PROMOTIONS & ONE SHOT,1,0,0,,, exclusive,MILLE PEARL,,,,,,,,,,,,,no_image.png,standard
+5001872,End Client Folder Mille Perle Sublime English,,MG PROMOTIONS & ONE SHOT,1,0,0,,, exclusive,MILLE PEARL,,,,,,,,,,,,,no_image.png,standard
+5001871,End Client Folder Mille Perle Sublime French,,MG PROMOTIONS & ONE SHOT,1,0,0,,, exclusive,MILLE PEARL,,,,,,,,,,,,,no_image.png,standard
+3001587,96A-Your Hydration Essentials-V,,MG PROMOTIONS & ONE SHOT,1,0,0,,, exclusive,SETS,,,,,,,,,,,,,no_image.png,standard
+3000772,250-Profitlift Firming Cream 20ml-V,,MG PROMOTIONS & ONE SHOT,1,0,0,,, exclusive,TRAVEL SIZE,,,,,,,,,,,,,no_image.png,standard
+WXW1,Eye Brow Wax,,Waxing,1,0,5,,, exclusive,Waxing Women,,,,,,,,,,,,,no_image.png,service
+WXW2,Thight Wax,,Waxing,1,0,15,,, exclusive,Waxing Women,,,,,,,,,,,,,no_image.png,service
+WXW3,Whole Legs Wax,,Waxing,1,0,25,,, exclusive,Waxing Women,,,,,,,,,,,,,no_image.png,service
+WXW4,Half Legs Wax,,Waxing,1,0,13,,, exclusive,Waxing Women,,,,,,,,,,,,,no_image.png,service
+WXW5,Above Lip or Chin Wax,,Waxing,1,0,4,,, exclusive,Waxing Women,,,,,,,,,,,,,no_image.png,service
+WXW6,Full Face Wax,,Waxing,1,0,20,,, exclusive,Waxing Women,,,,,,,,,,,,,no_image.png,service
+WXW7,Armpit Care,,Waxing,1,0,9,,, exclusive,Waxing Women,,,,,,,,,,,,,no_image.png,service
+WXW8,Armpit Skin Care,,Waxing,1,0,25,,, exclusive,Waxing Women,,,,,,,,,,,,,no_image.png,service
+WXW9,Armpit Wax,,Waxing,1,0,8,,, exclusive,Waxing Women,,,,,,,,,,,,,no_image.png,service
+WXW10,Cheek or Neck Wax,,Waxing,1,0,7,,, exclusive,Waxing Women,,,,,,,,,,,,,no_image.png,service
+WXW11,Arm Wax,,Waxing,1,0,13,,, exclusive,Waxing Women,,,,,,,,,,,,,no_image.png,service
+WXW12,Classic Bikini,,Waxing,1,0,14,,, exclusive,Waxing Women,,,,,,,,,,,,,no_image.png,service
+WXW13,High Bikini,,Waxing,1,0,19,,, exclusive,Waxing Women,,,,,,,,,,,,,no_image.png,service
+WXW14,Bikini Intergra,,Waxing,1,0,27,,, exclusive,Waxing Women,,,,,,,,,,,,,no_image.png,service
+WXW15,Bikini Skin Care,,Waxing,1,0,25,,, exclusive,Waxing Women,,,,,,,,,,,,,no_image.png,service
+WXM1,Back Wax,,Waxing,1,0,15,,, exclusive,Waxing Men,,,,,,,,,,,,,no_image.png,service
+WXM2,Thight Wax,,Waxing,1,0,15,,, exclusive,Waxing Men,,,,,,,,,,,,,no_image.png,service
+WXM3,Whole Legs Wax,,Waxing,1,0,29,,, exclusive,Waxing Men,,,,,,,,,,,,,no_image.png,service
+WXM4,Half Legs Wax,,Waxing,1,0,15,,, exclusive,Waxing Men,,,,,,,,,,,,,no_image.png,service
+WXM5,Above Lip or Chin Wax,,Waxing,1,0,16,,, exclusive,Waxing Men,,,,,,,,,,,,,no_image.png,service
+WXM6,Full Face Wax,,Waxing,1,0,24,,, exclusive,Waxing Men,,,,,,,,,,,,,no_image.png,service
+WXM7,Armpit Wax,,Waxing,1,0,14,,, exclusive,Waxing Men,,,,,,,,,,,,,no_image.png,service
+WXM8,Cheek ,,Waxing,1,0,7,,, exclusive,Waxing Men,,,,,,,,,,,,,no_image.png,service
+WXM9,Neck Wax,,Waxing,1,0,7,,, exclusive,Waxing Men,,,,,,,,,,,,,no_image.png,service
+WXM10,Arm Wax,,Waxing,1,0,15,,, exclusive,Waxing Men,,,,,,,,,,,,,no_image.png,service
+MGMS1,Mosaic Modelling Method,,FACE MASSAGE,1,0,0,,, exclusive,THE ANTI AGING SIGNATURE TREATMENT,,,,,,,,,,,,,no_image.png,service
+MGMS2,Youthful Radiance Revealer ,,FACE MASSAGE,1,0,0,,, exclusive,THE ANTI AGING EXPERT TREATMENT,,,,,,,,,,,,,no_image.png,service
+MGMS3,Profitlift,,FACE MASSAGE,1,0,0,,, exclusive,THE ANTI AGING EXPERT TREATMENT,,,,,,,,,,,,,no_image.png,service
+MGMS4,Mille Radiance,,FACE MASSAGE,1,0,0,,, exclusive,THE ANTI AGING EXPERT TREATMENT,,,,,,,,,,,,,no_image.png,service
+MGMS5,Thaslasso,,FACE MASSAGE,1,0,0,,, exclusive,THE BEAUTY ESSENTIAL TREATMENTS,,,,,,,,,,,,,no_image.png,service
+Cocoon,Cocoon,,FACE MASSAGE,1,0,0,,, exclusive,THE BEAUTY ESSENTIAL TREATMENTS,,,,,,,,,,,,,no_image.png,service
+MGMS6,Modelling Mask Eye Treatment,,FACE MASSAGE,1,0,0,,, exclusive,THE SPECIALISH TREATMENTS,,,,,,,,,,,,,no_image.png,service
+MGMS7,Soin Dermalogique Treatments,,FACE MASSAGE,1,0,0,,, exclusive,THE SPECIALISH TREATMENTS,,,,,,,,,,,,,no_image.png,service
+MGMS8,Two Facial Treatment Per Year,,FACE MASSAGE,1,0,0,,, exclusive,THE LIMITED EDITION TREATMENTS,,,,,,,,,,,,,no_image.png,service
+MGBD1,Moments of Bliss,,BODY MASSAGE,1,0,0,,, exclusive,RELAXING TREATMENT,,,,,,,,,,,,,no_image.png,service
+MGBD2,Shaping Anti Cellulite and Firming Bust Hand,,BODY MASSAGE,1,0,0,,, exclusive,RELAXING TREATMENT,,,,,,,,,,,,,no_image.png,service
+PLYPIN7,7L Plywood Pine Laminate ,,BOARD PANEL,1,0,0,,, exclusive,PLYWOOD PINE LAMINATE BOTH SIDE,,,,,,,,,,,,,no_image.png,standard
+PLYPIN9,9L Plywood Pine Laminate ,,BOARD PANEL,1,0,0,,, exclusive,PLYWOOD PINE LAMINATE BOTH SIDE,,,,,,,,,,,,,no_image.png,standard
+PLYPIN11,11L Plywood Pine Laminate ,,BOARD PANEL,1,0,0,,, exclusive,PLYWOOD PINE LAMINATE BOTH SIDE,,,,,,,,,,,,,no_image.png,standard
+PLYPIN15,15L Plywood Pine Laminate ,,BOARD PANEL,1,0,0,,, exclusive,PLYWOOD PINE LAMINATE BOTH SIDE,,,,,,,,,,,,,no_image.png,standard
+PLYPIN18,18L Plywood Pine Laminate ,,BOARD PANEL,1,0,0,,, exclusive,PLYWOOD PINE LAMINATE BOTH SIDE,,,,,,,,,,,,,no_image.png,standard
+RUBHSH12AB,12AB Finger Joint Rubber Wood,,BOARD PANEL,1,0,0,,, exclusive,FINGER JOINT RUBBER WOOD(HSH),,,,,,,,,,,,,no_image.png,standard
+RUBHSH12AA,12AA Finger Joint Rubber Wood,,BOARD PANEL,1,0,0,,, exclusive,FINGER JOINT RUBBER WOOD(HSH),,,,,,,,,,,,,no_image.png,standard
+RUBHSH15AB,15AB Finger Joint Rubber Wood,,BOARD PANEL,1,0,0,,, exclusive,FINGER JOINT RUBBER WOOD(HSH),,,,,,,,,,,,,no_image.png,standard
+RUBHSH15AA,15AA Finger Joint Rubber Wood,,BOARD PANEL,1,0,0,,, exclusive,FINGER JOINT RUBBER WOOD(HSH),,,,,,,,,,,,,no_image.png,standard
+RUBHSH18AB,18AB Finger Joint Rubber Wood,,BOARD PANEL,1,0,0,,, exclusive,FINGER JOINT RUBBER WOOD(HSH),,,,,,,,,,,,,no_image.png,standard
+RUBHSH18AA,18AA Finger Joint Rubber Wood,,BOARD PANEL,1,0,0,,, exclusive,FINGER JOINT RUBBER WOOD(HSH),,,,,,,,,,,,,no_image.png,standard
+RUBHSH20AB,20AB Finger Joint Rubber Wood,,BOARD PANEL,1,0,0,,, exclusive,FINGER JOINT RUBBER WOOD(HSH),,,,,,,,,,,,,no_image.png,standard
+RUBHSH20AA,20AA Finger Joint Rubber Wood,,BOARD PANEL,1,0,0,,, exclusive,FINGER JOINT RUBBER WOOD(HSH),,,,,,,,,,,,,no_image.png,standard
+RUBHSH25AB,25AB Finger Joint Rubber Wood,,BOARD PANEL,1,0,0,,, exclusive,FINGER JOINT RUBBER WOOD(HSH),,,,,,,,,,,,,no_image.png,standard
+RUBHSH28AB,28AB Finger Joint Rubber Wood,,BOARD PANEL,1,0,0,,, exclusive,FINGER JOINT RUBBER WOOD(HSH),,,,,,,,,,,,,no_image.png,standard
+RUBHSH30AB,30AB Finger Joint Rubber Wood,,BOARD PANEL,1,0,0,,, exclusive,FINGER JOINT RUBBER WOOD(HSH),,,,,,,,,,,,,no_image.png,standard
+MCTH3,3L Green TH,,BOARD PANEL,1,0,0,,, exclusive,MC(TH),,,,,,,,,,,,,no_image.png,standard
+MCTH6,6L Green TH,,BOARD PANEL,1,0,0,,, exclusive,MC(TH),,,,,,,,,,,,,no_image.png,standard
+MCTH9,9L Green TH,,BOARD PANEL,1,0,0,,, exclusive,MC(TH),,,,,,,,,,,,,no_image.png,standard
+MCTH12,12L Green TH,,BOARD PANEL,1,0,0,,, exclusive,MC(TH),,,,,,,,,,,,,no_image.png,standard
+MCTH15,15L Green TH,,BOARD PANEL,1,0,0,,, exclusive,MC(TH),,,,,,,,,,,,,no_image.png,standard
+MCTH18,15L Green TH,,BOARD PANEL,1,0,0,,, exclusive,MC(TH),,,,,,,,,,,,,no_image.png,standard
+MDF-S1-3,3L MDF (WHITE) ,,BOARD PANEL,1,0,0,,, exclusive,MDF WHITE,,,,,,,,,,,,,no_image.png,standard
+MDF-S1-4,4L MDF (WHITE) ,,BOARD PANEL,1,0,0,,, exclusive,MDF WHITE,,,,,,,,,,,,,no_image.png,standard
+MDF-S1-8,8L MDF (WHITE) ,,BOARD PANEL,1,0,0,,, exclusive,MDF WHITE,,,,,,,,,,,,,no_image.png,standard
+MDF-S1-9,9L MDF (WHITE) ,,BOARD PANEL,1,0,0,,, exclusive,MDF WHITE,,,,,,,,,,,,,no_image.png,standard
+MDF-S1-12,12L MDF (WHITE) ,,BOARD PANEL,1,0,0,,, exclusive,MDF WHITE,,,,,,,,,,,,,no_image.png,standard
+MDF-S1-15,15L MDF (WHITE) ,,BOARD PANEL,1,0,0,,, exclusive,MDF WHITE,,,,,,,,,,,,,no_image.png,standard
+MDF-S1-18,18L MDF (WHITE) ,,BOARD PANEL,1,0,0,,, exclusive,MDF WHITE,,,,,,,,,,,,,no_image.png,standard
+PLYML7,7L Plywood ML (Red),,BOARD PANEL,1,0,0,,, exclusive,ML,,,,,,,,,,,,,no_image.png,standard
+PLYML9,9L Plywood ML (Red),,BOARD PANEL,1,0,0,,, exclusive,ML,,,,,,,,,,,,,no_image.png,standard
+PLYML12,12L Plywood ML (Red),,BOARD PANEL,1,0,0,,, exclusive,ML,,,,,,,,,,,,,no_image.png,standard
+PLYML15,15L Plywood ML (Red),,BOARD PANEL,1,0,0,,, exclusive,ML,,,,,,,,,,,,,no_image.png,standard
+PLYML18,18L Plywood ML (Red),,BOARD PANEL,1,0,0,,, exclusive,ML,,,,,,,,,,,,,no_image.png,standard
+PLYVN6,6L Plywood VN,,BOARD PANEL,1,0,0,,, exclusive,PLYWOOD VN,,,,,,,,,,,,,no_image.png,standard
+PLYVN8,8L Plywood VN,,BOARD PANEL,1,0,0,,, exclusive,PLYWOOD VN,,,,,,,,,,,,,no_image.png,standard
+PLYVN10,10L Plywood VN,,BOARD PANEL,1,0,0,,, exclusive,PLYWOOD VN,,,,,,,,,,,,,no_image.png,standard
+PLYVN12,12L Plywood VN,,BOARD PANEL,1,0,0,,, exclusive,PLYWOOD VN,,,,,,,,,,,,,no_image.png,standard
+PINE1,Pine Wood 90x140x2400mm,,Wooden Panel,1,9,13,,, exclusive,PINE WOOD,,,,,,,,,,,,,no_image.png,standard
+PINE2,Pine Wood 90x90x2400mm,,Wooden Panel,1,6,9,,, exclusive,PINE WOOD,,,,,,,,,,,,,no_image.png,standard
+PINE3,Pin Wood 90x90x1300mm,,Wooden Panel,1,1.7,2.5,,, exclusive,PINE WOOD,,,,,,,,,,,,,no_image.png,standard
+PINE4,Pine Wood 70x90x2400mm,,Wooden Panel,1,4,6,,, exclusive,PINE WOOD,,,,,,,,,,,,,no_image.png,standard
+PINE5,Pine Wood 70x90x1400mm,,Wooden Panel,1,2,4,,, exclusive,PINE WOOD,,,,,,,,,,,,,no_image.png,standard
+MANGO1,Mango 21x143x1200mm,,Wooden Panel,1,0.85,1.5,,, exclusive,MANGO WOOD,,,,,,,,,,,,,no_image.png,standard
+MANGO2,Mango 21x143x1000mm,,Wooden Panel,1,0.722,1,,, exclusive,MANGO WOOD,,,,,,,,,,,,,no_image.png,standard
+MANGO3,Mango 21x143x950mm,,Wooden Panel,1,0.65,1,,, exclusive,MANGO WOOD,,,,,,,,,,,,,no_image.png,standard
+MANGO4,Mango 21x93x1000mm,,Wooden Panel,1,0.45,1,,, exclusive,MANGO WOOD,,,,,,,,,,,,,no_image.png,standard

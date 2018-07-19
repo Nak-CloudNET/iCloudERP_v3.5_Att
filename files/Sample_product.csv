@@ -1,0 +1,408 @@
+Code,Name,Name KH,Category Code,Unit ID,Cost,Price,Alert Quantity, Tax Rate Name,Tax Method,Subcategory Code,Product Variants Separated by |,Supplier1(No),Supplier2(No),Supplier3(No),Supplier4(No),Supplier5(No),Custom Field 1,Custom Field 2,Custom Field 3,Custom Field 4,Custom Field 5,Custom Field 6,Image,Type(standard or service)
+3416070001873,60-Refreshing Cleansing Gel 150ml,3000187,MARIA GALLAND RETAIL,1,0,47.8,, No Tax, exclusive,CLEANSERS ,,,,,,,,,,,,,no_image.png,standard
+3416070001811,61-Gentle Cleansing Milk 200ml,3000181,MARIA GALLAND RETAIL,1,0,47.4,, No Tax, exclusive,CLEANSERS ,,,,,,,,,,,,,no_image.png,standard
+3416070001828,62-Mattifying Hydrating Lotion 200ml,3000182,MARIA GALLAND RETAIL,1,0,47.6,, No Tax, exclusive,CLEANSERS ,,,,,,,,,,,,,no_image.png,standard
+3416070001835,63-Cleansing Cream 200ML,3000183,MARIA GALLAND RETAIL,1,0,49.2,, No Tax, exclusive,CLEANSERS ,,,,,,,,,,,,,no_image.png,standard
+3416070001842,64-Silky Soft lotion 200ml,3000184,MARIA GALLAND RETAIL,1,0,49.4,, No Tax, exclusive,CLEANSERS ,,,,,,,,,,,,,no_image.png,standard
+3416070006090,65A-Eye  Make up Remover Lotion 125ml,3000609,MARIA GALLAND RETAIL,1,0,47.9,, No Tax, exclusive,CLEANSERS ,,,,,,,,,,,,,no_image.png,standard
+3416070001866,66-Gentle Exfoliator 50ml,3000186,MARIA GALLAND RETAIL,1,0,41.9,, No Tax, exclusive,CLEANSERS ,,,,,,,,,,,,,no_image.png,standard
+3416070010899,67-Cleansing oil 120ml,3001089,MARIA GALLAND RETAIL,1,0,56.5,, No Tax, exclusive,CLEANSERS ,,,,,,,,,,,,,no_image.png,standard
+3416079702184,2-Creamy Soft Mask 50ml,970218,MARIA GALLAND RETAIL,1,0,66.4,, No Tax, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+3416079702191,5-Rejuvenating Cream 50ml,970219,MARIA GALLAND RETAIL,1,0,81.6,, No Tax, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+3416070005611,5A-Cell Rejuvenating Cream 50ml,3000561,MARIA GALLAND RETAIL,1,0,157.9,, No Tax, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+3416079702207,5B-Super Rejuvenating Cream 50ml,970220,MARIA GALLAND RETAIL,1,0,68.43,, No Tax, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+3416070005628,5C-Cell Rejuvenating Serum 30ml,3000562,MARIA GALLAND RETAIL,1,0,121.3,, No Tax, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+3416079702214,17B-Special Cream for Sensitive Skin 50ml,970221,MARIA GALLAND RETAIL,1,0,89.2,, No Tax, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+3416074100503,41-Gentle Exfoliating Cream for the face 550ml,1410050,MARIA GALLAND RETAIL,1,0,0,, No Tax, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+3416070013449,81-Cell Rejuvenating Caviar Mask 50ml,3001344,MARIA GALLAND RETAIL,1,0,119.4,, No Tax, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+3416070890507,89-Principle Moisture Cream 50ml,1089050,MARIA GALLAND RETAIL,1,0,109.3,, No Tax, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+3416070930159,93-Enriched Eye Cream 15ml,1093015,MARIA GALLAND RETAIL,1,0,77,, No Tax, exclusive,CLASSSIC LINE,,,,,,,,,,,,,no_image.png,standard
+3416070013036,001-Caviar 10x2.5ml,3001011,MARIA GALLAND RETAIL,1,0,22.5,, No Tax, exclusive,LIGNE ESSENCES,,,,,,,,,,,,,no_image.png,standard
+3416070013043,002-Orchidee noire 10x2.5ml,3001304,MARIA GALLAND RETAIL,1,0,22.5,, No Tax, exclusive,LIGNE ESSENCES,,,,,,,,,,,,,no_image.png,standard
+3001305,003-Malachite 10x2.5ml,3001305,MARIA GALLAND RETAIL,1,0,22.5,, No Tax, exclusive,LIGNE ESSENCES,,,,,,,,,,,,,no_image.png,standard
+3416070013067,004-Truffe Blanche 10x2.5ml,3001014,MARIA GALLAND RETAIL,1,0,22.5,, No Tax, exclusive,LIGNE ESSENCES,,,,,,,,,,,,,no_image.png,standard
+3416070013074,005-Argent 10x2.5ml,3001015,MARIA GALLAND RETAIL,1,0,22.5,, No Tax, exclusive,LIGNE ESSENCES,,,,,,,,,,,,,no_image.png,standard
+3416070013081,006-Or 10x2.5ml,3001016,MARIA GALLAND RETAIL,1,0,22.5,, No Tax, exclusive,LIGNE ESSENCES,,,,,,,,,,,,,no_image.png,standard
+3416070013098,007-Eye 10x2.5ml,3001017,MARIA GALLAND RETAIL,1,0,25,, No Tax, exclusive,LIGNE ESSENCES,,,,,,,,,,,,,no_image.png,standard
+3416070015931,009-Essence,3001593,MARIA GALLAND RETAIL,1,0,22.5,, No Tax, exclusive,LIGNE ESSENCES,,,,,,,,,,,,,no_image.png,standard
+1090030,90-Firming Neck Cream 30ml,1090030,MARIA GALLAND RETAIL,1,0,0,, No Tax, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+970413,91-Ultra anti Wrinkle Cream 50ml,970413,MARIA GALLAND RETAIL,1,0,0,, No Tax, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+3416079702474,92-Hydrating Cooling Mask 75ml,970247,MARIA GALLAND RETAIL,1,0,0,, No Tax, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+3416079704164,94-Extra Active 3.6 Omege Comlex 30ml,970416,MARIA GALLAND RETAIL,1,0,0,, No Tax, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+3416070016235,95-Eye conture Colling Mask 30ml,970248,MARIA GALLAND RETAIL,1,0,72.4,, No Tax, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+3416079702481,95-Eye conture Colling Mask 30ml,970248,MARIA GALLAND RETAIL,1,0,72.4,, No Tax, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+3416070080007,96-Intensive Hydrating Cream 50ml,1008000,MARIA GALLAND RETAIL,1,0,80,, No Tax, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+3416070000746,96A-Intensive Hydrating Cream Plus 50ml,3000074,MARIA GALLAND RETAIL,1,0,101.7,, No Tax, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+3416070085002,96B-Hydra nutritive Cream 50ml,1008500,MARIA GALLAND RETAIL,1,0,86.1,, No Tax, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+34160079702528,98-Intensive Action Hydrating Serum 30ml,970252,MARIA GALLAND RETAIL,1,0,86,, No Tax, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+3416070015535,99-Glov Moisturiser Nude 10-30ml-V,3001553,MARIA GALLAND RETAIL,1,0,43.01,, No Tax, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+3416070015566,99-Glov Moisturiser Nude 20-30ml-V,3001556,MARIA GALLAND RETAIL,1,0,43.01,, No Tax, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+3001559,99-Glov Moisturiser Nude 30-30ml-V,3001559,MARIA GALLAND RETAIL,1,0,43.01,, No Tax, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+3416070015092,100-Hydra lift Eye Cream 15ml,3001509,MARIA GALLAND RETAIL,1,0,0,, No Tax, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+3000912,100B-Lift Eye Mask Patch(5pcs),3000912,MARIA GALLAND RETAIL,1,0,,, No Tax, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+3416079703174,153-Intense Action Firming Mask 50ml,970317,MARIA GALLAND RETAIL,1,0,77.1,, No Tax, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,no_image.png,standard
+1813150,131-Precious Mask 50ml,1813150,MARIA GALLAND RETAIL,1,0,0,, No Tax, exclusive,PRECIOUS LINE,,,,,,,,,,,,,no_image.png,standard
+3416070008100,132-Precious Day Cream 50ml,3000810,MARIA GALLAND RETAIL,1,0,104.1,, No Tax, exclusive,PRECIOUS LINE,,,,,,,,,,,,,no_image.png,standard
+3416070016501,340-Lumin Eclat Serum -30ml-V,3001650,MARIA GALLAND RETAIL,1,0,87,, No Tax, exclusive,PRECIOUS LINE,,,,,,,,,,,,,no_image.png,standard
+3416070015955,360-Lumin Eclat Silky Cream -50ml-V,3001595,MARIA GALLAND RETAIL,1,0,85.5,, No Tax, exclusive,PRECIOUS LINE,,,,,,,,,,,,,no_image.png,standard
+3416079702733,213-Gentle Soothing Cream 50ml,970273,MARIA GALLAND RETAIL,1,0,80.9,, No Tax, exclusive,TENDERNESS LINE,,,,,,,,,,,,,no_image.png,standard
+3416070011544,214-Gentle Soothing Infinity Serum 30ml,3001154,MARIA GALLAND RETAIL,1,0,91.8,, No Tax, exclusive,TENDERNESS LINE,,,,,,,,,,,,,no_image.png,standard
+3416070009237,215-Gentle Soothing Facial Oil 30ml,3000923,MARIA GALLAND RETAIL,1,0,80,, No Tax, exclusive,TENDERNESS LINE,,,,,,,,,,,,,no_image.png,standard
+3416070011506,216-Tendresse Mask 50ml,3001150,MARIA GALLAND RETAIL,1,0,81.9,, No Tax, exclusive,TENDERNESS LINE,,,,,,,,,,,,,no_image.png,standard
+3416070013630,220-Serum Cellulaire 2x15ml,3001363,MARIA GALLAND RETAIL,1,0,97,, No Tax, exclusive,TENDERNESS LINE,,,,,,,,,,,,,no_image.png,standard
+3416070013678,221-Cream Cellulaire 50ml,3001367,MARIA GALLAND RETAIL,1,0,112,, No Tax, exclusive,TENDERNESS LINE,,,,,,,,,,,,,no_image.png,standard
+3416070004218,14A-Protecting Outdoor Cream 50ml,3000421,MARIA GALLAND RETAIL,1,0,62.2,, No Tax, exclusive,TENDERNESS LINE,,,,,,,,,,,,,no_image.png,standard
+3000972,249-Profilift Serum 3D 30ml,3000972,MARIA GALLAND RETAIL,1,0,70.8,, No Tax, exclusive,PROFITLIFT LINE,,,,,,,,,,,,,no_image.png,standard
+970514,250-Profilift Firming Cream 50ml,970514,MARIA GALLAND RETAIL,1,0,92.4,, No Tax, exclusive,PROFITLIFT LINE,,,,,,,,,,,,,no_image.png,standard
+1970515,251-Profflift Intensive Cure 4x7ml,1970515,MARIA GALLAND RETAIL,1,0,185.1,, No Tax, exclusive,PROFITLIFT LINE,,,,,,,,,,,,,no_image.png,standard
+3416070010929,300-Velvet Skin Matiffying Cream 50ml,3001092,MARIA GALLAND RETAIL,1,0,76,, No Tax, exclusive,MATITY LINE,,,,,,,,,,,,,no_image.png,standard
+3416070010950,301-Perfecting Pore Refiner 30ml,3001095,MARIA GALLAND RETAIL,1,0,80.2,, No Tax, exclusive,MATITY LINE,,,,,,,,,,,,,no_image.png,standard
+3416070010998,302-Purifying  Exfoliating Mask 75ml,3001099,MARIA GALLAND RETAIL,1,0,73,, No Tax, exclusive,MATITY LINE,,,,,,,,,,,,,no_image.png,standard
+1800050,800-Perfecting Lift Cream 50ml,1800050,MARIA GALLAND RETAIL,1,0,0,, No Tax, exclusive,LIFT TREATMENT,,,,,,,,,,,,,no_image.png,standard
+1802030,802-Perfecting Lift Serum 30ml,1802030,MARIA GALLAND RETAIL,1,0,202,, No Tax, exclusive,LIFT TREATMENT,,,,,,,,,,,,,no_image.png,standard
+3416070003631,1000-Cream Mille 50ml,3000363,MARIA GALLAND RETAIL,1,0,560.1,, No Tax, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3416070003679,1005-Radiance Cream Mille 50ml,3000367,MARIA GALLAND RETAIL,1,0,336.6,, No Tax, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3416070003549,1006-Hydrating Cream Mille 50ml,3000354,MARIA GALLAND RETAIL,1,0,396.4,, No Tax, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3000371,1010-Radiance serum Mille 30ml,3000371,MARIA GALLAND RETAIL,1,0,360.9,, No Tax, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3416070003921,1012-Hydrating Serum Mille 30ml,3000392,MARIA GALLAND RETAIL,1,0,342.4,, No Tax, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3416070003952,1020-Eye Contoure Cream Mille 15ml,3000395,MARIA GALLAND RETAIL,1,0,168.3,, No Tax, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3000376,1030-Radiance Mask Mille 50ml,3000376,MARIA GALLAND RETAIL,1,0,233.7,, No Tax, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3000400,1040-Body Cream Mille 200ml,3000400,MARIA GALLAND RETAIL,1,0,224.4,, No Tax, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3416070004027,1050-Cleansing Milk Mille 200ml,3000402,MARIA GALLAND RETAIL,1,0,99.1,, No Tax, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3416070004065,1060-Toning lotion Mille 200ml,3000406,MARIA GALLAND RETAIL,1,0,99.1,, No Tax, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3000982,1070-Teint Mille Lumiere beige rose 100 30ml,3000982,MARIA GALLAND RETAIL,1,0,215.1,, No Tax, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3000986,1070-Teint Mille Lumiere beige rose 200 30ml,3000986,MARIA GALLAND RETAIL,1,0,215.1,, No Tax, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3000989,1070-Teint Mille Lumiere beige rose 300 30ml,3000989,MARIA GALLAND RETAIL,1,0,215.1,, No Tax, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3000992,1070-Radiance Foundation Nude 30ml,3000992,MARIA GALLAND RETAIL,1,0,215.1,, No Tax, exclusive,GAMME MILLE,,,,,,,,,,,,,no_image.png,standard
+3001493,916-MULTIFUNCTIONAL Face Mask 50ml,3001493,MARIA GALLAND RETAIL,1,0,44.9,, No Tax, exclusive,HOMME GALLAND,,,,,,,,,,,,,no_image.png,standard
+3000680,180-Shinny Bronzing Powder SPF12 ,3000680,MARIA GALLAND RETAIL,1,0,65.5,, No Tax, exclusive,HELIOSOIN,,,,,,,,,,,,,no_image.png,standard
+3001570,184-Radiance Blush Stick -V,3001570,MARIA GALLAND RETAIL,1,0,0,, No Tax, exclusive,HELIOSOIN,,,,,,,,,,,,,no_image.png,standard
+3000660,193-Protective Care for the face SPF30 50ml,3000660,MARIA GALLAND RETAIL,1,0,41.8,, No Tax, exclusive,HELIOSOIN,,,,,,,,,,,,,no_image.png,standard
+3416070006632,194-Protective Care for the face SPF50 75ml,3000663,MARIA GALLAND RETAIL,1,0,58.5,, No Tax, exclusive,HELIOSOIN,,,,,,,,,,,,,no_image.png,standard
+3000665,196-Satin Prot Care F&B SPF25 200ml,3000665,MARIA GALLAND RETAIL,1,0,58.5,, No Tax, exclusive,HELIOSOIN,,,,,,,,,,,,,no_image.png,standard
+3000668,197-Self Tanning Face &Body 150ml,3000668,MARIA GALLAND RETAIL,1,0,58.5,, No Tax, exclusive,HELIOSOIN,,,,,,,,,,,,,no_image.png,standard
+3000668-01,198-After Sun Face & Body 200ml,3000668,MARIA GALLAND RETAIL,1,0,58.5,, No Tax, exclusive,HELIOSOIN,,,,,,,,,,,,,no_image.png,standard
+3001548,200-Gentle Protect SPRAY SPF 150ml-V,3001548,MARIA GALLAND RETAIL,1,0,59.3,, No Tax, exclusive,HELIOSOIN,,,,,,,,,,,,,no_image.png,standard
+3001202,202-After sun Gel for Face and Body 200ml,3001202,MARIA GALLAND RETAIL,1,0,66.2,, No Tax, exclusive,HELIOSOIN,,,,,,,,,,,,,no_image.png,standard
+3001360,204-Masque Apres-Soleil 75ml,3001360,MARIA GALLAND RETAIL,1,0,67.6,, No Tax, exclusive,HELIOSOIN,,,,,,,,,,,,,no_image.png,standard
+3416070011889,D-110 Glycolic Acid Cleansing Gel 125ml,3001188,MARIA GALLAND RETAIL,1,0,52.5,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3416070011810,D-120 Gentle Double effect cleansing gel 200ml,3001181,MARIA GALLAND RETAIL,1,0,56.8,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3416070011919,D-210 Medium-strength peeling 50ml,3001191,MARIA GALLAND RETAIL,1,0,58.4,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3416070011964,D-220 Intensive Peeling 50ml,3001196,MARIA GALLAND RETAIL,1,0,58.2,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3416070012015,D-300 soothing Cleansing Mask 50ml,3001201,MARIA GALLAND RETAIL,1,0,67.3,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3416070012053,D-410 Glycolic Acid exfoliating pads 60pads,3001205,MARIA GALLAND RETAIL,1,0,91.1,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3416070012084,D-420 Moisturising and soothing toner 100ml,3001208,MARIA GALLAND RETAIL,1,0,56.9,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3416070012121,D-510 SOS anti impurity gel 8ml,3001212,MARIA GALLAND RETAIL,1,0,37.7,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3416070012152,D-520 Anti Pigmentation Brightening Serum 30ml,3001215,MARIA GALLAND RETAIL,1,0,97.1,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3416070012558,D-521 Alpha Arbutin Serum 12ml,3001255,MARIA GALLAND RETAIL,1,0,57.3,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3416070012190,D-530 Anti Redness Serum 30ml,3001219,MARIA GALLAND RETAIL,1,0,97.1,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3416070012237,D-540 Anti Dryness Serum 30ml,3001223,MARIA GALLAND RETAIL,1,0,97.1,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3416070012367,D-710 Oily Skin control cream 50ml,3001236,MARIA GALLAND RETAIL,1,0,57.6,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3416070012404,D-720 Anti Pigmentation Brightening Cream 50ml,3001240,MARIA GALLAND RETAIL,1,0,87.1,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3416070012442,D-730 Anti redness Cream 50ml,3001244,MARIA GALLAND RETAIL,1,0,90.2,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3416070012480,D-740 Anti Dryness Cream 50ml,3001248,MARIA GALLAND RETAIL,1,0,90.2,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3416070012572,D-820 Anti Pigmentation Brightning Mask 50ml,3001257,MARIA GALLAND RETAIL,1,0,68.1,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001260,D-830 Anti Redness Mask 50ml,3001260,MARIA GALLAND RETAIL,1,0,68.1,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3416070012633,D-840 Anti Dryness Mask 50ml,3001263,MARIA GALLAND RETAIL,1,0,68,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3416070012329,D-900 Eye Gel Cream 15ml,3001232,MARIA GALLAND RETAIL,1,0,69.2,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3416070012527,D-920 UV Protection Fluid SPF30 50ml,3001252,MARIA GALLAND RETAIL,1,0,67.9,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,no_image.png,standard
+3001105,24-Anti Aging Baim for Nail and Nails ,3001105,MARIA GALLAND RETAIL,1,0,48.6,, No Tax, exclusive,BODY CARE,,,,,,,,,,,,,no_image.png,standard
+3001372,401-Anti Cellutite Essence 10x15ml,3001372,MARIA GALLAND RETAIL,1,0,22.5,, No Tax, exclusive,BODY CARE,,,,,,,,,,,,,no_image.png,standard
+3416070013739,402-Shaping and Sculpting Essence 10x15ml,3001373,MARIA GALLAND RETAIL,1,0,25.5,, No Tax, exclusive,BODY CARE,,,,,,,,,,,,,no_image.png,standard
+3416070013760,403-Firming and Toning Essence 10x15ml,3001376,MARIA GALLAND RETAIL,1,0,22.5,, No Tax, exclusive,BODY CARE,,,,,,,,,,,,,no_image.png,standard
+3001457,430-D-tox Cooling Gel 200ml,3001457,MARIA GALLAND RETAIL,1,0,67.9,, No Tax, exclusive,BODY CARE,,,,,,,,,,,,,no_image.png,standard
+3000444,410-Body Shapping Cream 200ml,3000444,MARIA GALLAND RETAIL,1,0,105.7,, No Tax, exclusive,BODY CARE,,,,,,,,,,,,,no_image.png,standard
+3000440,411-Body Shapping Supplement 125ml,3000440,MARIA GALLAND RETAIL,1,0,77.3,, No Tax, exclusive,BODY CARE,,,,,,,,,,,,,no_image.png,standard
+3416070004423,412-Smoothing Body Scrub 150ml,3000442,MARIA GALLAND RETAIL,1,0,58,, No Tax, exclusive,BODY CARE,,,,,,,,,,,,,no_image.png,standard
+3000445,414-soothing Body Oil 100ml,3000445,MARIA GALLAND RETAIL,1,0,63.6,, No Tax, exclusive,BODY CARE,,,,,,,,,,,,,no_image.png,standard
+3000947,414A-Caressing Massage Oil 100ml,3000947,MARIA GALLAND RETAIL,1,0,78.5,, No Tax, exclusive,BODY CARE,,,,,,,,,,,,,no_image.png,standard
+3416079705659,417-Firming Bust Sculpting Veil 125ml,970565,MARIA GALLAND RETAIL,1,0,61.6,, No Tax, exclusive,BODY CARE,,,,,,,,,,,,,no_image.png,standard
+1970825,422-Velvet Body Balm 200ml,1970825,MARIA GALLAND RETAIL,1,0,61.6,, No Tax, exclusive,BODY CARE,,,,,,,,,,,,,no_image.png,standard
+1970924,424-Protective Hand Cream 50ml,1970924,MARIA GALLAND RETAIL,1,0,46.2,, No Tax, exclusive,BODY CARE,,,,,,,,,,,,,no_image.png,standard
+3001528,427-Post -Epil Anti Regrowth Gel 100ml,3001528,MARIA GALLAND RETAIL,1,0,54.7,, No Tax, exclusive,BODY CARE,,,,,,,,,,,,,no_image.png,standard
+3416070013470,719-Activ Age Serum 30ml,3001347,MARIA GALLAND RETAIL,1,0,200.1,, No Tax, exclusive,ACTIVE AGE,,,,,,,,,,,,,no_image.png,standard
+3416070013517,720-Activ Age Fine Cream 50ml,3001351,MARIA GALLAND RETAIL,1,0,252.5,, No Tax, exclusive,ACTIVE AGE,,,,,,,,,,,,,no_image.png,standard
+3416070013562,721-Activ Age Freshness and Comford Mask 50ml,3001356,MARIA GALLAND RETAIL,1,0,140.2,, No Tax, exclusive,ACTIVE AGE,,,,,,,,,,,,,no_image.png,standard
+3416070015344,722-Activ Age Spray 50ml,3001534,MARIA GALLAND RETAIL,1,0,55,, No Tax, exclusive,ACTIVE AGE,,,,,,,,,,,,,no_image.png,standard
+3001625,799-PERF.Complexion Serum Found -10-V 30ml,3001625,MARIA GALLAND RETAIL,1,0,0,, No Tax, exclusive,ACTIVE AGE,,,,,,,,,,,,,no_image.png,standard
+3001626,799-PERF.Complexion Serum Found -20-V 30ml,3001626,MARIA GALLAND RETAIL,1,0,0,, No Tax, exclusive,ACTIVE AGE,,,,,,,,,,,,,no_image.png,standard
+3001627,799-PERF.Complexion Serum Found -30-V 30ml,3001627,MARIA GALLAND RETAIL,1,0,0,, No Tax, exclusive,ACTIVE AGE,,,,,,,,,,,,,no_image.png,standard
+3001628,799-PERF.Complexion Serum Found -40-V 30ml,3001628,MARIA GALLAND RETAIL,1,0,0,, No Tax, exclusive,ACTIVE AGE,,,,,,,,,,,,,no_image.png,standard
+3416070014620,22J-Cell Protecting Primer SPF20 30ml,3001462,MARIA GALLAND RETAIL,1,0,0,, No Tax, exclusive,SOIN SPECIFIQUE,,,,,,,,,,,,,no_image.png,standard
+3416070014651,22N-Cell Boosting Serum 30ml,3001465,MARIA GALLAND RETAIL,1,0,0,, No Tax, exclusive,SOIN SPECIFIQUE,,,,,,,,,,,,,no_image.png,standard
+3416070013913,61-Gentle Cleansing Milk 50ml,3001391,MARIA GALLAND RETAIL,1,0,17.77,, No Tax, exclusive,TRVALE SET CLEANSING CR SERUM,,,,,,,,,,,,,no_image.png,standard
+3416070013920,64-Silky Soft lotion 50ml,3001392,MARIA GALLAND RETAIL,1,0,17.77,, No Tax, exclusive,TRVALE SET CLEANSING CR SERUM,,,,,,,,,,,,,no_image.png,standard
+3416070009282,5A-Regeneration Cream 5A -20Ml,3000928,MARIA GALLAND RETAIL,1,0,20.79,, No Tax, exclusive,TRVALE SET CLEANSING CR SERUM,,,,,,,,,,,,,no_image.png,standard
+3416070017225,340-Lumin Eclat Serum -20ml-V,3001722,MARIA GALLAND RETAIL,1,0,22.3,, No Tax, exclusive,TRVALE SET CLEANSING CR SERUM,,,,,,,,,,,,,no_image.png,standard
+3416070017195,360-Lumin Eclat Silky Cream -20ml-V,3001719,MARIA GALLAND RETAIL,1,0,20.79,, No Tax, exclusive,TRVALE SET CLEANSING CR SERUM,,,,,,,,,,,,,no_image.png,standard
+341607017201,1060-Mille Tning Lotion 15Ml,3001720,MARIA GALLAND RETAIL,1,0,20.79,, No Tax, exclusive,TRVALE SET CLEANSING CR SERUM,,,,,,,,,,,,,no_image.png,standard
+3416070017218,1010-Serum Mille 15ml,3001721,MARIA GALLAND RETAIL,1,0,25.3,, No Tax, exclusive,TRVALE SET CLEANSING CR SERUM,,,,,,,,,,,,,no_image.png,standard
+3416070010257,1000-Mile Cream 15ml,3001025,MARIA GALLAND RETAIL,1,0,31.63,, No Tax, exclusive,TRVALE SET CLEANSING CR SERUM,,,,,,,,,,,,,no_image.png,standard
+3416070016969,100+96A+65A+Bag Magnificentd Eye pouch,3001696,MARIA GALLAND RETAIL,1,0,108.09,, No Tax, exclusive,LIMITED EDITION,,,,,,,,,,,,,no_image.png,standard
+3416070016976,93+5A+65A+Bag Fabuloous Eye pouch + Rejuvenating,3001697,MARIA GALLAND RETAIL,1,0,122.45,, No Tax, exclusive,LIMITED EDITION,,,,,,,,,,,,,no_image.png,standard
+3416070015832,Cleansing Set 61+64 The art of Cleansing 400ml,3001583,MARIA GALLAND RETAIL,1,0,87.04,, No Tax, exclusive,LIMITED EDITION,,,,,,,,,,,,,no_image.png,standard
+3416070017461,511-10 Fluid Foundation -10 30ml,3001746,MARIA GALLAND RETAIL,1,0,47.34,, No Tax, exclusive,MAKE UP,,,,,,,,,,,,,no_image.png,standard
+UK001,511-10 Foundation 5ml,,MARIA GALLAND RETAIL,1,0,7.21,, No Tax, exclusive,MAKE UP,,,,,,,,,,,,,no_image.png,standard
+3416070017362,512-04 UV Compact Foudaton 50SPF UVA-04,3001736,MARIA GALLAND RETAIL,1,0,48.43,, No Tax, exclusive,MAKE UP,,,,,,,,,,,,,no_image.png,standard
+3416070017331,512-02 UV Compact Foudaton 50SPF UVA-02,3001733,MARIA GALLAND RETAIL,1,0,48.43,, No Tax, exclusive,MAKE UP,,,,,,,,,,,,,no_image.png,standard
+3001738,599-10 Glow perfecting Powder 10-Natural Color,3001738,MARIA GALLAND RETAIL,1,0,46.45,, No Tax, exclusive,MAKE UP,,,,,,,,,,,,,no_image.png,standard
+3416070017409,516-Brilliant Sun Powder SPF12 UVA,3001470,MARIA GALLAND RETAIL,1,0,49.06,, No Tax, exclusive,MAKE UP,,,,,,,,,,,,,no_image.png,standard
+3416070014828,525-20 Perfect Eyebrow Set,3001482,MARIA GALLAND RETAIL,1,0,24.29,, No Tax, exclusive,MAKE UP,,,,,,,,,,,,,no_image.png,standard
+3000589,525-02 Eyebrow Pencile Black 02,3000589,MARIA GALLAND RETAIL,1,0,12.1,, No Tax, exclusive,MAKE UP,,,,,,,,,,,,,no_image.png,standard
+3416070016396,524-11 Eyelinner Waterproof Black -11,3001639,MARIA GALLAND RETAIL,1,0,12.1,, No Tax, exclusive,MAKE UP,,,,,,,,,,,,,no_image.png,standard
+3001742,524-16 Eyelinner Waterproof Violet -16,3001742,MARIA GALLAND RETAIL,1,0,11.87,, No Tax, exclusive,MAKE UP,,,,,,,,,,,,,no_image.png,standard
+3416075221108,522-11 Mascara Intensive -11 ,522110,MARIA GALLAND RETAIL,1,0,20.9,, No Tax, exclusive,MAKE UP,,,,,,,,,,,,,no_image.png,standard
+3416070014385,522-21 Mascara Intensive -21,3001438,MARIA GALLAND RETAIL,1,0,21.91,, No Tax, exclusive,MAKE UP,,,,,,,,,,,,,no_image.png,standard
+3416070008957,522-51 Mascara Super Extension-51,3000895,MARIA GALLAND RETAIL,1,0,21.91,, No Tax, exclusive,MAKE UP,,,,,,,,,,,,,no_image.png,standard
+3001729,504-07 Lip Pencil Rose Eclate 07,3001729,MARIA GALLAND RETAIL,1,0,10.13,, No Tax, exclusive,MAKE UP,,,,,,,,,,,,,no_image.png,standard
+3416070017256,500-37 Cream Corail Lumiere 37,3001725,MARIA GALLAND RETAIL,1,0,20.64,, No Tax, exclusive,MAKE UP,,,,,,,,,,,,,no_image.png,standard
+3416070017270,500-43 Cream Lipstick Rose Eclate43,3001727,MARIA GALLAND RETAIL,1,0,20.64,, No Tax, exclusive,MAKE UP,,,,,,,,,,,,,no_image.png,standard
+3416073017314,507-58 Nail Polish 58,3001731,MARIA GALLAND RETAIL,1,0,7.02,, No Tax, exclusive,MAKE UP,,,,,,,,,,,,,no_image.png,standard
+3416070001880,60-Refreshing Cleansing Gel 200ml,3000188,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,CLEANSERS ,,,,,,,,,,,,,,standard
+3416070001897,61-Gentle Cleansing Milk 500ml,3000189,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,CLEANSERS ,,,,,,,,,,,,,,standard
+3416070001903,62-Mattifying Hydrating Lotion 500ml,3000190,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,CLEANSERS ,,,,,,,,,,,,,,standard
+3416070001927,63-Cleansing Cream 500ml,3000192,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,CLEANSERS ,,,,,,,,,,,,,,standard
+3416070001934,64-Silky Soft lotion 500ml,3000193,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,CLEANSERS ,,,,,,,,,,,,,,standard
+3000611,65A-Eye  Make up Remover Lotion 125ml,3000611,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,CLEANSERS ,,,,,,,,,,,,,,standard
+3416070001965,66-Gentle Exfoliator 50ml,3000196,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,CLEANSERS ,,,,,,,,,,,,,,standard
+3416070010912,67-Cleansing oil 200ml,3001091,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,CLEANSERS ,,,,,,,,,,,,,,standard
+3416079703006,2-Creamy Soft Mask 225ml,970300,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,CLASSSIC LINE,,,,,,,,,,,,,,standard
+3416079703013,5-Rejuvenating Cream 460ml,970301,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,CLASSSIC LINE,,,,,,,,,,,,,,standard
+3416070010738,5A-Cell Rejuvenating Cream 125ml,3001073,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,CLASSSIC LINE,,,,,,,,,,,,,,standard
+3416079703976,5B-Super Rejuvenating Cream 125ml,970397,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,CLASSSIC LINE,,,,,,,,,,,,,,standard
+3416070005666,5C-Cell Rejuvenating Serum 60ml,3000566,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,CLASSSIC LINE,,,,,,,,,,,,,,standard
+3416079703037,17B-Special Cream for Sensitive Skin 460ml,970303,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,CLASSSIC LINE,,,,,,,,,,,,,,standard
+3416070004201,18-Special Care Cream 125ml,3000420,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,CLASSSIC LINE,,,,,,,,,,,,,,standard
+3416074102507,41-Gentle Exfoliating Cream for the face 225ml,2410250,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,CLASSSIC LINE,,,,,,,,,,,,,,standard
+3001345,81-Cell Rejuvenating Caviar Mask 225ml,3001345,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,CLASSSIC LINE,,,,,,,,,,,,,,standard
+2089250,89-Principle Moisture Cream 225ml,2089250,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,CLASSSIC LINE,,,,,,,,,,,,,,standard
+3416070004126,93-Enriched Eye Cream 60ml,3000412,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,CLASSSIC LINE,,,,,,,,,,,,,,standard
+3416070010189,001-Caviar 15ml,3001018,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,LIGNE ESSENCES,,,,,,,,,,,,,,standard
+3416070010196,002-Orchidee noire 15ml,3001019,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,LIGNE ESSENCES,,,,,,,,,,,,,,standard
+3416070010202,003-Malachite 15ml,3001020,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,LIGNE ESSENCES,,,,,,,,,,,,,,standard
+3416070010219,004-Truffe Blanche 15ml,3001021,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,LIGNE ESSENCES,,,,,,,,,,,,,,standard
+3416070010226,005-Argent 15ml,3001022,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,LIGNE ESSENCES,,,,,,,,,,,,,,standard
+3416070010233,006-Or 15ml,3001023,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,LIGNE ESSENCES,,,,,,,,,,,,,,standard
+3416070010240,007-Eye 15ml,3001024,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,LIGNE ESSENCES,,,,,,,,,,,,,,standard
+3001680,3A-Modelling Complex Anti-Age 10x440g,3001680,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SPECIAL CABIN,,,,,,,,,,,,,,standard
+3416070016822,33-Ultimate pro Active Enhancer 120ml-C,3001682,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SPECIAL CABIN,,,,,,,,,,,,,,standard
+36400,Foam Mask Warming Effect 400ml,36400,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SPECIAL CABIN,,,,,,,,,,,,,,standard
+3416070002832,30A-Thalasso Mask XXL 20x33Gr,3000283,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SPECIAL CABIN,,,,,,,,,,,,,,standard
+3001314,3C-Modelling Eye Zone Mask 20x6gr,3001314,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SPECIAL CABIN,,,,,,,,,,,,,,standard
+3416070700158,7C-Lotion 20x15ml,2070015,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SPECIAL CABIN,,,,,,,,,,,,,,standard
+3416079705581,88-Modelling Cream 460ml,970558,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,,standard
+2090125,90-Firming Nech Cream 125ml,2090125,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,,standard
+3416079704140,91-Ultra Anti Wrinkle Wrinkle Cream 225ml,970414,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,,standard
+970559,92-HYDRATING Cooling Mask 225ml,970559,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,,standard
+970417,94-Extra Active 3.6Omega Complex 25ml,970417,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,,standard
+970528,95-Eye contour cooling Mask 30ml,970528,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,,standard
+3416079705802,96-Intensive Hydrating Cream 225ml,970580,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,,standard
+3001160,96A-Intensive Hydrating Cream Plus 125ml,3001160,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,,standard
+970581,96B-Hydra Nutritive Cream 225ml,970581,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,,standard
+970527,98-Intensive Action Hydrating Serum 25ml,970527,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,,standard
+3000152,100-Hydra Lift Eye Cream 60ml,3000152,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,,standard
+3416079703266,153-Intense Action Firming Mask 225ml,970326,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,HYDRATING FIRMING LINE,,,,,,,,,,,,,,standard
+3416070016518,340-Lumin Eclat Serum -60ml-V,3001651,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,PRECIOUS LINE,,,,,,,,,,,,,,standard
+3001596,360-Lumin Eclat Silky Cream -125ml-V,3001596,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,PRECIOUS LINE,,,,,,,,,,,,,,standard
+3001598,380-Lumin Eclat Mask 225ml-C,3001598,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,PRECIOUS LINE,,,,,,,,,,,,,,standard
+3416070004164,213-Gentle Soothing Cream 125ml,3000416,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,TENDERNESS LINE,,,,,,,,,,,,,,standard
+3416070011551,214-Gentle Soothing Infinity Serum 126ml,3001155,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,TENDERNESS LINE,,,,,,,,,,,,,,standard
+3416070009251,215-Gentle Soothing Facial Oil 60ml,3000925,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,TENDERNESS LINE,,,,,,,,,,,,,,standard
+3001152,216-Tendresse Mask 225ml,3001152,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,TENDERNESS LINE,,,,,,,,,,,,,,standard
+3416070013647,220-Serum Cellulaire 100ml,3001364,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,TENDERNESS LINE,,,,,,,,,,,,,,standard
+3416070013685,221-Cream Cellulaire 100ml,3001368,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,TENDERNESS LINE,,,,,,,,,,,,,,standard
+3416070009749,249-Profilift Serum 60ml,3000974,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,PROFITLIFT LINE,,,,,,,,,,,,,,standard
+3416079705185,250-Profilift Firming Cream 125ml,970518,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,PROFITLIFT LINE,,,,,,,,,,,,,,standard
+3416070010943,300-Velvet Skin Matiffying Cream 125ml,3001094,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,MATITY LINE,,,,,,,,,,,,,,standard
+3416070010981,301-Perfecting Pore Refiner 60ml,3001098,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,MATITY LINE,,,,,,,,,,,,,,standard
+3001101,302-Purifying  Exfoliating Mask 200ml,3001101,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,MATITY LINE,,,,,,,,,,,,,,standard
+3000411,800-Perfecting Lift Cream 125ml,3000411,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,LIFT TREATMENT,,,,,,,,,,,,,,standard
+3000364,1000-Cream Mille 150ml,3000364,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,GAMME MILLE,,,,,,,,,,,,,,standard
+3000368,1005-Radiance Cream Mille 75ml,3000368,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,GAMME MILLE,,,,,,,,,,,,,,standard
+3000355,1006-Hydrating Cream Mille 75ml,3000355,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,GAMME MILLE,,,,,,,,,,,,,,standard
+3000373,1010-Radiance serum Mille 50ml,3000373,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,GAMME MILLE,,,,,,,,,,,,,,standard
+3000393,1012-Hydrating Serum Mille 50ml,3000393,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,GAMME MILLE,,,,,,,,,,,,,,standard
+3000396,1020-Eye Contoure Cream Mille 50ml,3000396,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,GAMME MILLE,,,,,,,,,,,,,,standard
+3000378,1030-Radiance Mask Mille 150ml,3000378,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,GAMME MILLE,,,,,,,,,,,,,,standard
+3000404,1050-Cleansing Milk Mille 400ml,3000404,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,GAMME MILLE,,,,,,,,,,,,,,standard
+3416070004089,1060-Toning lotion Mille 400ml,3000408,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,GAMME MILLE,,,,,,,,,,,,,,standard
+3000387,3M-Perfect peptide Mile 10Feuilles,3000387,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,GAMME MILLE,,,,,,,,,,,,,,standard
+3000385,3-Celluxe Mile 10x2ml,3000385,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,GAMME MILLE,,,,,,,,,,,,,,standard
+3001361,204-After Sun Mask face 200ml-C ,3001361,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,HELIOSOIN,,,,,,,,,,,,,,standard
+3416070011896,D-110 Glycolic Acid Cleansing Gel 200ml,3001189,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,,standard
+3416070011834,D-120 Gentle Double effect cleansing gel 400ml,3001183,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,,standard
+3001194,D-210 Medium-strength peeling 125ml,3001194,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,,standard
+3001198,D-220 Intensive Peeling 125ml,3001198,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,,standard
+3416070012008,D-230 Intensive Peeling Mask 125ml,3001200,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,,standard
+3416070012039,D-300 soothing Cleansing Mask 225ml,3001203,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,,standard
+3416070012077,D-410 Glycolic Acid exfoliating pads 60pads,3001207,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,,standard
+3416070012107,D-420 Moisturising and soothing toner 200ml,3001210,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,,standard
+3416070012145,D-510 SOS anti impurity gel 15ml,3001214,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,,standard
+3416070012176,D-520 Anti Pigmentation Brightening Serum 50ml,3001217,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,,standard
+3416070012213,D-530 Anti Redness Serum 50ml,3001221,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,,standard
+3001225,D-540 Anti Dryness Serum 50ml,3001225,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,,standard
+3416070012275,D-600 Powder Mask 10x20g,3001227,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,,standard
+3416070012282,D-610 Oily skin and impurity control lotion 10x100ml,3001228,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,,standard
+3416070012299,D-620 Anti pingmentation Brightening Lotion 10x100ml,3001229,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,,standard
+3416070012305,D-630 Anti redness Lotion 10x100ml,3001230,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,,standard
+3416070012312,D-640 Anti dryness lotion 10x100ml,3001231,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,,standard
+3416070012381,D-710 Oily Skin control cream 150ml,3001238,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,,standard
+3416070012428,D-720 Anti Pigmentation Brightening Cream 125ml,3001242,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,,standard
+3416070012466,D-730 Anti redness Cream 125ml,3001246,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,,standard
+3001250,D-740 Anti Dryness Cream 125ml,3001250,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,,standard
+3001257,D-820 Anti -Pigm & Bright Mask 50ML,3001257,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,,standard
+3416070012343,D-900 Eye Gel Cream 50ml,3001234,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,,standard
+3001254,D-920 UV Protection Fluid SPF30 50ml,3001254,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SOIN DERMATOLOGIQUE -SD,,,,,,,,,,,,,,standard
+500242,Gentle Exfoliating Salt 1kg,500242,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,BODY,,,,,,,,,,,,,,standard
+3416079704126,4B-Modelling Care Body ceam 225ml,970412,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,BODY,,,,,,,,,,,,,,standard
+970422,4-Body Modelling Complex 10Sachets,970422,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,BODY,,,,,,,,,,,,,,standard
+3001107,24-Anti Aging Baim for Nail and Nails ,3001107,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,BODY,,,,,,,,,,,,,,standard
+3416070013807,401-Anti Cellutite Essence 200ml,3001380,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,BODY,,,,,,,,,,,,,,standard
+3001381,402-Shaping and Sculpting Essence 200ml,3001381,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,BODY,,,,,,,,,,,,,,standard
+3416070013821,403-Firming and Toning Essence 200ml,3001382,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,BODY,,,,,,,,,,,,,,standard
+3416070014606,430-D-tox Cooling Gel 500ml,3001460,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,BODY,,,,,,,,,,,,,,standard
+3001456,450-Natural Marine Mud 4kgs,3001456,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,BODY,,,,,,,,,,,,,,standard
+3001454,460-Remineralising peel off Body mask 10x150kg,3001454,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,BODY,,,,,,,,,,,,,,standard
+3000908,410-Body Shapping Cream 275ml,3000908,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,BODY,,,,,,,,,,,,,,standard
+3000909,411-Body Shapping Supplement 200ml,3000909,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,BODY,,,,,,,,,,,,,,standard
+3416070005246,412-Smoothing Body Scrub 460ml,3000524,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,BODY,,,,,,,,,,,,,,standard
+3000451,414-soothing Body Oil 200ml,3000451,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,BODY,,,,,,,,,,,,,,standard
+3000949,414A-Caressing Massage Oil 200ml,3000949,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,BODY,,,,,,,,,,,,,,standard
+3001453,414B-Essential Massage Oil 1000ml,3001453,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,BODY,,,,,,,,,,,,,,standard
+3416079705673,417-Firming Bust Sculpting Veil 225ML,970567,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,BODY,,,,,,,,,,,,,,standard
+3001088,419-Fluide Anti Cellulite Effect 200ml,3001088,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,BODY,,,,,,,,,,,,,,standard
+2971023,422-Velvet Body Balm 275ml,2971023,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,BODY,,,,,,,,,,,,,,standard
+3001530,427-Post -Epil Anti Regrowth Gel 225ml,3001530,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,BODY,,,,,,,,,,,,,,standard
+3001609,454-Fine Exfoliating Sea Salt 1kg,3001609,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,BODY,,,,,,,,,,,,,,standard
+3001350,719-Activ Age Serum 60ml,3001350,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,ACTIVE AGE,,,,,,,,,,,,,,standard
+3001354,720-Activ Age Fine Cream 125ml,3001354,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,ACTIVE AGE,,,,,,,,,,,,,,standard
+3416070013593,721-Activ Age Freshness and Comford Mask 225ml,3001359,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,ACTIVE AGE,,,,,,,,,,,,,,standard
+3001543,722-Activ Age Spray 50ml,3001543,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,ACTIVE AGE,,,,,,,,,,,,,,standard
+3416070014644,22J-Cell Protecting Primer SPF20 60ml,3001464,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SOIN SPECIFIQUE,,,,,,,,,,,,,,standard
+3001467,22N-Cell Boosting Serum 60ml,3001467,MARIA GALLAND CABIN,1,0,0,, No Tax, exclusive,SOIN SPECIFIQUE,,,,,,,,,,,,,,standard
+3001506,Refreshing Radiance Mask ,3001506,MG PROMOTIONS & ONE SHOT,1,0,0,, No Tax, exclusive,ACEROLA,,,,,,,,,,,,,,standard
+3001594,Soin Pivonine Divine ,3001594,MG PROMOTIONS & ONE SHOT,1,0,0,, No Tax, exclusive,WHITE PEONY,,,,,,,,,,,,,,standard
+3001670,0010-Essence Mille Peerle Sublime 30ml-V,3001670,MG PROMOTIONS & ONE SHOT,1,0,0,, No Tax, exclusive,MILLE PEARL,,,,,,,,,,,,,,standard
+3001671,1000-Mille Pearl Cream 50ml-v 50ml,3001671,MG PROMOTIONS & ONE SHOT,1,0,0,, No Tax, exclusive,MILLE PEARL,,,,,,,,,,,,,,standard
+3001672,1000-Mille Perle Sublime Treatment ,3001672,MG PROMOTIONS & ONE SHOT,1,0,0,, No Tax, exclusive,MILLE PEARL,,,,,,,,,,,,,,standard
+3001676,0010-Essence Mille Peerle Sublime 30ml-T,3001676,MG PROMOTIONS & ONE SHOT,1,0,0,, No Tax, exclusive,MILLE PEARL,,,,,,,,,,,,,,standard
+5001867,Sales Folder Mille Perle Sublime English,5001867,MG PROMOTIONS & ONE SHOT,1,0,0,, No Tax, exclusive,MILLE PEARL,,,,,,,,,,,,,,standard
+5001866,Sales Folder Mille Perle Sublime French,5001866,MG PROMOTIONS & ONE SHOT,1,0,0,, No Tax, exclusive,MILLE PEARL,,,,,,,,,,,,,,standard
+5001872,End Client Folder Mille Perle Sublime English,5001872,MG PROMOTIONS & ONE SHOT,1,0,0,, No Tax, exclusive,MILLE PEARL,,,,,,,,,,,,,,standard
+5001871,End Client Folder Mille Perle Sublime French,5001871,MG PROMOTIONS & ONE SHOT,1,0,0,, No Tax, exclusive,MILLE PEARL,,,,,,,,,,,,,,standard
+3001587,96A-Your Hydration Essentials-V,3001587,MG PROMOTIONS & ONE SHOT,1,0,0,, No Tax, exclusive,SETS,,,,,,,,,,,,,,standard
+3000772,250-Profitlift Firming Cream 20ml-V,3000772,MG PROMOTIONS & ONE SHOT,1,0,0,, No Tax, exclusive,TRAVEL SIZE,,,,,,,,,,,,,,standard
+WXW1,Eye Brow Wax,,Waxing,1,0,5,, No Tax, exclusive,Waxing Women,,,,,,,,,,,,,,service
+WXW2,Thight Wax,,Waxing,1,0,15,, No Tax, exclusive,Waxing Women,,,,,,,,,,,,,,service
+WXW3,Whole Legs Wax,,Waxing,1,0,25,, No Tax, exclusive,Waxing Women,,,,,,,,,,,,,,service
+WXW4,Half Legs Wax,,Waxing,1,0,13,, No Tax, exclusive,Waxing Women,,,,,,,,,,,,,,service
+WXW5,Above Lip or Chin Wax,,Waxing,1,0,4,, No Tax, exclusive,Waxing Women,,,,,,,,,,,,,,service
+WXW6,Full Face Wax,,Waxing,1,0,20,, No Tax, exclusive,Waxing Women,,,,,,,,,,,,,,service
+WXW7,Armpit Care,,Waxing,1,0,9,, No Tax, exclusive,Waxing Women,,,,,,,,,,,,,,service
+WXW8,Armpit Skin Care,,Waxing,1,0,25,, No Tax, exclusive,Waxing Women,,,,,,,,,,,,,,service
+WXW9,Armpit Wax,,Waxing,1,0,8,, No Tax, exclusive,Waxing Women,,,,,,,,,,,,,,service
+WXW10,Cheek or Neck Wax,,Waxing,1,0,7,, No Tax, exclusive,Waxing Women,,,,,,,,,,,,,,service
+WXW11,Arm Wax,,Waxing,1,0,13,, No Tax, exclusive,Waxing Women,,,,,,,,,,,,,,service
+WXW12,Classic Bikini,,Waxing,1,0,14,, No Tax, exclusive,Waxing Women,,,,,,,,,,,,,,service
+WXW13,High Bikini,,Waxing,1,0,19,, No Tax, exclusive,Waxing Women,,,,,,,,,,,,,,service
+WXW14,Bikini Intergra,,Waxing,1,0,27,, No Tax, exclusive,Waxing Women,,,,,,,,,,,,,,service
+WXW15,Bikini Skin Care,,Waxing,1,0,25,, No Tax, exclusive,Waxing Women,,,,,,,,,,,,,,service
+WXM1,Back Wax,,Waxing,1,0,15,, No Tax, exclusive,Waxing Men,,,,,,,,,,,,,,service
+WXM2,Thight Wax,,Waxing,1,0,15,, No Tax, exclusive,Waxing Men,,,,,,,,,,,,,,service
+WXM3,Whole Legs Wax,,Waxing,1,0,29,, No Tax, exclusive,Waxing Men,,,,,,,,,,,,,,service
+WXM4,Half Legs Wax,,Waxing,1,0,15,, No Tax, exclusive,Waxing Men,,,,,,,,,,,,,,service
+WXM5,Above Lip or Chin Wax,,Waxing,1,0,16,, No Tax, exclusive,Waxing Men,,,,,,,,,,,,,,service
+WXM6,Full Face Wax,,Waxing,1,0,24,, No Tax, exclusive,Waxing Men,,,,,,,,,,,,,,service
+WXM7,Armpit Wax,,Waxing,1,0,14,, No Tax, exclusive,Waxing Men,,,,,,,,,,,,,,service
+WXM8,Cheek ,,Waxing,1,0,7,, No Tax, exclusive,Waxing Men,,,,,,,,,,,,,,service
+WXM9,Neck Wax,,Waxing,1,0,7,, No Tax, exclusive,Waxing Men,,,,,,,,,,,,,,service
+WXM10,Arm Wax,,Waxing,1,0,15,, No Tax, exclusive,Waxing Men,,,,,,,,,,,,,,service
+MGMS1,Mosaic Modelling Method,,FACE MASSAGE,1,0,0,, No Tax, exclusive,THE ANTI AGING SIGNATURE TREATMENT,,,,,,,,,,,,,,service
+MGMS2,Youthful Radiance Revealer ,,FACE MASSAGE,1,0,0,, No Tax, exclusive,THE ANTI AGING EXPERT TREATMENT,,,,,,,,,,,,,,service
+MGMS3,Profitlift,,FACE MASSAGE,1,0,0,, No Tax, exclusive,THE ANTI AGING EXPERT TREATMENT,,,,,,,,,,,,,,service
+MGMS4,Mille Radiance,,FACE MASSAGE,1,0,0,, No Tax, exclusive,THE ANTI AGING EXPERT TREATMENT,,,,,,,,,,,,,,service
+MGMS5,Thaslasso,,FACE MASSAGE,1,0,0,, No Tax, exclusive,THE BEAUTY ESSENTIAL TREATMENTS,,,,,,,,,,,,,,service
+Cocoon,Cocoon,,FACE MASSAGE,1,0,0,, No Tax, exclusive,THE BEAUTY ESSENTIAL TREATMENTS,,,,,,,,,,,,,,service
+MGMS6,Modelling Mask Eye Treatment,,FACE MASSAGE,1,0,0,, No Tax, exclusive,THE SPECIALISH TREATMENTS,,,,,,,,,,,,,,service
+MGMS7,Soin Dermalogique Treatments,,FACE MASSAGE,1,0,0,, No Tax, exclusive,THE SPECIALISH TREATMENTS,,,,,,,,,,,,,,service
+MGMS8,Two Facial Treatment Per Year,,FACE MASSAGE,1,0,0,, No Tax, exclusive,THE LIMITED EDITION TREATMENTS,,,,,,,,,,,,,,service
+MGBD1,Moments of Bliss,,BODY MASSAGE,1,0,0,, No Tax, exclusive,RELAXING TREATMENT,,,,,,,,,,,,,,service
+MGBD2,Shaping Anti Cellulite and Firming Bust Hand,,BODY MASSAGE,1,0,0,, No Tax, exclusive,SILHOUETTE TREATMENTS,,,,,,,,,,,,,,service
+PINE1,Pine Wood 90x140x2400mm,,Wooden Panel,1,9,13,, No Tax, exclusive,PINE WOOD,,,,,,,,,,,,,,standard
+PINE2,Pine Wood 90x90x2400mm,,Wooden Panel,1,6,9,, No Tax, exclusive,PINE WOOD,,,,,,,,,,,,,,standard
+PINE3,Pin Wood 90x90x1300mm,,Wooden Panel,1,1.7,2.5,, No Tax, exclusive,PINE WOOD,,,,,,,,,,,,,,standard
+PINE4,Pine Wood 70x90x2400mm,,Wooden Panel,1,4,6,, No Tax, exclusive,PINE WOOD,,,,,,,,,,,,,,standard
+PINE5,Pine Wood 70x90x1400mm,,Wooden Panel,1,2,4,, No Tax, exclusive,PINE WOOD,,,,,,,,,,,,,,standard
+MANGO1,Mango 21x143x1200mm,,Wooden Panel,,0.85,1.5,, No Tax, exclusive,MANGO WOOD,,,,,,,,,,,,,,standard
+MANGO2,Mango 21x143x1000mm,,Wooden Panel,,0.722,1,, No Tax, exclusive,MANGO WOOD,,,,,,,,,,,,,,standard
+MANGO3,Mango 21x143x950mm,,Wooden Panel,,0.65,1,, No Tax, exclusive,MANGO WOOD,,,,,,,,,,,,,,standard
+MANGO4,Mango 21x93x1000mm,,Wooden Panel,,0.45,1,, No Tax, exclusive,MANGO WOOD,,,,,,,,,,,,,,standard
+PLYPINSHS7,7L Plywood Pine Laminate ,,BOARD PANEL,,0,8.9,, No Tax, exclusive,PLYWOOD PINE LAMINATE ,,,,,,,,,,,,,,standard
+PLYPINSHS9,9L Plywood Pine Laminate ,,BOARD PANEL,,0,10.5,, No Tax, exclusive,PLYWOOD PINE LAMINATE ,,,,,,,,,,,,,,standard
+PLYPINSHS11,11L Plywood Pine Laminate ,,BOARD PANEL,,0,12.1,, No Tax, exclusive,PLYWOOD PINE LAMINATE ,,,,,,,,,,,,,,standard
+PLYPINSHS15,15L Plywood Pine Laminate ,,BOARD PANEL,,0,15,, No Tax, exclusive,PLYWOOD PINE LAMINATE ,,,,,,,,,,,,,,standard
+PLYPINSHS18,18L Plywood Pine Laminate ,,BOARD PANEL,,0,17.7,, No Tax, exclusive,PLYWOOD PINE LAMINATE ,,,,,,,,,,,,,,standard
+RUBHSH10AB,10AB Finger Joint Rubber Wood,,BOARD PANEL,,0,22.9,, No Tax, exclusive,FINGER JOINT RUBBER WOOD(HSH),,,,,,,,,,,,,,standard
+RUBHSH12AB,12AB Finger Joint Rubber Wood,,BOARD PANEL,,0,24.5,, No Tax, exclusive,FINGER JOINT RUBBER WOOD(HSH),,,,,,,,,,,,,,standard
+RUBHSH12AA,12AA Finger Joint Rubber Wood,,BOARD PANEL,,0,0,, No Tax, exclusive,FINGER JOINT RUBBER WOOD(HSH),,,,,,,,,,,,,,standard
+RUBHSH15AB,15AB Finger Joint Rubber Wood,,BOARD PANEL,,0,26.3,, No Tax, exclusive,FINGER JOINT RUBBER WOOD(HSH),,,,,,,,,,,,,,standard
+RUBHSH15AA,15AA Finger Joint Rubber Wood,,BOARD PANEL,,0,0,, No Tax, exclusive,FINGER JOINT RUBBER WOOD(HSH),,,,,,,,,,,,,,standard
+RUBHSH18AB,18AB Finger Joint Rubber Wood,,BOARD PANEL,,0,30.9,, No Tax, exclusive,FINGER JOINT RUBBER WOOD(HSH),,,,,,,,,,,,,,standard
+RUBHSH18AA,18AA Finger Joint Rubber Wood,,BOARD PANEL,,0,31.4,, No Tax, exclusive,FINGER JOINT RUBBER WOOD(HSH),,,,,,,,,,,,,,standard
+RUBHSH20AB,20AB Finger Joint Rubber Wood,,BOARD PANEL,,0,30.9,, No Tax, exclusive,FINGER JOINT RUBBER WOOD(HSH),,,,,,,,,,,,,,standard
+RUBHSH20AA,20AA Finger Joint Rubber Wood,,BOARD PANEL,,0,31.4,, No Tax, exclusive,FINGER JOINT RUBBER WOOD(HSH),,,,,,,,,,,,,,standard
+RUBHSH25AB,25AB Finger Joint Rubber Wood,,BOARD PANEL,,0,42.6,, No Tax, exclusive,FINGER JOINT RUBBER WOOD(HSH),,,,,,,,,,,,,,standard
+RUBHSH28AB,28AB Finger Joint Rubber Wood,,BOARD PANEL,,0,44.7,, No Tax, exclusive,FINGER JOINT RUBBER WOOD(HSH),,,,,,,,,,,,,,standard
+RUBHSH30AB,30AB Finger Joint Rubber Wood,,BOARD PANEL,,0,47.9,, No Tax, exclusive,FINGER JOINT RUBBER WOOD(HSH),,,,,,,,,,,,,,standard
+RUBHSH12AC,12AC Finger Joint Rubber Wood,,BOARD PANEL,,0,22.5,, No Tax, exclusive,FINGER JOINT RUBBER WOOD(HSH),,,,,,,,,,,,,,standard
+RUBHSH15AC,15AC Finger Joint Rubber Wood,,BOARD PANEL,,0,24.6,, No Tax, exclusive,FINGER JOINT RUBBER WOOD(HSH),,,,,,,,,,,,,,standard
+RUBHSH18AC,18AC Finger Joint Rubber Wood,,BOARD PANEL,,0,28.1,, No Tax, exclusive,FINGER JOINT RUBBER WOOD(HSH),,,,,,,,,,,,,,standard
+RUBHSH20AC,20AC Finger Joint Rubber Wood,,BOARD PANEL,,0,28.8,, No Tax, exclusive,FINGER JOINT RUBBER WOOD(HSH),,,,,,,,,,,,,,standard
+RUBBW10AB,10AB Finger Joint Rubber Wood,,BOARD PANEL,,0,0,, No Tax, exclusive,FINGER JOINT RUBBER WOOD(BW),,,,,,,,,,,,,,standard
+RUBBW12AB,12AB Finger Joint Rubber Wood,,BOARD PANEL,,0,0,, No Tax, exclusive,FINGER JOINT RUBBER WOOD(BW),,,,,,,,,,,,,,standard
+RUBBW15AB,15AB Finger Joint Rubber Wood,,BOARD PANEL,,0,0,, No Tax, exclusive,FINGER JOINT RUBBER WOOD(BW),,,,,,,,,,,,,,standard
+RUBBW18AB,18AB Finger Joint Rubber Wood,,BOARD PANEL,,0,0,, No Tax, exclusive,FINGER JOINT RUBBER WOOD(BW),,,,,,,,,,,,,,standard
+RUBBW18AA,18AA Finger Joint Rubber Wood,,BOARD PANEL,,0,0,, No Tax, exclusive,FINGER JOINT RUBBER WOOD(BW),,,,,,,,,,,,,,standard
+RUBBW20AB,20AB Finger Joint Rubber Wood,,BOARD PANEL,,0,0,, No Tax, exclusive,FINGER JOINT RUBBER WOOD(BW),,,,,,,,,,,,,,standard
+RUBBW20AA,20AA Finger Joint Rubber Wood,,BOARD PANEL,,0,0,, No Tax, exclusive,FINGER JOINT RUBBER WOOD(BW),,,,,,,,,,,,,,standard
+RUBBW25AB,25AB Finger Joint Rubber Wood,,BOARD PANEL,,0,0,, No Tax, exclusive,FINGER JOINT RUBBER WOOD(BW),,,,,,,,,,,,,,standard
+RUBBW28AB,28AB Finger Joint Rubber Wood,,BOARD PANEL,,0,0,, No Tax, exclusive,FINGER JOINT RUBBER WOOD(BW),,,,,,,,,,,,,,standard
+RUBBW30AB,30AB Finger Joint Rubber Wood,,BOARD PANEL,,0,0,, No Tax, exclusive,FINGER JOINT RUBBER WOOD(BW),,,,,,,,,,,,,,standard
+MCTH3,3L Green TH,,BOARD PANEL,,0,0,, No Tax, exclusive,MC(TH),,,,,,,,,,,,,,standard
+MCTH6,6L Green TH,,BOARD PANEL,,0,6.5,, No Tax, exclusive,MC(TH),,,,,,,,,,,,,,standard
+MCTH9,9L Green TH,,BOARD PANEL,,0,9.8,, No Tax, exclusive,MC(TH),,,,,,,,,,,,,,standard
+MCTH12,12L Green TH,,BOARD PANEL,,0,12.5,, No Tax, exclusive,MC(TH),,,,,,,,,,,,,,standard
+MCTH15,15L Green TH,,BOARD PANEL,,0,15.4,, No Tax, exclusive,MC(TH),,,,,,,,,,,,,,standard
+MCTH18,18L Green TH,,BOARD PANEL,,0,16.8,, No Tax, exclusive,MC(TH),,,,,,,,,,,,,,standard
+MCTH3CL,3L Green TH,,BOARD PANEL,,0,0,, No Tax, exclusive,MC CL,,,,,,,,,,,,,,standard
+MCTH6CL,6L Green TH,,BOARD PANEL,,0,0,, No Tax, exclusive,MC CL,,,,,,,,,,,,,,standard
+MCTH9CL,9L Green TH,,BOARD PANEL,,0,0,, No Tax, exclusive,MC CL,,,,,,,,,,,,,,standard
+MCTH12CL,12L Green TH,,BOARD PANEL,,0,0,, No Tax, exclusive,MC CL,,,,,,,,,,,,,,standard
+MCTH15CL,15L Green TH,,BOARD PANEL,,0,0,, No Tax, exclusive,MC CL,,,,,,,,,,,,,,standard
+MCTH18CL,18L Green TH,,BOARD PANEL,,0,0,, No Tax, exclusive,MC CL,,,,,,,,,,,,,,standard
+MCTH3S1,3L Green TH S1,,BOARD PANEL,,0,0,, No Tax, exclusive,MC S1,,,,,,,,,,,,,,standard
+MCTH6S1,6L Green TH S1,,BOARD PANEL,,0,0,, No Tax, exclusive,MC S1,,,,,,,,,,,,,,standard
+MCTH9S1,9L Green TH S1,,BOARD PANEL,,0,0,, No Tax, exclusive,MC S1,,,,,,,,,,,,,,standard
+MCTH12S1,12L Green TH S1,,BOARD PANEL,,0,0,, No Tax, exclusive,MC S1,,,,,,,,,,,,,,standard
+MCTH15S1,15L Green TH S1,,BOARD PANEL,,0,0,, No Tax, exclusive,MC S1,,,,,,,,,,,,,,standard
+MCTH18S1,18L Green TH S1,,BOARD PANEL,,0,0,, No Tax, exclusive,MC S1,,,,,,,,,,,,,,standard
+MCTH3S2,3L Green TH S2,,BOARD PANEL,,0,0,, No Tax, exclusive,MC S2,,,,,,,,,,,,,,standard
+MCTH6S2,6L Green TH S2,,BOARD PANEL,,0,0,, No Tax, exclusive,MC S2,,,,,,,,,,,,,,standard
+MCTH9S2,9L Green TH S2,,BOARD PANEL,,0,0,, No Tax, exclusive,MC S2,,,,,,,,,,,,,,standard
+MCTH12S2,12L Green TH S2,,BOARD PANEL,,0,0,, No Tax, exclusive,MC S2,,,,,,,,,,,,,,standard
+MCTH15S2,15L Green TH S2,,BOARD PANEL,,0,0,, No Tax, exclusive,MC S2,,,,,,,,,,,,,,standard
+MCTH18S2,18L Green TH S2,,BOARD PANEL,,0,0,, No Tax, exclusive,MC S2,,,,,,,,,,,,,,standard
+MDF3S1,3L MDF (WHITE1) ,,BOARD PANEL,,0,0,, No Tax, exclusive,MDF WHITE S1,,,,,,,,,,,,,,standard
+MDF4S1,4L MDF (WHITE1) ,,BOARD PANEL,,0,0,, No Tax, exclusive,MDF WHITE S1,,,,,,,,,,,,,,standard
+MDF8S1,8L MDF (WHITE1) ,,BOARD PANEL,,0,0,, No Tax, exclusive,MDF WHITE S1,,,,,,,,,,,,,,standard
+MDF9S1,9L MDF (WHITE1) ,,BOARD PANEL,,0,0,, No Tax, exclusive,MDF WHITE S1,,,,,,,,,,,,,,standard
+MDF12S1,12L MDF (WHITE1) ,,BOARD PANEL,,0,0,, No Tax, exclusive,MDF WHITE S1,,,,,,,,,,,,,,standard
+MDF15S1,15L MDF (WHITE1) ,,BOARD PANEL,,0,0,, No Tax, exclusive,MDF WHITE S1,,,,,,,,,,,,,,standard
+MDF18S1,18L MDF (WHITE1) ,,BOARD PANEL,,0,0,, No Tax, exclusive,MDF WHITE S1,,,,,,,,,,,,,,standard
+SHERASM4,Smartboard 4L,,BOARD PANEL,,0,0,, No Tax, exclusive,SMARTBOARD,,,,,,,,,,,,,,standard
+SHERASM6,Smartboard 6L,,BOARD PANEL,,0,0,, No Tax, exclusive,SMARTBOARD,,,,,,,,,,,,,,standard
+SHERASM8,Smartboard 8L,,BOARD PANEL,,0,0,, No Tax, exclusive,SMARTBOARD,,,,,,,,,,,,,,standard
+SHERASM10,Smartboard 10L,,BOARD PANEL,,0,0,, No Tax, exclusive,SMARTBOARD,,,,,,,,,,,,,,standard
+SHERASM12,Smartboard 12L,,BOARD PANEL,,0,0,, No Tax, exclusive,SMARTBOARD,,,,,,,,,,,,,,standard
+SHERASM15,Smartboard 15L,,BOARD PANEL,,0,0,, No Tax, exclusive,SMARTBOARD,,,,,,,,,,,,,,standard
+SHERASM18,Smartboard 18L,,BOARD PANEL,,0,0,, No Tax, exclusive,SMARTBOARD,,,,,,,,,,,,,,standard
