@@ -270,7 +270,16 @@
                                 <span class="hidden-sm hidden-xs"><?= lang('print_purchase_request') ?></span>
                             </a>
                         </div>
+<!--====================================================-->
 
+                        <div class="btn-group">
+                            <a href="<?= site_url('purchases_request/purchase_request_form/' . $inv->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('Purchase_Request_Form') ?>">
+                                <i class="fa fa-download"></i>
+                                <span class="hidden-sm hidden-xs"><?= lang('Purchase_Request_Form') ?></span>
+                            </a>
+                        </div>
+
+<!--=====================================================-->
                         <?php if($Owner || $Admin || $GP['purchases-email']) { ?>
                         <div class="btn-group">
                             <a href="<?= site_url('purchases/email/' . $inv->id) ?>" data-toggle="modal" data-target="#myModal2" class="tip btn btn-primary" title="<?= lang('email') ?>">

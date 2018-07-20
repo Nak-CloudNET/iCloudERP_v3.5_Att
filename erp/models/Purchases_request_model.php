@@ -214,5 +214,53 @@ date,warehouses.`name`')
         }
         return FALSE;
     }
+    public  function  getPusrchaseRequestCompanyInfo($id){
+            $query1=$this->db->query("SELECT company,address,phone FROM erp_companies WHERE id = '$id'");
+        if ($query1->num_rows() > 0) {
+            return $query1;
+        }
+        return FALSE;
+
+    }
+    public  function  getPurchaseRequest($id){
+        $query1=$this->db->query("SELECT 
+                                                       pr.biller_id ,
+                                                        pr.date,
+                                                        pr.reference_no,
+                                                        pr.note,
+                                                        c.company,
+                                                        c.address,
+                                                        c.phone
+                                                    FROM erp_purchases_request as pr INNER JOIN erp_companies as c ON pr.biller_id=c.id WHERE pr.id = '$id' ");
+        if ($query1->num_rows() > 0) {
+            return $query1;
+        }
+        return FALSE;
+
+    }
+
+    public  function  getPurchaseRequestProduct($id){
+        $query1=$this->db->query("SELECT 
+                                                       pr.product_code,
+                                                       pr.product_name,
+                                                       pr.quantity,
+                                                       pr.price,
+                                                       erp_warehouses.name as wname,
+                                                       u.name as unit,
+                                                       wp.quantity as wqty
+                                                       
+                                                    FROM erp_purchase_request_items as pr 
+                                                    INNER JOIN erp_products ON pr.product_id=erp_products.id 
+                                                    INNER JOIN erp_warehouses ON pr.warehouse_id=erp_warehouses.id 
+                                                    INNER JOIN erp_units as u ON u.id=erp_products.unit 
+                                                    INNER JOIN erp_warehouses_products as wp ON wp.warehouse_id =pr.warehouse_id and wp.product_id=pr.product_id 
+                                                    WHERE pr.purchase_id = '$id' ");
+        if ($query1->num_rows() > 0) {
+            return $query1;
+        }
+        return FALSE;
+
+    }
+
 
 }
