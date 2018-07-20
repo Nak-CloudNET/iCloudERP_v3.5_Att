@@ -176,8 +176,8 @@ foreach ($purchase_r->result() as $item1){
                 $p_code=$it->product_code;
                 $p_n=$it->product_name;
                 $remark='unknown';
-                $qho=$it->wqty;
-                $qty=$it->quantity;
+                $qho=$this->erp->formatQuantity($it->wqty);
+                $qty=$this->erp->formatQuantity($it->quantity);
                 $unit=$it->unit;
                 $warehouse=$it->wname;
                 $price=$it->price;
@@ -195,8 +195,8 @@ foreach ($purchase_r->result() as $item1){
                     <td><?= @$qty; ?></td>
                     <td><?= @$unit; ?></td>
                     <td><?= @$warehouse; ?></td>
-                    <td><?= @$price; ?></td>
-                    <td><?= @$subtotal; ?></td>
+                    <td><?= @$this->erp->formatMoney($price);  ?></td>
+                    <td><?= @$this->erp->formatMoney($subtotal); ?></td>
                 </tr>
 
            <?php }
@@ -205,7 +205,7 @@ foreach ($purchase_r->result() as $item1){
                 <tr>
                     <td colspan="8" style="border-bottom: none; border-left: none;"></td>
                     <td>Total</td>
-                    <td><?= @$total; ?></td>
+                    <td><?= @$this->erp->formatMoney($total);?></td>
                 </tr>
         </tbody>
 
