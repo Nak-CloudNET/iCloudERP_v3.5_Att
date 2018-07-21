@@ -175,12 +175,12 @@ foreach ($purchase_r->result() as $item1){
                 $i+=1;
                 $p_code=$it->product_code;
                 $p_n=$it->product_name;
-                $remark='unknown';
+                $remark=$it->note;
                 $qho=$this->erp->formatQuantity($it->wqty);
                 $qty=$this->erp->formatQuantity($it->quantity);
                 $unit=$it->unit;
                 $warehouse=$it->wname;
-                $price=$it->price;
+                $price=$it->unit_cost;
                 $subtotal=$qty*$price;
                 $total+=$subtotal;
 
@@ -188,9 +188,9 @@ foreach ($purchase_r->result() as $item1){
 
                 <tr>
                     <td><?= @$i; ?></td>
-                    <td><?= @$p_code; ?></td>
-                    <td><?= @$p_n; ?></td>
-                    <td><?= @$remark; ?></td>
+                    <td ><?= @$p_code; ?></td>
+                    <td class="text-left"><?= @$p_n; ?></td>
+                    <td class="text-left"><?= @$remark; ?></td>
                     <td><?= @$qho; ?></td>
                     <td><?= @$qty; ?></td>
                     <td><?= @$unit; ?></td>

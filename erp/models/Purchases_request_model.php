@@ -244,11 +244,11 @@ date,warehouses.`name`')
                                                        pr.product_code,
                                                        pr.product_name,
                                                        pr.quantity,
-                                                       pr.price,
+                                                       pr.unit_cost,
                                                        erp_warehouses.name as wname,
                                                        u.name as unit,
-                                                       wp.quantity as wqty
-                                                       
+                                                       wp.quantity as wqty,
+                                                       pr.note
                                                     FROM erp_purchase_request_items as pr 
                                                     INNER JOIN erp_products ON pr.product_id=erp_products.id 
                                                     INNER JOIN erp_warehouses ON pr.warehouse_id=erp_warehouses.id 
