@@ -287,8 +287,8 @@
 
             <tr class="tr_cus" style="border-top: 1px dashed black;">
                 <td style="border-left-style: double;"><?= @$no; ?></td>
-                <td style="border-right:1px dashed black;border-left:1px solid black" class="text-left"><?=$row->product_code?></td>
-                <td class="text-left"><?=$row->product_name;?></td>
+                <td style="border-right:1px dashed black;border-left:1px solid black" class="text-left">&nbsp;<?=$row->product_code?></td>
+                <td class="text-left">&nbsp;<?=$row->product_name;?></td>
                 <td style="border-right:1px dashed black;border-left:1px dashed black"><?=$this->erp->formatQuantity($row->po_qty);?></td>
                 <td style="border-right:1px dashed black"><?php if($row->variant){ echo $row->variant;}else{echo $row->unit;}?></td>
                 <td style="border-right:1px dashed black"><?= $row->date; ?></td>
