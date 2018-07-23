@@ -230,7 +230,8 @@ date,warehouses.`name`')
                                                         pr.note,
                                                         c.company,
                                                         c.address,
-                                                        c.phone
+                                                        c.phone,
+                                                        c.email
                                                     FROM erp_purchases_request as pr INNER JOIN erp_companies as c ON pr.biller_id=c.id WHERE pr.id = '$id' ");
         if ($query1->num_rows() > 0) {
             return $query1;

@@ -39,18 +39,29 @@
         .th_text{
             font-size: 12px;
         }
+        .tr_cus{
+
+        }
+        .cus_tb{
+            border-color: black;
+        }
         .cus_tb>thead>tr>th{
+            border-color: black;
             background:lightgrey;
             color: #0000BB;
             padding: 2px 0px;
+            border-top-style: double;
+
+
+        }
+        .tr_foot{
+            border: none;
         }
         hr{
             height: 5px;
             background:#0e90d2;
         }
-        .cus_tb>tbody>tr>td,.cus_tb>thead>tr>th{
-            border:1px solid black;
-        }
+
         .hr_cus{
             color: #0e90d2;
             font-size: 20px;
@@ -59,14 +70,6 @@
             height: 1px;
              margin-top: 15px;
             border: 3px solid #0e90d2;
-        }
-        .lr2 {
-
-
-
-                 }
-        .r1{
-
         }
 
         @media print {
@@ -86,6 +89,9 @@
                 margin-top: 20px;
             }
         }
+        .tb_fs{
+            font-size: 13px;
+        }
     </style>
 
 </head>
@@ -103,6 +109,7 @@ foreach ($purchase_r->result() as $item1){
     $c_name=$item1->company;
     $c_addr=$item1->address;
     $c_phone=$item1->phone;
+    $c_email=$item1->email;
 }
 
 
@@ -122,7 +129,14 @@ foreach ($purchase_r->result() as $item1){
             <td><br><br><p style="font-size: 13px;"><?= @$c_addr; ?></p></td>
         </tr>
         <tr>
-            <td><p style="font-size: 13px;">Tel: <?= @$c_phone; ?></p></td>
+            <td><p style="font-size: 13px;"><?php
+                    if($c_phone){
+                        echo lang("tel")."&nbsp;&nbsp;:&nbsp;&nbsp;".$c_phone.",";
+                    }
+                    if ($c_email) {
+                        echo lang("email")."&nbsp;&nbsp;:&nbsp;&nbsp;".$c_email;
+                    }
+                    ?></p></td>
         </tr>
 
     </table>
@@ -164,15 +178,31 @@ foreach ($purchase_r->result() as $item1){
         <div class="col-lg-6 col-md-6 col-sm-6 ">
             <fieldset>
                 <legend >Purpose of Request</legend>
-                <table>
+                <table class="tb_fs">
                     <tr>
-                        <td><p>Project Name: </p></td>
-                        <td><p> <?= @$company; ?></p></td>
+                        <td><p>Project Name</p></td>
+                        <td><p>&nbsp;:&nbsp;<b><?= @$company; ?></b></p></td>
                     </tr>
                     <tr>
                         <td><p>Description: </p></td>
-                        <td><p> <?= @$re_des; ?></p></td>
+                        <td>
+
+                           <?php
+
+                                if($re_des){
+                                    $des=str_replace('&lt;/p&gt;','',$re_des);
+                                    $des=str_replace('&lt;p&gt;','',$des);
+                                    echo ' <p>&nbsp;:&nbsp;<b>'.$des.'</b></p>';
+                                }
+                                else{
+                                    echo '&nbsp;:&nbsp;<p></p>';
+                                }
+
+                            ?>
+
+                        </td>
                     </tr>
+
                 </table>
 
 
@@ -186,12 +216,12 @@ foreach ($purchase_r->result() as $item1){
                 <legend>Reference</legend>
                 <table>
                     <tr>
-                        <td><p>PR.Number:</p></td>
-                        <td><p><?= @$re_num;?></p></td>
+                        <td><p>PR.Number</p></td>
+                        <td><p>&nbsp;:&nbsp;<b><?= @$re_num;?></b></p></td>
                     </tr>
                     <tr>
-                        <td> <p>PR.Date:</p></td>
-                        <td><p><?= @$re_date; ?></p></td>
+                        <td><p>PR.Date:</p></td>
+                        <td><p>&nbsp;:&nbsp;<b><?= @$re_date; ?></b></p></td>
                     </tr>
 
                 </table>
@@ -211,17 +241,17 @@ foreach ($purchase_r->result() as $item1){
 <div  class="col-lg-12 col-md-12 col-sm-12">
     <table width="100%"  class="text-center  cus_tb">
         <thead>
-            <tr class="th_text">
-                <th>No</th>
-                <th>ITEM CODE</th>
-                <th>DESCRIPTION</th>
-                <th>REMARK</th>
-                <th>QHO</th>
-                <th>QTY</th>
-                <th>UNIT</th>
-                <th>LOCATION</th>
-                <th>EST.PRICE</th>
-                <th>TOTAL AMOUNT</th>
+            <tr class="th_text" >
+                <th style="border-left-style: double;">No</th>
+                <th style="border-right:1px solid black;border-left:1px solid black">ITEM CODE</th>
+                <th style="border-right:1px solid black">DESCRIPTION</th>
+                <th style="border-right:1px solid black">REMARK</th>
+                <th style="border-right:1px solid black">QHO</th>
+                <th style="border-right:1px solid black">QTY</th>
+                <th style="border-right:1px solid black">UNIT</th>
+                <th style="border-right:1px solid black">LOCATION</th>
+                <th style="border-right:1px solid black">EST.PRICE</th>
+                <th style="border-right-style: double;">TOTAL AMOUNT</th>
             </tr>
         </thead>
         <tbody>
@@ -243,26 +273,27 @@ foreach ($purchase_r->result() as $item1){
 
                 ?>
 
-                <tr>
-                    <td><?= @$i; ?></td>
-                    <td ><?= @$p_code; ?></td>
+                <tr class="tr_cus" style="border-top: 1px dashed black;">
+                    <td style="border-left-style: double;"><?= @$i; ?></td>
+                    <td style="border-right:1px dashed black;border-left:1px solid black"><?= @$p_code; ?></td>
                     <td class="text-left"><?= @$p_n; ?></td>
                     <td class="text-left"><?= @$remark; ?></td>
-                    <td><?= @$qho; ?></td>
-                    <td><?= @$qty; ?></td>
-                    <td><?= @$unit; ?></td>
-                    <td><?= @$warehouse; ?></td>
-                    <td><?= @$this->erp->formatMoney($price);  ?></td>
-                    <td><?= @$this->erp->formatMoney($subtotal); ?></td>
+                    <td style="border-right:1px dashed black"><?= @$qho; ?></td>
+                    <td style="border-right:1px dashed black"><?= @$qty; ?></td>
+                    <td style="border-right:1px dashed black"><?= @$unit; ?></td>
+                    <td style="border-right:1px dashed black"><?= @$warehouse; ?></td>
+                    <td style="border-right:1px dashed black"><?= @$this->erp->formatMoney($price);  ?></td>
+                    <td style="border-right-style: double;"><?= @$this->erp->formatMoney($subtotal); ?></td>
                 </tr>
 
-           <?php }
+           <?php
+            }
             ?>
 
-                <tr>
+                <tr class="tr_foot" style="border-top-style: double;">
                     <td colspan="8" style="border-bottom: none; border-left: none;"></td>
-                    <td>Total</td>
-                    <td><?= @$this->erp->formatMoney($total);?></td>
+                    <td style="border-left-style: double; border-bottom-style:double ">Total</td>
+                    <td style="border-left:1px dashed black; border-right-style: double; border-bottom-style: double"><?= @$this->erp->formatMoney($total);?></td>
                 </tr>
         </tbody>
 
