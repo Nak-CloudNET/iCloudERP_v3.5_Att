@@ -44,12 +44,47 @@
             color: #0000BB;
             padding: 2px 0px;
         }
+        hr{
+            height: 5px;
+            background:#0e90d2;
+        }
         .cus_tb>tbody>tr>td,.cus_tb>thead>tr>th{
             border:1px solid black;
         }
         .hr_cus{
             color: #0e90d2;
             font-size: 20px;
+        }
+        .lr{
+            height: 1px;
+             margin-top: 15px;
+            border: 3px solid #0e90d2;
+        }
+        .lr2 {
+
+
+
+                 }
+        .r1{
+
+        }
+
+        @media print {
+            legend {
+
+                background: white;
+            }
+            hr{
+                height: 5px!important;
+                background:#0e90d2!important;
+                color: #0000BB;
+                font-size: 100px;
+            }
+            .lr{
+                background: #0e90d2;
+
+                margin-top: 20px;
+            }
         }
     </style>
 
@@ -72,8 +107,12 @@ foreach ($purchase_r->result() as $item1){
 
 
 ?>
-<div class="header ">
-    <table width="100%" class="text-center">
+<div>
+    <br>
+</div>
+<div class="header " >
+
+    <table width="100%" class="text-center ">
         <tr>
             <td><h3><?=  @$c_name; ?></h3></td>
 
@@ -87,26 +126,44 @@ foreach ($purchase_r->result() as $item1){
         </tr>
 
     </table>
-    <table width="100%">
+
+    <div class="col-lg-12 col-md-12 col-sm-12 " >
+        <div class="row r1">
+            <div class="col-lg-7 col-md-7 col-sm-7 lr">
+
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 lr2 text-center">
+                            <h4 ><i>PURSCHASE REQUESITION</i></h4>
+            </div>
+            <div class="col-lg-1 col-md-1 col-sm-1 lr">
+
+            </div>
+        </div>
+    </div>
+
+  <!--
+  <table width="100%">
         <tr>
             <td width="65%">
-                <hr style=" height: 5px; background:#0e90d2;">
+                <hr class="hr-head" >
             </td>
             <td width="30%" class="text-center">
-                <h3 ><i>PURSCHASE REQUESITION</i></h3>
+
             </td>
             <td width="5%">
-                <hr style=" height: 5px; background:#0e90d2;">
+                <hr class="hr-head">
             </td>
         </tr>
     </table>
+-->
+
 
 </div>
 <div class="col-lg-12 col-md-12 col-sm-12">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 ">
             <fieldset>
-                <legend>Purpose of Request</legend>
+                <legend >Purpose of Request</legend>
                 <table>
                     <tr>
                         <td><p>Project Name: </p></td>
