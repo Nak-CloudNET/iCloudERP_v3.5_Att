@@ -70,6 +70,7 @@
             height: 1px;
              margin-top: 15px;
             border: 3px solid #0e90d2;
+            background: #0e90d2;
         }
 
         @media print {
@@ -242,7 +243,7 @@ foreach ($purchase_r->result() as $item1){
     <table width="100%"  class="text-center  cus_tb">
         <thead>
             <tr class="th_text" >
-                <th style="border-left-style: double;">No</th>
+                <th style="border-left-style: double;">N<sup>o</sup></th>
                 <th style="border-right:1px solid black;border-left:1px solid black">ITEM CODE</th>
                 <th style="border-right:1px solid black">DESCRIPTION</th>
                 <th style="border-right:1px solid black">REMARK</th>

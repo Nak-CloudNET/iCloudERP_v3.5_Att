@@ -55,7 +55,9 @@
 
         }
         .tr_foot{
+
             border: none;
+
         }
         hr{
             height: 5px;
@@ -68,6 +70,7 @@
         }
         .lr{
             height: 1px;
+            background: #0e90d2;
             margin-top: 15px;
             border: 3px solid #0e90d2;
         }
@@ -92,6 +95,14 @@
         .tb_fs{
             font-size: 13px;
         }
+        .tr_foot{
+            padding: 15px 0px;
+        }
+        .text-right{
+            border-color: black;
+            color: #0000BB;
+        }
+
     </style>
 
 </head>
@@ -190,19 +201,28 @@
                 <legend>Reference</legend>
                 <table>
 
-                        <?php if ($inv->reference_no) { ?>
+                        <?php if ($invs->reference_no) { ?>
                             <tr>
                                 <td>
-                                    <p><?= lang("pr_no"); ?></p>
+                                    <p>PR N<sup>o</sup></p>
                                 </td>
 
                                 <td>
-                                    <p>&nbsp;:&nbsp;<b><?= $inv->reference_no ?></b></p>
+                                    <p>&nbsp;:&nbsp;<b><?= $invs->reference_no ?></b></p>
                                 </td>
 
                             </tr>
                     <?php } ?>
+                    <tr>
+                        <td>
+                            <p>Date</p>
+                        </td>
 
+                        <td>
+                            <p>&nbsp;:&nbsp;<b><?= $this->erp->hrld($invs->date); ?></b></p>
+                        </td>
+
+                    </tr>
 
                 </table>
 
@@ -222,58 +242,85 @@
     <table width="100%"  class="text-center  cus_tb">
         <thead>
         <tr class="th_text" >
-            <th style="border-left-style: double;">No</th>
+            <th style="border-left-style: double;">N<sup>o</sup></th>
             <th style="border-right:1px solid black;border-left:1px solid black">ITEM CODE</th>
-            <th style="border-right:1px solid black">DESCRIPTION</th>
-            <th style="border-right:1px solid black">REMARK</th>
-            <th style="border-right:1px solid black">QHO</th>
+            <th style="border-right:1px solid black">ITEM DESCRIPTION</th>
+
             <th style="border-right:1px solid black">QTY</th>
             <th style="border-right:1px solid black">UNIT</th>
+            <th style="border-right:1px solid black">REQ.DATE</th>
             <th style="border-right:1px solid black">LOCATION</th>
-            <th style="border-right:1px solid black">EST.PRICE</th>
-            <th style="border-right-style: double;">TOTAL AMOUNT</th>
+            <th style="border-right:1px solid black">COST</th>
+            <th style="border-right-style: double;">AMOUNT</th>
         </tr>
         </thead>
         <tbody>
 
         <?php
-        foreach ($purchase_product->result() as $it){
 
-            $i+=1;
-            $p_code=$it->product_code;
-            $p_n=$it->product_name;
-            $remark=$it->note;
-            $qho=$this->erp->formatQuantity($it->wqty);
-            $qty=$this->erp->formatQuantity($it->quantity);
-            $unit=$it->unit;
-            $warehouse=$it->wname;
-            $price=$it->unit_cost;
-            $subtotal=$qty*$price;
-            $total+=$subtotal;
+        $no = 1;
+        $erow = 1;
+        $totalRow = 0;
+        foreach ($rows as $row) {
+            $free = lang('free');
+            $product_unit = '';
+            $total = 0;
+
+            if($row->variant){
+                $product_unit = $row->variant;
+            }else{
+                $product_unit = $row->uname;
+            }
+            $product_name_setting;
+            if($setting->show_code == 0) {
+                $product_name_setting = $row->product_name . ($row->variant ? ' (' . $row->variant . ')' : '');
+            }else {
+                if($setting->separate_code == 0) {
+                    $product_name_setting = $row->product_name . " (" . $row->product_code . ")" . ($row->variant ? ' (' . $row->variant . ')' : '');
+                }else {
+                    $product_name_setting = $row->product_name . ($row->variant ? ' (' . $row->variant . ')' : '');
+                }
+            }
 
             ?>
 
+
             <tr class="tr_cus" style="border-top: 1px dashed black;">
-                <td style="border-left-style: double;"><?= @$i; ?></td>
-                <td style="border-right:1px dashed black;border-left:1px solid black"><?= @$p_code; ?></td>
-                <td class="text-left"><?= @$p_n; ?></td>
-                <td class="text-left"><?= @$remark; ?></td>
-                <td style="border-right:1px dashed black"><?= @$qho; ?></td>
-                <td style="border-right:1px dashed black"><?= @$qty; ?></td>
-                <td style="border-right:1px dashed black"><?= @$unit; ?></td>
-                <td style="border-right:1px dashed black"><?= @$warehouse; ?></td>
-                <td style="border-right:1px dashed black"><?= @$this->erp->formatMoney($price);  ?></td>
-                <td style="border-right-style: double;"><?= @$this->erp->formatMoney($subtotal); ?></td>
+                <td style="border-left-style: double;"><?= @$no; ?></td>
+                <td style="border-right:1px dashed black;border-left:1px solid black"><?=$row->product_code?></td>
+                <td class="text-left"><?=$row->product_name;?></td>
+                <td style="border-right:1px dashed black;border-left:1px dashed black"><?=$this->erp->formatQuantity($row->po_qty);?></td>
+                <td style="border-right:1px dashed black"><?php if($row->variant){ echo $row->variant;}else{echo $row->unit;}?></td>
+                <td style="border-right:1px dashed black"><?= $row->date; ?></td>
+                <td style="border-right:1px dashed black"><?= $row->warehouse_name; ?></td>
+                <td style="border-right:1px dashed black;color: black;" class="text-right"><?= $this->erp->formatMoney($row->unit_cost); ?>&nbsp;</td>
+                <td style="border-right-style: double; width: 20%; " class="text-right" ><b><?= @$this->erp->formatMoney($row->subtotal); ?></b>&nbsp;</td>
             </tr>
 
             <?php
+            $no++;
+            $erow++;
+            $totalRow++;
+//                    if ($totalRow % 25 == 0) {
+//                        echo '<tr class="pageBreak"></tr>';
+//                    }
+
         }
         ?>
 
-        <tr class="tr_foot" style="border-top-style: double;">
-            <td colspan="8" style="border-bottom: none; border-left: none;"></td>
-            <td style="border-left-style: double; border-bottom-style:double ">Total</td>
-            <td style="border-left:1px dashed black; border-right-style: double; border-bottom-style: double"><?= @$this->erp->formatMoney($total);?></td>
+        <tr style="border-top-style: double;">
+            <td colspan="7"  rowspan="2" style="border-bottom: none; border-left: none; " >
+                <fieldset class="text-left" style="height: 100px;">
+                    <legend style="font-size: 13px">Note</legend>
+                </fieldset>
+            </td>
+            <td style="border-left-style: double;  " class="tr_foot text-right" ><b>Total:&nbsp;&nbsp;</b></td>
+            <td style="border-left:1px dashed black; border-right-style: double; " class="text-right"><b><?= @$this->erp->formatMoney($invs->total);?>&nbsp;</b></td>
+        </tr>
+        <tr style="border-top:1px dashed black;">
+
+            <td style="border-left-style: double; border-bottom-style:double " class="tr_foot text-right" ><b>Grand Total:&nbsp;</b></td>
+            <td style="border-left:1px dashed black; border-right-style: double; border-bottom-style: double" class="text-right"><b><?= @$this->erp->formatMoney($invs->grand_total);?>&nbsp;</b></td>
         </tr>
         </tbody>
 
