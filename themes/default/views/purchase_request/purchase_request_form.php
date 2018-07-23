@@ -275,9 +275,9 @@ foreach ($purchase_r->result() as $item1){
 
                 <tr class="tr_cus" style="border-top: 1px dashed black;">
                     <td style="border-left-style: double;"><?= @$i; ?></td>
-                    <td style="border-right:1px dashed black;border-left:1px solid black"><?= @$p_code; ?></td>
-                    <td class="text-left"><?= @$p_n; ?></td>
-                    <td class="text-left"><?= @$remark; ?></td>
+                    <td class="text-left" style="border-right:1px dashed black;border-left:1px dashed black"><?= @$p_code; ?></td>
+                    <td class="text-left" style="border-right:1px dashed black"><?= @$p_n; ?></td>
+                    <td class="text-left" style="border-right:1px dashed black"><?= @$remark; ?></td>
                     <td style="border-right:1px dashed black"><?= @$qho; ?></td>
                     <td style="border-right:1px dashed black"><?= @$qty; ?></td>
                     <td style="border-right:1px dashed black"><?= @$unit; ?></td>

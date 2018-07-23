@@ -190,14 +190,14 @@
                 <legend>Reference</legend>
                 <table>
 
-                        <?php if ($inv->pr_referemce_no) { ?>
+                        <?php if ($inv->reference_no) { ?>
                             <tr>
                                 <td>
                                     <p><?= lang("pr_no"); ?></p>
                                 </td>
 
                                 <td>
-                                    <p>&nbsp;:&nbsp;<b><?= $inv->pr_referemce_no ?></b></p>
+                                    <p>&nbsp;:&nbsp;<b><?= $inv->reference_no ?></b></p>
                                 </td>
 
                             </tr>
