@@ -187,19 +187,14 @@ foreach ($purchase_r->result() as $item1){
                     <tr>
                         <td><p>Description: </p></td>
                         <td>
+                            <p>
+                                <b>
+                                    <?php
+                                          echo strip_tags(htmlspecialchars_decode($re_des));
+                                        ?>
+                                </b>
+                            </p>
 
-                           <?php
-
-                                if($re_des){
-                                    $des=str_replace('&lt;/p&gt;','',$re_des);
-                                    $des=str_replace('&lt;p&gt;','',$des);
-                                    echo ' <p>&nbsp;:&nbsp;<b>'.$des.'</b></p>';
-                                }
-                                else{
-                                    echo '&nbsp;:&nbsp;<p></p>';
-                                }
-
-                            ?>
 
                         </td>
                     </tr>

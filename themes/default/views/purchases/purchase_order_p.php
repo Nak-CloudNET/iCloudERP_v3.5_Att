@@ -309,20 +309,45 @@
         ?>
 
         <tr style="border-top-style: double;">
-            <td colspan="7"  rowspan="2" style="border-bottom: none; border-left: none; " >
-                <fieldset class="text-left" style="height: 100px;">
+            <td   style="border-bottom: none;  " colspan="7" rowspan="3">
+                <fieldset class="text-left" style="height: 70px;">
                     <legend style="font-size: 13px">Note</legend>
+                    <p><?php echo strip_tags(htmlspecialchars_decode($invs->note)); ?></p>
                 </fieldset>
             </td>
-            <td style="border-left-style: double;  " class="tr_foot text-right" ><b>Total:&nbsp;&nbsp;</b></td>
+
+            <style>
+                .cel-cus{
+                    position: relative;
+                }
+                .cel-cus::after{
+                    position: absolute;
+                    content: "";
+                    border-color: black;
+                    height: 100%;
+                    top:-1px;
+                    left: -1px;
+                    border-left-style: double;
+                }
+            </style>
+
+            <td style="" class=" text-right cel-cus" ><b>Total:&nbsp;&nbsp;</b></td>
             <td style="border-left:1px dashed black; border-right-style: double; " class="text-right"><b><?= @$this->erp->formatMoney($invs->total);?>&nbsp;</b></td>
+
         </tr>
         <tr style="border-top:1px dashed black;">
 
-            <td style="border-left-style: double; border-bottom-style:double " class="tr_foot text-right" ><b>Grand Total:&nbsp;</b></td>
+
+
+            <td style="border-left-style: double; border-bottom-style:double " class="text-right" ><b>Grand Total:&nbsp;</b></td>
             <td style="border-left:1px dashed black; border-right-style: double; border-bottom-style: double" class="text-right"><b><?= @$this->erp->formatMoney($invs->grand_total);?>&nbsp;</b></td>
+
         </tr>
-        </tbody>
+        <tr>
+            <td style=" ">d</td>
+            <td>s</td>
+        </tr>
+
 
 
     </table>
