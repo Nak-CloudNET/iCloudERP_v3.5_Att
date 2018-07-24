@@ -5224,29 +5224,45 @@ class system_settings extends MY_Controller
                     redirect($_SERVER["HTTP_REFERER"]);
 
                 } elseif ($this->input->post('form_action') == 'export_excel' || $this->input->post('form_action') == 'export_pdf') {
+                    $group = $this->settings_model->getPriceGroupByID($group_id);
 
                     $this->load->library('excel');
                     $this->excel->setActiveSheetIndex(0);
-                    $this->excel->getActiveSheet()->setTitle(lang('tax_rates'));
-                    $this->excel->getActiveSheet()->SetCellValue('A1', lang('product_code'));
-                    $this->excel->getActiveSheet()->SetCellValue('B1', lang('product_name'));
-                    $this->excel->getActiveSheet()->SetCellValue('C1', lang('price'));
-                    $this->excel->getActiveSheet()->SetCellValue('D1', lang('group_name'));
-                    $row = 2;
-                    $group = $this->settings_model->getPriceGroupByID($group_id);
+                    $this->excel->getActiveSheet()->setTitle(lang('price_groups'));
+                    $this->excel->getActiveSheet()->mergeCells('A1:D1');
+                    $this->excel->getActiveSheet()->SetCellValue('A1', lang('Group Product Prices ('. ucwords($group->name) .') '));
+                    $this->excel->getActiveSheet()->SetCellValue('A2', lang('product_code'));
+                    $this->excel->getActiveSheet()->SetCellValue('B2', lang('product_name'));
+                    $this->excel->getActiveSheet()->SetCellValue('C2', lang('unit'));
+                    $this->excel->getActiveSheet()->SetCellValue('D2', lang('price'));
+                    $this->excel->getActiveSheet()->getRowDimension(1)->setRowHeight(30);
+                    $this->excel->getActiveSheet()->getRowDimension(2)->setRowHeight(25);
+                    $this->excel->getActiveSheet()->getStyle('A2:D2')->getFont()->setBold(true);
+                    $this->excel->getActiveSheet()->getStyle('A1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+                    $this->excel->getActiveSheet()->getStyle('A2:D2')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+                    $this->excel->getActiveSheet()->getStyle('A1')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
+                    $this->excel->getActiveSheet()->getStyle('A2:D2')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
+
+                    $row = 3;
                     foreach ($_POST['val'] as $id) {
-                        $pgp = $this->settings_model->getProductGroupPriceByPID($id, $group_id);
+                        $pgp = $this->settings_model->getProductGroupPriceByProID($id, $group_id);
+
                         $this->excel->getActiveSheet()->SetCellValue('A' . $row, $pgp->code);
                         $this->excel->getActiveSheet()->SetCellValue('B' . $row, $pgp->name);
-                        $this->excel->getActiveSheet()->SetCellValue('C' . $row, $pgp->price);
-                        $this->excel->getActiveSheet()->SetCellValue('D' . $row, $group->name);
+                        $this->excel->getActiveSheet()->SetCellValue('C' . $row, $pgp->unit);
+                        $this->excel->getActiveSheet()->SetCellValue('D' . $row, $pgp->price);
+                        $this->excel->getActiveSheet()->getRowDimension($row)->setRowHeight(20);
+                        $this->excel->getActiveSheet()->getStyle('A'.$row)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_LEFT);
+                        $this->excel->getActiveSheet()->getStyle('C'.$row)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+                        $this->excel->getActiveSheet()->getStyle('A'.$row.':D'.$row)->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
                         $row++;
                     }
-                    $this->excel->getActiveSheet()->getColumnDimension('A')->setWidth(20);
-                    $this->excel->getActiveSheet()->getColumnDimension('B')->setWidth(30);
+                    $this->excel->getActiveSheet()->getColumnDimension('A')->setWidth(30);
+                    $this->excel->getActiveSheet()->getColumnDimension('B')->setWidth(80);
                     $this->excel->getActiveSheet()->getColumnDimension('C')->setWidth(15);
-                    $this->excel->getActiveSheet()->getColumnDimension('D')->setWidth(20);
+                    $this->excel->getActiveSheet()->getColumnDimension('D')->setWidth(15);
                     $this->excel->getDefaultStyle()->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
+
                     $filename = 'price_groups_' . date('Y_m_d_H_i_s');
                     if ($this->input->post('form_action') == 'export_pdf') {
                         $styleArray = array('borders' => array('allborders' => array('style' => PHPExcel_Style_Border::BORDER_THIN)));

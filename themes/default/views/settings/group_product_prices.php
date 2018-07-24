@@ -134,6 +134,11 @@
             </ul>
         </div>
     </div>
+    <div style="display: none;">
+        <input type="hidden" name="form_action" value="" id="form_action"/>
+        <?= form_submit('submit', 'submit', 'id="action-form-submit"') ?>
+    </div>
+    <?= form_close() ?>
     <div class="box-content">
         <div class="row">
             <div class="col-lg-12">
@@ -168,12 +173,6 @@
         </div>
     </div>
 </div>
-
-<div style="display: none;">
-    <input type="hidden" name="form_action" value="" id="form_action"/>
-    <?= form_submit('submit', 'submit', 'id="action-form-submit"') ?>
-</div>
-<?= form_close() ?>
 <script language="javascript">
     $(document).ready(function () {
 

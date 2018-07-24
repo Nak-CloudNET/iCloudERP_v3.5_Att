@@ -1208,6 +1208,28 @@ class Settings_model extends CI_Model
         return FALSE;
     }
 
+    public function getProductGroupPriceByProID($product_id, $group_id)
+    {
+        $product_id = explode('_', $product_id);
+        $pg = "(SELECT {$this->db->dbprefix('product_prices')}.price as price,
+        {$this->db->dbprefix('product_prices')}.product_id as product_id FROM {$this->db->dbprefix('product_prices')} WHERE {$this->db->dbprefix('product_prices')}.product_id = {$product_id[0]} AND {$this->db->dbprefix('product_prices')}.price_group_id = {$group_id}) GP";
+
+        $this->db->select("
+        {$this->db->dbprefix('products')}.id as id,
+        {$this->db->dbprefix('products')}.code as code,
+        {$this->db->dbprefix('products')}.name as name,
+        {$this->db->dbprefix('units')}.name as unit,
+        GP.price", FALSE)
+            ->join($pg, 'GP.product_id=products.id', 'left')
+            ->join('units', 'products.unit = units.id', 'left')
+            ->where('products.id', $product_id[0]);
+        $q = $this->db->get('products');
+        if ($q->num_rows() > 0) {
+            return $q->row();
+        }
+        return FALSE;
+    }
+
     public function updateGroupPrices($data = array())
     {
         //by Ravy
