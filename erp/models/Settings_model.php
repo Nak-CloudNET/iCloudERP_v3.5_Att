@@ -1240,7 +1240,6 @@ class Settings_model extends CI_Model
                 $this->db->update('product_prices', array('price' => $row['price']),array('id'=>$id));
             } else {
                 $this->db->insert('product_prices', $row);
-
             }
         }
         return true;

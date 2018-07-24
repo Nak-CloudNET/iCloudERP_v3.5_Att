@@ -5292,7 +5292,6 @@ class system_settings extends MY_Controller
                         $objWriter = PHPExcel_IOFactory::createWriter($this->excel, 'Excel5');
                         return $objWriter->save('php://output');
                     }
-
                     redirect($_SERVER["HTTP_REFERER"]);
                 }
             } else {

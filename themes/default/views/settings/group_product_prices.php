@@ -1,6 +1,3 @@
-<?php
-	//$this->erp->print_arrays($currencies);
-?>
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <script>
     $(document).ready(function () {
