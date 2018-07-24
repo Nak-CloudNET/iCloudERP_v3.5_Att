@@ -32,7 +32,7 @@
                 btn.removeClass('btn-primary').addClass('btn-danger').html('<i class="fa fa-times"></i>');
             }
         });
-            // btn.html('<i class="fa fa-check"></i>');
+
         });
         function price_input(x) {
             ti = ti+1;

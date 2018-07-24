@@ -1538,7 +1538,7 @@ class Settings_model extends CI_Model
         }
         return false;
     }
-    // #chanthy -----------------------------------------------------
+
     public function addGroupPosition($data)
     {
         if ($data) {
