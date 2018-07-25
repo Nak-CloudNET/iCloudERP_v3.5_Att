@@ -5303,8 +5303,10 @@ class system_settings extends MY_Controller
             redirect($_SERVER["HTTP_REFERER"]);
         }
     }
+
     function group_product_prices($group_id = NULL)
     {
+
         if (!$group_id) {
             $this->session->set_flashdata('error', lang('no_price_group_selected'));
             redirect('system_settings/price_groups');

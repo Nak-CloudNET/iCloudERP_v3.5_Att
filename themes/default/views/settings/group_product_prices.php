@@ -87,6 +87,7 @@
 		$(".currency").select2();
     });
 </script>
+
 <?= form_open('system_settings/product_group_price_actions/'.$price_group->id, 'id="action-form"') ?>
 <div class="box">
     <div class="box-header">
