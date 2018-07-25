@@ -5303,7 +5303,6 @@ class system_settings extends MY_Controller
             redirect($_SERVER["HTTP_REFERER"]);
         }
     }
-	
     function group_product_prices($group_id = NULL)
     {
         if (!$group_id) {

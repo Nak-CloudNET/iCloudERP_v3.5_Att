@@ -51,7 +51,7 @@
 					opt += '<option value="'+ v.code +'">'+ v.name +'</option>';
 				}
 			}); 
-			//select.select2("val", x);
+
 			var select = "<select class='form-control currency-code' name='currency"+n[0]+"'>" + opt + '</select>';
 			return '<div class="text-center">' + select + '</div>';
 		}

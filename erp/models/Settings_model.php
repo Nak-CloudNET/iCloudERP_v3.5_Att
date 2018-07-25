@@ -1430,7 +1430,6 @@ class Settings_model extends CI_Model
         }
         return false;
     }
-
     public function gettermsBYID($id)
     {
         $q = $this->db->get_where('erp_terms',array('id'=>$id),1);
