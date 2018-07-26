@@ -803,12 +803,16 @@ class Purchases_model extends CI_Model
 							purchase_order_items.tax_method,
 							purchase_order_items.piece,
 							purchase_order_items.wpiece,
+							warehouses.name as warehouse_name,
 							purchase_order_items.price,purchase_order_items.create_id, tax_rates.code as tax_code, tax_rates.name as tax_name, tax_rates.rate as tax_rate, units.name as unit, products.details as details,products.image,products.name as pname, product_variants.name as variant,companies.name')
             ->join('products', 'products.id=purchase_order_items.product_id', 'left')
             ->join('units', 'products.unit = units.id', 'left')
 			->join('companies', 'companies.id=purchase_order_items.supplier_id', 'left')
             ->join('product_variants', 'product_variants.id=purchase_order_items.option_id', 'left')
             ->join('tax_rates', 'tax_rates.id=purchase_order_items.tax_rate_id', 'left')
+
+            ->join('warehouses', 'purchase_order_items.warehouse_id=warehouses.id', 'left')
+
             ->group_by('purchase_order_items.id')
             ->order_by('id', 'desc');
         $q = $this->db->get_where('purchase_order_items', array('purchase_id' => $purchase_id));
@@ -1566,7 +1570,7 @@ class Purchases_model extends CI_Model
 	
 	public function getPurchaseOrderByID($id)
     {
-    	$this->db->select('purchases_order.*, payment_term.description, warehouses.name AS Wname,companies.company,companies.name AS username, tax_rates.name AS tax_name, warehouses.name AS ware_name, purchases_request.reference_no as pr_referemce_no')
+    	$this->db->select('purchases_order.*,purchases_order.total as ptt,purchases_order.grand_total as gtt, payment_term.description, warehouses.name AS Wname,companies.company,companies.name AS username, tax_rates.name AS tax_name, warehouses.name AS ware_name, purchases_request.reference_no as pr_referemce_no')
     			->join('payment_term','purchases_order.payment_term = payment_term.id','left')
     			->join('warehouses','purchases_order.warehouse_id= warehouses.id','left')
     			->join('companies','purchases_order.biller_id = companies.id','left')

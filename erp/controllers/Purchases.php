@@ -9791,5 +9791,30 @@ class Purchases extends MY_Controller
         $this->data['updated_by'] = $inv->updated_by ? $this->site->getUser($inv->updated_by) : null;
         $this->load->view($this->theme . 'purchases/invoice_add_purchase_order', $this->data);
     }
+    function purchase_order_p($purchase_id = null){
+
+        $this->erp->checkPermissions('index', true);
+
+        if ($this->input->get('id')) {
+            $purchase_id = $this->input->get('id');
+        }
+        $this->data['error'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('error');
+        $inv = $this->purchases_model->getPurchaseOrderByID($purchase_id);
+
+        $this->data['rows'] = $this->purchases_model->getAllPurchaseOrderItems($purchase_id);
+        $this->data['billers'] = $this->purchases_model->getBiller($inv->biller_id);
+        $this->data['supplier'] = $this->site->getCompanyByID($inv->supplier_id);
+        $this->data['warehouse'] = $this->site->getWarehouseByID($inv->warehouse_id);
+        $this->data['invs'] = $inv;
+        $this->data['payments'] = $this->purchases_model->getPaymentsForPurchase($purchase_id);
+        $this->data['created_by'] = $this->site->getUser($inv->created_by);
+        $this->data['updated_by'] = $inv->updated_by ? $this->site->getUser($inv->updated_by) : null;
+
+        $this->load->view($this->theme . 'purchases/purchase_order_p', $this->data);
+    }
+
+
+
+
 
 }

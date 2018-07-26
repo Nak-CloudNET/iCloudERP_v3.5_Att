@@ -280,7 +280,7 @@
                             style="text-align:right; font-weight:bold;"><?= lang("total_amount"); ?>
                             <!-- (<?= $default_currency->code; ?>) -->
                         </td>
-                        <td style="text-align:right; padding-right:10px; font-weight:bold;"><?= $this->erp->formatMoney($inv->grand_total); ?></td>
+                           <td style="text-align:right; padding-right:10px; font-weight:bold;"><?= $this->erp->formatMoney($inv->grand_total); ?></td>
                     </tr>
                     <?php if($inv->paid >0){ ?>
                         <!--<tr>
@@ -379,6 +379,15 @@
                                 <span class="hidden-sm hidden-xs"><?= lang('print_purchase_order') ?></span>
                             </a>
                         </div>
+
+                        <div class="btn-group">
+                            <a href="<?= site_url('purchases/purchase_order_p/' . $inv->id) ?>"
+                               target="_blank" class="tip btn btn-primary" title="<?= lang('purchase_order_form') ?>">
+                                <i class="fa fa-download"></i>
+                                <span class="hidden-sm hidden-xs"><?= lang('purchase_order_form') ?></span>
+                            </a>
+                        </div>
+
                         <?php if ($Owner || $Admin || $GP['purchases_order-export']) { ?>
                             <div class="btn-group">
                                 <a href="<?= site_url('purchases/pdf_order/' . $inv->id) ?>" class="tip btn btn-primary" title="<?= lang('download_pdf') ?>">

@@ -1562,4 +1562,24 @@ class Purchases_request extends MY_Controller
 
     }
 
+
+    public function purchase_request_form($id =null)
+    {
+        if ($this->input->get('id')) {
+            $purchase_id 			= $this->input->get('id');
+        }
+        $this->load->model("Purchases_request_model");
+
+//        $data['row1'] = $this->purchases_request_model->getPusrchaseRequestCompanyInfo($id);
+        $data['purchase_r'] = $this->purchases_request_model->getPurchaseRequest($id);
+        $data['purchase_product'] = $this->purchases_request_model->getPurchaseRequestProduct($id);
+
+
+
+        $this->load->view($this->theme . 'purchase_request/purchase_request_form',$data);
+
+    }
+
+
+
 }
