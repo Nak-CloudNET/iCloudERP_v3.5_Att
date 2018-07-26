@@ -5319,6 +5319,7 @@ class system_settings extends MY_Controller
         $this->page_construct('settings/group_product_prices', $meta, $this->data);
     }
 
+    
 	function getProductPrices($group_id = NULL)
 	{
         if (!$group_id) {
