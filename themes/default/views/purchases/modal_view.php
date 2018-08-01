@@ -384,6 +384,12 @@
                                 <span class="hidden-sm hidden-xs"><?= lang('print_purchase') ?></span>
                             </a>
                         </div>
+                        <div class="btn-group">
+                            <a href="<?= site_url('purchases/purchase_form/' . $inv->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('Print Purchasse Invoice') ?>">
+                                <i class="fa fa-file-text-o"></i>
+                                <span class="hidden-sm hidden-xs"><?= lang('Print_Purchase_Invoice') ?></span>
+                            </a>
+                        </div>
                         <!--<div class="btn-group">
                             <a href="<?= site_url('purchases/received_kh/' . $inv->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('received_form') ?>">
                                 <i class="fa fa-file-text-o"></i>

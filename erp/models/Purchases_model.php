@@ -737,10 +737,11 @@ class Purchases_model extends CI_Model
 
     public function getAllPurchaseItems($purchase_id)
     {
-        $this->db->select('purchase_items.*, tax_rates.code as tax_code, tax_rates.name as tax_name, tax_rates.rate as tax_rate, units.name as unit,erp_products.id as product_id, products.details as details,products.image,products.name as pname,purchase_items.piece,purchase_items.wpiece,purchase_items.option_id, product_variants.name as variant,IF(erp_companies.company = "", erp_companies.name, erp_companies.company) AS supplier')
+        $this->db->select('purchase_items.*, tax_rates.code as tax_code, tax_rates.name as tax_name, tax_rates.rate as tax_rate, units.name as unit,erp_products.id as product_id, products.details as details,products.image,products.name as pname,purchase_items.piece,purchase_items.wpiece,purchase_items.option_id, product_variants.name as variant,IF(erp_companies.company = "", erp_companies.name, erp_companies.company) AS supplier ,warehouses.name as warehouse')
             ->join('products', 'products.id=purchase_items.product_id', 'left')
             ->join('product_variants', 'product_variants.id=purchase_items.option_id', 'left')
             ->join('tax_rates', 'tax_rates.id=purchase_items.tax_rate_id', 'left')
+            ->join('warehouses', 'warehouses.id=purchase_items.warehouse_id', 'left')
             ->join('purchases', 'purchase_items.purchase_id=purchases.id','left')
 			->join('companies', 'companies.id=purchases.supplier_id', 'left')
             ->join('units', 'products.unit = units.id', 'left')

@@ -6,7 +6,9 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-
+<!--    <link href="--><?php //echo $assets ?><!--styles/theme.css" rel="stylesheet">-->
+<!--    <link href="--><?php //echo $assets ?><!--styles/bootstrap.min.css" rel="stylesheet">-->
+<!--    <link href="--><?php //echo $assets ?><!--styles/custome.css" rel="stylesheet">-->
     <title> Purchase Order </title>
     <style>
         .header table tr{
@@ -39,7 +41,9 @@
         .th_text{
             font-size: 12px;
         }
+        .tr_cus{
 
+        }
         .cus_tb{
             border-color: black;
         }
@@ -72,11 +76,8 @@
             margin-top: 15px;
             border: 3px solid #0e90d2;
         }
-        .tr_cus td:nth-child(1){
-            padding: 0px 10px;
-        }
-        @media print {
 
+        @media print {
             legend {
 
                 background: white;
@@ -121,16 +122,16 @@
         </tr>
         <tr>
 
-            <td><br><br><p style="font-size: 13px;"><?= $billers->address ?></p></td>
+            <td><br><br><p style="font-size: 13px;">Depot: <?= $billers->address ?></p></td>
         </tr>
         <tr>
             <td><p style="font-size: 13px;">
                     <?php
                     if($billers->phone){
-                        echo lang("tel")."&nbsp;&nbsp;:&nbsp;&nbsp;".$billers->phone.",";
+                        echo lang("tel")."&nbsp;:&nbsp;&nbsp;".$billers->phone.", ";
                     }
                     if ($billers->email) {
-                        echo lang("email")."&nbsp;&nbsp;:&nbsp;&nbsp;".$billers->email;
+                        echo lang("email")."&nbsp;:&nbsp;&nbsp;".$billers->email;
                     }
                     ?>
                 </p></td>
@@ -144,7 +145,7 @@
 
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 lr2 text-center">
-                <h4 ><i>PURSCHASE ORDER</i></h4>
+                <h4 ><i>PURSCHASE INVOICE</i></h4>
             </div>
             <div class="col-lg-1 col-md-1 col-sm-1 lr">
 
@@ -178,7 +179,7 @@
                 <table class="tb_fs">
                     <tr>
                         <td><p>Supplier Name</p></td>
-                        <td><p>&nbsp;:&nbsp;<b><?=$supplier->name?></b></p></td>
+                        <td><p>&nbsp;:&nbsp;<b><?=$supplier->name;?></b></p></td>
                     </tr>
                     <tr>
                         <td><p>Address: </p></td>
@@ -194,7 +195,9 @@
 
 
             </fieldset>
-
+            <?php
+//            $this->erp->print_arrays($supplier);
+            ?>
 
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 " >
@@ -205,7 +208,7 @@
                         <?php if ($invs->reference_no) { ?>
                             <tr>
                                 <td>
-                                    <p>PR N<sup>o</sup></p>
+                                    <p>Invoice N<sup>o</sup></p>
                                 </td>
 
                                 <td>
@@ -228,7 +231,9 @@
                 </table>
 
 
-
+<?php
+//    $this->erp->print_arrays($rows);
+?>
 
 
 
@@ -246,11 +251,11 @@
             <th style="border-left-style: double;">N<sup>o</sup></th>
             <th style="border-right:1px solid black;border-left:1px solid black">ITEM CODE</th>
             <th style="border-right:1px solid black">ITEM DESCRIPTION</th>
-
+            <th style="border-right:1px solid black">ITEM NOTE</th>
             <th style="border-right:1px solid black">QTY</th>
             <th style="border-right:1px solid black">UNIT</th>
-            <th style="border-right:1px solid black">REQ.DATE</th>
-            <th style="border-right:1px solid black">LOCATION</th>
+           <!-- <th style="border-right:1px solid black">REQ.DATE</th>-->
+            <th style="border-right:1px solid black">FROM STOCK</th>
             <th style="border-right:1px solid black">COST</th>
             <th style="border-right-style: double;">AMOUNT</th>
         </tr>
@@ -260,9 +265,16 @@
         <?php
 
         $no = 1;
+
         $erow = 1;
         $totalRow = 0;
         foreach ($rows as $row) {
+            if($no<10){
+                $noo='00'.$no;
+            }
+            if($no>9&&$no<100){
+                $noo='0'.$no;
+            }
             $free = lang('free');
             $product_unit = '';
             $total = 0;
@@ -287,19 +299,22 @@
 
 
             <tr class="tr_cus" style="border-top: 1px dashed black;">
-                <td style="border-left-style: double;"><?= @$no; ?></td>
+                <td style="border-left-style: double;"><?= @$noo; ?></td>
                 <td style="border-right:1px dashed black;border-left:1px solid black" class="text-left">&nbsp;<?=$row->product_code?></td>
                 <td class="text-left">&nbsp;<?=$row->product_name;?></td>
-                <td style="border-right:1px dashed black;border-left:1px dashed black"><?=$this->erp->formatQuantity($row->po_qty);?></td>
+                <td style="border-left:1px dashed black; width: 13%"><?php echo strip_tags(htmlspecialchars_decode($row->note)); ?></td>
+                <td style="border-right:1px dashed black;border-left:1px dashed black"><?=$this->erp->formatQuantity($row->quantity);?></td>
                 <td style="border-right:1px dashed black"><?php if($row->variant){ echo $row->variant;}else{echo $row->unit;}?></td>
-                <td style="border-right:1px dashed black"><?= $row->date; ?></td>
-                <td style="border-right:1px dashed black"><?= $row->warehouse_name; ?></td>
+                <!--<td style="border-right:1px dashed black"><?= $row->date; ?></td>-->
+                <td style="border-right:1px dashed black; width: 13%;"><?= $row->warehouse; ?></td>
                 <td style="border-right:1px dashed black;color: black;" class="text-right"><?= $this->erp->formatMoney($row->unit_cost); ?>&nbsp;</td>
-                <td style="border-right-style: double; width: 20%; " class="text-right" ><b><?= @$this->erp->formatMoney($row->subtotal); ?></b>&nbsp;</td>
+                <td style="border-right-style: double; width: 17%; " class="text-right" ><b><?= @$this->erp->formatMoney($row->subtotal); ?></b>&nbsp;</td>
             </tr>
 
             <?php
+
             $no++;
+
             $erow++;
             $totalRow++;
 //                    if ($totalRow % 25 == 0) {
@@ -310,7 +325,7 @@
         ?>
 
         <tr style="border-top-style: double;">
-            <td   style="border-bottom: none;  " colspan="7" rowspan="3">
+            <td   style="border-bottom: none;  " colspan="7" rowspan="2">
                 <fieldset class="text-left" style="height: 70px;">
                     <legend style="font-size: 13px">Note</legend>
                     <p><?php echo strip_tags(htmlspecialchars_decode($invs->note)); ?></p>
@@ -332,18 +347,15 @@
                 }
             </style>
 
-            <td style="" class=" text-right cel-cus" ><b>Total:&nbsp;&nbsp;</b></td>
-            <td style="border-left:1px dashed black; border-right-style: double; " class="text-right"><b><?= @$this->erp->formatMoney($invs->total);?>&nbsp;</b></td>
+            <td style="border-bottom-style:double; padding: 20px 0px;" class=" text-right cel-cus" ><b>Total:&nbsp;&nbsp;</b></td>
+            <td style="border-left:1px dashed black; border-right-style: double; border-bottom-style:double" class="text-right"><b><?= @$this->erp->formatMoney($invs->total);?>&nbsp;</b></td>
 
         </tr>
-        <tr style="border-top:1px dashed black;">
-
-
-
+       <!-- <tr style="border-top:1px dashed black;">
             <td style="border-left-style: double; border-bottom-style:double " class="text-right" ><b>Grand Total:&nbsp;</b></td>
             <td style="border-left:1px dashed black; border-right-style: double; border-bottom-style: double" class="text-right"><b><?= @$this->erp->formatMoney($invs->grand_total);?>&nbsp;</b></td>
 
-        </tr>
+        </tr>-->
         <tr>
             <td style=" "> &nbsp;</td>
             <td> </td>
