@@ -140,7 +140,7 @@ if ($modal) {
                 </div>
             
             </div>
-            <?php
+            <?php //$this->erp->print_arrays($customer);
             echo "<p>" . $biller->address . " " . $biller->city . " " . $biller->postal_code . " " . $biller->state . " " . $biller->country .
                 "<br>" . lang("tel") . " : " . $biller->phone;
             ?>
@@ -161,6 +161,10 @@ if ($modal) {
                     <tr>
                         <td >អតិថិជន / Customer: </td>
                         <td style="text-align: right;"><?=$inv->customer;?></td>
+                    </tr>
+                    <tr>
+                        <td >លេខទូរសព្ទ / Phone: </td>
+                        <td style="text-align: right;"><?=$customer->phone;?></td>
                     </tr>
                     <?php if($inv->suspend_note){  ?>
                     <tr>
