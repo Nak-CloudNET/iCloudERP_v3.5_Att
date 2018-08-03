@@ -55,13 +55,15 @@
         tfoot {
             display: table-footer-group;
             -webkit-display: table-footer-group;
-            page-break-after: always;
+            page-break-after: always
         }
-        .invoice_label {
+        invoice_label {
             padding-left: 0 !important;
         }
         #footer {
             bottom: 10px !important;
+            position: fixed !important;
+            margin-left: -20px !important
         }
         #note{
             max-width: 95% !important;
@@ -285,8 +287,9 @@
                     </tr>
                     <tr class="border thead print" style="background-color: #444 !important; color: #FFF !important;">
                         <th>ល.រ<br /><?= strtoupper(lang('no')) ?></th>
+                        <th>លេខកូដ<br /><?= strtoupper(lang('code')) ?></th>
                         <th>បរិយាយមុខទំនិញ<br /><?= strtoupper(lang('description')) ?></th>
-                        <th>ការបញ្ជាក់<br /><?= strtoupper(lang('specification')) ?></th>
+
                         <th>ខ្នាត<br /><?= strtoupper(lang('unit')) ?></th>
                         <th>ចំនួន<br /><?= strtoupper(lang('qty')) ?></th>
                         <th>តម្លៃ<br /><?= strtoupper(lang('price')) ?></th>
@@ -330,11 +333,12 @@
                     ?>
                     <tr class="border">
                         <td style="vertical-align: middle; text-align: center"><?php echo $no ?></td>
+
                         <td style="vertical-align: middle;">
-                            <?=$row->product_name;?>
+                            <?=$row->product_code;?>
                         </td>
                         <td style="vertical-align: middle;">
-                            <?php echo $row->product_noted;?>
+                            <?php echo $row->product_name;?>
                         </td>
                         <td style="vertical-align: middle; text-align: center">
                             <?= $product_unit ?>
@@ -527,42 +531,42 @@
 
                 </tbody>
                 <tfoot class="tfoot">
-                    <tr>
-                        <th colspan="9">
-                            <?php if(trim(htmlspecialchars_decode($invs->note))){ ?>
-                                <div style="border-radius: 5px 5px 5px 5px;border:1px solid black;height: auto;" id="note" class="col-md-12 col-xs-12">
-                                    <div style="margin-left: 10px;margin-top:10px;"><?= $this->erp->decode_html($invs->note); ?></div>
-                                </div>
-                                <br><br><br><br>
-                            <?php } ?>
-                            <div class="clear-both">
-                                <div style="width:100%;height:80px"></div>
+                <tr>
+                    <th colspan="9">
+                        <?php if(trim(htmlspecialchars_decode($invs->note))){ ?>
+                            <div style="border-radius: 5px 5px 5px 5px;border:1px solid black;height: auto;" id="note" class="col-md-12 col-xs-12">
+                                <div style="margin-left: 10px;margin-top:10px;"><?= $this->erp->decode_html($invs->note); ?></div>
                             </div>
-                            <div id="footer" class="row" >
-                                <div class="col-sm-4 col-xs-4">
-                                    <center>
-                                        <hr style="margin:0; border:1px solid #000; width: 80%">
-                                        <p style=" margin-top: 4px !important">ហត្ថលេខា និងឈ្មោះអ្នករៀបចំ</p>
-                                        <p style="margin-top:-10px;">Prepared's Signature & Name</p>
-                                    </center>
-                                </div>
-                                <div class="col-sm-4 col-xs-4">
-                                    <center>
-                                        <hr style="margin:0; border:1px solid #000; width: 80%">
-                                        <p style="margin-top: 4px !important">ហត្ថលេខា និងឈ្មោះអ្នកលក់</p>
-                                        <p style="margin-top:-10px;">Seller's Signature & Name</p>
-                                    </center>
-                                </div>
-                                <div class="col-sm-4 col-xs-4">
-                                    <center>
-                                        <hr style="margin:0; border:1px solid #000; width: 80%">
-                                        <p style=" margin-top: 4px !important">ហត្ថលេខា និងឈ្មោះអ្នកទិញ</p>
-                                        <p style="margin-top:-10px; ">Customer's Signature & Name</p>
-                                    </center>
-                                </div>
+                            <br><br><br><br>
+                        <?php } ?>
+                        <div class="clear-both">
+                            <div style="width:100%;height:80px"></div>
+                        </div>
+                        <div id="footer" class="row" >
+                            <div class="col-sm-4 col-xs-4">
+                                <center>
+                                    <hr style="margin:0; border:1px solid #000; width: 80%">
+                                    <p style=" margin-top: 4px !important">ហត្ថលេខា និងឈ្មោះអ្នករៀបចំ</p>
+                                    <p style="margin-top:-10px;">Prepared's Signature & Name</p>
+                                </center>
                             </div>
-                        </th>
-                    </tr>
+                            <div class="col-sm-4 col-xs-4">
+                                <center>
+                                    <hr style="margin:0; border:1px solid #000; width: 80%">
+                                    <p style="margin-top: 4px !important">ហត្ថលេខា និងឈ្មោះអ្នកលក់</p>
+                                    <p style="margin-top:-10px;">Seller's Signature & Name</p>
+                                </center>
+                            </div>
+                            <div class="col-sm-4 col-xs-4">
+                                <center>
+                                    <hr style="margin:0; border:1px solid #000; width: 80%">
+                                    <p style=" margin-top: 4px !important">ហត្ថលេខា និងឈ្មោះអ្នកទិញ</p>
+                                    <p style="margin-top:-10px; ">Customer's Signature & Name</p>
+                                </center>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
                 </tfoot>
 
             </table>
