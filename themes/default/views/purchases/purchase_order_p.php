@@ -18,7 +18,6 @@
             border-radius: 7px;
             height: 100%;
             margin: 8px;
-
             padding: 8px;
 
         }
@@ -75,6 +74,8 @@
         .tr_cus td:nth-child(1){
             padding: 0px 10px;
         }
+        @media print and (min-width: 1024px) {
+        }
         @media print {
 
             legend {
@@ -91,6 +92,9 @@
                 background: #0e90d2;
 
                 margin-top: 20px;
+            }
+            body{
+                min-width: 1024px!important;
             }
         }
         .tb_fs{
