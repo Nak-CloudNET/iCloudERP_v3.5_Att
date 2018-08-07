@@ -16,6 +16,7 @@
 	.container {
 		width: 16.8cm;
 		margin: 20px auto;
+
 	}
 	@media print {
 		.pageBreak {
@@ -23,6 +24,8 @@
 		}
 		.container {
 			height: 20.5cm !important;
+
+            margin: -10px !important;
 		}
 		.customer_label {
 			padding-left: 0 !important;
@@ -31,7 +34,10 @@
 		.invoice_label {
 			padding-left: 0 !important;
 		}
-
+		#footer {
+			position: fixed !important;
+   			bottom: 0 !important;
+		}
 		.row table tr td {
 			font-size: 10px !important;
 		}
@@ -323,11 +329,11 @@
 										<?= $this->erp->formatQuantity($row->quantity);?>
 									</td>
 									<td style="vertical-align: middle; text-align: right">
-										<?= $this->erp->formatMoney($row->real_unit_price); ?>
+										$<?= $this->erp->formatMoney($row->real_unit_price); ?>
 									</td>
 									<?php if ($row->item_discount) {?>
 										<td style="vertical-align: middle; text-align: center">
-										<?=$this->erp->formatMoney($row->item_discount);?></td>
+										$<?=$this->erp->formatMoney($row->item_discount);?></td>
 									<?php } ?>
                                     <?php if ($row->item_tax) {?>
                                         <td style="vertical-align: middle; text-align: center">
@@ -348,8 +354,8 @@
 							}
 							?>
 							<?php
-								if($erow<8){
-									$k=8 - $erow;
+								if($erow<11){
+									$k=11 - $erow;
 									for($j=1;$j<=$k;$j++) {
 										if($discount != 0) {
 											echo  '<tr>
@@ -422,7 +428,7 @@
 								<td colspan="<?= $col; ?>" style="text-align: right; font-weight: bold;">សរុប​ / <?= strtoupper(lang('total')) ?>
 									(<?= $default_currency->code; ?>)
 								</td>
-								<td align="right"><?=$this->erp->formatMoney($invs->total); ?></td>
+								<td align="right">$<?=$this->erp->formatMoney($invs->total); ?></td>
 							</tr>
 							<?php } ?>
 										
@@ -436,14 +442,14 @@
 							<?php if ($invs->shipping != 0) : ?>
 							<tr>
 								<td colspan="<?= $col; ?>" style="text-align: right; font-weight: bold;">ដឹកជញ្ជូន / <?= strtoupper(lang('shipping')) ?></td>
-								<td align="right"><?php echo $this->erp->formatQuantity($invs->shipping); ?></td>
+								<td align="right">$<?php echo $this->erp->formatQuantity($invs->shipping); ?></td>
 							</tr>
 							<?php endif; ?>
 							
 							<?php if ($invs->order_tax != 0) : ?>
 							<tr>
 								<td colspan="<?= $col; ?>" style="text-align: right; font-weight: bold;">ពន្ធអាករ / <?= strtoupper(lang('order_tax')) ?></td>
-								<td align="right"><?= $this->erp->formatQuantity($invs->order_tax); ?></td>
+								<td align="right">$<?= $this->erp->formatQuantity($invs->order_tax); ?></td>
 							</tr>
 							<?php endif; ?>
 							
@@ -459,7 +465,7 @@
 								<td colspan="<?= $col; ?>" style="text-align: right; font-weight: bold;">សរុបរួម / <?= strtoupper(lang('total_amount')) ?>
 									(<?= $default_currency->code; ?>)
 								</td>
-								<td align="right"><?= $this->erp->formatMoney($invs->grand_total); ?></td>
+								<td align="right">$<?= $this->erp->formatMoney($invs->grand_total); ?></td>
 							</tr>
 							<?php if($invs->paid != 0 || $invs->deposit != 0){ ?>
 							<?php if($invs->deposit != 0) { ?>
@@ -467,7 +473,7 @@
 								<td colspan="<?= $col; ?>" style="text-align: right; font-weight: bold;">បានកក់ / <?= strtoupper(lang('deposit')) ?>
 									(<?= $default_currency->code; ?>)
 								</td>
-								<td align="right"><?php echo $this->erp->formatMoney($invs->deposit); ?></td>
+								<td align="right">$<?php echo $this->erp->formatMoney($invs->deposit); ?></td>
 							</tr>
 							<?php } ?>
 							<?php if($invs->paid != 0) { ?>
@@ -475,14 +481,14 @@
 								<td colspan="<?= $col; ?>" style="text-align: right; font-weight: bold;">បានបង់ / <?= strtoupper(lang('paid')) ?>
 									(<?= $default_currency->code; ?>)
 								</td>
-								<td align="right"><?php echo $this->erp->formatMoney($invs->paid-$invs->deposit); ?></td>
+								<td align="right">$<?php echo $this->erp->formatMoney($invs->paid-$invs->deposit); ?></td>
 							</tr>
 							<?php } ?>
 							<tr>
 								<td colspan="<?= $col; ?>" style="text-align: right; font-weight: bold;">នៅខ្វះ / <?= strtoupper(lang('balance')) ?>
 									(<?= $default_currency->code; ?>)
 								</td>
-								<td align="right"><?= $this->erp->formatMoney($invs->grand_total - (($invs->paid-$invs->deposit) + $invs->deposit)); ?></td>
+								<td align="right">$<?= $this->erp->formatMoney($invs->grand_total - (($invs->paid-$invs->deposit) + $invs->deposit)); ?></td>
 							</tr>
 						<?php } ?>
 							
@@ -500,15 +506,15 @@
 
 		<div id="footer" class="row">
 			<div class="col-sm-4 col-xs-4">
-                <br><br><br>
 				<center>
+                    <br><br>
 					<hr style="margin:0; border:1px solid #000; width: 80%">
 					<p style="font-size: 12px; margin-top: 4px !important">ហត្ថលេខា និងឈ្មោះអ្នករៀបចំ</p>
 					<p style="margin-top:-10px; font-size: 12px">Prepared's Signature & Name</p>
 				</center>
 			</div>
 			<div class="col-sm-4 col-xs-4">
-                <br><br><br>
+                <br><br>
 				<center>
 					<hr style="margin:0; border:1px solid #000; width: 80%">
 					<p style="font-size: 12px; margin-top: 4px !important">ហត្ថលេខា និងឈ្មោះអ្នកលក់</p>
@@ -516,7 +522,7 @@
 				</center>
 			</div>
 			<div class="col-sm-4 col-xs-4">
-                <br><br><br>
+                <br><br>
 				<center>
 					<hr style="margin:0; border:1px solid #000; width: 80%">
 					<p style="font-size: 12px; margin-top: 4px !important">ហត្ថលេខា និងឈ្មោះអ្នកទិញ</p>
