@@ -1447,7 +1447,6 @@ class Settings_model extends CI_Model
         return false;
     }
 
-
     public function add_define_principle($data){
         if($this->db->insert('erp_term_types',$data)){
             return true;
