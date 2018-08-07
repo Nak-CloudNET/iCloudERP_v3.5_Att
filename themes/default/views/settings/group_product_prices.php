@@ -93,6 +93,7 @@
     <div class="box-header">
         <h2 class="blue"><i class="fa-fw fa fa-building"></i><?= ucwords($page_title) ?> (<?= $price_group->name; ?>)
         </h2>
+
         <div class="box-icon">
             <ul class="btn-tasks">
                 <li class="dropdown">
