@@ -482,7 +482,7 @@
 							<?= lang("reference_no", "slref"); ?>
                             <div class="form-group">
                                 <div class="input-group">
-                                        <?php echo form_input('reference_no', $reference?$reference:"",'  class="form-control input-tip" id="slref"'); ?>
+                                        <?php echo form_input('reference_no', $reference?$reference:"",'  class="form-control input-tip" id="slref" '); ?>
                                         <input type="hidden"  name="temp_reference_no"  id="temp_reference_no" value="<?= $reference?$reference:"" ?>" />
                                         <input type="hidden"  name="quote_id"  id="quote_id" value="" />
                                         <div class="input-group-addon no-print" style="padding: 2px 5px;background-color:white;">

@@ -26,6 +26,7 @@ class system_settings extends MY_Controller
     {
         $this->form_validation->set_rules('site_name', lang('site_name'), 'trim|required');
         $this->form_validation->set_rules('dateformat', lang('dateformat'), 'trim|required');
+        $bank_account = $this->input->post('bank_account');
         //$this->form_validation->set_rules('timezone', lang('timezone'), 'trim|required');
         //$this->form_validation->set_rules('mmode', lang('maintenance_mode'), 'trim|required');
         //$this->form_validation->set_rules('logo', lang('logo'), 'trim');
@@ -70,6 +71,7 @@ class system_settings extends MY_Controller
         $this->form_validation->set_rules('supplier_code_prefix', lang('supplier_code_prefix'), 'trim|required');
         $this->form_validation->set_rules('employee_code_prefix', lang('employee_code_prefix'), 'trim|required');
         $this->form_validation->set_rules('increase_stock_import', lang('increase_stock_import'), 'trim|required');
+
 
         if ($this->input->post('protocol') == 'smtp') {
             $this->form_validation->set_rules('smtp_host', lang('smtp_host'), 'required');

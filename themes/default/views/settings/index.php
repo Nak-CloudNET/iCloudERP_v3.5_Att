@@ -821,6 +821,7 @@ $ps = array('0' => lang("disable"), '1' => lang("enable"));
 									</div>
 								</div>
 							</div>
+
 						</fieldset>
 
 						<fieldset class="scheduler-border">

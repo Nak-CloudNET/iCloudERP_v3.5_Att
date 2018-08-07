@@ -585,20 +585,30 @@ if ($q->num_rows() > 0) {
 										foreach ($warehouses as $warehouse) {
 											$wh[$warehouse->id] = $warehouse->name;
 										}
-										echo form_dropdown('warehouse', $wh, (isset($_POST['warehouse']) ? $_POST['warehouse'] : $Settings->default_warehouse), 'id="poswarehouse" class="form-control pos-input-tip" data-placeholder="' . $this->lang->line("select") . ' ' . $this->lang->line("warehouse") . '" required="required" style="width:100%;" ');
+
+										echo form_dropdown('warehouse', $wh, (isset($_POSTz['warehouse']) ? $_POST['warehouse'] : $Settings->default_warehouse), 'id="poswarehouse" class="form-control pos-input-tip" data-placeholder="' . $this->lang->line("select") . ' ' . $this->lang->line("warehouse") . '" required="required" style="width:100%;" ');
 										?>
 									</div>
 								</div>
 							<?php } else { ?>
 
 								<div class="form-group col-md-6">
-									<?php
+									<?php  //$this->erp->print_arrays($user_ware);
 									$wh[''] = '';
 									foreach ($user_ware as $warehouse) {
 										$wh[$warehouse->id] = $warehouse->name;
+										
 									}
-									echo form_dropdown('warehouse', $wh, (isset($_POST['warehouse']) ? $_POST['warehouse'] : $Settings->default_warehouse), 'id="poswarehouse" class="form-control pos-input-tip" data-placeholder="' . $this->lang->line("select") . ' ' . $this->lang->line("warehouse") . '" required="required" style="width:100%;" ');
+									
+								 //echo form_dropdown('warehouse',$wh, (isset($_POST['warehouse']) ? $_POST['warehouse'] : $Settings->default_warehouse), 'id="poswarehouse" class="form-control tip" id="payment_reference_no" required="required" style="width:100%;"');
+								 // echo form_input('warehouse', (isset($_POST['warehouse']) ? $_POST['warehouse'] :$warehouse->name ),'class="form-control pos-tip" id="add_item" data-placement="top" data-trigger="focus" placeholder="' . $this->lang->line("search_product_by_name_code") . '" title="' . $this->lang->line("au_pr_name_tip") . '"'); 
+
+								echo form_input('warehouse', (isset($_POST['warehouse']) ? $_POST['warehouse'] : $warehouse->name), 'id="poswarehouse" class="form-control pos-input-tip" data-placeholder="' . $this->lang->line("select") . ' ' . $this->lang->line("warehouse") . '" required="required" style="width:100%;" ');
+								echo  form_hidden('warehouse', $Settings->default_warehouse,' class="form-control pos-tip" id="add_item" data-placement="top" data-trigger="focus" placeholder="' . $this->lang->line("search_product_by_name_code") . '" title="' . $this->lang->line("au_pr_name_tip") . '" '); 
+								
+
 									?>
+									
 
 								</div>
 
@@ -681,12 +691,12 @@ if ($q->num_rows() > 0) {
 									<tr>
                                         <td style="padding: 5px 10px; <?php echo ($layout == 6?'font-size:20px;':'font-size:16px;') ?>"><?= lang('items'); ?> <span style="padding: 5px 10px; <?php echo ($layout == 6?'font-size:20px;':'font-size:16px;') ?> font-weight:bold;" id="titems">0</span></td>
 										<td></td>
-										
+
 										<td style="padding: 5px 10px; <?php echo ($layout == 6?'font-size:20px;':'font-size:16px;') ?>"><?= lang('rate'); ?></td>
                                         <td class="text-right" style="padding: 5px 10px; font-weight:bold;<?php echo ($layout == 6?'font-size:20px;':'font-size:16px;') ?>">
                                             <span id="khmer_rate"><?php echo $exchange_rate->rate?number_format($exchange_rate->rate):0 ?>  ៛</span>
                                         </td>
-										
+
                                         <td style="padding: 5px 10px; <?php echo ($layout == 6?'font-size:20px;':'font-size:16px;') ?>"><?= lang('total'); ?></td>
                                         <td class="text-right" style="padding: 5px 10px; font-weight:bold;<?php echo ($layout == 6?'font-size:20px;':'font-size:16px;') ?>">
                                             <span id="total">0.00</span>
@@ -1149,7 +1159,7 @@ if ($q->num_rows() > 0) {
 				$this->db->group_by('floor');
 				$q = $this->db->get();
 				$i=1;
-				
+
 				$class  = '';
 				$width  = $this->Settings->twidth;
 				$height = $this->Settings->theight;
@@ -1224,7 +1234,7 @@ if ($q->num_rows() > 0) {
 												if($count > 0){
 													echo "<p style='text-decoration:none;position:absolute;top:0;left:0;padding:5px;' class='btn-warning clear_suspend'>".$count."</p>";
 												}
-												
+
 												echo "<input type='checkbox' name='chsuspend' class='chsuspend' value='". $suspend->ids ."' style='position:absolute;right:5px;'/>
 												<button style='".$font."' type=\"button\" value='" . $suspend->suspend_id . "' ".($suspens === "suspend" ? 'id="'.$suspend->ids.'"' : '' )." class='".($suspens === "suspend" ? 'btn-prni btn '.($suspend->sus_start == '0000-00-00 00:00:00'? 'btn-info': ($suspend->sus_start == ''? 'btn-info': 'btn-warning')).' sus_sale '.$room : 'btn-prni btn suspend-button' )."' >
 													<span class='wrap_suspend".($suspens === "suspend" ? $suspend->ids : '')."'>" . ($suspens === "suspend" ? "<p class='suspend-name".$suspend->ids."'>" . $suspend->name . "</p><div class='sup_number".$suspend->ids."'>" . ($suspend->com_name == "" ? $cust : $suspend->com_name) . "</div><br/>" . $suspend->total : "Number " . $i ) . " (" . $suspend->count . ")</span>
@@ -1420,7 +1430,7 @@ if ($q->num_rows() > 0) {
 			}
 			if(($this->Owner || $this->Admin)){
 				foreach ($categories as $category) {
-					echo "<button id=\"category-" . $category->id . "\" type=\"button\" value='" . $category->id . "' class=\"btn-prni category ".$class." \" ><img src=\"assets/uploads/thumbs/" . ($category->image ? $category->image : 'no_image.png') . "\" style='width:" . $width . "px;height:" . $height . "px;' class='img-rounded img-thumbnail' /><span style='".$font."'>" . $category->name . "</span></button>";  
+					echo "<button id=\"category-" . $category->id . "\" type=\"button\" value='" . $category->id . "' class=\"btn-prni category ".$class." \" ><img src=\"assets/uploads/thumbs/" . ($category->image ? $category->image : 'no_image.png') . "\" style='width:" . $width . "px;height:" . $height . "px;' class='img-rounded img-thumbnail' /><span style='".$font."'>" . $category->name . "</span></button>";
 				}
 			}else{
 				foreach ($categories as $category) {
@@ -1433,7 +1443,7 @@ if ($q->num_rows() > 0) {
 					}
 				}
 			}
-        
+
         //}
         ?>
     </div>
@@ -1514,7 +1524,7 @@ if ($q->num_rows() > 0) {
 							} else {
 								$cust = $suspend->customer;
 							}
-						
+
 		if(in_array($suspend->floor,$floor) and in_array($suspend->name,$fname)){
 			$default=date("H:i",strtotime($suspend->date));$currenttime=date("H:i");
 			if($pos_settings->show_suspend_bar == 40){
@@ -1569,7 +1579,7 @@ if ($q->num_rows() > 0) {
                         <?php if ($Owner || $Admin || !$this->session->userdata('biller_id')) { ?>
                             <div class="form-group">
 								<div class="row">
-									<div class="col-sm-6">
+									<div class="col-sm-6 ">
 										<?= lang("biller", "biller"); ?>
 										<?php
 										foreach ($billers as $biller1) {
@@ -1585,7 +1595,7 @@ if ($q->num_rows() > 0) {
 								</div>
                             </div>
                         <?php } else { ?>
-                            <div class="form-group">
+                            <div class="form-group ">
 								<div class="row">
 									<div class="col-sm-6">
 										<?= lang("biller", "biller"); ?>
@@ -1943,7 +1953,10 @@ if ($q->num_rows() > 0) {
 														foreach($userBankAccounts as $userBankAccount) {
 															$ubank[$userBankAccount->accountcode] = $userBankAccount->accountcode . ' | '. $userBankAccount->accountname;
 														}
-														echo form_dropdown('bank_account', $ubank, '', 'id="bank_account_1" required="required" class="ba form-control kb-pad bank_account"');
+													echo form_dropdown('bank_account', $ubank, '', 'id="bank_account_1" required="required" class="ba form-control kb-pad bank_account"');
+														//echo form_dropdown('bank_account', (isset($_POST['bank_account']) ? $_POST['bank_account'] : $ubank[$userBankAccount->accountcode]), 'id="bank_account_1" required="required" class="ba form-control kb-pad bank_account"');
+														//echo form_input('bank_account', $userBankAccount->accountcode,'', 'id="bank_account_1" required="required" class="ba form-control kb-pad bank_account"');
+														
 													}
 												?>
 											</div>
@@ -3037,7 +3050,6 @@ var lang = {unexpected_value: '<?=lang('unexpected_value');?>', select_above: '<
             id: '<?= $customer->id; ?>',
             text: '<?= $customer->company == '-' ? $customer->names : $customer->company; ?>'
         }];
-
         $('#poscustomer').val(__getItem('poscustomer')).select2({
             minimumInputLength: 1,
             data: [],
@@ -3049,7 +3061,7 @@ var lang = {unexpected_value: '<?=lang('unexpected_value');?>', select_above: '<
                     success: function (data) {
                         var order_discount = data[0].order_discount == false ? 0 : data[0].order_discount;
                         $('#order_discount').val(order_discount + '%');
-                        console.log(data);
+                        //console.log(data);
                        // $('#order_discount').val(data[0].order_discount == null ? 0 : data[0].order_discount + '%');
                         if (order_discount > 0) {
                             $('#order_discount_input').attr('readonly', 'true');
@@ -3743,14 +3755,14 @@ var lang = {unexpected_value: '<?=lang('unexpected_value');?>', select_above: '<
 	            cu = $('#poscustomer').val();
 	            var subtotal = $('#total').html();
 	            var code = ui.item.row.code;
-				
+
                 $.ajax({
 					type: "get",
 					url: "<?= site_url('pos/getProductDataByCode') ?>",
 					data: { code: code, warehouse_id: wh, customer_id: cu, suspend_id: susp_id, item_rows: item_row, sub_total: subtotal},
 					dataType: "json",
 					success: function (data) {
-						
+
 						if (data !== null) {
 							var item_id  = data['item_id'];
 							var image    = "<?php echo site_url();?>assets/uploads/thumbs/"+data['image'];
@@ -3788,7 +3800,7 @@ var lang = {unexpected_value: '<?=lang('unexpected_value');?>', select_above: '<
 						});
 						$(this).val('');
 					} else {
-						
+
 						var row = add_invoice_item(ui.item);
 						if (row)
 							$(this).val('');
@@ -3818,7 +3830,7 @@ var lang = {unexpected_value: '<?=lang('unexpected_value');?>', select_above: '<
         $('#product-list, #suspend-slider, #category-list, #subcategory-list, #suspend-list, .scroll_F').perfectScrollbar({suppressScrollX: true});
         $('select, .select').select2({minimumResultsForSearch: 6});
         $('.rquantity').focusout(function(){
-			
+
         });
 
 		$(document).on('click', '.product', function (e) {
@@ -3836,7 +3848,7 @@ var lang = {unexpected_value: '<?=lang('unexpected_value');?>', select_above: '<
                 data: {code: code, warehouse_id: wh, customer_id: cu, suspend_id: susp_id, item_rows: item_row, sub_total: subtotal},
                 dataType: "json",
                 success: function (data) {
-					
+
                     e.preventDefault();
                     if (data !== null) {
 						var item_id = data['item_id'];
@@ -3845,11 +3857,11 @@ var lang = {unexpected_value: '<?=lang('unexpected_value');?>', select_above: '<
 						var code = data['row']['code'];
                         var total = data['sub_total'];
                         var item_price = data['item_price'];
-                        
-						
+
+
 						var qty = 0;
 						qty += data['row']['qty'];
-						
+
 						if (data.row.id !== 0) {
 							var product_type = data.row.type;
 							if (product_type == 'digital') {
@@ -7116,7 +7128,7 @@ $(document).ready(function(){
 </script>
 <script type="text/javascript">
 $(document).ready(function(){
-	
+
 	// Ctrl + S = Save in Payment
     $(window).keypress(function(event) {
         if (!(event.which == 115 && event.ctrlKey) && !(event.which == 19)) return true;
