@@ -5135,11 +5135,10 @@ ORDER BY
 	}
 	
 	
-	public function getWarePur($wid,$warehouse,$product,$category,$biller, $from_date, $to_date){
+	public function getWarePur($wid,$warehouse,$product,$category,$biller){
 		$this->db->select("erp_warehouses.id,erp_warehouses.name")
 				 ->join("erp_warehouses","erp_warehouses.id = stock_trans.warehouse_id","LEFT")
-				 ->join("products","products.id = stock_trans.product_id","LEFT")
-                ->where("stock_trans.tran_date <=  '$to_date' ");
+				 ->join("products","products.id = stock_trans.product_id","LEFT");
 		if ($warehouse) {
 			$this->db->where("stock_trans.warehouse_id",$warehouse);
 		} else {
@@ -5191,7 +5190,7 @@ ORDER BY
             ->join("products","products.id = stock_trans.product_id","LEFT")
             ->join("units","units.id = products.unit","LEFT")
             //->join("erp_purchases","erp_purchases.id=stock_trans.tran_id","LEFT")
-            ->where('stock_trans.tran_date <= "'.$start.'" ')
+            ->where('stock_trans.tran_date >= "'.$start.'" AND stock_trans.tran_date <= "'.$end.'"')
 		    ->where('stock_trans.quantity_balance_unit !=', 0);
 		if($product2){
 			$this->db->where(array("stock_trans.product_id"=>$product2));
@@ -5199,8 +5198,8 @@ ORDER BY
         /*if($biller){
             $this->db->where("erp_purchases.biller_id",$biller);
         }*/
-		//$this->db->where(array("stock_trans.warehouse_id"=>$wid,"products.category_id"=>$cid));
-		$this->db->group_by("stock_trans.warehouse_id");
+		$this->db->where(array("stock_trans.warehouse_id"=>$wid,"products.category_id"=>$cid));
+		$this->db->group_by("stock_trans.product_id");
 		$q = $this->db->get("stock_trans");
 		if ($q->num_rows() > 0) {
             foreach (($q->result()) as $row) {
@@ -5401,20 +5400,18 @@ ORDER BY
         }
         return FALSE;
 	}
-	public function getBeginQtyINALL($id,$wid,$start,$end,$biller, $from_date2){
+	public function getBeginQtyINALL($id,$wid,$start,$end,$biller){
 		$numMonth=1;
 		$startDate=date('Y-m-01',strtotime($start . " - $numMonth month"));
 		$endDate=date('Y-m-t',strtotime($start . " - $numMonth month"));
-		$this->db->select("stock_trans.`warehouse_id`,SUM(COALESCE(quantity_balance_unit, 0)) as bqty");
-        $this->db->join("erp_warehouses","erp_warehouses.id = stock_trans.warehouse_id","LEFT");
-		$this->db->join("purchases","erp_purchases.id = stock_trans.tran_id","LEFT");
+		$this->db->select("SUM(COALESCE(quantity_balance_unit, 0)) as bqty");
+		$this->db->join("erp_purchases","erp_purchases.id = stock_trans.tran_id","LEFT");
 		$this->db->where("quantity_balance_unit >",0);
 		if($biller){
 			$this->db->where("erp_purchases.biller_id",$biller);
 		}
-		$this->db->where('stock_trans.tran_date <="'.$start.'" ');
-        $this->db->group_by("stock_trans.warehouse_id");
-		//$this->db->where(array("product_id"=>$id,"stock_trans.warehouse_id"=>$wid));
+		$this->db->where('stock_trans.tran_date >="'.$startDate.'" AND stock_trans.tran_date <="'.$endDate.'"');
+		$this->db->where(array("product_id"=>$id,"stock_trans.warehouse_id"=>$wid));
 		$q = $this->db->get("stock_trans");
 		if ($q->num_rows() > 0) {
             return $q->row();
@@ -5440,20 +5437,18 @@ ORDER BY
         }
         return FALSE;
 	}
-	public function getBeginQtyOUTALL($id,$wid,$start,$end,$biller, $from_date2){
+	public function getBeginQtyOUTALL($id,$wid,$start,$end,$biller){
 		$numMonth=1;
 		$startDate=date('Y-m-01',strtotime($start . " - $numMonth month"));
 		$endDate=date('Y-m-t',strtotime($start . " - $numMonth month"));
-		$this->db->select("stock_trans.`warehouse_id`,SUM(COALESCE((-1)*quantity_balance_unit, 0)) as bqty");
-		$this->db->join("purchases","erp_purchases.id = stock_trans.tran_id","LEFT");
-        $this->db->where("quantity_balance_unit <",0);
-        if($biller){
-            $this->db->where("erp_purchases.biller_id",$biller);
-        }
-
-        $this->db->where('stock_trans.tran_date <="'.$start.'" ');
-		//$this->db->where(array("product_id"=>$id,"stock_trans.warehouse_id"=>$wid));
-        $this->db->group_by("stock_trans.warehouse_id");
+		$this->db->select("SUM(COALESCE((-1)*quantity_balance_unit, 0)) as bqty");
+		$this->db->join("erp_purchases","erp_purchases.id = stock_trans.tran_id","LEFT");
+		$this->db->where("quantity_balance_unit <",0);
+		if($biller){
+			$this->db->where("erp_purchases.biller_id",$biller);
+		}
+		$this->db->where('stock_trans.tran_date >="'.$startDate.'" AND stock_trans.tran_date<="'.$endDate.'"');
+		$this->db->where(array("product_id"=>$id,"stock_trans.warehouse_id"=>$wid));
 		$q = $this->db->get("stock_trans");
 		if ($q->num_rows() > 0) {
             return $q->row();
@@ -5814,7 +5809,7 @@ ORDER BY
         }
         return FALSE;
 	}
-	public function getBeginQtyALL($id,$wid,$start,$end,$biller, $from_date2){
+	public function getBeginQtyALL($id,$wid,$start,$end,$biller){
 		$numMonth=1;
 		$startDate=date('Y-m-01',strtotime($start . " - $numMonth month"));
 		$endDate=date('Y-m-t',strtotime($start . " - $numMonth month"));
@@ -5823,7 +5818,7 @@ ORDER BY
 		if($biller){
 			$this->db->where("erp_purchases.biller_id",$biller);
 		}
-		$this->db->where('stock_trans.tran_date <="'.$start.'" ');
+		$this->db->where('stock_trans.tran_date >="'.$startDate.'" AND stock_trans.tran_date<="'.$endDate.'"');
 		$this->db->where(array("stock_trans.product_id"=>$id,"stock_trans.warehouse_id"=>$wid));
 	
 		$q = $this->db->get("stock_trans");
