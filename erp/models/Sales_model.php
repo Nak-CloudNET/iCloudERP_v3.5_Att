@@ -14,6 +14,7 @@ class Sales_model extends CI_Model
                  ->join('categories', 'categories.id=products.category_id', 'left')
 				 ->join('warehouses_products', 'warehouses_products.product_id=products.id', 'left')
 				 ->group_by('products.id');
+
         if ($this->Settings->overselling) {
             $this->db->where("(erp_products.name LIKE '%" . $term . "%' OR erp_products.code LIKE '%" . $term . "%' OR  concat(erp_products.name, ' (', erp_products.code, ')') LIKE '%" . $term . "%') AND inactived <> 1");
 			if($this->Owner || $this->Admin){
@@ -62,6 +63,7 @@ class Sales_model extends CI_Model
 				}
 			}
         } else {
+            //$this->erp->print_arrays($term);
             $this->db->where("(products.track_quantity = 0 OR warehouses_products.quantity > 0) AND warehouses_products.warehouse_id = '" . $warehouse_id . "' AND "
                 . "(erp_products.name LIKE '%" . $term . "%' OR erp_products.code LIKE '%" . $term . "%' OR  concat(erp_products.name, ' (', erp_products.code, ')') LIKE '%" . $term . "%') AND inactived <> 1");
             if ($this->Owner || $this->Admin) {

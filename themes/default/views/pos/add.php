@@ -586,7 +586,7 @@ if ($q->num_rows() > 0) {
 											$wh[$warehouse->id] = $warehouse->name;
 										}
 
-										echo form_dropdown('warehouse', $wh, (isset($_POSTz['warehouse']) ? $_POST['warehouse'] : $Settings->default_warehouse), 'id="poswarehouse" class="form-control pos-input-tip" data-placeholder="' . $this->lang->line("select") . ' ' . $this->lang->line("warehouse") . '" required="required" style="width:100%;" ');
+										echo form_dropdown('warehouse', $wh, (isset($_POST['warehouse']) ? $_POST['warehouse'] : $Settings->default_warehouse), 'id="poswarehouse" class="form-control pos-input-tip" data-placeholder="' . $this->lang->line("select") . ' ' . $this->lang->line("warehouse") . '" required="required" style="width:100%;" ');
 										?>
 									</div>
 								</div>
@@ -603,10 +603,7 @@ if ($q->num_rows() > 0) {
 								 //echo form_dropdown('warehouse',$wh, (isset($_POST['warehouse']) ? $_POST['warehouse'] : $Settings->default_warehouse), 'id="poswarehouse" class="form-control tip" id="payment_reference_no" required="required" style="width:100%;"');
 								 // echo form_input('warehouse', (isset($_POST['warehouse']) ? $_POST['warehouse'] :$warehouse->name ),'class="form-control pos-tip" id="add_item" data-placement="top" data-trigger="focus" placeholder="' . $this->lang->line("search_product_by_name_code") . '" title="' . $this->lang->line("au_pr_name_tip") . '"'); 
 
-								echo form_input('warehouse', (isset($_POST['warehouse']) ? $_POST['warehouse'] : $warehouse->name), 'id="poswarehouse" class="form-control pos-input-tip" data-placeholder="' . $this->lang->line("select") . ' ' . $this->lang->line("warehouse") . '" required="required" style="width:100%;" ');
-								echo  form_hidden('warehouse', $Settings->default_warehouse,' class="form-control pos-tip" id="add_item" data-placement="top" data-trigger="focus" placeholder="' . $this->lang->line("search_product_by_name_code") . '" title="' . $this->lang->line("au_pr_name_tip") . '" '); 
-								
-
+                                    echo form_dropdown('warehouse', $wh, (isset($_POST['warehouse']) ? $_POST['warehouse'] : $warehouse->id), 'id="poswarehouse" class="form-control pos-input-tip" data-placeholder="' . $this->lang->line("select") . ' ' . $this->lang->line("warehouse") . '" required="required" style="width:100%;" ');
 									?>
 									
 
