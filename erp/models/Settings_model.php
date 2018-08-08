@@ -1207,7 +1207,6 @@ class Settings_model extends CI_Model
         }
         return FALSE;
     }
-
     public function getProductGroupPriceByProID($product_id, $group_id)
     {
         $product_id = explode('_', $product_id);
