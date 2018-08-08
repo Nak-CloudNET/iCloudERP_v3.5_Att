@@ -56,7 +56,7 @@
 					</a>
 				</li>
             </ul>
-        </div>
+        </div>       
     </div>
     <div class="box-content">
         <div class="row">
@@ -85,7 +85,6 @@
                                     <?php
                                     $waee[''] = "ALL";
                                     foreach ($warefull as $wa) {
-
                                         $waee[$wa->id] = $wa->code.' / '.$wa->name;
                                     }
                                     echo form_dropdown('warehouse', $waee, (isset($_POST['warehouse']) ? $_POST['warehouse'] : ''), 'class="form-control select" id="warehouse" placeholder="' . lang("select") . " " . lang("warehouse") . '" style="width:100%"')
@@ -125,7 +124,7 @@
                                 class="controls"> <?php echo form_submit('submit_report', $this->lang->line("submit"), 'class="btn btn-primary sub"'); ?> </div>
                         </div>
                     <?php echo form_close(); ?>
-
+					
                 </div>
                 <!--============= Search Area ===============-->
 
@@ -144,7 +143,7 @@
                             }
                         }
 					}
-
+					
 					$num2 = $this->reports_model->getTransuctionsPurOUT($product2,$warehouse2,$from_date2,$to_date2,$biller2);
 					$k2 = 0;
 					if(is_array($num2)){
@@ -176,7 +175,7 @@
 								<th rowspan="2"><?= lang("balance") ?></th>
 							</tr>
 							<tr class="shead">
-
+								
 								<?php
 									if (is_array($num)) {
                                         foreach($num as $tr){
@@ -195,13 +194,12 @@
                                         }
 									}
 								?>
-
+								
 							</tr>
 						</thead>
                         <tbody>
 							<?php
 							if(is_array($ware)){
-                                //$this->erp->print_arrays($ware);
 								foreach($ware as $rw){
                                     ?>
 								<tr>
@@ -229,7 +227,6 @@
                                         </td>
 									</tr>
 								<?php
-
 									$balance = 0;
 									$total_inn = 0;
 									$total_outt = 0;
@@ -239,13 +236,13 @@
 									$total_in_cate = array();
 									$total_out_cate = array();
 									$propur = $this->reports_model->getProPur($rw->id,$rc->id,$product2,$biller2,$from_date2,$to_date2);
-                                       // $this->erp->print_arrays($propur);
+
 									foreach($propur as $rp){
 										$beginINqty = $this->reports_model->getBeginQtyINALL($rp->product_id,$rw->id,$from_date2,$to_date2,$biller2);
 										$beginOUTqty = $this->reports_model->getBeginQtyOUTALL($rp->product_id,$rw->id,$from_date2,$to_date2,$biller2);
 										$btotal_qty = $beginINqty->bqty-$beginOUTqty->bqty;
 										$begin_qty = $this->reports_model->getBeginQtyALL($rp->product_id,$rw->id,$from_date2,$to_date2,$biller2);
-                                       //$this->erp->print_arrays($rp);
+
                                         ?>
 										<tr>
                                             <td style="text-align:center !important;">
@@ -336,7 +333,7 @@
                                                 }
 											}
 											//$qty_unit3 = $this->reports_model->getQtyUnitALL($rp->product_id,$rw->id,$from_date2,$to_date2);
-											$am = ($btotal_qty +$total_in) - $total_out;
+											$am = ($total_in-$total_out);
 											?>
 											<td style='text-align:right;'><b><?=$this->erp->formatDecimal($total_out?$total_out:'')?></b> </td>
 											<td style='text-align:right;'><span><b><?=$this->erp->formatDecimal($am?$am:'')?></b></span><br>
@@ -403,7 +400,7 @@
 									$total2_inn +=$total_inn;
 									$total2_outt +=$total_outt;
 									}
-							?>
+							?>		
 								<tr>
                                     <td style="text-align:right; background:#428BCA;color:white;border-color: #357EBD;">
                                         <b>Grand Total <i
@@ -416,30 +413,28 @@
 											foreach($num as $tr){
 												if($tr->tran_type){
 													$amount_qty_cat = $this->reports_model->getAmountQtyINALLCAT($product2,$rw->id,$tr->tran_type,$category2,$from_date2,$to_date2,$biller2);
-
+													
 													 echo "<td style='text-align:right; background:#428BCA;color:white;border-color: #357EBD;'><b>".$this->erp->formatDecimal($amount_qty_cat->bqty?$amount_qty_cat->bqty:'')."</b></td>";
-
+												
 												}
 											}
 										}?>
 										<td style="text-align:right; background:#428BCA;color:white;border-color: #357EBD;"><b><?=$this->erp->formatDecimal($total2_inn?$total2_inn:'')?></b></td>
-
+										
 										<?php
 										if(is_array($num2)){
 											foreach($num2 as $tr2){
-
+												
 												if($tr2->tran_type){
 													 $amount_qty_cat2 = $this->reports_model->getAmountQtyOUTALLCAT($product2,$rw->id,$tr2->tran_type,$category2,$from_date2,$to_date2,$biller2);
-
+													
 													 echo "<td style='text-align:right; background:#428BCA;color:white;border-color: #357EBD;'><b>".$this->erp->formatDecimal($amount_qty_cat2->bqty?$amount_qty_cat2->bqty:'')."</b></td>";
-
+													
 												}
-
+												 
 											}
 										}
-
 										?>
-                                    <?php //$this->erp->print_arrays($total_balance); ?>
 									<td style="text-align:right; background:#428BCA;color:white;border-color: #357EBD;"><b><?=$this->erp->formatDecimal($total2_outt?$total2_outt:'')?></b></td>
 									<td style="text-align:right; background:#428BCA;color:white;border-color: #357EBD;"><b><?=$this->erp->formatDecimal($total_balance?$total_balance:'')?></b></td>
 									</tr>
@@ -447,10 +442,10 @@
 								}
 							}
 							?>
-                        </tbody>
+                        </tbody>                       
                     </table>
                 </div>
-
+				
             </div>
         </div>
     </div>
@@ -490,7 +485,7 @@ $(document).ready(function () {
             window.location.href = "<?= site_url('reports/inventoryInoutReport2/pdf/0/'.$product1.'/'.$category1.'/'.$warehouse1.'/'.$from_date2.'/'.$to_date2) ?>";
 			return false;
 		}
-	});
+	});	
 });
-
+		
 </script>
