@@ -43,19 +43,19 @@ class Pos extends MY_Controller
 			$date = $_GET['d'];
 			$this->data['date'] = $date;
 		}
-		 
+
 		$this->data['users']    = $this->site->getStaff();
 		$this->data['products'] = $this->site->getProducts();
         $this->data['billers']  = $this->site->getAllCompanies('biller');
 		$this->data['agencies'] = $this->site->getAllUsers();
 
         $this->data['error']    = (validation_errors()) ? validation_errors() : $this->session->flashdata('error');
-		
+
         if ($this->Owner || $this->Admin || !$this->session->userdata('warehouse_id')) {
             $this->data['warehouses']   = $this->site->getAllWarehouses();
             $this->data['warehouse_id'] = $warehouse_id;
             $this->data['warehouse']    = $warehouse_id ? $this->site->getWarehouseByID($warehouse_id) : NULL;
-			
+
         } else {
             $this->data['warehouses'] = $this->products_model->getUserWarehouses();
 			if($warehouse_id){
@@ -70,7 +70,7 @@ class Pos extends MY_Controller
 
         $bc = array(array('link' => base_url(), 'page' => lang('home')), array('link' => site_url('pos'), 'page' => lang('pos')), array('link' => '#', 'page' => lang('pos_sales')));
         $meta = array('page_title' => lang('pos_sales'), 'bc' => $bc);
-		
+
         $this->page_construct('pos/sales', $meta, $this->data);
     }
 
@@ -79,14 +79,14 @@ class Pos extends MY_Controller
 		$this->data['table'] = $warehouse_id;
 		$this->data['warehouse_id'] = $warehouse_id;
 		$this->load->view('default/views/pos/view_list', $this->data);
-	} 
+	}
     function getSales($warehouse_id = NULL)
     {
         $this->erp->checkPermissions('index');
 		if($warehouse_id){
 			$warehouse_id = explode('-', $warehouse_id);
 		}
-		
+
 		if ($this->input->get('user')) {
             $user_query = $this->input->get('user');
         } else {
@@ -109,7 +109,7 @@ class Pos extends MY_Controller
         }
 		if ($this->input->get('product_id')) {
             $product_id = $this->input->get('product_id');
-			
+
 			//$this->erp->print_arrays($product_id);
         } else {
             $product_id = NULL;
@@ -134,14 +134,14 @@ class Pos extends MY_Controller
         } else {
             $end_date = NULL;
         }
-		
+
         if ($start_date) {
             $start_date = $this->erp->fld($start_date);
             $end_date = $this->erp->fld($end_date);
         }
 
-       
-		
+
+
         $detail_link        = anchor('pos/view/$1', '<i class="fa fa-file-text-o"></i> ' . lang('view_receipt'));
 		//$detail_link      = anchor('sales/invoice_st_a5/$1', '<i class="fa fa-file-text-o"></i> ' . lang('view_receipt'));
 		$payments_link      = anchor('sales/payments/$1', '<i class="fa fa-money"></i> ' . lang('view_payments'), 'data-toggle="modal" data-target="#myModal"');
@@ -159,7 +159,7 @@ class Pos extends MY_Controller
             . lang('actions') . ' <span class="caret"></span></button>
         <ul class="dropdown-menu pull-right" role="menu">
              <li>' . $detail_link . '</li>'
-            
+
             .(($this->Owner || $this->Admin) ? '<li>'.$payments_link.'</li>' : ($this->GP['sales-payments'] ? '<li>'.$payments_link.'</li>' : '')).
             (($this->Owner || $this->Admin) ? '<li>'.$add_payment_link.'</li>' : ($this->GP['sales-payments'] ? '<li>'.$add_payment_link.'</li>' : '')).
             (($this->Owner || $this->Admin) ? '<li>'.$add_delivery_link.'</li>' : ($this->GP['sales-add_delivery'] ? '<li>'.$add_delivery_link.'</li>' : '')).
@@ -167,27 +167,27 @@ class Pos extends MY_Controller
             (($this->Owner || $this->Admin) ? '<li>'.$email_link.'</li>' : ($this->GP['sales-email'] ? '<li>'.$email_link.'</li>' : '')).
 			(($this->Owner || $this->Admin) ? '<li>'.$return_link.'</li>' : ($this->GP['sales-return_sales'] ? '<li>'.$return_link.'</li>' : '')).
 			(($this->Owner || $this->Admin) ? '<li>'.$delete_link.'</li>' : ($this->GP['sales-delete'] ? '<li>'.$delete_link.'</li>' : '')).
-            
+
         '</ul>
 		</div></div>';
         //$action = '<div class="text-center">' . $detail_link . ' ' . $edit_link . ' ' . $email_link . ' ' . $delete_link . '</div>';
 
         $this->load->library('datatables');
-		
+
 		$exchange_rate = $this->pos_model->getExchange_rate();
-		
-        if ($warehouse_id) {		
+
+        if ($warehouse_id) {
 			$this->datatables
-                ->select($this->db->dbprefix('sales').".id as id, 
+                ->select($this->db->dbprefix('sales').".id as id,
 				".$this->db->dbprefix('sales').".date,
 				".$this->db->dbprefix('payments').".date as pdate,
-				".$this->db->dbprefix('sales').".reference_no, biller.company, ".$this->db->dbprefix('sales').".customer, 
-										sale_status, ".$this->db->dbprefix('sales').".grand_total,  
+				".$this->db->dbprefix('sales').".reference_no, biller.company, ".$this->db->dbprefix('sales').".customer,
+										sale_status, ".$this->db->dbprefix('sales').".grand_total,
 										COALESCE((SELECT SUM(erp_return_sales.paid) FROM erp_return_sales WHERE erp_return_sales.sale_id = erp_sales.id), 0) as return_sale,
-										COALESCE((SELECT SUM(IF((erp_payments.paid_by != 'deposit' AND ISNULL(erp_payments.return_id)), erp_payments.amount, IF(NOT ISNULL(erp_payments.return_id), ((-1)*erp_payments.amount), 0))) FROM erp_payments WHERE erp_payments.sale_id = erp_sales.id),0) as paid, 
+										COALESCE((SELECT SUM(IF((erp_payments.paid_by != 'deposit' AND ISNULL(erp_payments.return_id)), erp_payments.amount, IF(NOT ISNULL(erp_payments.return_id), ((-1)*erp_payments.amount), 0))) FROM erp_payments WHERE erp_payments.sale_id = erp_sales.id),0) as paid,
 										COALESCE((SELECT SUM(IF(erp_payments.paid_by = 'deposit', erp_payments.amount, 0)) FROM erp_payments WHERE erp_payments.sale_id = erp_sales.id), 0) as deposit,
-										COALESCE((SELECT SUM(erp_payments.discount) FROM erp_payments WHERE erp_payments.sale_id = erp_sales.id), 0) as discount, 
-										(" . $this->db->dbprefix('sales') . ".grand_total - COALESCE((SELECT SUM(erp_return_sales.paid) FROM erp_return_sales WHERE erp_return_sales.sale_id = erp_sales.id), 0) - COALESCE((SELECT SUM(IF((erp_payments.paid_by != 'deposit' AND ISNULL(erp_payments.return_id)), erp_payments.amount, IF(NOT ISNULL(erp_payments.return_id), ((-1)*erp_payments.amount), 0))) FROM erp_payments WHERE erp_payments.sale_id = erp_sales.id),0) - COALESCE((SELECT SUM(IF(erp_payments.paid_by = 'deposit', erp_payments.amount, 0)) FROM erp_payments WHERE erp_payments.sale_id = erp_sales.id), 0) - COALESCE((SELECT SUM(erp_payments.discount) FROM erp_payments WHERE erp_payments.sale_id = erp_sales.id), 0)) as balance, 
+										COALESCE((SELECT SUM(erp_payments.discount) FROM erp_payments WHERE erp_payments.sale_id = erp_sales.id), 0) as discount,
+										(" . $this->db->dbprefix('sales') . ".grand_total - COALESCE((SELECT SUM(erp_return_sales.paid) FROM erp_return_sales WHERE erp_return_sales.sale_id = erp_sales.id), 0) - COALESCE((SELECT SUM(IF((erp_payments.paid_by != 'deposit' AND ISNULL(erp_payments.return_id)), erp_payments.amount, IF(NOT ISNULL(erp_payments.return_id), ((-1)*erp_payments.amount), 0))) FROM erp_payments WHERE erp_payments.sale_id = erp_sales.id),0) - COALESCE((SELECT SUM(IF(erp_payments.paid_by = 'deposit', erp_payments.amount, 0)) FROM erp_payments WHERE erp_payments.sale_id = erp_sales.id), 0) - COALESCE((SELECT SUM(erp_payments.discount) FROM erp_payments WHERE erp_payments.sale_id = erp_sales.id), 0)) as balance,
 										sales.payment_status")
                 ->from('sales')
                 ->join('companies', 'companies.id = sales.customer_id', 'left')
@@ -198,16 +198,16 @@ class Pos extends MY_Controller
                 ->group_by('sales.id');
         } else {
             $this->datatables
-                ->select($this->db->dbprefix('sales').".id as id, 
+                ->select($this->db->dbprefix('sales').".id as id,
 				".$this->db->dbprefix('sales').".date,
 				".$this->db->dbprefix('payments').".date as pdate,
-				".$this->db->dbprefix('sales').".reference_no, biller.company, ".$this->db->dbprefix('sales').".customer, 
-										sale_status, ".$this->db->dbprefix('sales').".grand_total,  
+				".$this->db->dbprefix('sales').".reference_no, biller.company, ".$this->db->dbprefix('sales').".customer,
+										sale_status, ".$this->db->dbprefix('sales').".grand_total,
 										COALESCE((SELECT SUM(erp_return_sales.paid) FROM erp_return_sales WHERE erp_return_sales.sale_id = erp_sales.id), 0) as return_sale,
-										COALESCE((SELECT SUM(IF((erp_payments.paid_by != 'deposit' AND ISNULL(erp_payments.return_id)), erp_payments.amount, IF(NOT ISNULL(erp_payments.return_id), ((-1)*erp_payments.amount), 0))) FROM erp_payments WHERE erp_payments.sale_id = erp_sales.id),0) as paid, 
+										COALESCE((SELECT SUM(IF((erp_payments.paid_by != 'deposit' AND ISNULL(erp_payments.return_id)), erp_payments.amount, IF(NOT ISNULL(erp_payments.return_id), ((-1)*erp_payments.amount), 0))) FROM erp_payments WHERE erp_payments.sale_id = erp_sales.id),0) as paid,
 										COALESCE((SELECT SUM(IF(erp_payments.paid_by = 'deposit', erp_payments.amount, 0)) FROM erp_payments WHERE erp_payments.sale_id = erp_sales.id), 0) as deposit,
-										COALESCE((SELECT SUM(erp_payments.discount) FROM erp_payments WHERE erp_payments.sale_id = erp_sales.id), 0) as discount, 
-										(" . $this->db->dbprefix('sales') . ".grand_total - COALESCE((SELECT SUM(erp_return_sales.paid) FROM erp_return_sales WHERE erp_return_sales.sale_id = erp_sales.id), 0) - COALESCE((SELECT SUM(IF((erp_payments.paid_by != 'deposit' AND ISNULL(erp_payments.return_id)), erp_payments.amount, IF(NOT ISNULL(erp_payments.return_id), ((-1)*erp_payments.amount), 0))) FROM erp_payments WHERE erp_payments.sale_id = erp_sales.id),0) - COALESCE((SELECT SUM(IF(erp_payments.paid_by = 'deposit', erp_payments.amount, 0)) FROM erp_payments WHERE erp_payments.sale_id = erp_sales.id), 0) - COALESCE((SELECT SUM(erp_payments.discount) FROM erp_payments WHERE erp_payments.sale_id = erp_sales.id), 0)) as balance, 
+										COALESCE((SELECT SUM(erp_payments.discount) FROM erp_payments WHERE erp_payments.sale_id = erp_sales.id), 0) as discount,
+										(" . $this->db->dbprefix('sales') . ".grand_total - COALESCE((SELECT SUM(erp_return_sales.paid) FROM erp_return_sales WHERE erp_return_sales.sale_id = erp_sales.id), 0) - COALESCE((SELECT SUM(IF((erp_payments.paid_by != 'deposit' AND ISNULL(erp_payments.return_id)), erp_payments.amount, IF(NOT ISNULL(erp_payments.return_id), ((-1)*erp_payments.amount), 0))) FROM erp_payments WHERE erp_payments.sale_id = erp_sales.id),0) - COALESCE((SELECT SUM(IF(erp_payments.paid_by = 'deposit', erp_payments.amount, 0)) FROM erp_payments WHERE erp_payments.sale_id = erp_sales.id), 0) - COALESCE((SELECT SUM(erp_payments.discount) FROM erp_payments WHERE erp_payments.sale_id = erp_sales.id), 0)) as balance,
 										sales.payment_status")
                 ->from('sales')
 				->join('payments', 'payments.sale_id=sales.id', 'left')
@@ -216,39 +216,39 @@ class Pos extends MY_Controller
 				->join('companies as erp_biller', 'biller.id = sales.biller_id', 'inner')
                 ->group_by('sales.id');
         }
-		
+
 		if ($product_id) {
 			$this->datatables->join('sale_items', 'sale_items.sale_id = sales.id', 'left');
 			$this->datatables->where('sale_items.product_id', $product_id);
 		}
-		
+
         $this->datatables->where('pos', 1);
-		
+
         if (!$this->Customer && !$this->Supplier && !$this->Owner && !$this->Admin && !$this->session->userdata('view_right')) {
             $this->datatables->where('sales.created_by', $this->session->userdata('user_id'));
         } elseif ($this->Customer) {
             $this->datatables->where('customer_id', $this->session->userdata('user_id'));
         }
-		
+
 		if ($user_query) {
 			$this->datatables->where('sales.created_by', $user_query);
 		}
-		
+
 		if ($reference_no) {
 			$this->datatables->where('sales.reference_no', $reference_no);
 		}
-		
+
 		if ($biller) {
 			$this->datatables->where('sales.biller_id', $biller);
 		}
 		if ($customer) {
 			$this->datatables->where('sales.customer_id', $customer);
 		}
-		
+
 		if($saleman){
 			$this->datatables->where('sales.saleman_by', $saleman);
 		}
-		
+
 		if ($warehouse) {
 			$this->datatables->where('sales.warehouse_id', $warehouse);
 		}
@@ -259,7 +259,7 @@ class Pos extends MY_Controller
         $this->datatables->add_column("Actions", $action, "id, psuspend")->unset_column('psuspend');
         echo $this->datatables->generate();
     }
-	
+
 	function getPos($warehouse_id = NULL)
     {
         $this->erp->checkPermissions('index');
@@ -294,9 +294,9 @@ class Pos extends MY_Controller
         //$action = '<div class="text-center">' . $detail_link . ' ' . $edit_link . ' ' . $email_link . ' ' . $delete_link . '</div>';
 
         $this->load->library('datatables');
-		
+
 		$exchange_rate = $this->pos_model->getExchange_rate();
-		
+
         if ($warehouse_id) {
             $this->datatables
                 ->select($this->db->dbprefix('sales').".id as id, date, reference_no, biller, customer, grand_total, paid, (grand_total - paid) AS balance, payment_status,sale_status,(IF(ISNULL(".$this->db->dbprefix("sales").".delivery_status), CONCAT(erp_sales.id, '___', 'delivery'),
@@ -322,7 +322,7 @@ class Pos extends MY_Controller
         $this->datatables->add_column("Actions", $action, "id, cemail")->unset_column('cemail');
         echo $this->datatables->generate();
     }
-	
+
 
 	function getPos_old($warehouse_id = NULL)
     {
@@ -358,9 +358,9 @@ class Pos extends MY_Controller
         //$action = '<div class="text-center">' . $detail_link . ' ' . $edit_link . ' ' . $email_link . ' ' . $delete_link . '</div>';
 
         $this->load->library('datatables');
-		
+
 		$exchange_rate = $this->pos_model->getExchange_rate();
-		
+
         if ($warehouse_id) {
             $this->datatables
                 ->select($this->db->dbprefix('sales').".id as id, date, reference_no, biller, customer, grand_total, paid, (grand_total - paid) AS balance, payment_status,sale_status,(IF(ISNULL(".$this->db->dbprefix("sales").".delivery_status), CONCAT(erp_sales.id, '___', 'delivery'),
@@ -386,7 +386,7 @@ class Pos extends MY_Controller
         $this->datatables->add_column("Actions", $action, "id, cemail")->unset_column('cemail');
         echo $this->datatables->generate();
     }
-	
+
     /* ---------------------------------------------------------------------------------------------------- */
 
     function index($sid = null, $sale_order_id=null, $combine_table = null)
@@ -405,7 +405,7 @@ class Pos extends MY_Controller
         }
 
         $this->data['sid'] 	= $this->input->get('suspend_id') ? $this->input->get('suspend_id') : $sid;
-        $did 				= $this->input->post('delete_id') ? $this->input->post('delete_id') : NULL;        
+        $did 				= $this->input->post('delete_id') ? $this->input->post('delete_id') : NULL;
         $suspend 			= $this->input->post('suspend') ? TRUE : FALSE;
         $count 				= $this->input->post('count') ? $this->input->post('count') : NULL;
 
@@ -415,7 +415,7 @@ class Pos extends MY_Controller
 		$this->form_validation->set_rules('date', $this->lang->line("date"));
         $this->form_validation->set_rules('biller', $this->lang->line("biller"), 'required');
         //$this->form_validation->set_rules('reference_nob', lang("reference_no"), 'required|is_unique[sales.reference_no]');
-		
+
         if ($this->form_validation->run() == true){
 
             $quantity 			= "quantity";
@@ -433,8 +433,8 @@ class Pos extends MY_Controller
             $total_items 		= $this->input->post('total_items');
             $sale_status        = $this->input->post('sale_status');
             $bank_account 		= $this->input->post('bank_account');
-			
-			
+
+
             $payment_status 	= 'due';
             $payment_term 		= 0;
             $due_date 			= date('Y-m-d', strtotime('+' . $payment_term . ' days'));
@@ -459,7 +459,7 @@ class Pos extends MY_Controller
 				 $this->session->set_flashdata('error','Please select bank account');
 				 redirect($_SERVER["HTTP_REFERER"]);
 			}
-			
+
             if ($this->session->userdata('biller_id')) {
                 $default_biller = JSON_decode($this->session->userdata('biller_id'));
             } else {
@@ -467,7 +467,7 @@ class Pos extends MY_Controller
             }
 
             isCloseDate(date('Y-m-d', strtotime($date)));
-			
+
             $total 				= 0;
             $product_tax 		= 0;
             $order_tax 			= 0;
@@ -478,7 +478,7 @@ class Pos extends MY_Controller
 			$total_discount 	= 0;
 			$totalcost 			= 0;
             $amout_paid         = 0;
-            
+
             $i = isset($_POST['product_code']) ? sizeof($_POST['product_code']) : 0;
             for ($r = 0; $r < $i; $r++){
                 $item_id   		= $_POST['product_id'][$r];
@@ -493,19 +493,19 @@ class Pos extends MY_Controller
 				$expdate 		= isset($this->sales_model->getPurchaseItemExDateByID($expire_date_id)->expiry);
                 $real_unit_price = $this->erp->formatDecimal($_POST['real_unit_price'][$r]);
                 $unit_price 	= $this->erp->formatDecimal($_POST['unit_price'][$r]);
-                $item_quantity 	= $_POST['quantity'][$r]; 
+                $item_quantity 	= $_POST['quantity'][$r];
                 $item_serial 	= isset($_POST['serial'][$r]) ? $_POST['serial'][$r] : '';
                 $item_tax_rate 	= isset($_POST['product_tax'][$r]) ? $_POST['product_tax'][$r] : NULL;
                 $item_discount 	= isset($_POST['product_discount'][$r]) ? $_POST['product_discount'][$r] : NULL;
 				$g_total_txt 	= $_POST['grand_total'][$r];
 				$item_price_id 	= $_POST['price_id'][$r];
-				
+
                 if (isset($item_code) && isset($real_unit_price) && isset($unit_price) && isset($item_quantity)) {
                     $product_details 	= $item_type != 'manual' ? $this->pos_model->getProductByCode($item_code) : NULL;
                     $unit_price 		= $real_unit_price;
                     $pr_discount 		= 0;
 					$price_tax_cal      = $unit_price;
-					
+
 					if ($this->Settings->tax_calculate) {
 						if (isset($item_tax_rate) && $item_tax_rate != 0) {
 							$pr_tax = $item_tax_rate;
@@ -529,11 +529,11 @@ class Pos extends MY_Controller
                             $pr_discount = $this->erp->formatDecimal($discount/$item_quantity, 8);
                         }
                     }
-                    
+
 					$unitPrice 			= $unit_price;
-                    $item_net_price 	= $unit_price; 
-                    $pr_item_discount 	= $this->erp->formatDecimal($pr_discount * $item_quantity); 
-                    $product_discount 	+= $pr_item_discount; 
+                    $item_net_price 	= $unit_price;
+                    $pr_item_discount 	= $this->erp->formatDecimal($pr_discount * $item_quantity);
+                    $product_discount 	+= $pr_item_discount;
                     $pr_tax = 0; $pr_item_tax = 0; $item_tax = 0; $tax = "";
 
                     if (isset($item_tax_rate) && $item_tax_rate != 0) {
@@ -564,7 +564,7 @@ class Pos extends MY_Controller
                         }
                         $pr_item_tax 	        = $this->erp->formatDecimal($item_tax * $item_quantity, 4);
                     }
-					
+
 					$product_tax 	            += $pr_item_tax;
 					$unit_price 	            = $this->erp->formatDecimal($unit_price - $pr_discount, 8);
 
@@ -574,15 +574,15 @@ class Pos extends MY_Controller
 						$item_cost   	    = $item_cost * $row->qty_unit;
 						$quantity_balance   = $item_quantity * $row->qty_unit;
 					}
-					
+
 					$totalcost	+= $item_cost;
-					
+
 					if( $product_details->tax_method == 0){
 						$subtotal = (($unit_price * $item_quantity));
 					}else{
 						$subtotal = (($unit_price * $item_quantity) + $pr_item_tax);
 					}
-					
+
                     $products[] = array(
                         'product_id' 		=> $item_id,
                         'digital_id' 		=> $digital_id,
@@ -608,14 +608,14 @@ class Pos extends MY_Controller
 						'expiry' 			=> $expdate,
 						'expiry_id' 		=> $expire_date_id,
 						'price_id' 		=> $item_price_id
-                    );					
+                    );
                     $total += $subtotal;
 					$g_total_txt1 += $subtotal;
 					$total_discount+=$product_discount;
                 }
-				
+
             }
-            
+
             if (empty($products)) {
                 //$this->form_validation->set_rules('product', lang("order_items"), 'required');
             } else {
@@ -628,17 +628,17 @@ class Pos extends MY_Controller
                 if ($opos !== false) {
                     $ods = explode("%", $order_discount_id);
                     $order_discount = $this->erp->formatDecimal((($total) * (Float)($ods[0])) / 100);
-				 
+
                 } else {
                     $order_discount = $this->erp->formatDecimal(($total * $order_discount_id)/100);
-					
+
                 }
             } else {
                 $order_discount_id = NULL;
             }
-            
+
             $total_discount = $this->erp->formatDecimal($order_discount + $product_discount);
-            
+
             if ($this->Settings->tax2) {
                 $order_tax_id = $this->input->post('order_tax');
                 if ($order_tax_details = $this->site->getTaxRateByID($order_tax_id)) {
@@ -651,10 +651,10 @@ class Pos extends MY_Controller
             } else {
                 $order_tax_id = null;
             }
-            
+
 			$total_tax 		= $this->erp->formatDecimal(($product_tax + $order_tax), 4);
-			
-			
+
+
 			$grand_total 	= $this->erp->formatDecimal((($total - $order_discount) + ($order_tax + $this->erp->formatDecimal($shipping))), 4);
 			$cur_rate 		= $this->pos_model->getExchange_rate();
 			$other_cur_paid = 0;
@@ -663,7 +663,7 @@ class Pos extends MY_Controller
 			$amt_p 			= 0;
 			$p 				= isset($_POST['amount']) ? sizeof($_POST['amount']) : 0;
 			$p_cur 			= isset($_POST['other_cur_paid']) ? sizeof($_POST['other_cur_paid']) : 0;
-			
+
 			for ($r = 0; $r < $p; $r++) {
 				$amt_p 			+= $_POST['amount'][$r];
 				$other_cur_paid += ($_POST['other_cur_paid'][$r]/$cur_rate->rate);
@@ -672,19 +672,19 @@ class Pos extends MY_Controller
 					$paidd 		= $grand_total;
 				}
 			}
-			
+
 			$suppend_name 	= $this->pos_model->get_suppendName($did);
 
             $i				= 1;
-            $query			= 0; 
+            $query			= 0;
 			$date 			= $this->input->post('date');
             $dates 			= date('Y-m-d',strtotime($date));
-            
+
             $this->db
                  ->select("DATE_FORMAT(date,'%d') as date, biller_id, queue")
                  ->where("DATE_FORMAT(date,'%Y-%m-%d')",$dates)
                  ->where('biller_id', $biller_id)
-                 ->order_by('id DESC'); 
+                 ->order_by('id DESC');
             $queues = $this->db->get('erp_sales')->row();
             $cdate 	= date('d');
 
@@ -693,7 +693,7 @@ class Pos extends MY_Controller
             } else {
                 $query = $i;
             }
-          
+
             $data = array(
                 'date'              => $date,
                 'reference_no'      => $reference,
@@ -705,7 +705,7 @@ class Pos extends MY_Controller
                 'note'              => $note,
                 'total'             => $this->erp->formatDecimal($total),
                 'total_cost'        => 0,
-				
+
                 'product_discount'  => $product_discount,
                 'order_discount_id' => $order_discount_id,
                 'order_discount'    => $order_discount,
@@ -735,7 +735,7 @@ class Pos extends MY_Controller
 				'type_id'           => $this->input->post('sale_type_id'),
 				'queue'             => $query
             );
-            
+
 			if($_POST['paid_by'][0] == 'depreciation'){
 				$no = sizeof($_POST['no']);
 				$period = 1;
@@ -759,7 +759,7 @@ class Pos extends MY_Controller
 			}else{
 				$loans = array();
 			}
-			
+
 			$amount 	= 0;
 			$kh_paid 	= false;
             $pos_b      = 0;
@@ -777,7 +777,7 @@ class Pos extends MY_Controller
                     } else {
                         $amount = $g_total - ($pos_b - $paid);
                     }
-					
+
 						 $payment[] = array(
 											'biller_id'				=> $biller_id,
 											'date' 					=> $date,
@@ -800,7 +800,7 @@ class Pos extends MY_Controller
 											'pos_paid_other_rate' 	=> $cur_rate->rate,
 											'bank_account' 			=> $bank_account[$r]
 										);
-				
+
                     /*if (isset($_POST['amount'][$r]) && !empty($_POST['amount'][$r]) && isset($_POST['paid_by'][$r]) && !empty($_POST['paid_by'][$r])  ) {
 						if(strpos($_POST['amount'][$r], '-') !== false){
 							$payment[] = array(
@@ -823,9 +823,9 @@ class Pos extends MY_Controller
 								'pos_paid_other' 		=> $_POST['other_cur_paid'][$r],
 								'pos_paid_other_rate' 	=> $cur_rate->rate,
 								'bank_account' 			=> $bank_account[$r]
-							); 
+							);
 						} else {
-							
+
 							$payment[] = array(
 								'biller_id'				=> $biller_id,
 								'date' 					=> $date,
@@ -848,9 +848,9 @@ class Pos extends MY_Controller
 								'pos_paid_other_rate' 	=> $cur_rate->rate,
 								'bank_account' 			=> $bank_account[$r]
 							);
-							
+
 						}
-						
+
                         $pp[] = $paidd;
                     }*/
                 }
@@ -907,9 +907,9 @@ class Pos extends MY_Controller
 						$paid = 0;
 					}
 				}
-								
+
             }
-			
+
             if (!isset($payment) || empty($payment)) {
                 $payment = array();
             }
@@ -934,7 +934,7 @@ class Pos extends MY_Controller
             }
             //$this->erp->print_arrays($data, $products, $payment);
         }
-		
+
         if ($this->form_validation->run() == true ) {
 			$cur_rate = $this->pos_model->getExchange_rate();
 			if ($suspend) {
@@ -951,7 +951,7 @@ class Pos extends MY_Controller
                         redirect("pos");
                     }
                 }
-				
+
             } else {
 				$data['payment_status'] = $payment_status;
 
@@ -973,10 +973,10 @@ class Pos extends MY_Controller
 							'bank_code' 	=> $bank_account[0],
 							'status' 		=> 'paid'
 						);
-                        
+
 						$this->sales_model->add_deposit($deposits);
 					}
-					
+
 					$suspended_sale = $this->pos_model->getOpenBillByID($did);
 					$inactive = $this->pos_model->updateSuspendactive($suspended_sale->suspend_id);
                     $this->session->set_userdata('remove_posls', 1);
@@ -1000,7 +1000,7 @@ class Pos extends MY_Controller
 						'delivery_status'   => 'pending',
 						'delivery_by'       => $delivery_by
 					);
-					
+
 					$pos = $this->sales_model->getSetting();
 					if($pos->auto_delivery == 1){
 						$this->sales_model->addDelivery($dlDetails);
@@ -1010,10 +1010,10 @@ class Pos extends MY_Controller
 					//redirect("sales/invoice_st_a5/" . $sale['sale_id']);
 					//redirect("pos/view_teatry/" . $sale['sale_id']);
 					//redirect("sales/sales_invoice_a5/" . $sale['sale_id']);
-					  
-					
+
+
                 }
-               
+
             }
         }else {
 			//it may be run.
@@ -1027,7 +1027,7 @@ class Pos extends MY_Controller
 				if($suspended_sale){
 					$suspended = $this->pos_model->getSuspended($suspended_sale->suspend_id);
 				}
-				
+
                 $inv_items = $this->pos_model->getSuspendedSaleItems($sid);
                 $c = rand(100000, 9999999);
                 foreach ($inv_items as $item) {
@@ -1095,7 +1095,7 @@ class Pos extends MY_Controller
                         $pr[$ri] = array('id' => $c, 'item_id' => $row->id, 'label' => $row->name . " (" . $row->code . ")", 'row' => $row, 'tax_rate' => false, 'image' => $row->image, 'options' => $options, 'makeup_cost' => 0);
                     }
                     $c++;
-                }				
+                }
 				$this->data['items']            = json_encode($pr);
                 $this->data['sid']              = $sid;
                 $this->data['suspend_sale']     = $suspended_sale;
@@ -1106,22 +1106,22 @@ class Pos extends MY_Controller
                 $this->data['customer']         = $this->pos_model->getCompanyByID($this->pos_settings->default_customer);
                 $this->data['reference_note']   = NULL;
             }
-				
+
 			if ($sale_order_id){
-				
+
                 $sale_order                     = $this->sales_model->getSalePOS($sale_order_id);
 				$this->data['sale_order']       = $sale_order;
 				$items                          = $this->sales_model->getPOSOrdItems($sale_order_id);
 				$this->data['sale_order_id']    = $sale_order_id;
 				$this->data['type']             = "sale_order";
 				$this->data['type_id']          = $sale_order_id;
-				
+
 				$customer = $this->site->getCompanyByID($sale_order->customer_id);
-				
+
                 $c = rand(100000, 9999999);
                 foreach ($items as $item) {
                     $row = $this->site->getProductByID($item->product_id);
-					
+
                     if (!$row) {
                         $row = json_decode('{}');
                         $row->tax_method = 0;
@@ -1147,11 +1147,11 @@ class Pos extends MY_Controller
                     $row->tax_rate          = $item->tax_rate_id;
                     $row->serial            = '';
                     $row->option            = $item->option_id;
-					
+
 					$group_prices = $this->sales_model->getProductPriceGroup($item->product_id, $customer->price_group_id);
 					$all_group_prices = $this->sales_model->getProductPriceGroup($item->product_id);
 					$row->price_id = 0;
-					
+
                     $options = $this->sales_model->getProductOptions($row->id, $item->warehouse_id);
                     if ($options) {
                         $option_quantity = 0;
@@ -1185,11 +1185,11 @@ class Pos extends MY_Controller
                 $this->data['sale_order_items'] = json_encode($pr);
 				$this->data['payment_deposit']  = $payment_deposit;
             }
-			
-			if ($combine_table) {				
+
+			if ($combine_table) {
                 $suspended_sale = $this->pos_model->getOpenBillByArrayID($combine_table);
 				$suspended 		= $this->pos_model->getSuspended($suspended_sale->suspend_id);
-                $inv_items 		= $this->pos_model->getSuspendedSaleItemsByArr($combine_table);				
+                $inv_items 		= $this->pos_model->getSuspendedSaleItemsByArr($combine_table);
                 $c = rand(100000, 9999999);
                 foreach ($inv_items as $item) {
                     $row = $this->site->getProductByID($item->product_id);
@@ -1249,7 +1249,7 @@ class Pos extends MY_Controller
                     } else {
                         $pr[$ri] = array('id' => $c, 'item_id' => $row->id, 'label' => $row->name . " (" . $row->code . ")", 'row' => $row, 'tax_rate' => false, 'image' => $row->image, 'options' => $options, 'makeup_cost' => 0);
                     }
-					
+
                     $c++;
                 }
 				if($combine_table){
@@ -1264,7 +1264,7 @@ class Pos extends MY_Controller
 					$sup_notes = $this->pos_model->get_suppendName($did);
 					$suppend_name = $sup_notes->suspend_name;
 				}
-				
+
 				$this->data['suppend_name'] 	= $suppend_name;
 				$this->data['combine_items'] 	= json_encode($pr);
                 $this->data['combine_table'] 	= $combine_table;
@@ -1276,7 +1276,7 @@ class Pos extends MY_Controller
                 $this->data['customer'] = $this->pos_model->getCompanyByID($this->pos_settings->default_customer);
                 $this->data['reference_note'] = NULL;
             }
-			
+
             $this->data['error'] 			= (validation_errors() ? validation_errors() : $this->session->flashdata('error'));
             $this->data['message'] 			= isset($this->data['message']) ? $this->data['message'] : $this->session->flashdata('message');
 
@@ -1288,7 +1288,7 @@ class Pos extends MY_Controller
                 $this->data['billers'] 			= $this->site->getAllCompanies('biller');
             }
             $this->data['warehouses'] 		= $this->site->getAllWarehouses();
-            
+
             $this->data['tax_rates'] 		= $this->site->getAllTaxRates();
 			$this->data['owner_password'] 	= $this->site->getUserSetting(1);
 
@@ -1300,7 +1300,7 @@ class Pos extends MY_Controller
 				$this->data['reference'] 	= $this->site->getReference('pos',$biller_id);
 				$this->data['user_ware'] 	= $this->site->getUserWarehouses();
 			}
-            
+
 			$this->data['agencies'] 		= $this->site->getAllUsers();
 			$this->data['drivers'] 			= $this->site->getAllCompanies('driver');
             $this->data['user'] 			= $this->site->getUser();
@@ -1312,13 +1312,27 @@ class Pos extends MY_Controller
 			$this->data['queue'] 			= $this->sales_model->getLastQueue(date('Y-m-d'), $this->pos_settings->default_biller);
 
             $this->data['categories'] 		= $this->site->getAllCategories();
-			
+
             $this->data['subcategories'] 	= $this->pos_model->getSubCategoriesByCategoryID($this->pos_settings->default_category);
             $this->data['pos_settings'] 	= $this->pos_settings;
 			$this->data['exchange_rate'] 	= $this->pos_model->getExchange_rate('KHM');
 			$this->data['user_layout'] 		= $this->pos_model->getPosLayout($this->session->userdata('user_id'));
 			$this->data['bankAccounts'] 	=  $this->site->getAllBankAccounts();
 			$this->data['userBankAccounts'] =  $this->site->getAllBankAccountsByUserID();
+            if ($this->Owner OR $this->Admin) {
+              foreach ($this->site->getAllBankAccounts() as $key => $value) {
+                if ($key == 0) {
+                  $default_bank_account = $value->accountcode;
+                }
+              }
+            } else {
+              foreach ($this->site->getAllBankAccountsByUserID() as $key => $value) {
+                if ($key == 0) {
+                  $default_bank_account = $value->accountcode;
+                }
+              }
+            }
+            $this->data['default_bank_account'] =  $default_bank_account;
             $this->load->view($this->theme . 'pos/add', $this->data);
         }
     }
@@ -1329,7 +1343,7 @@ class Pos extends MY_Controller
         if ($this->input->get('id')) {
             $sale_id = $this->input->get('id');
         }
-		
+
         $this->load->helper('text');
         $this->data['error'] 				= (validation_errors() ? validation_errors() : $this->session->flashdata('error'));
         $this->data['message'] 				= $this->session->flashdata('message');
@@ -1353,20 +1367,20 @@ class Pos extends MY_Controller
         $this->data['page_title'] 			= $this->lang->line("invoice");
         $this->load->view($this->theme . 'pos/view_teatry', $this->data);
     }
-	
+
     function view_bill()
     {
         $this->erp->checkPermissions('index');
         $this->data['tax_rates'] = $this->site->getAllTaxRates();
         $this->load->view($this->theme . 'pos/view_bill', $this->data);
     }
-	
+
 	function view_kitchen()
     {
         $this->erp->checkPermissions('index');
 
         //$this->table->set_heading('Id', 'The Title', 'The Content');
-        
+
         $this->data['data'] = $this->pos_model->getDelivers();
         $this->load->view($this->theme . 'pos/view_kitchen', $this->data);
     }
@@ -1409,7 +1423,7 @@ class Pos extends MY_Controller
 				'cash_in_hand_kh' => $this->input->post('cash_in_hand_kh') ? $this->input->post('cash_in_hand_kh') : 0,
 				'cash_in_hand_us' => $this->input->post('cash_in_hand_us') ? $this->input->post('cash_in_hand_us') : 0
 			);
-			
+
             $data = array(
 				'date' 			=> date('Y-m-d H:i:s'),
                 'cash_in_hand' 	=> $this->input->post('cash_in_hand'),
@@ -1429,7 +1443,7 @@ class Pos extends MY_Controller
             $this->page_construct('pos/open_register', $meta, $this->data);
         }
     }
-    
+
 	function close_register_popup($register_id){
 
         $this->db->select("erp_pos_register.*");
@@ -1452,7 +1466,7 @@ class Pos extends MY_Controller
         $this->form_validation->set_rules('total_cc_slips', lang("total_cc_slips"), 'trim|required|numeric');
 
         if ($this->form_validation->run() == true) {
-            
+
             if ($this->Owner || $this->Admin) {
                 $user_register = $user_id ? $this->pos_model->registerData($user_id) : NULL;
                 $rid = $user_register ? $user_register->id : $this->session->userdata('register_id');
@@ -1464,25 +1478,25 @@ class Pos extends MY_Controller
             $data = array('closed_at' => date('Y-m-d H:i:s'),
                 'total_cash' => $this->input->post('total_cash'),
                 'total_cash_submitted' => $this->input->post('total_cash_submitted'),
-                
+
                 'total_cheques' => $this->input->post('total_cheques'),
                 'total_cheques_submitted' => $this->input->post('total_cheques_submitted'),
-                
+
                 'total_cc_slips' => $this->input->post('total_cc_slips'),
                 'total_cc_slips_submitted' => $this->input->post('total_cc_slips_submitted'),
-                
+
                 'total_member_slips' => $this->input->post('total_member_slips'),
                 'total_member_slips_submitted' => $this->input->post('total_member_slips_submitted'),
-                
+
                 'total_voucher_slips' => $this->input->post('total_voucher_slips'),
                 'total_voucher_slips_submitted' => $this->input->post('total_voucher_slips_submitted'),
-                
+
                 'note' => $this->input->post('note'),
                 'status' => 'close',
                 'transfer_opened_bills' => $this->input->post('transfer_opened_bills'),
                 'closed_by' => $this->session->userdata('user_id'),
             );
-            
+
 
         } elseif ($this->input->post('close_register')) {
             $this->session->set_flashdata('error', (validation_errors() ? validation_errors() : $this->session->flashdata('error')));
@@ -1506,7 +1520,7 @@ class Pos extends MY_Controller
                 $this->data['cash_in_hand']         = $user_register ? $user_register->cash_in_hand : NULL;
                 $this->data['register_open_time']   = $user_register ? $register_open_time : NULL;
                 $this->data['register_close_time']  = $register_close_time ? $register_close_time : NULL;
-                
+
             } else {
                 $user_register          = $user_id ? $this->pos_model->registerData($user_id) : NULL;
                 // $this->erp->print_arrays($user_register);
@@ -1522,7 +1536,7 @@ class Pos extends MY_Controller
             $this->data['chsales']          = $this->pos_model->getRegisterChSales($register_open_time, $user_id);
             $this->data['memsales']         = $this->pos_model->getRegisterMemSales($register_open_time, $user_id);
             $this->data['vouchersales']     = $this->pos_model->getRegisterVoucherSales($register_open_time, $user_id);
-            
+
             $this->data['pppsales']         = $this->pos_model->getRegisterPPPSales($register_open_time, $user_id);
             $this->data['stripesales']      = $this->pos_model->getRegisterStripeSales($register_open_time, $user_id);
             $this->data['totalsales']       = $this->pos_model->getRegisterSales($register_open_time, $user_id);
@@ -1548,7 +1562,7 @@ class Pos extends MY_Controller
         $this->form_validation->set_rules('total_cc_slips', lang("total_cc_slips"), 'trim|required|numeric');
 
         if ($this->form_validation->run() == true) {
-            
+
             if ($this->Owner || $this->Admin) {
                 $user_register = $user_id ? $this->pos_model->registerData($user_id) : NULL;
                 $rid = $user_register ? $user_register->id : $this->session->userdata('register_id');
@@ -1561,24 +1575,24 @@ class Pos extends MY_Controller
 				'cash_out_kh' => $this->input->post('cur_kh') ? $this->input->post('cur_kh') : 0,
 				'cash_out_us' => $this->input->post('cur_us') ? $this->input->post('cur_us') : 0
 			);
-			
+
             $data = array(
 				'closed_at'						=> date('Y-m-d H:i:s'),
                 'total_cash' 					=> $this->input->post('total_cash'),
                 'total_cash_submitted' 			=> str_replace(',' , '', $this->input->post('total_cash_submitted')),
-                
+
                 'total_cheques' 				=> $this->input->post('total_cheques'),
                 'total_cheques_submitted' 		=> $this->input->post('total_cheques_submitted'),
-                
+
                 'total_cc_slips' 				=> $this->input->post('total_cc_slips'),
                 'total_cc_slips_submitted' 		=> $this->input->post('total_cc_slips_submitted'),
-                
+
                 'total_member_slips' 			=> $this->input->post('total_member_slips'),
                 'total_member_slips_submitted' 	=> $this->input->post('total_member_slips_submitted'),
-                
+
                 'total_voucher_slips' 			=> $this->input->post('total_voucher_slips'),
                 'total_voucher_slips_submitted' => $this->input->post('total_voucher_slips_submitted'),
-                
+
                 'note' 							=> $this->input->post('note'),
                 'cash_out' 						=> json_encode($cash_out),
                 'status' 						=> 'close',
@@ -1607,7 +1621,7 @@ class Pos extends MY_Controller
                 $this->data['cash_in_hand']         = $user_register ? $user_register->cash_in_hand : NULL;
                 $this->data['register_open_time']   = $user_register ? $register_open_time : NULL;
                 $this->data['register_close_time']  = $register_close_time ? $register_close_time : NULL;
-                
+
             } else {
                 $register_open_time                 = $this->session->userdata('register_open_time');
 				$user_register          			= $user_id ? $this->pos_model->registerData($user_id) : NULL;
@@ -1615,14 +1629,14 @@ class Pos extends MY_Controller
                 $this->data['register_open_time']   = NULL;
                 $this->data['register_close_time']  = $register_close_time ? $register_close_time : NULL;
             }
-			
+
             $this->data['error']            = (validation_errors() ? validation_errors() : $this->session->flashdata('error'));
             $this->data['ccsales']          = $this->pos_model->getRegisterCCSales($register_open_time, $user_id);
             $this->data['cashsales']        = $this->pos_model->getRegisterCashSales($register_open_time, $user_id);
             $this->data['chsales']          = $this->pos_model->getRegisterChSales($register_open_time, $user_id);
             $this->data['memsales']         = $this->pos_model->getRegisterMemSales($register_open_time, $user_id);
             $this->data['vouchersales']     = $this->pos_model->getRegisterVoucherSales($register_open_time, $user_id);
-            
+
             $this->data['pppsales']         = $this->pos_model->getRegisterPPPSales($register_open_time, $user_id);
             $this->data['stripesales']      = $this->pos_model->getRegisterStripeSales($register_open_time, $user_id);
             $this->data['totalsales']       = $this->pos_model->getRegisterSales($register_open_time, $user_id);
@@ -1638,7 +1652,7 @@ class Pos extends MY_Controller
             $this->load->view($this->theme . 'pos/close_register', $this->data);
         }
     }
-    
+
 	function updateQty($suspend_id = null, $item_code = null, $quantity = null, $ruprice = null)
 	{
         $suspend_id         = $this->input->get('suspend_id', TRUE);
@@ -1686,7 +1700,7 @@ class Pos extends MY_Controller
         $pr = array('sub_total' => $q->tprice);
         echo json_encode($pr);
     }
-    
+
 	function saveItemList()
 	{
         $i                      = isset($_POST['product_code']) ? sizeof($_POST['product_code']) : 0;
@@ -1795,8 +1809,8 @@ class Pos extends MY_Controller
                 $subtotal       = (($item_net_price * $item_quantity) + $pr_item_tax);
                 $row            = $this->pos_model->getWHProduct($item_code, $warehouse_id);
 				$printed        = $this->pos_model->printed_update($suspend_,$item_code);
-           
-				
+
+
 
                 $products[] = array(
                     'product_id'        => $item_id,
@@ -1833,7 +1847,7 @@ class Pos extends MY_Controller
         }
         exit('fail');
     }
-	
+
 	function getCustomerInfo(){
 		$cus_id         = $this->input->get('customer_id');
 		$customer_info  = $this->pos_model->getCustomerByID($cus_id);
@@ -1842,7 +1856,7 @@ class Pos extends MY_Controller
 
     function getProductDataByCode($code = NULL, $warehouse_id = NULL, $cust_id = null, $suspend_id = null, $item_rows = null, $sub_total = null)
     {
-		
+
 		$this->load->model('sales_model');
         $suspend_id = $this->input->get('suspend_id');
         $item_rows  = $this->input->get('item_rows');
@@ -1866,7 +1880,7 @@ class Pos extends MY_Controller
         $customer           = $this->site->getCompanyByID($customer_id);
         $customer_group     = $this->site->getCustomerGroupByID($customer->customer_group_id);
         $row                = $this->pos_model->getWHProduct($code, $warehouse_id);
-	
+
 		$orderqty           = $this->pos_model->getQtyOrder($row->product_id);
 		$w_piece            = $this->sales_model->getProductVariantByOptionID($row->id);
 		$group_prices       = $this->sales_model->getProductPriceGroup($row->id,$customer->price_group_id);
@@ -1875,22 +1889,22 @@ class Pos extends MY_Controller
 		if($this->site->get_setting()->product_expiry == 1){
 			$expiry_status = 1;
 		}
-		
+
         if($row){
-			
+
             $combo_items            = FALSE;
             $row->item_tax_method   = $row->tax_method;
             $row->qty               = 1;
             $row->discount          = '0';
             $row->serial            = '';
             $options                = $this->pos_model->getProductOptions($row->id, $warehouse_id);
-			
+
 			if($expiry_status == 1) {
 				$expdates = $this->sales_model->getProductExpireDate($row->id, $warehouse_id);
 			}else{
 				$expdates = NULL;
 			}
-			
+
 			if ($options) {
 				$opt = $options[count($options)-1];
 				if (!$option) {
@@ -1901,14 +1915,14 @@ class Pos extends MY_Controller
 				$opt = json_decode('{}');
 				$opt->price = 0;
 			}
-			
+
             $row->option = $option;
 			if($expiry_status == 1 && $expdates != NULL){
 				$row->expdate = $expdates[0]->id;
 			}else{
 				$row->expdate = NULL;
 			}
-			
+
 			if($row->subcategory_id)
 			{
 				$percent = $this->sales_model->getCustomerMakup($customer->customer_group_id,$row->id,1);
@@ -1916,7 +1930,7 @@ class Pos extends MY_Controller
 				$percent = $this->sales_model->getCustomerMakup($customer->customer_group_id,$row->id,0);
 			}
 			$setting = $this->sales_model->getSettings();
-			
+
             if ($opt->price != 0) {
 				if($customer_group->makeup_cost == 1 && $percent!=""){
 					if($setting->attributes==1)
@@ -1950,7 +1964,7 @@ class Pos extends MY_Controller
 					}
 				}
 			}
-			
+
 			if($group_prices)
 			{
 				$curr_by_item = $this->site->getCurrencyByCode($group_prices[0]->currency_code);
@@ -1971,11 +1985,11 @@ class Pos extends MY_Controller
 
             $row->quantity      = 0;
             $pis                = $this->pos_model->getPurchasedItems($row->id, $warehouse_id, $row->option);
-			
+
 			$group_prices       = $this->sales_model->getProductPriceGroupId($row->id, $customer->price_group_id);
 			$all_group_prices   = $this->sales_model->getProductPriceGroup($row->id, $customer->price_group_id);
 			$row->price_id      = $all_group_prices[0]->id;
-			
+
             if($pis){
 				foreach ($pis as $pi) {
                     $row->quantity += $pi->quantity_balance;
@@ -2056,9 +2070,9 @@ class Pos extends MY_Controller
             //$this->erp->print_arrays($pr);
            echo json_encode($pr);
         } else {
-			
+
             echo NULL;
-			
+
         }
     }
 
@@ -2089,12 +2103,12 @@ class Pos extends MY_Controller
         $rows           = $this->pos_model->getSESuspend($code, $warehouse_id);
 		foreach($rows as $id){
 			$array[] = $id['product_id'];
-			
+
 		}
 		$data_=implode(',',$array);
 		$result = $this->pos_model->getSEProduct($data_, $warehouse_id);
-		
-		
+
+
         $option = '';
         $errors = array_filter($result);
         if (!empty($errors)) {
@@ -2145,7 +2159,7 @@ class Pos extends MY_Controller
 				$row->wpiece  = 0;
 				$row->w_piece = $row->cf1;
 				$row->real_unit_price = $row->price;
-				
+
 				$combo_items = FALSE;
 				if ($row->tax_rate) {
 					$tax_rate = $this->site->getTaxRateByID($row->tax_rate);
@@ -2161,13 +2175,13 @@ class Pos extends MY_Controller
 
             echo json_encode($pr);
         } else {
-			
+
             echo NULL;
-			
+
         }
     }
 
-	
+
     function ajaxproducts()
     {
         $this->erp->checkPermissions('index');
@@ -2272,7 +2286,7 @@ class Pos extends MY_Controller
         if ($this->input->get('id')) {
             $sale_id = $this->input->get('id');
         }
-		
+
         $this->load->helper('text');
         $this->data['error']                = (validation_errors() ? validation_errors() : $this->session->flashdata('error'));
         $this->data['message']              = $this->session->flashdata('message');
@@ -2304,7 +2318,7 @@ class Pos extends MY_Controller
         if ($this->input->get('id')) {
             $sale_id = $this->input->get('id');
         }
-        
+
         $this->load->helper('text');
         $this->data['error']                = (validation_errors() ? validation_errors() : $this->session->flashdata('error'));
         $this->data['message']              = $this->session->flashdata('message');
@@ -2329,13 +2343,13 @@ class Pos extends MY_Controller
         $this->data['page_title']           = $this->lang->line("invoice");
         $this->load->view($this->theme . 'pos/siv_heng_invoice', $this->data);
     }
-    
+
     function jones_invoice($sale_id = NULL, $modal = NULL){
         $this->erp->checkPermissions('index');
         if ($this->input->get('id')) {
             $sale_id = $this->input->get('id');
         }
-        
+
         $this->load->helper('text');
         $this->data['error']                = (validation_errors() ? validation_errors() : $this->session->flashdata('error'));
         $this->data['message']              = $this->session->flashdata('message');
@@ -2402,7 +2416,7 @@ class Pos extends MY_Controller
         if ($this->input->get('id')) {
             $sale_id = $this->input->get('id');
         }
-        
+
         $this->load->helper('text');
         $this->data['error']                = (validation_errors() ? validation_errors() : $this->session->flashdata('error'));
         $this->data['message']              = $this->session->flashdata('message');
@@ -2435,7 +2449,7 @@ class Pos extends MY_Controller
         if ($this->input->get('id')) {
             $sale_id = $this->input->get('id');
         }
-		
+
         $this->load->helper('text');
         $this->data['error'] 				= (validation_errors() ? validation_errors() : $this->session->flashdata('error'));
         $this->data['message'] 				= $this->session->flashdata('message');
@@ -2458,7 +2472,7 @@ class Pos extends MY_Controller
         $this->data['page_title'] 			= $this->lang->line("invoice");
         $this->load->view($this->theme . 'pos/view', $this->data);
     }
-	
+
 	function invoice_ktv($sale_id = NULL, $modal = NULL)
     {
         $this->erp->checkPermissions('index');
@@ -2494,7 +2508,7 @@ class Pos extends MY_Controller
         if ($this->input->get('id')) {
             $sale_id = $this->input->get('id');
         }
-        
+
         $this->load->helper('text');
         $this->data['error'] = (validation_errors() ? validation_errors() : $this->session->flashdata('error'));
         $this->data['message'] = $this->session->flashdata('message');
@@ -2584,7 +2598,7 @@ class Pos extends MY_Controller
         $this->data['expenses'] = $this->pos_model->getTodayExpenses();
         $this->load->view($this->theme . 'pos/today_sale', $this->data);
     }
-	
+
 	function add_deliveries($start_date = NULL, $end_date = NULL)
     {
         $this->erp->checkPermissions('add_delivery',NULL,'sales');
@@ -2610,7 +2624,7 @@ class Pos extends MY_Controller
         $meta = array('page_title' => lang('deliveries'), 'bc' => $bc);
         $this->load->view('default/views/pos/add_deliveries', $this->data);
     }
-	
+
     function check_pin()
     {
         $pin = $this->input->post('pw', true);
@@ -2689,7 +2703,7 @@ class Pos extends MY_Controller
 				'in_out_rate' => $this->input->post('in_out_rate'),
                 'count_cash' => $this->input->post('count_cash')
             );
-			
+
             $payment_config = array(
                 'APIUsername' => $this->input->post('APIUsername'),
                 'APIPassword' => $this->input->post('APIPassword'),
@@ -2826,7 +2840,7 @@ class Pos extends MY_Controller
             echo lang("suspended_sale_deleted");
         }
     }
-	
+
 	function delete_suspend($id = NULL)
     {
         $this->erp->checkPermissions('index');
@@ -2835,7 +2849,7 @@ class Pos extends MY_Controller
             redirect($_SERVER["HTTP_REFERER"]);
         }
     }
-	
+
 	function delete_room($id = NULL)
     {
 
@@ -2859,7 +2873,7 @@ class Pos extends MY_Controller
 			redirect('pos/view_kitchen');
 		}
 	}
-	
+
     function email_receipt($sale_id = NULL)
     {
         $this->erp->checkPermissions('index');
@@ -2913,7 +2927,7 @@ class Pos extends MY_Controller
             die('Failed to update last activity.');
         }
     }
-	
+
 	function add_payment($id = NULL)
     {
         $this->load->helper('security');
@@ -2926,24 +2940,24 @@ class Pos extends MY_Controller
         $this->form_validation->set_rules('paid_by', lang("paid_by"), 'required');
         $this->form_validation->set_rules('userfile', lang("attachment"), 'xss_clean');
         if ($this->form_validation->run() == true) {
-			
+
             if ($this->Owner || $this->Admin) {
                 $date = $this->erp->fld(trim($this->input->post('date')));
             } else {
                 $date = date('Y-m-d H:i:s');
             }
 			$sale_id = $this->input->post('sale_id');
-			$sale_ref = $this->sales_model->getSaleById($sale_id)->reference_no; 
+			$sale_ref = $this->sales_model->getSaleById($sale_id)->reference_no;
 			$paid_by = $this->input->post('paid_by');
 			$biller_id = $this->input->post('biller');
 			$reference_no = $this->input->post("sale_id");
-			
+
 			if($paid_by == "deposit"){
 				$payment_reference = $sale_ref;
 			}else{
 				$payment_reference = (($paid_by == 'deposit')? $this->site->getReference('pay',$biller_id):($this->input->post('reference_no') ? $this->input->post('reference_no') : $this->site->getReference('sp',$biller_id)));
 			}
-			
+
 			$paid_amount = $this->input->post('amount-paid');
 			$customer_id = $this->input->post('customer');
 			$customer = '';
@@ -2952,7 +2966,7 @@ class Pos extends MY_Controller
 				$customer = $customer_details->company ? $customer_details->company : $customer_details->name;
 			}
 			$note = ($this->input->post('note')? $this->input->post('note'):($customer? $customer:$this->input->post('customer_name')));
-			
+
 			$payment = array(
                 'date' => $date,
                 'sale_id' => $sale_id,
@@ -2974,9 +2988,9 @@ class Pos extends MY_Controller
 				'add_payment' => '1',
 				'bank_account' => $this->input->post('bank_account')
             );
-			
+
 			//$this->erp->print_arrays($payment);
-			
+
             if ($_FILES['userfile']['size'] > 0) {
                 $this->load->library('upload');
                 $config['upload_path'] = $this->upload_path;
@@ -3020,7 +3034,7 @@ class Pos extends MY_Controller
 					$this->sales_model->add_deposit($deposits);
 				}
 			}
-				
+
             $this->session->set_flashdata('message', lang("payment_added"));
             redirect($_SERVER["HTTP_REFERER"]);
         } else {
@@ -3029,7 +3043,7 @@ class Pos extends MY_Controller
 			$this->data['billers'] = $this->site->getAllCompanies('biller');
             $sale = $this->sales_model->getInvoiceByID($id);
             $this->data['inv'] = $sale;
-            
+
 			if ($this->Owner || $this->Admin || !$this->session->userdata('biller_id')) {
 				$biller_id = $this->site->get_setting()->default_biller;
 				$this->data['biller_id'] = $biller_id;
@@ -3039,15 +3053,15 @@ class Pos extends MY_Controller
 				$this->data['biller_id'] = $biller_id;
 				$this->data['reference'] = $this->site->getReference('sp',$biller_id);
 			}
-			
-			
+
+
             $this->data['modal_js'] = $this->site->modal_js();
 			$this->data['customers'] = $this->site->getCustomers();
 			$this->data['bankAccounts'] =  $this->site->getAllBankAccounts();
             $this->load->view($this->theme . 'pos/add_payment', $this->data);
         }
     }
-	
+
 
     function add_payment_old($id = NULL)
     {
@@ -3068,9 +3082,9 @@ class Pos extends MY_Controller
             } else {
                 $date = date('Y-m-d H:i:s');
             }
-			
+
 			$sale_id = $this->input->post('sale_id');
-			$sale_ref = $this->sales_model->getSaleById($sale_id)->reference_no; 
+			$sale_ref = $this->sales_model->getSaleById($sale_id)->reference_no;
 			$paid_by = $this->input->post('paid_by');
 			$biller_id = $this->input->post('biller');
 			$customer_id = $this->input->post('customer');
@@ -3080,17 +3094,17 @@ class Pos extends MY_Controller
 				$customer = $customer_details->company ? $customer_details->company : $customer_details->name;
 			}
 			$reference_no = $this->input->post("sale_id");
-			
+
 			if($paid_by == "deposit"){
 				$payment_reference = $sale_ref;
 			}else{
 				$payment_reference = (($paid_by == 'deposit')? $this->site->getReference('pay',$biller_id):($this->input->post('reference_no') ? $this->input->post('reference_no') : $this->site->getReference('sp',$biller_id)));
 			}
-			
+
 			$paid_amount = $this->input->post('amount-paid');
-			
-			
-			
+
+
+
             $payment = array(
                 'date' => $date,
                 'sale_id' => $this->input->post('sale_id'),
@@ -3112,7 +3126,7 @@ class Pos extends MY_Controller
 				'add_payment' => '1',
 				'bank_account' => $this->input->post('bank_account')
             );
-			
+
 			//$this->erp->print_arrays($payment);
 
             if ($_FILES['userfile']['size'] > 0) {
@@ -3159,12 +3173,12 @@ class Pos extends MY_Controller
 						'payment_id' => $payment_id,
 						'status' => 'paid'
 					);
-					
+
 					$this->sales_model->add_deposit($deposits);
 				}
 			}
-			
-			
+
+
             if ($msg) {
                 if ($msg['status'] == 0) {
                     $error = '';
@@ -3195,7 +3209,7 @@ class Pos extends MY_Controller
 				$this->data['biller_id'] = $biller_id;
 				$this->data['reference'] = $this->site->getReference('sp',$biller_id);
 			}
-			
+
             $this->data['modal_js'] = $this->site->modal_js();
 			$this->data['customers'] = $this->site->getCustomers();
 
@@ -3259,7 +3273,7 @@ class Pos extends MY_Controller
 	function getPosSales($pdf = NULL, $excel = NULL)
     {
         $this->erp->checkPermissions('Sales');
-		
+
 
         $sales = $this->input->get('sales') ? $this->input->get('sales') : NULL;
 
@@ -3267,7 +3281,7 @@ class Pos extends MY_Controller
 
             $this->db
                 ->select($this->db->dbprefix('sales') . ".date as dates, " . $this->db->dbprefix('sales') . ".reference_no as reference_nos,". $this->db->dbprefix('sales') .".biller as billers,
-				" . $this->db->dbprefix('sales') . ".customer as customers, " . $this->db->dbprefix('sales') . ".sale_status as sale_statuses, 
+				" . $this->db->dbprefix('sales') . ".customer as customers, " . $this->db->dbprefix('sales') . ".sale_status as sale_statuses,
 				" . $this->db->dbprefix('sales') . ".grand_total as grand_totals, " . $this->db->dbprefix('sales') . ".paid as paids,
 				(" . $this->db->dbprefix('sales') . ". grand_total - paid) as balances,
 				" . $this->db->dbprefix('sales') . ".payment_status as payment_statuses");
@@ -3306,7 +3320,7 @@ class Pos extends MY_Controller
 				$this->excel->getActiveSheet()->SetCellValue('I1', lang('payment_status'));
 
                 $row = 2;
-				
+
                 foreach ($data as $data_row) {
                     //$this->excel->getActiveSheet()->SetCellValue('A' . $row, $this->erp->hrld($data_row->id));
                     $this->excel->getActiveSheet()->SetCellValue('A' . $row, $data_row->dates);
@@ -3374,28 +3388,28 @@ class Pos extends MY_Controller
         }
     }
 	//------------------ End export POS Sales ---------------------------------------------
-	
+
 	//--------------------Kitchen Area------------------
 	function view_modal($id)
     {
         $this->erp->checkPermissions('index');
-        
+
         $this->data['data'] = $this->pos_model->getKitchen($id);
         $this->load->view($this->theme . 'pos/view_modal', $this->data);
     }
-	
+
 	function view_complete(){
 		$this->data['data'] = $this->pos_model->getComplete();
 		$this->load->view($this->theme . 'pos/view_complete', $this->data);
 	}
-	
+
 	function delete_item($id){
 		$delete = $this->pos_model->clear_item($id);
 		if($delete){
 			redirect('pos/view_complete');
 		}
 	}
-	
+
 	public function suggestions()
     {
         $term   = $this->input->get('term', true);
@@ -3404,7 +3418,7 @@ class Pos extends MY_Controller
         if (strlen($term) < 1 || !$term) {
             die("<script type='text/javascript'>setTimeout(function(){ window.top.location.href = '" . site_url('welcome') . "'; }, 10);</script>");
         }
-		
+
         $spos = strpos($term, '%');
         if ($spos !== false) {
             $st = explode("%", $term);
@@ -3429,7 +3443,7 @@ class Pos extends MY_Controller
             echo json_encode(array(array('id' => 0, 'label' => lang('no_match_found'), 'value' => $term)));
         }
     }
-	
+
 	function add_item(){
 		$pid = $this->input->post('pro_id',true);
 		$sid = $this->input->post('sus_id',true);
@@ -3467,18 +3481,18 @@ class Pos extends MY_Controller
 		//$this->erp->print_arrays($data);
 		//$this->db->insert('suspended_items',array('post_id'=>$product_id,'category_id'=>default_cate($user_id)));
 	}
-	
+
 	function getPrincipleCustomer() {
 		$pr_type = $this->input->get('pr_type');
 		$principle_type = $this->pos_model->getPrincipleByTypeID($pr_type);
-		
+
 		$data = array();
 		foreach($principle_type as $principle) {
 			$data[] = array('period'=>$principle->period,'dateline'=>$this->erp->hrsd($principle->dateline),'principle_rate'=>$principle->value,'remark'=>$principle->remark,'rates'=>$principle->rate);
 		}
-		echo json_encode($data);	 
+		echo json_encode($data);
 	}
-	
+
 	function delivery_added($id = NULL,$status="sale_order")
 	{
         $this->erp->checkPermissions('deliveries');
@@ -3487,57 +3501,14 @@ class Pos extends MY_Controller
 		$this->form_validation->set_rules('reference_no', lang("reference_no"), 'trim|is_unique[sales.reference_no]');
 
         if ($this->form_validation->run() == true) {
-			
+
         } else {
-			
+
 			$this->data['error'] = (validation_errors() ? validation_errors() : $this->session->flashdata('error'));
 			$date = date('d/m/Y H:i');
 			$this->data['date'] = $date;
 			$this->data['status'] = $status;
-			
-			if($status == 'sale_order'){
-				$this->data['tax_rates'] = $this->site->getAllTaxRates();
-				$div = $this->sales_model->getSaleRecordByID($id);
-				$this->data['deliveries'] = $div;
-				$this->data['delivery_items'] = $this->sales_model->getSaleItemBySaleID($id);
-				$this->data['user'] = $this->sales_model->getUserFromSaleBySaleID($id);
-				$this->data['reference'] = $this->site->getReference('do',$div->biller_id);
-				if ($this->Owner || $this->Admin || !$this->session->userdata('biller_id')) {
-					$biller_id = $this->site->get_setting()->default_biller;
-					$this->data['reference'] = $this->site->getReference('do',$biller_id);
-				} else {
-					$biller_id = $this->session->userdata('biller_id');
-					$this->data['reference'] = $this->site->getReference('do',$biller_id);
-				}
 
-			}
-			$this->data['POS'] = "1";
-			$this->data['setting'] = $this->site->get_setting();
-			$this->data['drivers'] = $this->site->getDrivers();
-			$this->data['modal_js'] = $this->site->modal_js();
-            $bc = array(array('link' => base_url(), 'page' => lang('home')), array('link' => site_url('sales'), 'page' => lang('sales')), array('link' => '#', 'page' => lang('add_deliveries')));
-            $meta = array('page_title' => lang('add_deliveries'), 'bc' => $bc);            
-			$this->load->view('default/views/pos/delivery_added', $this->data);
-        }
-    }
-	
-	function delivery_added_old($id = NULL,$status="sale_order",$pos=1)
-	{
-		
-        $this->erp->checkPermissions('deliveries');
-		$this->form_validation->set_rules('customer', lang("customer"), 'required');
-		$this->form_validation->set_rules('delivery_by', lang("delivery_by"), 'required');
-		$this->form_validation->set_rules('reference_no', lang("reference_no"), 'trim|is_unique[sales.reference_no]');
-
-        if ($this->form_validation->run() == true) {
-
-        } else {
-			
-			$this->data['error'] = (validation_errors() ? validation_errors() : $this->session->flashdata('error'));
-			$date = date('d/m/Y H:i');
-			$this->data['date'] = $date;
-			$this->data['status'] = $status;
-			
 			if($status == 'sale_order'){
 				$this->data['tax_rates'] = $this->site->getAllTaxRates();
 				$div = $this->sales_model->getSaleRecordByID($id);
@@ -3560,7 +3531,50 @@ class Pos extends MY_Controller
 			$this->data['modal_js'] = $this->site->modal_js();
             $bc = array(array('link' => base_url(), 'page' => lang('home')), array('link' => site_url('sales'), 'page' => lang('sales')), array('link' => '#', 'page' => lang('add_deliveries')));
             $meta = array('page_title' => lang('add_deliveries'), 'bc' => $bc);
-            
+			$this->load->view('default/views/pos/delivery_added', $this->data);
+        }
+    }
+
+	function delivery_added_old($id = NULL,$status="sale_order",$pos=1)
+	{
+
+        $this->erp->checkPermissions('deliveries');
+		$this->form_validation->set_rules('customer', lang("customer"), 'required');
+		$this->form_validation->set_rules('delivery_by', lang("delivery_by"), 'required');
+		$this->form_validation->set_rules('reference_no', lang("reference_no"), 'trim|is_unique[sales.reference_no]');
+
+        if ($this->form_validation->run() == true) {
+
+        } else {
+
+			$this->data['error'] = (validation_errors() ? validation_errors() : $this->session->flashdata('error'));
+			$date = date('d/m/Y H:i');
+			$this->data['date'] = $date;
+			$this->data['status'] = $status;
+
+			if($status == 'sale_order'){
+				$this->data['tax_rates'] = $this->site->getAllTaxRates();
+				$div = $this->sales_model->getSaleRecordByID($id);
+				$this->data['deliveries'] = $div;
+				$this->data['delivery_items'] = $this->sales_model->getSaleItemBySaleID($id);
+				$this->data['user'] = $this->sales_model->getUserFromSaleBySaleID($id);
+				$this->data['reference'] = $this->site->getReference('do',$div->biller_id);
+				if ($this->Owner || $this->Admin || !$this->session->userdata('biller_id')) {
+					$biller_id = $this->site->get_setting()->default_biller;
+					$this->data['reference'] = $this->site->getReference('do',$biller_id);
+				} else {
+					$biller_id = $this->session->userdata('biller_id');
+					$this->data['reference'] = $this->site->getReference('do',$biller_id);
+				}
+
+			}
+			$this->data['POS'] = "1";
+			$this->data['setting'] = $this->site->get_setting();
+			$this->data['drivers'] = $this->site->getDrivers();
+			$this->data['modal_js'] = $this->site->modal_js();
+            $bc = array(array('link' => base_url(), 'page' => lang('home')), array('link' => site_url('sales'), 'page' => lang('sales')), array('link' => '#', 'page' => lang('add_deliveries')));
+            $meta = array('page_title' => lang('add_deliveries'), 'bc' => $bc);
+
 			$this->load->view('default/views/pos/delivery_added', $this->data);
         }
 
@@ -3576,7 +3590,7 @@ class Pos extends MY_Controller
 		$this->data['modal_js'] 		= $this->site->modal_js();
 		$this->load->view($this->theme . 'pos/seperate', $this->data);
     }
-	
+
 	public function updateFoodPrinted(){
 		$suppend_id = $_REQUEST['suppend_id'];
 		$product_id = $_REQUEST['product_id'];
@@ -3607,7 +3621,7 @@ class Pos extends MY_Controller
 		if($this->input->get('totaQty')){
 			$totaQty = $this->input->get('totaQty');
 		}
-		
+
 		if($items && $tab){
 			if($this->pos_model->addSeperate($items,$tab,$id,$totaQty)){
 				$this->session->set_flashdata('message', $this->lang->line("add_seperate"));
@@ -3616,17 +3630,17 @@ class Pos extends MY_Controller
 			}
 		}
 		echo json_encode(false);
-		
+
 	}
-	
+
 	public function updated_print ()
 	{
 		$sus_id  = $this->input->get('suspend_id');
-		$item_id = $this->input->get('item_id'); 
+		$item_id = $this->input->get('item_id');
 		$this->pos_model->updateprinted($sus_id,$item_id);
 		exit();
 	}
-	
+
 	function deliveries($start_date = NULL, $end_date = NULL)
     {
         $this->erp->checkPermissions();
@@ -3656,12 +3670,12 @@ class Pos extends MY_Controller
 
             $this->data['warehouse'] = $this->session->userdata('warehouse_id') ? $this->site->getWarehouseByID($this->session->userdata('warehouse_id')) : NULL;
         }
-		
+
         $bc = array(array('link' => base_url(), 'page' => lang('home')), array('link' => site_url('pos'), 'page' => lang('pos')), array('link' => '#', 'page' => lang('deliveries')));
         $meta = array('page_title' => lang('deliveries'), 'bc' => $bc);
         $this->load->view('default/views/pos/deliveries', $this->data);
     }
-	
+
 	function edit_deliveries($delivery_id = NULL)
     {
 		$this->erp->checkPermissions('deliveries');
@@ -3671,11 +3685,11 @@ class Pos extends MY_Controller
         if ($this->form_validation->run() == true) {
 
         } else {
-			
+
 			$this->data['error'] = (validation_errors() ? validation_errors() : $this->session->flashdata('error'));
 			$deliv = $this->sales_model->getDelivery($delivery_id);
 			$deliv_items = $this->sales_model->getPOSDeliveryItemsByID($delivery_id, $deliv->type);
-			
+
 			$this->data['drivers'] = $this->site->getDrivers();
 			if($deliv->type == 'sale_order') {
 				$this->data['user_name']       = $this->site->getUser($deliv->created_by);
@@ -3684,11 +3698,11 @@ class Pos extends MY_Controller
 				$this->data['saleInfo']        = $this->sales_model->getSaleInfo($deliv->sale_id);
 			}
 			$this->data['delivery'] = $deliv;
-			
+
 			$this->data['delivery_items'] = $deliv_items;
-			
+
 			//$this->erp->print_arrays($deliv_items);
-			
+
 			foreach($deliv_items as $deliv_item) {
 				$ditem =  $deliv_item->id;
 				$productId = $deliv_item->product_id;
@@ -3714,32 +3728,32 @@ class Pos extends MY_Controller
 			}
 
 			$this->data['quantity_recs'] = $arr;
-		
+
 			//$this->erp->print_arrays($arr);
 			$this->data['pos'] = 1;
 			$this->data['setting'] = $this->site->get_setting();
 			$this->data['modal_js'] = $this->site->modal_js();
             $bc = array(array('link' => base_url(), 'page' => lang('home')), array('link' => site_url('sales'), 'page' => lang('sales')), array('link' => '#', 'page' => lang('edit_deliveries')));
             $meta = array('page_title' => lang('edite_deliveries'), 'bc' => $bc);
-            
+
 			$this->load->view('default/views/pos/edit_deliveries', $this->data);
         }
-		
+
     }
-	
-	
+
+
 	function invoice_print_a4_ttr_combo($id = NULL)
     {
-		
+
         if ($this->input->get('id')) {
             $id = $this->input->get('id');
         }
-		
+
 		$this->load->model('pos_model');
 		$this->data['pos'] 			= $this->pos_model->getSetting();
-		
+
 		$this->data['error'] 		= (validation_errors()) ? validation_errors() : $this->session->flashdata('error');
-        
+
 		$inv 						= $this->sales_model->getInvoiceByID($id);
 		$this->data['Settings'] 	= $this->site->get_setting();
         $this->data['customer'] 	= $this->site->getCompanyByID($inv->customer_id);
@@ -3749,7 +3763,7 @@ class Pos extends MY_Controller
         $this->data['updated_by'] 	= $inv->updated_by ? $this->site->getUser($inv->updated_by) : NULL;
         $this->data['warehouse'] 	= $this->site->getWarehouseByID($inv->warehouse_id);
         $this->data['inv'] 			= $inv;
-		
+
 		$this->data['vattin'] 		= $this->site->getTaxRateByID($inv->order_tax_id);
         $return 					= $this->sales_model->getReturnBySID($id);
         $this->data['return_sale'] 	= $return;
