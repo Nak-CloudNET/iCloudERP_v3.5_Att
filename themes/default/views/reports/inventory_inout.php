@@ -245,7 +245,7 @@
 										$beginOUTqty = $this->reports_model->getBeginQtyOUTALL($rp->product_id,$rw->id,$from_date2,$to_date2,$biller2);
 										$btotal_qty = $beginINqty->bqty-$beginOUTqty->bqty;
 										$begin_qty = $this->reports_model->getBeginQtyALL($rp->product_id,$rw->id,$from_date2,$to_date2,$biller2);
-                                       //$this->erp->print_arrays($rp);
+                                       //$this->erp->print_arrays($beginINqty->bqty);
                                         ?>
 										<tr>
                                             <td style="text-align:center !important;">
