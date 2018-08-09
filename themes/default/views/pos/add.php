@@ -854,7 +854,7 @@ if ($q->num_rows() > 0) {
                                         <input type="hidden" name="other_cur_paid[]" id="other_cur_paid_val_<?= $i ?>" value=""/>
                                         <input type="hidden" name="balance_amount[]" id="balance_amount_<?= $i ?>" value=""/>
                                         <input type="hidden" name="paid_by[]" id="paid_by_val_<?= $i ?>" value="cash"/>
-                                        <input type="hidden" name="bank_account[]" id="bank_account_val_<?= $i ?>" value=""/>
+                                        <input type="hidden" name="bank_account[]" id="bank_account_val_<?= $i ?>" value="<?= $default_bank_account ?>"/>
                                         <input type="hidden" name="cc_no[]" id="cc_no_val_<?= $i ?>" value=""/>
                                         <input type="hidden" name="paying_gift_card_no[]" id="paying_gift_card_no_val_<?= $i ?>" value=""/>
 										<input type="hidden" name="paying_deposit[]" id="paying_deposit_val_<?= $i ?>" value=""/>
