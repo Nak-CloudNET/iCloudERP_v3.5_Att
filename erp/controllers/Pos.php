@@ -2219,7 +2219,7 @@ class Pos extends MY_Controller
         $products = $subcategory_id ? $this->pos_model->fetch_products_permission($category_id, $config["per_page"], $page, $subcategory_id) : $this->pos_model->fetch_products_permission($category_id, $config["per_page"], $page);
         $pro = 1;
 		$i=1;
-        $prods = '<div  id=box-item>';
+        $prods = '<div  id=box-item style="display: flex !important;flex-wrap: wrap !important;">';
         if ( ! empty($products)) {
             foreach ($products as $product) {
                 $count = $product->id;
