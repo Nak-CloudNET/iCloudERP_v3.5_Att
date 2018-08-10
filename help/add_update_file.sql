@@ -15,3 +15,7 @@ ADD COLUMN `expiry_id`  int(11) NULL AFTER `expiry`;
 
 ALTER TABLE `erp_customer_groups`
 ADD COLUMN `order_discount`  int(11) NULL AFTER `makeup_cost`;
+
+/* 10/09/2018 By Nak */
+ALTER TABLE `erp_stock_trans`
+ADD COLUMN `category_id`  int(11) NULL AFTER `product_id`;
