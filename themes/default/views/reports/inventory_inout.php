@@ -143,7 +143,7 @@
                             }
                         }
 					}
-					
+
 					$num2 = $this->reports_model->getTransuctionsPurOUT($product2,$warehouse2,$from_date2,$to_date2,$biller2);
 					$k2 = 0;
 					if(is_array($num2)){
@@ -194,7 +194,7 @@
                                         }
 									}
 								?>
-								
+
 							</tr>
 						</thead>
                         <tbody>
@@ -218,7 +218,6 @@
 									$total_in_cate_w = array();
 									$total_out_cate_w = array();
 									foreach($procat as $rc){
-
 								?>
 									<tr>
                                         <td colspan="<?= $k + $k2 + 6 ?>" style="color:orange;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
@@ -238,7 +237,7 @@
 									$propur = $this->reports_model->getProPur($rw->id,$rc->id,$product2,$biller2,$from_date2,$to_date2);
 
 									foreach($propur as $rp){
-										$beginINqty = $this->reports_model->getBeginQtyINALL($rp->product_id,$rw->id,$from_date2,$to_date2,$biller2);
+										$beginINqty = $this->reports_model->getBeginQtyINALL($rp->product_id,$rw->id,$from_date2,$to_date2,$biller2,$start);
 										$beginOUTqty = $this->reports_model->getBeginQtyOUTALL($rp->product_id,$rw->id,$from_date2,$to_date2,$biller2);
 										$btotal_qty = $beginINqty->bqty-$beginOUTqty->bqty;
 										$begin_qty = $this->reports_model->getBeginQtyALL($rp->product_id,$rw->id,$from_date2,$to_date2,$biller2);
@@ -333,7 +332,7 @@
                                                 }
 											}
 											//$qty_unit3 = $this->reports_model->getQtyUnitALL($rp->product_id,$rw->id,$from_date2,$to_date2);
-											$am = ($total_in-$total_out);
+                                            $am = ($btotal_qty +$total_in) - $total_out;
 											?>
 											<td style='text-align:right;'><b><?=$this->erp->formatDecimal($total_out?$total_out:'')?></b> </td>
 											<td style='text-align:right;'><span><b><?=$this->erp->formatDecimal($am?$am:'')?></b></span><br>

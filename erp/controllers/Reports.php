@@ -26248,7 +26248,7 @@ class Reports extends MY_Controller
         } 
 		
 		//$this->erp->print_arrays($wid);
-		$this->data['ware'] 		= $this->reports_model->getWarePur($wid,$warehouse,$product,$category,$biller);
+		$this->data['ware'] 		= $this->reports_model->getWarePur($wid,$warehouse,$product,$category,$biller,$from_date, $to_date);
 		$this->data['warefull'] 	= $this->reports_model->getWareFullByUSER($wid);
 		$this->data['biller2']    	= $biller;
 		$this->data['category2']    = $category;
