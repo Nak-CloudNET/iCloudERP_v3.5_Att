@@ -75,7 +75,8 @@
 				<div class="form-group">
 					<?= lang("account_purchase","account_purchase"); ?>
 					<?php 
-						$acc_section = array(""=>"");
+						//$acc_section = array(""=>"");
+                    $acc_section[''] = lang('None');
 						foreach($chart_accounts as $section){
 							$acc_section[$section->accountcode] = $section->accountcode.' | '.$section->accountname;
 						}
@@ -85,7 +86,8 @@
 				<div class="form-group">
 					<?= lang("account_stock","account_stock"); ?>
 					<?php
-						$acc_section = array(""=>"");
+						//$acc_section = array(""=>"");
+                    $acc_section[''] = lang('None');
 						foreach($chart_accounts as $section){
 							$acc_section[$section->accountcode] = $section->accountcode.' | '.$section->accountname;
 						}
@@ -95,7 +97,8 @@
 				<div class="form-group">
 					<?= lang("account_stock_adjust","account_stock_adjust"); ?>
 					<?php
-						$acc_section = array(""=>"");
+						//$acc_section = array(""=>"");
+                    $acc_section[''] = lang('None');
 						foreach($chart_accounts as $section){
 							$acc_section[$section->accountcode] = $section->accountcode.' | '.$section->accountname;
 						}
@@ -105,7 +108,8 @@
 				<div class="form-group">
 					<?= lang("account_cost","account_cost"); ?>
 					<?php
-						$acc_section = array(""=>"");
+						//$acc_section = array(""=>"");
+                    $acc_section[''] = lang('None');
 						foreach($chart_accounts as $section){
 							$acc_section[$section->accountcode] = $section->accountcode.' | '.$section->accountname;
 						}
@@ -115,7 +119,8 @@
 				<div class="form-group">
 					<?= lang("account_cost_variant","account_cost_variant"); ?>
 					<?php 
-						$acc_section = array(""=>"");
+						//$acc_section = array(""=>"");
+                    $acc_section[''] = lang('None');
 						foreach($chart_accounts as $section){
 							$acc_section[$section->accountcode] = $section->accountcode.' | '.$section->accountname;
 						}
