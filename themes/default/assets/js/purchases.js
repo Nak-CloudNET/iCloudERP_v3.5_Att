@@ -735,6 +735,7 @@ $('#podiscount').focus(function () {
 		$('#net_cost').text(formatMoney(total_net_cost));
     });
 	*/
+
 	$(document).on('change','.rdiscount',function(){
 		var row = $(this).parent().parent();
 		var item_id = row.attr('data-item-id');
@@ -768,6 +769,7 @@ $('#podiscount').focus(function () {
                 item_discount = parseFloat(ds/qty);
             }
         } else {
+
             item_discount = parseFloat(ds/qty);
         }
 
@@ -809,7 +811,7 @@ $('#podiscount').focus(function () {
         var unit_cost 	= parseFloat($('#pcost').val());
         var item 		= poitems[item_id];
         var ds 			= $('#pdiscount').val() ? $('#pdiscount').val() : '0';
-		if (ds.indexOf("%") !== -1) {
+        if (ds.indexOf("%") !== -1) {
             var pds 	= ds.split("%");
             if (!isNaN(pds[0])) {
                 item_discount = parseFloat(((unit_cost) * parseFloat(pds[0])) / 100);
@@ -820,7 +822,7 @@ $('#podiscount').focus(function () {
             item_discount = parseFloat(ds/qty);
         }
 
-       	unit_cost 	   -= item_discount;
+        unit_cost 	   -= item_discount;
 
         var pr_tax 		= $('#ptax').val();
 		var item_tax_method = tax_method ? tax_method : item.row.tax_method;
@@ -1148,20 +1150,15 @@ function loadItems() {
             }
 
             var ds = item_ds ? item_ds : '0';
-
             if (ds.indexOf("%") !== -1) {
                 var pds = ds.split("%");
                 if (!isNaN(pds[0])) {
-					item_discount = (parseFloat(((unit_cost) * parseFloat(pds[0])) / 100)) ;
-				} else {
-                    item_discount = (ds) / (qty_received == item_qty? item_qty:qty_received);
+                    item_discount = (parseFloat(((net_unit_cost) * parseFloat(pds[0])) / 100));
+                } else {
+                    item_discount = parseFloat(ds/item_qty);
                 }
             } else {
-				if(item_tax_method == 0){
-					item_discount = (parseFloat(ds) / (qty_received == item_qty? item_qty:qty_received));
-				}else{
-					item_discount = (parseFloat(ds) / (qty_received == item_qty? item_qty:qty_received));
-				}
+                item_discount = parseFloat(ds/item_qty);
             }
 
 			product_discount += isNaN(parseFloat(item_discount * (qty_received == item_qty? item_qty:qty_received)))?0:parseFloat(item_discount * (qty_received == item_qty? item_qty:qty_received));
@@ -1276,8 +1273,12 @@ function loadItems() {
             newTr.appendTo("#poTable");
 
 			/* Total */
-			total += isNaN(parseFloat( (parseFloat(item_cost) + parseFloat(pr_tax_val)) * (parseFloat(qty_received) == parseFloat(item_qty)? parseFloat(item_qty):parseFloat(qty_received))))?0:parseFloat( (parseFloat(item_cost) + parseFloat(pr_tax_val)) * (parseFloat(qty_received) == parseFloat(item_qty)? parseFloat(item_qty):parseFloat(qty_received)));
+
+            total +=  (item_tax_method==0?( formatPurDecimal(parseFloat(net_unit_cost)* parseFloat(item_qty) - (parseFloat(item_discount)*parseFloat(item_qty)) ) ):( formatPurDecimal(parseFloat(net_unit_cost)* parseFloat(item_qty)+ (parseFloat(pr_tax_val)* parseFloat(item_qty)  ) - (parseFloat(item_discount)*parseFloat(item_qty)) ) ));
+            //alert(total);
+			console.log(item_discount);
 			count += parseFloat(item_qty);
+
 
             an++;
             if(!belong)
@@ -1318,9 +1319,9 @@ function loadItems() {
         if (site.settings.tax1 == 1) {
             tfoot += '<th class="text-right">'+formatMoney(product_tax)+'</th>';
         }
-        tfoot += '<th class="text-right">'+ formatMoney(total)+'<input name="total_s" type="hidden" class="total_s" value="' + total + '"></th><th class="text-center"><i class="fa fa-trash-o" style="opacity:0.5; filter:alpha(opacity=50);"></i></th></tr>';
+        tfoot +='<th class="text-right">'+formatMoney(total)+'<input name="total_s" type="hidden" class="total_s" value="' + total + '"></th>';
+        tfoot += '<th class="text-center"><i class="fa fa-trash-o" style="opacity:0.5; filter:alpha(opacity=50);"></i></th></tr>';
         $('#poTable tfoot').html(tfoot);
-
         // Order level discount calculations
         if (podiscount = __getItem('podiscount')) {
             var ds = podiscount;
@@ -1352,13 +1353,13 @@ function loadItems() {
             }
         }
         total_discount = parseFloat(order_discount + product_discount);
-
-		var gtotal = parseFloat(((total - order_discount) + shipping) + formatRoDecimal(invoice_tax));
-
-        $('#total').text(formatRoDecimal(total));
+        // Totals calculations after item addition
+        //var gtotal = parseFloat(total + invoice_tax);
+        var gtotal = parseFloat(((total - order_discount) + shipping) + formatRoDecimal(invoice_tax));
+        $('#total').text(formatMoney(total));
         $('#titems').text((an-1)+' ('+(parseFloat(count)-1)+')');
-        $('#tds').text(formatRoDecimal(order_discount));
-		$('#tship').text(formatRoDecimal(shipping));
+        $('#tds').text(formatMoney(order_discount));
+        $('#tship').text(formatMoney(shipping));
         if (site.settings.tax1) {
             $('#ttax1').text(formatRoDecimal(product_tax));
         }
