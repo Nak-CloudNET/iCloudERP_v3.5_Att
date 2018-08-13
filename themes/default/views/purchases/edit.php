@@ -599,7 +599,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <?php
-                                    $default_value = $billers[0]->id;
+                                    $default_value = $inv->biller_id;
                                     echo get_dropdown_project('biller', 'slbiller', $default_value);
                                 ?>
                             </div>

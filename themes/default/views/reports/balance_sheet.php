@@ -1,6 +1,19 @@
 <script>$(document).ready(function () {
         CURI = '<?= site_url('reports/balance_sheet'); ?>';
-	});</script>
+	});
+    $(document).ready(function(){
+        $('#form').hide();
+        $('.toggle_down').click(function () {
+            $("#form").slideDown();
+            return false;
+        });
+        $('.toggle_up').click(function () {
+            $("#form").slideUp();
+            return false;
+        });
+
+    });
+</script>
 <style>@media print {
         .fa {
             color: #EEE;
@@ -19,8 +32,8 @@
 ?>
 <div class="box">
     <div class="box-header">
-        <h2 class="blue"><i class="fa-fw fa fa-bars"></i><?= lang('balance_sheet'); ?> >> <?= (isset($start)?$start:""); ?> >> <?= (isset($end)?$end:""); ?></h2>
-        <div class="box-icon">
+        <h2 class="blue"><i class="fa-fw fa fa-bars"></i><?= lang('balance_sheet'); ?></h2>
+        <!--<div class="box-icon">
             <div class="form-group choose-date hidden-xs">
                 <div class="controls">
                     <div class="input-group">
@@ -32,9 +45,13 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
         <div class="box-icon">
             <ul class="btn-tasks">
+                <li class="dropdown"><a href="#" class="toggle_up tip" title="<?= lang('hide_form') ?>"><i
+                                class="icon fa fa-toggle-up"></i></a></li>
+                <li class="dropdown"><a href="#" class="toggle_down tip" title="<?= lang('show_form') ?>"><i
+                                class="icon fa fa-toggle-down"></i></a></li>
                 <li class="dropdown"><a href="#" id="pdf" class="tip" title="<?= lang('download_pdf') ?>"><i class="icon fa fa-file-pdf-o"></i></a></li>
 				<li class="dropdown"><a href="#" id="xls" class="tip" title="<?= lang('download_xls') ?>"><i class="icon fa fa-file-excel-o"></i></a></li>
                 <li class="dropdown"><a href="#" id="image" class="tip" title="<?= lang('save_image') ?>"><i class="icon fa fa-file-picture-o"></i></a></li>
@@ -71,6 +88,24 @@
         <div class="row">
             <div class="col-lg-12">
 				<p class="introtext"><?= lang('list_results'); ?></p>
+                <div id="form">
+
+                    <?php echo form_open("reports/balance_sheet/"); ?>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <?= lang("As of Date", "start_date"); ?>
+                                <?php echo form_input('start_date', (isset($_POST['start_date']) ? $_POST['start_date'] : ''), 'class="form-control datetime" id="start_date"'); ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div
+                                class="controls"> <?php echo form_submit('submit_sale_report', $this->lang->line("submit"), 'class="btn btn-primary"'); ?> </div>
+                    </div>
+                    <?php echo form_close(); ?>
+
+                </div>
 				<?php $num_col=2; ?>
                 <div class="table-scroll">
                     <table  cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-hover table-striped table-condensed">
@@ -147,7 +182,7 @@
 										erp_gl_trans
 									WHERE
 										biller_id = '$bill_id' AND account_code = '" . $row->account_code . "'
-										AND date(erp_gl_trans.tran_date) >= '$from_date' AND date(erp_gl_trans.tran_date) <= '$to_date' ;");
+										AND date(erp_gl_trans.tran_date) <= '$from_date' ;");
 										
 									$totalBeforeAyearRows = $query->row();
 									$totalBeforeAyear_asset += ($totalBeforeAyearRows->NegativeTotal + $totalBeforeAyearRows->PostiveTotal);

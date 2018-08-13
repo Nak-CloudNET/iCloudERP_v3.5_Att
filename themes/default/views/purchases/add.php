@@ -740,9 +740,11 @@
 									<div class="form-group">
 										<?= lang("warehouse", "powarehouse"); ?><b> *</b>
 										<?php
-										 $wh = array(""=>"");
+										 $wh[""] = array(""=>"");
+
 										foreach ($warehouses as $warehouse) {
 											$wh[$warehouse->id] = $warehouse->name;
+                                            //echo $wh[$warehouse->id];exit;
 										}
 										echo form_dropdown('warehouse','', (isset($_POST['warehouse']) ? $_POST['warehouse'] : $Settings->default_warehouse), 'id="powarehouse" class="form-control input-tip select" data-placeholder="' . lang("select") . ' ' . lang("warehouse") . '" style="width:100%;" ');
 										?>
@@ -753,9 +755,10 @@
 									<div class="form-group">
 										<?= lang("warehouse", "powarehouse"); ?>
 										<?php
-										 $wh = array(""=>"");
+										 $wh[] = array(""=>"");
 										foreach ($warehouses as $warehouse) {
 											$wh[$warehouse->id] = $warehouse->name;
+
 										}
 										echo form_dropdown('warehouse', '', (isset($_POST['warehouse']) ? $_POST['warehouse'] : $this->session->userdata('warehouse_id')), 'id="powarehouse" class="form-control input-tip select" data-placeholder="' . lang("select") . ' ' . lang("warehouse") . '" required="required" style="width:100%;" ');
 										?>
