@@ -1148,7 +1148,7 @@ function loadItems() {
             if(checkNetCost == false){
                 net_unit_cost 	= item.row.cost?item.row.cost:0;
             }
- 
+
             var ds = item_ds ? item_ds : '0';
             if (ds.indexOf("%") !== -1) {
                 var pds = ds.split("%");
