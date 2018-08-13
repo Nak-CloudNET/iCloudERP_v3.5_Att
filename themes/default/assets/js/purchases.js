@@ -1160,8 +1160,8 @@ function loadItems() {
             } else {
                 item_discount = parseFloat(ds/item_qty);
             }
+            product_discount += parseFloat(item_discount*item_qty);
 
-			product_discount += isNaN(parseFloat(item_discount * (qty_received == item_qty? item_qty:qty_received)))?0:parseFloat(item_discount * (qty_received == item_qty? item_qty:qty_received));
             unit_cost = (unit_cost- (item_discount?item_discount:0) );
 
             price = (item.row.price ? formatPurDecimal(item.row.price) : 0);
@@ -1257,7 +1257,8 @@ function loadItems() {
 			tr_html += '<td class="text-right"><input class="form-control input-sm text-right rstock" name="rstock[]" type="hidden" id="stock_' + stock_in_hand + '" value="' + stock_in_hand + '"><input class="rstock" name="rstock[]" type="hidden" value="' + stock_in_hand + '"><input class="rstock" name="rstock[]" type="hidden" value="' + stock_in_hand + '"><span class="text-right scost" id="sstock_' + row_no + '">' + stock_in_hand + '</span></td>';
 
             if (site.settings.product_discount == 1) {
-                tr_html += '<td class="text-right"><input class="form-control input-sm rdiscount" name="product_discount[]" type="hidden" id="discount_' + row_no + '" value="' + item_ds + '"><input type="text" class="form-control text-center rdiscount text-danger" value="' + item_ds + '" id="sdiscount_' + row_no + '"></td>';
+
+            	tr_html += '<td class="text-right"><input class="form-control input-sm rdiscount" name="product_discount[]" type="hidden" id="discount_' + row_no + '" value="' + item_ds + '"><input type="text" class="form-control text-center rdiscount text-danger" value="' + item_ds + '" id="sdiscount_' + row_no + '"></td>';
             }
 
             if (site.settings.tax1 == 1) {
