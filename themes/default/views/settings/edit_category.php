@@ -63,7 +63,9 @@
 				<div class="form-group">
 					<?= lang("account_sale","account_sale"); ?>
 					<?php 
-						$acc_section = array(""=>"");
+						//$acc_section = array(""=>"");
+                        $acc_section[''] = lang('None');
+
 						foreach($chart_accounts as $section){
 							$acc_section[$section->accountcode] = $section->accountcode.' | '.$section->accountname;
 						}
