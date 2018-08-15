@@ -5240,12 +5240,14 @@ ORDER BY
         }
         return FALSE;
 	}
-	
-	public function getProCat($wid,$category2,$product2,$biller){
-		$this->db->select("erp_categories.id,erp_categories.name")
-				 ->join("erp_categories","erp_categories.id=products.category_id","LEFT")
-				 ->join("stock_trans","stock_trans.product_id = products.id","LEFT")
-                ->join("erp_purchases","erp_purchases.id = stock_trans.tran_id","LEFT");
+
+    public function getProCat($wid,$category2,$product2,$biller,$start=null,$end=null){
+        $this->db->select("erp_categories.id,erp_categories.name")
+            ->join("erp_categories","erp_categories.id=products.category_id","LEFT")
+            ->join("stock_trans","stock_trans.product_id = products.id","LEFT")
+            ->join("erp_purchases","erp_purchases.id = stock_trans.tran_id","LEFT")
+            ->where('stock_trans.tran_date >= "'.$start.'" AND stock_trans.tran_date <= "'.$end.'"')
+        ;
 		if($category2){
 			$this->db->where(array("products.category_id"=>$category2));
 		}
@@ -5256,7 +5258,7 @@ ORDER BY
             $this->db->where("erp_purchases.biller_id",$biller);
         }
 		$this->db->where(array("stock_trans.warehouse_id"=>$wid));
-		$this->db->limit(2);
+		//$this->db->limit(2);
 		$this->db->group_by("products.category_id");
 		$q = $this->db->get("products");
 		if ($q->num_rows() > 0) {

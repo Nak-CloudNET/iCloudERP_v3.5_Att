@@ -154,7 +154,7 @@
                         }
 					}
 				?>
-                <div class="table-responsive" style="width:100%;overflow:auto;">
+                <div class="table-responsive" style="width:100%;">
                     <table id="tbstock" class="table table-condensed table-bordered table-hover table-striped" >
                         <thead>
 							<tr>
@@ -213,7 +213,7 @@
 									$total2_outt = 0;
 									$total_balance = 0;
 									$total_begin_balance = 0;
-									$procat = $this->reports_model->getProCat($rw->id,$category2,$product2,$biller2);
+									$procat = $this->reports_model->getProCat($rw->id,$category2,$product2,$biller2,$from_date2,$to_date2);
 
 									$total_in_cate_w = array();
 									$total_out_cate_w = array();
@@ -356,11 +356,11 @@
 									}
 								?>
 								<tr>
-                                    <td style=" text-align:right;background:#F0F8FF;"><b>Total <span
+                                    <td style=" text-align:left;background:#F0F8FF;" colspan="2"><b>Total <span
                                                     style="color:orange;"> <i
                                                         class="fa fa-angle-double-right"
                                                         aria-hidden="true"></i></span> <?= $rc->name; ?></b></td>
-                                    <td style="background:#F0F8FF;"></td>
+
 									<td style='text-align:right;background:#F0F8FF;'>
 												<b><?=$this->erp->formatDecimal($begin_balance?$begin_balance:'')?></b>
 									</td>
@@ -402,12 +402,12 @@
 									}
 							?>		
 								<tr>
-                                    <td style="text-align:right; background:#428BCA;color:white;border-color: #357EBD;">
+                                    <td style="text-align:left; background:#428BCA;color:white;border-color: #357EBD;" colspan="2">
                                         <b>Grand Total <i
                                                     class="fa fa-angle-double-right"
                                                     aria-hidden="true"></i> <?= $rw->name; ?></b></td>
 									<td style="text-align:right; background:#428BCA;color:white;border-color: #357EBD;"><b><?=$this->erp->formatDecimal($total_begin_balance?$total_begin_balance:'')?></b></td>
-                                    <td style="background:#428BCA;"></td>
+
 									<?php
 										if(is_array($num)){
 											foreach($num as $tr){

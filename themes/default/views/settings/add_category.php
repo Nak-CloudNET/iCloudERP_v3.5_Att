@@ -62,7 +62,8 @@
 				<div class="form-group">
 					<?= lang("account_sale","account_sale"); ?>
 					<?php
-						$acc_section = array();
+						//$acc_section = array();
+                    $acc_section[''] = lang('None');
 						$selected = 0;
 						foreach($chart_accounts as $section){
 						    if($section->accountcode == 410101){
@@ -77,7 +78,8 @@
 				<div class="form-group">
 					<?= lang("account_purchase","account_purchase"); ?>
 					<?php 
-						$acc_section = array('' => '');
+						//$acc_section = array('' => '');
+                    $acc_section[''] = lang('None');
                         $selected = 0;
 						foreach($chart_accounts as $section){
                             if($section->accountcode == 100430){
@@ -91,7 +93,8 @@
 				<div class="form-group">
 					<?= lang("account_stock","account_stock"); ?>
 					<?php
-						$acc_section = array('' => '');
+						//$acc_section = array('' => '');
+                    $acc_section[''] = lang('None');
                         $selected = 0;
 						foreach($chart_accounts as $section){
                             if($section->accountcode == 100430){
@@ -105,7 +108,8 @@
 				<div class="form-group">
                     <?= lang("account_stock_adjustment", "account_stock_adjustment"); ?>
 					<?php
-						$acc_section = array('' => '');
+						//$acc_section = array('' => '');
+                    $acc_section[''] = lang('None');
                         $selected = 0;
 						foreach($chart_accounts as $section){
                             if($section->accountcode == 500107){
@@ -119,7 +123,8 @@
 				<div class="form-group">
 					<?= lang("account_cost","account_cost"); ?>
 					<?php
-						$acc_section = array('' => '');
+						//$acc_section = array('' => '');
+                    $acc_section[''] = lang('None');
                         $selected = 0;
 						foreach($chart_accounts as $section){
                             if($section->accountcode == 500101){
@@ -133,7 +138,8 @@
 				<div class="form-group">
 					<?= lang("account_cost_variant","account_cost_variant"); ?>
 					<?php 
-						$acc_section = array('' => '');
+						//$acc_section = array('' => '');
+                    $acc_section[''] = lang('None');
                         $selected = 0;
 						foreach($chart_accounts as $section){
                             if($section->accountcode == 500108){
