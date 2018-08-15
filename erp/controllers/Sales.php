@@ -2367,6 +2367,7 @@ class Sales extends MY_Controller
 		
         $this->datatables->add_column("Actions", $action, "sales.id");
         echo $this->datatables->generate();
+
     }
     
 	function getCusDetails()
@@ -13589,8 +13590,8 @@ class Sales extends MY_Controller
 
                     foreach ($final as $key => $value)
                     {
-                         $date = strtr($value['opening_date'], '/', '-');
-                            $date = date('Y-m-d H:i:s', strtotime($date));
+                        //echo $value['opening_date'];exit;
+                         $date = $this->erp->fld($value['opening_date']);
                          // statement no need model
 						 $biller = $this->db->get_where('companies', array('id' => $value['shop_id']))->row();
                          $customer = $this->db->where('company_id',$value['customer_no'])->get('deposits');
@@ -13684,6 +13685,7 @@ class Sales extends MY_Controller
 						}
 
 						 // sale insert
+                        //$this->erp->print_arrays($date);
 						 $data_insert[] = array(
 							'reference_no'  =>  $value['invoice_reference'],
 							'customer_id'   =>  $value['customer_no'],
