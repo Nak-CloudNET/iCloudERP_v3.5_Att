@@ -175,18 +175,18 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-sm-7 col-xs-7">
+				<div class="col-sm-8 col-xs-8">
                     <table style="font-size: 11px;">
                         <?php if(!empty($customer->company)) { ?>
                             <tr>
-                                <td style="width: 15%;">ក្រុមហ៊ុន /Company</td>
-                                <td style="width: 5%;">:</td>
-                                <td style="width: 20%;"><?= $customer->company ?></td>
+                                <td style="width: 8%;white-space: nowrap">ក្រុមហ៊ុន /Company</td>
+                                <td style="width: 3%;">:</td>
+                                <td style="width: 50%;"><?= $customer->company ?></td>
                             </tr>
                         <?php } ?>
                         <?php if(!empty($customer->name_kh || $customer->name)) { ?>
                             <tr>
-                                <td>អតិថិជន  /Customer</td>
+                                <td style="white-space: nowrap">អតិថិជន  /Customer</td>
                                 <td>:</td>
                                 <?php if(!empty($customer->name_kh)) { ?>
                                     <td><?= $customer->name_kh ?></td>
@@ -197,7 +197,7 @@
                         <?php } ?>
                         <?php if(!empty($customer->address_kh || $customer->address)) { ?>
                             <tr>
-                                <td>អាសយដ្ឋាន  Address</td>
+                                <td style="white-space: nowrap">អាសយដ្ឋាន  Address</td>
                                 <td>:</td>
                                 <?php if(!empty($customer->address_kh)) { ?>
                                     <td><?= $customer->address_kh?></td>
@@ -215,40 +215,40 @@
                         <?php } ?>
                         <?php if(!empty($customer->vat_no)) { ?>
                             <tr>
-                                <td style="width: 20% !important">លេខអត្តសញ្ញាណកម្ម អតប </br> VAT No.</td>
+                                <td style="width: 20% !important;white-space: nowrap">លេខអត្តសញ្ញាណកម្ម អតប </br> VAT No.</td>
                                 <td>:</td>
                                 <td><?= $customer->vat_no ?></td>
                             </tr>
                         <?php } ?>
                     </table>
                 </div>
-                <div class="col-sm-5 col-xs-5">
+                <div class="col-sm-4 col-xs-4">
                     <table style="font-size: 11px;">
                         <tr>
-                            <td style="width: 20%;">លេខរៀង  / No</td>
+                            <td style="width: 20%;white-space: nowrap">លេខរៀង  / No</td>
                             <td style="width: 5%;">:</td>
                             <td style="width: 30%;"><?= $invs->reference_no ?></td>
                         </tr>
                         <tr>
-                            <td>កាលបរិច្ឆេទ /Date</td>
+                            <td style="white-space: nowrap">កាលបរិច្ឆេទ /Date</td>
                             <td>:</td>
-                            <td><?= $this->erp->hrld($invs->date); ?></td>
+                            <td style="white-space: nowrap"><?= $this->erp->hrld($invs->date); ?></td>
                         </tr>
                         <tr>
-                            <td>អ្នកលក់ / Sale Man</td>
+                            <td style="white-space: nowrap">អ្នកលក់ / Sale Man</td>
                             <td>:</td>
                             <td><?= $invs->saleman; ?></td>
                         </tr>
                         <?php if ($invs->payment_term) { ?>
                             <tr>
-                                <td>រយៈពេលបង់ប្រាក់ <br> Payment Term</td>
+                                <td style="white-space: nowrap">រយៈពេលបង់ប្រាក់ <br> Payment Term</td>
                                 <td>:</td>
                                 <td><?= $invs->payment_term ?></td>
                             </tr>
                             <tr>
-                                <td style="width: 30% !important">កាលបរិច្ឆេទនៃការបង់ប្រាក់ <br> Due Date</td>
+                                <td style="width: 30% !important;white-space: nowrap">កាលបរិច្ឆេទនៃការបង់ប្រាក់ <br> Due Date</td>
                                 <td>:</td>
-                                <td><?= $this->erp->hrsd($invs->due_date) ?></td>
+                                <td style="white-space: nowrap"><?= $this->erp->hrsd($invs->due_date) ?></td>
                             </tr>
                         <?php } ?>
                     </table>

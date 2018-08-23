@@ -3457,6 +3457,7 @@ var lang = {unexpected_value: '<?=lang('unexpected_value');?>', select_above: '<
 		function autoCalchange(total_p){
             $(".curr_change").each(function(){
                 var rate = $(this).attr('rate');
+
 				if(total_p != 0){
 					$(this).html((parseFloat(total_p)*rate).toFixed(0));
 				}else{
@@ -3515,6 +3516,7 @@ var lang = {unexpected_value: '<?=lang('unexpected_value');?>', select_above: '<
 				$('#remain').text(formatMoney(balance));
 				$('#change').text('0.00');
 			}else if(balance < 0){
+
 				balance = balance * (-1);
 				autoCalremain(0);
 				autoCalchange(formatDecimal(balance));
@@ -4867,6 +4869,7 @@ var lang = {unexpected_value: '<?=lang('unexpected_value');?>', select_above: '<
 				$('.main_remain').text(formatMoney(balance));
 				$('#change').text('0.00');
 				$('#change_1').text('0.00');
+
 			}else if(balance < 0){
 				balance = balance * (-1);
 				var ch = (balance).toFixed(3);
@@ -4878,6 +4881,7 @@ var lang = {unexpected_value: '<?=lang('unexpected_value');?>', select_above: '<
 				$('.main_remain').text('0.00');
 				$('.main_remain_').text('0.00');
 			}else{
+
 				autoCalremain(0);
 				autoCalchange(0);
 				$('#change').text('0.00');

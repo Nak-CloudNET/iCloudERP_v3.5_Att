@@ -1609,6 +1609,190 @@ class Accounts_model extends CI_Model
 		return $query;
 	}
 
+    function getBalanceSheetDetailPurByAccCodes($code = NULL, $section = NULL,$from_date= NULL,$biller_id = NULL) {
+        $where_biller = '';
+        if($biller_id != NULL){
+            $where_biller = " AND erp_gl_trans.biller_id IN($biller_id) ";
+        }
+        $where_date = '';
+        if($from_date){
+            $where_date = " AND date(erp_gl_trans.tran_date) <= '$from_date'";
+        }
+        $query = $this->db->query("SELECT
+			erp_gl_trans.tran_type,
+			erp_gl_trans.tran_date,
+			erp_gl_trans.reference_no,
+			(
+				CASE
+				WHEN erp_gl_trans.tran_type = 'SALES' THEN
+					(
+						SELECT
+							erp_sales.customer
+						FROM
+							erp_sales
+						WHERE
+							erp_gl_trans.reference_no = erp_sales.reference_no
+						LIMIT 0,1
+					)
+				WHEN erp_gl_trans.tran_type = 'PURCHASES' OR erp_gl_trans.tran_type = 'PURCHASE EXPENSE' THEN
+					(
+						SELECT
+							erp_purchases.supplier
+						FROM
+							erp_purchases
+						WHERE
+							erp_gl_trans.reference_no = erp_purchases.reference_no
+						LIMIT 0,1
+					)
+				WHEN erp_gl_trans.tran_type = 'SALES-RETURN' THEN
+					(
+						SELECT
+							erp_return_sales.customer
+						FROM
+							erp_return_sales
+						WHERE
+							erp_return_sales.reference_no = erp_gl_trans.reference_no
+						LIMIT 0,1
+					)
+				WHEN erp_gl_trans.tran_type = 'PURCHASES-RETURN' THEN
+					(
+						SELECT
+							erp_return_purchases.supplier
+						FROM
+							erp_return_purchases
+						WHERE
+							erp_return_purchases.reference_no = erp_gl_trans.reference_no
+						LIMIT 0,1
+					)
+				WHEN erp_gl_trans.tran_type = 'DELIVERY' THEN
+					(
+						SELECT
+							erp_deliveries.customer
+						FROM
+							erp_deliveries
+						WHERE
+							erp_deliveries.do_reference_no = erp_gl_trans.reference_no
+						LIMIT 0,1
+					)
+				WHEN erp_gl_trans.tran_type = 'USING STOCK' THEN
+					(
+						SELECT
+							erp_companies.name
+						FROM
+							erp_enter_using_stock
+						INNER JOIN erp_companies ON erp_companies.id = erp_enter_using_stock.employee_id
+						WHERE
+							erp_enter_using_stock.reference_no = erp_gl_trans.reference_no
+						LIMIT 0,1
+					)
+				WHEN erp_gl_trans.tran_type = 'STOCK_ADJUST' THEN
+					(
+						SELECT
+							'' AS customer
+						FROM
+							erp_adjustments
+						WHERE
+							erp_adjustments.id = erp_gl_trans.reference_no
+						LIMIT 0,1
+					)
+				ELSE
+					''
+				END
+			) AS customer,
+			(
+				CASE
+				WHEN erp_gl_trans.tran_type = 'SALES' THEN
+					(
+						SELECT
+							erp_sales.note
+						FROM
+							erp_sales
+						WHERE
+							erp_gl_trans.reference_no = erp_sales.reference_no
+						LIMIT 0,1
+					)
+				WHEN erp_gl_trans.tran_type = 'PURCHASES' OR erp_gl_trans.tran_type = 'PURCHASE EXPENSE' THEN
+					(
+						SELECT
+							erp_purchases.note
+						FROM
+							erp_purchases
+						WHERE
+							erp_gl_trans.reference_no = erp_purchases.reference_no
+						LIMIT 0,1
+					)
+				WHEN erp_gl_trans.tran_type = 'SALES-RETURN' THEN
+					(
+						SELECT
+							erp_return_sales.note
+						FROM
+							erp_return_sales
+						WHERE
+							erp_return_sales.reference_no = erp_gl_trans.reference_no
+						LIMIT 0,1
+					)
+				WHEN erp_gl_trans.tran_type = 'PURCHASES-RETURN' THEN
+					(
+						SELECT
+							erp_return_purchases.note
+						FROM
+							erp_return_purchases
+						WHERE
+							erp_return_purchases.reference_no = erp_gl_trans.reference_no
+						LIMIT 0,1
+					)
+				WHEN erp_gl_trans.tran_type = 'DELIVERY' THEN
+					(
+						SELECT
+							erp_deliveries.note
+						FROM
+							erp_deliveries
+						WHERE
+							erp_deliveries.do_reference_no = erp_gl_trans.reference_no
+						LIMIT 0,1
+					)
+				WHEN erp_gl_trans.tran_type = 'USING STOCK' THEN
+					(
+						SELECT
+							erp_enter_using_stock.note
+						FROM
+							erp_enter_using_stock
+						WHERE
+							erp_enter_using_stock.reference_no = erp_gl_trans.reference_no
+						LIMIT 0,1
+					)
+				WHEN erp_gl_trans.tran_type = 'STOCK_ADJUST' THEN
+					(
+						SELECT
+							erp_adjustments.note
+						FROM
+							erp_adjustments
+						WHERE
+							erp_adjustments.id = erp_gl_trans.reference_no
+						LIMIT 0,1
+					)
+				ELSE
+					''
+				END
+			) AS note,
+			erp_gl_trans.account_code,
+			erp_gl_charts.accountname,
+			erp_gl_trans.amount,
+			erp_gl_trans.biller_id
+		FROM
+			erp_gl_trans
+		INNER JOIN erp_gl_charts ON erp_gl_charts.accountcode = erp_gl_trans.account_code
+		WHERE
+			erp_gl_trans.account_code = '$code'
+			AND	erp_gl_trans.sectionid IN ($section)
+			$where_biller 
+			$where_date
+		HAVING amount <> 0
+		");
+        return $query;
+    }
+
+
     public function getStatementByBalaneSheetDate($section = NULL, $from_date = NULL, $to_date = NULL, $biller_id = NULL)
     {
 		$where_biller = '';

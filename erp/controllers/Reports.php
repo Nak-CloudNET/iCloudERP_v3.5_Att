@@ -15144,11 +15144,11 @@ class Reports extends MY_Controller
 
         $this->page_construct('reports/balance_sheet', $meta, $this->data);
 	}
-	
-	function balance_sheet_details($start_date = NULL, $end_date = NULL, $pdf = NULL, $xls = NULL, $biller_id = NULL)
+
+    function balance_sheet_details($start_date = NULL, $end_date = NULL, $pdf = NULL, $xls = NULL, $biller_id = NULL)
     {
         $this->erp->checkPermissions('balance_sheet',NULL,'account_report');
-		$user = $this->site->getUser();
+        $user = $this->site->getUser();
         if ($this->input->post('start_date')) {
             $start_date = $this->input->post('start_date');
             $start=explode('/',$start_date);
@@ -15164,321 +15164,321 @@ class Reports extends MY_Controller
         } else {
             $end = $this->db->escape(urldecode($end_date));
         }
-		
-		if($biller_id != NULL){
-			$this->data['biller_id_no_sep'] = $biller_id;
-			$biller_sep = explode('-', $biller_id);
-			
-			$bills = '';
-			for($i=0; $i < count($biller_sep); $i++){
-				$bills .= $biller_sep[$i] . ',';
-			}
-			$biller_id =  rtrim($bills, ',');
 
-			$this->data['biller_id'] = $biller_id;
-		}else{
-			if($user->biller_id){
-				$this->data['biller_id'] = json_decode($user->biller_id);
-				$biller_id = json_decode($user->biller_id);
-				
-			}else{
-				$this->data['biller_id'] = "";
-			}
-		}
-		if(!$this->Owner && !$this->Admin) {
-			if($user->biller_id){
-				$this->data['billers'] = $this->site->getCompanyByArray(json_decode($user->biller_id));
-			}else{
-				$this->data['billers'] = $this->site->getAllCompanies('biller');
-			}
-		}else{
-			$this->data['billers'] = $this->site->getAllCompanies('biller');
-		}
-		
-		$this->data['start'] = urldecode($start_date);
+        if($biller_id != NULL){
+            $this->data['biller_id_no_sep'] = $biller_id;
+            $biller_sep = explode('-', $biller_id);
+
+            $bills = '';
+            for($i=0; $i < count($biller_sep); $i++){
+                $bills .= $biller_sep[$i] . ',';
+            }
+            $biller_id =  rtrim($bills, ',');
+
+            $this->data['biller_id'] = $biller_id;
+        }else{
+            if($user->biller_id){
+                $this->data['biller_id'] = json_decode($user->biller_id);
+                $biller_id = json_decode($user->biller_id);
+
+            }else{
+                $this->data['biller_id'] = "";
+            }
+        }
+        if(!$this->Owner && !$this->Admin) {
+            if($user->biller_id){
+                $this->data['billers'] = $this->site->getCompanyByArray(json_decode($user->biller_id));
+            }else{
+                $this->data['billers'] = $this->site->getAllCompanies('biller');
+            }
+        }else{
+            $this->data['billers'] = $this->site->getAllCompanies('biller');
+        }
+
+        $this->data['start'] = urldecode($start_date);
         $this->data['end'] = urldecode($end_date);
-		
-		$acc_setting = $this->site->get_Acc_setting();
-		$this->data['acc_setting'] = $acc_setting;
+
+        $acc_setting = $this->site->get_Acc_setting();
+        $this->data['acc_setting'] = $acc_setting;
 
         $this->data['error'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('error');
-        
-        $bc = array(array('link' => base_url(), 'page' => lang('home')), array('link' => '#', 'page' => lang('reports/balance_sheet')));
-        $meta = array('page_title' => lang('balance_sheet'), 'bc' => $bc);
-		$from_date = $st;//'2014-08-01';
-		$to_date = date('Y-m-d',strtotime(urldecode($end_date)));//'2015-09-01'; before, it use in select query.
-		
-		$rep_space_end=str_replace(' ','_',urldecode($end_date));
-		$end_dates=str_replace(':','-',$rep_space_end);//replace  $to_date.
-		
-		$totalBeforeAyear = date('Y', strtotime($this->data['start'])) - 1;
+
+        $bc = array(array('link' => base_url(), 'page' => lang('home')), array('link' => '#', 'page' => lang('reports/balance_sheet_details')));
+        $meta = array('page_title' => lang('balance_sheet_details'), 'bc' => $bc);
+        $from_date = $st;//'2014-08-01';
+        $to_date = date('Y-m-d',strtotime(urldecode($end_date)));//'2015-09-01'; before, it use in select query.
+
+        $rep_space_end=str_replace(' ','_',urldecode($end_date));
+        $end_dates=str_replace(':','-',$rep_space_end);//replace  $to_date.
+
+        $totalBeforeAyear = date('Y', strtotime($this->data['start'])) - 1;
 
         $this->data['totalBeforeAyear'] = $totalBeforeAyear;
-		$dataAsset = $this->accounts_model->getStatementByDatess('10,11',$from_date,json_decode($biller_id));
-		$this->data['dataAsset'] = $dataAsset;
-		
-		$dataLiability = $this->accounts_model->getStatementByDatess('20,21',$from_date,json_decode($biller_id));
-		$this->data['dataLiability'] = $dataLiability;
-		
-		$dataEquity = $this->accounts_model->getStatementByDatess('30',$from_date,json_decode($biller_id));
-		$this->data['dataEquity'] = $dataEquity;
-		
-		$dataIncome = $this->accounts_model->getStatementByDatess('40,70',$from_date,json_decode($biller_id));
-		$this->data['dataIncome'] = $dataIncome;
-		
-		$dataAllIncome = $this->accounts_model->getStatementByDateBill('40,70',$from_date,$to_date,json_decode($biller_id));
-		$this->data['dataAllIncome'] = $dataAllIncome;
-		
-		$dataAllExpense = $this->accounts_model->getStatementByDateBill('50,60,80,90',$from_date,$to_date,json_decode($biller_id));
-		$this->data['dataAllExpense'] = $dataAllExpense;
-		
-		$dataExpense = $this->accounts_model->getStatementByDate('50,60,80,90',$from_date,$to_date,json_decode($biller_id));
-		$this->data['dataExpense'] = $dataExpense;
+        $dataAsset = $this->accounts_model->getStatementByDatess('10,11',$from_date,json_decode($biller_id));
+        $this->data['dataAsset'] = $dataAsset;
 
-		//$this->data['assetDetails'] = $this->accounts_model->getBalanceSheetDetailByAccCode('10,11',$from_date,$to_date,$biller_id);
+        $dataLiability = $this->accounts_model->getStatementByDatess('20,21',$from_date,json_decode($biller_id));
+        $this->data['dataLiability'] = $dataLiability;
 
-		$this->data['from_date'] = $st;
-		$this->data['end_dates'] = $to_date;
-		
-		if ($pdf) {
-            $html = $this->load->view($this->theme . 'reports/balance_sheet', $this->data, true);
-            $name = lang("balance_sheet") . "_" . date('Y_m_d_H_i_s') . ".pdf";
+        $dataEquity = $this->accounts_model->getStatementByDatess('30',$from_date,json_decode($biller_id));
+        $this->data['dataEquity'] = $dataEquity;
+
+        $dataIncome = $this->accounts_model->getStatementByDatess('40,70',$from_date,json_decode($biller_id));
+        $this->data['dataIncome'] = $dataIncome;
+
+        $dataAllIncome = $this->accounts_model->getStatementByDateBill('40,70',$from_date,$to_date,json_decode($biller_id));
+        $this->data['dataAllIncome'] = $dataAllIncome;
+
+        $dataAllExpense = $this->accounts_model->getStatementByDateBill('50,60,80,90',$from_date,$to_date,json_decode($biller_id));
+        $this->data['dataAllExpense'] = $dataAllExpense;
+
+        $dataExpense = $this->accounts_model->getStatementByDate('50,60,80,90',$from_date,$to_date,json_decode($biller_id));
+        $this->data['dataExpense'] = $dataExpense;
+
+        //$this->data['assetDetails'] = $this->accounts_model->getBalanceSheetDetailByAccCode('10,11',$from_date,$to_date,$biller_id);
+
+        $this->data['from_date'] = $st;
+        $this->data['end_dates'] = $to_date;
+
+        if ($pdf) {
+            $html = $this->load->view($this->theme . 'reports/balance_sheet_details', $this->data, true);
+            $name = lang("balance_sheet_details") . "_" . date('Y_m_d_H_i_s') . ".pdf";
             $html = str_replace('<p class="introtext">' . lang("reports_balance_text") . '</p>', '', $html);
             $this->erp->generate_pdf($html, $name, null, null, null, null, null, 'L');
         }
-		if($xls){
-			$styleArray = array(
-				'font'  => array(
-					'bold'  => true,
-					'color' => array('rgb' => '000000'),
-					'size'  => 10,
-					'name'  => 'Verdana'
-				)
-			);
-			$bold = array(
-				'font' => array(
-					'bold' => true
-				)
-			);
-			$this->load->library('excel');
-			$this->excel->setActiveSheetIndex(0);
-			$this->excel->getActiveSheet()->getStyle('A1:E1')->applyFromArray($styleArray);
-			$this->excel->getActiveSheet()->setTitle(lang('Balance Sheet'));
-			$this->excel->getActiveSheet()->SetCellValue('A1', lang('account_name'));
-			$this->excel->getActiveSheet()->SetCellValue('B1', lang('debit'));
-			$this->excel->getActiveSheet()->SetCellValue('C1', lang('credit'));
-			$this->excel->getActiveSheet()->SetCellValue('D1', lang("debit") . ' (' . $totalBeforeAyear . ')');
-			$this->excel->getActiveSheet()->SetCellValue('E1', lang("credit") . ' (' . $totalBeforeAyear . ')');
-			
-			$this->excel->getActiveSheet()->getStyle('A2:B2')->applyFromArray($bold);
-			$this->excel->getActiveSheet()->mergeCells('A2:B2')->setCellValue('A2' , lang('asset'));
-			$this->excel->getActiveSheet()->mergeCells('C2:E2');
-			$total_asset = 0;
-			$totalBeforeAyear_asset = 0;
-			$Asset = 3;
-			foreach($dataAsset->result() as $row){
-				$total_asset += $row->amount;
-				$query = $this->db->query("SELECT
+        if($xls){
+            $styleArray = array(
+                'font'  => array(
+                    'bold'  => true,
+                    'color' => array('rgb' => '000000'),
+                    'size'  => 10,
+                    'name'  => 'Verdana'
+                )
+            );
+            $bold = array(
+                'font' => array(
+                    'bold' => true
+                )
+            );
+            $this->load->library('excel');
+            $this->excel->setActiveSheetIndex(0);
+            $this->excel->getActiveSheet()->getStyle('A1:E1')->applyFromArray($styleArray);
+            $this->excel->getActiveSheet()->setTitle(lang('balance_sheet_details'));
+            $this->excel->getActiveSheet()->SetCellValue('A1', lang('account_name'));
+            $this->excel->getActiveSheet()->SetCellValue('B1', lang('debit'));
+            $this->excel->getActiveSheet()->SetCellValue('C1', lang('credit'));
+            $this->excel->getActiveSheet()->SetCellValue('D1', lang("debit") . ' (' . $totalBeforeAyear . ')');
+            $this->excel->getActiveSheet()->SetCellValue('E1', lang("credit") . ' (' . $totalBeforeAyear . ')');
+
+            $this->excel->getActiveSheet()->getStyle('A2:B2')->applyFromArray($bold);
+            $this->excel->getActiveSheet()->mergeCells('A2:B2')->setCellValue('A2' , lang('asset'));
+            $this->excel->getActiveSheet()->mergeCells('C2:E2');
+            $total_asset = 0;
+            $totalBeforeAyear_asset = 0;
+            $Asset = 3;
+            foreach($dataAsset->result() as $row){
+                $total_asset += $row->amount;
+                $query = $this->db->query("SELECT
 				SUM(CASE WHEN erp_gl_trans.amount < 0 THEN erp_gl_trans.amount ELSE 0 END) as NegativeTotal,
 				SUM(CASE WHEN erp_gl_trans.amount >= 0 THEN erp_gl_trans.amount ELSE 0 END) as PostiveTotal
 				FROM
 					erp_gl_trans
 				WHERE
 					DATE(tran_date) = '$totalBeforeAyear' AND account_code = '" . $row->account_code . "';");
-				$totalBeforeAyearRows = $query->row();
-				$totalBeforeAyear_asset += ($totalBeforeAyearRows->NegativeTotal + $totalBeforeAyearRows->PostiveTotal);
-				
-				if ($row->amount>0){
-					$this->excel->getActiveSheet()->SetCellValue('A' . $Asset, $row->account_code.' - '.$row->accountname);
-					$this->excel->getActiveSheet()->SetCellValue('B' . $Asset, number_format(abs($row->amount),2));
-					$this->excel->getActiveSheet()->SetCellValue('C' . $Asset, '');
-					$this->excel->getActiveSheet()->SetCellValue('D' . $Asset, number_format(abs($totalBeforeAyearRows->PostiveTotal),2));
-					$this->excel->getActiveSheet()->SetCellValue('E' . $Asset, '');
-				}else{
-					$this->excel->getActiveSheet()->SetCellValue('A' . $Asset, $row->account_code.' - '.$row->accountname);
-					$this->excel->getActiveSheet()->SetCellValue('B' . $Asset, '');
-					$this->excel->getActiveSheet()->SetCellValue('C' . $Asset, number_format(abs($row->amount),2));
-					$this->excel->getActiveSheet()->SetCellValue('D' . $Asset, '');
-					$this->excel->getActiveSheet()->SetCellValue('E' . $Asset, number_format(abs($totalBeforeAyearRows->NegativeTotal),2));
-				}
-				$Asset++;
-			}
-			
-			$this->excel->getActiveSheet()->getStyle('A3:A'.($Asset-1))->getAlignment()->setIndent(2);
-			
-			$this->excel->getActiveSheet()->getStyle('B'.$Asset.':E'.$Asset)->applyFromArray($bold);
-			$this->excel->getActiveSheet()->SetCellValue('A' . $Asset, lang('total_asset'));
-			$this->excel->getActiveSheet()->SetCellValue('B' . $Asset, number_format(abs($total_asset),2));
-			$this->excel->getActiveSheet()->SetCellValue('C' . $Asset, '');
-			$this->excel->getActiveSheet()->SetCellValue('D' . $Asset,  number_format(abs($totalBeforeAyear_asset),2));
-			$this->excel->getActiveSheet()->SetCellValue('E' . $Asset, '');
-			
-			$eq = $Asset + 1;
-			$this->excel->getActiveSheet()->getStyle('A'.$eq.':B'.$eq)->applyFromArray($bold);
-			$this->excel->getActiveSheet()->mergeCells('A'.$eq.':B'.$eq)->setCellValue('A' . $eq , lang('liabilities'));
-			$this->excel->getActiveSheet()->mergeCells('C'.$eq.':E'.$eq);
-			$total_liability = 0;
-			$totalBeforeAyear_liability = 0;
-			$Liability = $Asset + 2;
-			foreach($dataLiability->result() as $rowlia){
-				$total_liability += $rowlia->amount;
+                $totalBeforeAyearRows = $query->row();
+                $totalBeforeAyear_asset += ($totalBeforeAyearRows->NegativeTotal + $totalBeforeAyearRows->PostiveTotal);
 
-				$query = $this->db->query("SELECT
+                if ($row->amount>0){
+                    $this->excel->getActiveSheet()->SetCellValue('A' . $Asset, $row->account_code.' - '.$row->accountname);
+                    $this->excel->getActiveSheet()->SetCellValue('B' . $Asset, number_format(abs($row->amount),2));
+                    $this->excel->getActiveSheet()->SetCellValue('C' . $Asset, '');
+                    $this->excel->getActiveSheet()->SetCellValue('D' . $Asset, number_format(abs($totalBeforeAyearRows->PostiveTotal),2));
+                    $this->excel->getActiveSheet()->SetCellValue('E' . $Asset, '');
+                }else{
+                    $this->excel->getActiveSheet()->SetCellValue('A' . $Asset, $row->account_code.' - '.$row->accountname);
+                    $this->excel->getActiveSheet()->SetCellValue('B' . $Asset, '');
+                    $this->excel->getActiveSheet()->SetCellValue('C' . $Asset, number_format(abs($row->amount),2));
+                    $this->excel->getActiveSheet()->SetCellValue('D' . $Asset, '');
+                    $this->excel->getActiveSheet()->SetCellValue('E' . $Asset, number_format(abs($totalBeforeAyearRows->NegativeTotal),2));
+                }
+                $Asset++;
+            }
+
+            $this->excel->getActiveSheet()->getStyle('A3:A'.($Asset-1))->getAlignment()->setIndent(2);
+
+            $this->excel->getActiveSheet()->getStyle('B'.$Asset.':E'.$Asset)->applyFromArray($bold);
+            $this->excel->getActiveSheet()->SetCellValue('A' . $Asset, lang('total_asset'));
+            $this->excel->getActiveSheet()->SetCellValue('B' . $Asset, number_format(abs($total_asset),2));
+            $this->excel->getActiveSheet()->SetCellValue('C' . $Asset, '');
+            $this->excel->getActiveSheet()->SetCellValue('D' . $Asset,  number_format(abs($totalBeforeAyear_asset),2));
+            $this->excel->getActiveSheet()->SetCellValue('E' . $Asset, '');
+
+            $eq = $Asset + 1;
+            $this->excel->getActiveSheet()->getStyle('A'.$eq.':B'.$eq)->applyFromArray($bold);
+            $this->excel->getActiveSheet()->mergeCells('A'.$eq.':B'.$eq)->setCellValue('A' . $eq , lang('liabilities'));
+            $this->excel->getActiveSheet()->mergeCells('C'.$eq.':E'.$eq);
+            $total_liability = 0;
+            $totalBeforeAyear_liability = 0;
+            $Liability = $Asset + 2;
+            foreach($dataLiability->result() as $rowlia){
+                $total_liability += $rowlia->amount;
+
+                $query = $this->db->query("SELECT
 					SUM(CASE WHEN erp_gl_trans.amount < 0 THEN erp_gl_trans.amount ELSE 0 END) as NegativeTotal,
 					SUM(CASE WHEN erp_gl_trans.amount >= 0 THEN erp_gl_trans.amount ELSE 0 END) as PostiveTotal
 					FROM
 						erp_gl_trans
 					WHERE
 						DATE(tran_date) = '$totalBeforeAyear' AND account_code = '" . $rowlia->account_code . "';");
-				$totalBeforeAyearRows = $query->row();
-				$totalBeforeAyear_liability += ($totalBeforeAyearRows->NegativeTotal + $totalBeforeAyearRows->PostiveTotal);
-				if ($rowlia->amount>0){
-					$this->excel->getActiveSheet()->SetCellValue('A' . $Liability, $rowlia->account_code.' - '.$rowlia->accountname);
-					$this->excel->getActiveSheet()->SetCellValue('B' . $Liability, number_format(abs($rowlia->amount),2));
-					$this->excel->getActiveSheet()->SetCellValue('C' . $Liability, '');
-					$this->excel->getActiveSheet()->SetCellValue('D' . $Liability, number_format(abs($totalBeforeAyearRows->PostiveTotal),2));
-					$this->excel->getActiveSheet()->SetCellValue('E' . $Liability, '');
-				}else{
-					$this->excel->getActiveSheet()->SetCellValue('A' . $Liability, $rowlia->account_code.' - '.$rowlia->accountname);
-					$this->excel->getActiveSheet()->SetCellValue('B' . $Liability, '');
-					$this->excel->getActiveSheet()->SetCellValue('C' . $Liability, number_format(abs($rowlia->amount),2));
-					$this->excel->getActiveSheet()->SetCellValue('D' . $Liability, '');
-					$this->excel->getActiveSheet()->SetCellValue('E' . $Liability, number_format(abs($totalBeforeAyearRows->NegativeTotal),2));
-				}
-				$Liability++;
-			}
-			
-			$this->excel->getActiveSheet()->getStyle('A'.($Asset+2).':A'.($Liability-1))->getAlignment()->setIndent(2);
-			$this->excel->getActiveSheet()->getStyle('B'.$Liability.':E'.$Liability)->applyFromArray($bold);
-			$this->excel->getActiveSheet()->SetCellValue('A' . $Liability, lang('total_liabilities'));
-			$this->excel->getActiveSheet()->SetCellValue('B' . $Liability, '');
-			$this->excel->getActiveSheet()->SetCellValue('C' . $Liability, number_format(abs($total_liability),2));
-			$this->excel->getActiveSheet()->SetCellValue('D' . $Liability, '');
-			$this->excel->getActiveSheet()->SetCellValue('E' . $Liability, number_format(abs($totalBeforeAyear_liability),2));
-			
-			$equ = $Liability + 1;
-			$this->excel->getActiveSheet()->getStyle('A'.$equ.':B'.$equ)->applyFromArray($bold);
-			$this->excel->getActiveSheet()->mergeCells('A'.$equ.':B'.$equ)->setCellValue('A' . $equ , lang('equities'));
-			$this->excel->getActiveSheet()->mergeCells('C'.$equ.':E'.$equ);
-			$total_income = 0;
-			$total_expense = 0;
-			$total_returned = 0;
-			$equities = $Liability + 2;
-			$total_income_beforeAyear = 0;
-			$total_expense_beforeAyear = 0;
-			$total_returned_beforeAyear = 0;
-			$queryIncom = $this->db->query("SELECT sum(erp_gl_trans.amount) AS amount FROM
+                $totalBeforeAyearRows = $query->row();
+                $totalBeforeAyear_liability += ($totalBeforeAyearRows->NegativeTotal + $totalBeforeAyearRows->PostiveTotal);
+                if ($rowlia->amount>0){
+                    $this->excel->getActiveSheet()->SetCellValue('A' . $Liability, $rowlia->account_code.' - '.$rowlia->accountname);
+                    $this->excel->getActiveSheet()->SetCellValue('B' . $Liability, number_format(abs($rowlia->amount),2));
+                    $this->excel->getActiveSheet()->SetCellValue('C' . $Liability, '');
+                    $this->excel->getActiveSheet()->SetCellValue('D' . $Liability, number_format(abs($totalBeforeAyearRows->PostiveTotal),2));
+                    $this->excel->getActiveSheet()->SetCellValue('E' . $Liability, '');
+                }else{
+                    $this->excel->getActiveSheet()->SetCellValue('A' . $Liability, $rowlia->account_code.' - '.$rowlia->accountname);
+                    $this->excel->getActiveSheet()->SetCellValue('B' . $Liability, '');
+                    $this->excel->getActiveSheet()->SetCellValue('C' . $Liability, number_format(abs($rowlia->amount),2));
+                    $this->excel->getActiveSheet()->SetCellValue('D' . $Liability, '');
+                    $this->excel->getActiveSheet()->SetCellValue('E' . $Liability, number_format(abs($totalBeforeAyearRows->NegativeTotal),2));
+                }
+                $Liability++;
+            }
+
+            $this->excel->getActiveSheet()->getStyle('A'.($Asset+2).':A'.($Liability-1))->getAlignment()->setIndent(2);
+            $this->excel->getActiveSheet()->getStyle('B'.$Liability.':E'.$Liability)->applyFromArray($bold);
+            $this->excel->getActiveSheet()->SetCellValue('A' . $Liability, lang('total_liabilities'));
+            $this->excel->getActiveSheet()->SetCellValue('B' . $Liability, '');
+            $this->excel->getActiveSheet()->SetCellValue('C' . $Liability, number_format(abs($total_liability),2));
+            $this->excel->getActiveSheet()->SetCellValue('D' . $Liability, '');
+            $this->excel->getActiveSheet()->SetCellValue('E' . $Liability, number_format(abs($totalBeforeAyear_liability),2));
+
+            $equ = $Liability + 1;
+            $this->excel->getActiveSheet()->getStyle('A'.$equ.':B'.$equ)->applyFromArray($bold);
+            $this->excel->getActiveSheet()->mergeCells('A'.$equ.':B'.$equ)->setCellValue('A' . $equ , lang('equities'));
+            $this->excel->getActiveSheet()->mergeCells('C'.$equ.':E'.$equ);
+            $total_income = 0;
+            $total_expense = 0;
+            $total_returned = 0;
+            $equities = $Liability + 2;
+            $total_income_beforeAyear = 0;
+            $total_expense_beforeAyear = 0;
+            $total_returned_beforeAyear = 0;
+            $queryIncom = $this->db->query("SELECT sum(erp_gl_trans.amount) AS amount FROM
 										erp_gl_trans
 									INNER JOIN erp_gl_charts ON erp_gl_charts.accountcode = erp_gl_trans.account_code
 									WHERE DATE(tran_date) = '$totalBeforeAyear' AND	erp_gl_trans.sectionid IN ('40,70') GROUP BY erp_gl_trans.account_code;");
-			$total_income_beforeAyear = $queryIncom->amount;
+            $total_income_beforeAyear = $queryIncom->amount;
 
-			$queryExpense = $this->db->query("SELECT sum(erp_gl_trans.amount) AS amount FROM
+            $queryExpense = $this->db->query("SELECT sum(erp_gl_trans.amount) AS amount FROM
 										erp_gl_trans
 									INNER JOIN erp_gl_charts ON erp_gl_charts.accountcode = erp_gl_trans.account_code
 									WHERE DATE(tran_date) = '$totalBeforeAyear' AND	erp_gl_trans.sectionid IN ('50,60,80,90') GROUP BY erp_gl_trans.account_code;");
-			$total_expense_beforeAyear = $queryExpense->amount;
+            $total_expense_beforeAyear = $queryExpense->amount;
 
-			$total_returned_beforeAyear = abs($total_income_beforeAyear)-abs($total_expense_beforeAyear);
+            $total_returned_beforeAyear = abs($total_income_beforeAyear)-abs($total_expense_beforeAyear);
 
-			foreach($dataIncome->result() as $rowincome){
-				$total_income += $rowincome->amount;
-			}
-			foreach($dataExpense->result() as $rowexpense){
-				$total_expense += $rowexpense->amount;
-			}
-			$total_returned = abs($total_income)-abs($total_expense);
-			$this->excel->getActiveSheet()->SetCellValue('A' . $equities, '300000 - Retained Earnings');
-			if($total_returned<0) {
-				$this->excel->getActiveSheet()->SetCellValue('B' . $equities, number_format(abs($total_returned),2));
-				$this->excel->getActiveSheet()->SetCellValue('C' . $equities, '');
-				$this->excel->getActiveSheet()->SetCellValue('D' . $equities, number_format($total_returned_beforeAyear,2));
-				$this->excel->getActiveSheet()->SetCellValue('E' . $equities, '');
-			}else{
-				$this->excel->getActiveSheet()->SetCellValue('B' . $equities, '');
-				$this->excel->getActiveSheet()->SetCellValue('C' . $equities, number_format(abs($total_returned),2));
-				$this->excel->getActiveSheet()->SetCellValue('D' . $equities, '');
-				$this->excel->getActiveSheet()->SetCellValue('E' . $equities, number_format($total_returned_beforeAyear,2));
-			}
-			
-			$total_equity = 0;
-			$totalBeforeAyear_equity = 0;
-			$equity = $equities + 1;
-			foreach($dataEquity->result() as $rowequity){
-				$total_equity += $rowequity->amount;
+            foreach($dataIncome->result() as $rowincome){
+                $total_income += $rowincome->amount;
+            }
+            foreach($dataExpense->result() as $rowexpense){
+                $total_expense += $rowexpense->amount;
+            }
+            $total_returned = abs($total_income)-abs($total_expense);
+            $this->excel->getActiveSheet()->SetCellValue('A' . $equities, '300000 - Retained Earnings');
+            if($total_returned<0) {
+                $this->excel->getActiveSheet()->SetCellValue('B' . $equities, number_format(abs($total_returned),2));
+                $this->excel->getActiveSheet()->SetCellValue('C' . $equities, '');
+                $this->excel->getActiveSheet()->SetCellValue('D' . $equities, number_format($total_returned_beforeAyear,2));
+                $this->excel->getActiveSheet()->SetCellValue('E' . $equities, '');
+            }else{
+                $this->excel->getActiveSheet()->SetCellValue('B' . $equities, '');
+                $this->excel->getActiveSheet()->SetCellValue('C' . $equities, number_format(abs($total_returned),2));
+                $this->excel->getActiveSheet()->SetCellValue('D' . $equities, '');
+                $this->excel->getActiveSheet()->SetCellValue('E' . $equities, number_format($total_returned_beforeAyear,2));
+            }
 
-				$query = $this->db->query("SELECT
+            $total_equity = 0;
+            $totalBeforeAyear_equity = 0;
+            $equity = $equities + 1;
+            foreach($dataEquity->result() as $rowequity){
+                $total_equity += $rowequity->amount;
+
+                $query = $this->db->query("SELECT
 					sum(erp_gl_trans.amount) AS amount
 				FROM
 					erp_gl_trans
 				WHERE
 					DATE(tran_date) = '$totalBeforeAyear' AND account_code = '" . $rowequity->account_code . "';");
-				$totalBeforeAyearRows = $query->row();
-				$totalBeforeAyear_equity += $totalBeforeAyearRows->amount;
-				if($rowequity->amount<0) {
-					$this->excel->getActiveSheet()->SetCellValue('A' . $equity, $rowequity->account_code.' - '.$rowequity->accountname);
-					$this->excel->getActiveSheet()->SetCellValue('B' . $equity, '');
-					$this->excel->getActiveSheet()->SetCellValue('C' . $equity, number_format(abs($rowequity->amount),2));
-					$this->excel->getActiveSheet()->SetCellValue('D' . $equity, number_format(abs($totalBeforeAyearRows->amount),2));
-					$this->excel->getActiveSheet()->SetCellValue('E' . $equity, '');
-				}else{
-					$this->excel->getActiveSheet()->SetCellValue('A' . $equity, $rowequity->account_code.' - '.$rowequity->accountname);
-					$this->excel->getActiveSheet()->SetCellValue('B' . $equity, number_format(abs($rowequity->amount),2));
-					$this->excel->getActiveSheet()->SetCellValue('C' . $equity, '');
-					$this->excel->getActiveSheet()->SetCellValue('D' . $equity, number_format(abs($totalBeforeAyearRows->amount),2));
-					$this->excel->getActiveSheet()->SetCellValue('E' . $equity, '');
-				}
-				$equity++;
-			}
-			
-			$this->excel->getActiveSheet()->getStyle('A'.($Liability+2).':A'.($equity-1))->getAlignment()->setIndent(2);
-			
-			$this->excel->getActiveSheet()->getStyle('B'.$equity.':E'.$equity)->applyFromArray($bold);
-			$this->excel->getActiveSheet()->SetCellValue('A' . $equity, lang('total_equities'));
-			$this->excel->getActiveSheet()->SetCellValue('B' . $equity, '');
-			$this->excel->getActiveSheet()->SetCellValue('C' . $equity, number_format(abs($total_equity-$total_returned),2));
-			$this->excel->getActiveSheet()->SetCellValue('D' . $equity,  '');
-			$this->excel->getActiveSheet()->SetCellValue('E' . $equity, number_format(abs($totalBeforeAyear_equity-$total_returned_beforeAyear),2));
-			
-			$totalL = $equity + 1;
-			$this->excel->getActiveSheet()->getStyle('B'.$totalL.':E'.$totalL)->applyFromArray($bold);
-			$this->excel->getActiveSheet()->SetCellValue('A' . $totalL, lang('total_liabilities_equities'));
-			$this->excel->getActiveSheet()->SetCellValue('B' . $totalL, '');
-			$this->excel->getActiveSheet()->SetCellValue('C' . $totalL, number_format(abs($total_equity+$total_liability-$total_returned),2));
-			$this->excel->getActiveSheet()->SetCellValue('D' . $totalL,  '');
-			$this->excel->getActiveSheet()->SetCellValue('E' . $totalL, number_format(abs($totalBeforeAyear_equity+$totalBeforeAyear_liability-$total_returned_beforeAyear),2));
-			
-			$totalA = $totalL + 1;
-			$this->excel->getActiveSheet()->getStyle('A'.$totalA.':E'.$totalA)->applyFromArray($bold);
-			$this->excel->getActiveSheet()->SetCellValue('A' . $totalA, lang('Total ASSET = LIABILITIES + EQUITY'));
-			$this->excel->getActiveSheet()->SetCellValue('B' . $totalA, '');
-			$this->excel->getActiveSheet()->SetCellValue('C' . $totalA, number_format(abs($total_equity+$total_liability-$total_returned)-abs($total_asset),2));
-			$this->excel->getActiveSheet()->SetCellValue('D' . $totalA,  '');
-			$this->excel->getActiveSheet()->SetCellValue('E' . $totalA, number_format(abs($totalBeforeAyear_equity+$totalBeforeAyear_liability+$total_returned_beforeAyear)-abs($totalBeforeAyear_asset),2));
-			
-			
-			$this->excel->getActiveSheet()->getColumnDimension('A')->setWidth(40);
-			$this->excel->getActiveSheet()->getColumnDimension('B')->setWidth(20);
-			$this->excel->getActiveSheet()->getColumnDimension('C')->setWidth(20);
-			$this->excel->getActiveSheet()->getColumnDimension('D')->setWidth(15);
-			$this->excel->getActiveSheet()->getColumnDimension('E')->setWidth(15);
-			$this->excel->getDefaultStyle()->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
-			$filename = 'Balance_Sheet' . date('Y_m_d_H_i_s');
-			if ($xls) {
-				header('Content-Type: application/vnd.ms-excel');
-				header('Content-Disposition: attachment;filename="' . $filename . '.xls"');
-				header('Cache-Control: max-age=0');
+                $totalBeforeAyearRows = $query->row();
+                $totalBeforeAyear_equity += $totalBeforeAyearRows->amount;
+                if($rowequity->amount<0) {
+                    $this->excel->getActiveSheet()->SetCellValue('A' . $equity, $rowequity->account_code.' - '.$rowequity->accountname);
+                    $this->excel->getActiveSheet()->SetCellValue('B' . $equity, '');
+                    $this->excel->getActiveSheet()->SetCellValue('C' . $equity, number_format(abs($rowequity->amount),2));
+                    $this->excel->getActiveSheet()->SetCellValue('D' . $equity, number_format(abs($totalBeforeAyearRows->amount),2));
+                    $this->excel->getActiveSheet()->SetCellValue('E' . $equity, '');
+                }else{
+                    $this->excel->getActiveSheet()->SetCellValue('A' . $equity, $rowequity->account_code.' - '.$rowequity->accountname);
+                    $this->excel->getActiveSheet()->SetCellValue('B' . $equity, number_format(abs($rowequity->amount),2));
+                    $this->excel->getActiveSheet()->SetCellValue('C' . $equity, '');
+                    $this->excel->getActiveSheet()->SetCellValue('D' . $equity, number_format(abs($totalBeforeAyearRows->amount),2));
+                    $this->excel->getActiveSheet()->SetCellValue('E' . $equity, '');
+                }
+                $equity++;
+            }
 
-				$objWriter = PHPExcel_IOFactory::createWriter($this->excel, 'Excel5');
-				return $objWriter->save('php://output');
-			}
+            $this->excel->getActiveSheet()->getStyle('A'.($Liability+2).':A'.($equity-1))->getAlignment()->setIndent(2);
 
-			redirect($_SERVER["HTTP_REFERER"]);	
-		}
+            $this->excel->getActiveSheet()->getStyle('B'.$equity.':E'.$equity)->applyFromArray($bold);
+            $this->excel->getActiveSheet()->SetCellValue('A' . $equity, lang('total_equities'));
+            $this->excel->getActiveSheet()->SetCellValue('B' . $equity, '');
+            $this->excel->getActiveSheet()->SetCellValue('C' . $equity, number_format(abs($total_equity-$total_returned),2));
+            $this->excel->getActiveSheet()->SetCellValue('D' . $equity,  '');
+            $this->excel->getActiveSheet()->SetCellValue('E' . $equity, number_format(abs($totalBeforeAyear_equity-$total_returned_beforeAyear),2));
+
+            $totalL = $equity + 1;
+            $this->excel->getActiveSheet()->getStyle('B'.$totalL.':E'.$totalL)->applyFromArray($bold);
+            $this->excel->getActiveSheet()->SetCellValue('A' . $totalL, lang('total_liabilities_equities'));
+            $this->excel->getActiveSheet()->SetCellValue('B' . $totalL, '');
+            $this->excel->getActiveSheet()->SetCellValue('C' . $totalL, number_format(abs($total_equity+$total_liability-$total_returned),2));
+            $this->excel->getActiveSheet()->SetCellValue('D' . $totalL,  '');
+            $this->excel->getActiveSheet()->SetCellValue('E' . $totalL, number_format(abs($totalBeforeAyear_equity+$totalBeforeAyear_liability-$total_returned_beforeAyear),2));
+
+            $totalA = $totalL + 1;
+            $this->excel->getActiveSheet()->getStyle('A'.$totalA.':E'.$totalA)->applyFromArray($bold);
+            $this->excel->getActiveSheet()->SetCellValue('A' . $totalA, lang('Total ASSET = LIABILITIES + EQUITY'));
+            $this->excel->getActiveSheet()->SetCellValue('B' . $totalA, '');
+            $this->excel->getActiveSheet()->SetCellValue('C' . $totalA, number_format(abs($total_equity+$total_liability-$total_returned)-abs($total_asset),2));
+            $this->excel->getActiveSheet()->SetCellValue('D' . $totalA,  '');
+            $this->excel->getActiveSheet()->SetCellValue('E' . $totalA, number_format(abs($totalBeforeAyear_equity+$totalBeforeAyear_liability+$total_returned_beforeAyear)-abs($totalBeforeAyear_asset),2));
+
+
+            $this->excel->getActiveSheet()->getColumnDimension('A')->setWidth(40);
+            $this->excel->getActiveSheet()->getColumnDimension('B')->setWidth(20);
+            $this->excel->getActiveSheet()->getColumnDimension('C')->setWidth(20);
+            $this->excel->getActiveSheet()->getColumnDimension('D')->setWidth(15);
+            $this->excel->getActiveSheet()->getColumnDimension('E')->setWidth(15);
+            $this->excel->getDefaultStyle()->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
+            $filename = 'balance_sheet_details' . date('Y_m_d_H_i_s');
+            if ($xls) {
+                header('Content-Type: application/vnd.ms-excel');
+                header('Content-Disposition: attachment;filename="' . $filename . '.xls"');
+                header('Cache-Control: max-age=0');
+
+                $objWriter = PHPExcel_IOFactory::createWriter($this->excel, 'Excel5');
+                return $objWriter->save('php://output');
+            }
+
+            redirect($_SERVER["HTTP_REFERER"]);
+        }
         $this->page_construct('reports/balance_sheet_details', $meta, $this->data);
-	}
-	
-	function trial_balance($start_date = NULL, $end_date = NULL, $pdf= NULL, $xls = NULL, $biller_id = NULL)
+    }
+
+    function trial_balance($start_date = NULL, $end_date = NULL, $pdf= NULL, $xls = NULL, $biller_id = NULL)
     {
         $this->erp->checkPermissions('trail_balance',NULL,'account_report');
 		
