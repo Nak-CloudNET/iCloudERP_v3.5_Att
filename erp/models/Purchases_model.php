@@ -550,15 +550,15 @@ class Purchases_model extends CI_Model
 						$this->db->insert('deposits', $deposit);
 						$pur_deposit_id = $this->db->insert_id();						
 						$payment = array(
-							'date' => $deposit['date'],
-							'reference_no' => $deposit['reference'],
-							'amount' => $deposit['amount'],
-							'paid_by' => 'cash',
-							'created_by' => $deposit['created_by'],
-							'type' => 'received',
-							'biller_id'	=> $deposit['biller_id'],
-							'purchase_deposit_id' => $pur_deposit_id,
-							'opening' => $deposit['opening']
+							'date'                  => $deposit['date'],
+							'reference_no'          => $deposit['reference'],
+							'amount'                => $deposit['amount'],
+							'paid_by'               => 'cash',
+							'created_by'            => $deposit['created_by'],
+							'type'                  => 'received',
+							'biller_id'	            => $deposit['biller_id'],
+							'purchase_deposit_id'   => $pur_deposit_id,
+							'opening'               => $deposit['opening']
 						);
 						$this->db->insert('payments', $payment);	
 					}
