@@ -2826,7 +2826,7 @@ class Purchases extends MY_Controller
 			} else {
 				$payment = array();
 			}
-			//$this->erp->print_arrays($data, $products);
+
 		}
 
         if ($this->form_validation->run() == true && $this->purchases_model->addPurchase($data, $products, $payment, $purchase_order_id, $amount_o)) {
@@ -4944,7 +4944,7 @@ class Purchases extends MY_Controller
 
             $warehouse_id 		= $this->input->post('warehouse');
             $supplier_id 		= $this->input->post('supplier');
-            $status 			= $this->input->post('purchase_status');
+            $status 			= $this->input->post('purchase_status')?$this->input->post('purchase_status'):'received';
             $shipping 			= $this->input->post('shipping') ? $this->input->post('shipping') : 0;
             $order_ref 			= $this->input->post('order_ref') ? $this->input->post('order_ref') : '';
             $supplier_details 	= $this->site->getCompanyByID($supplier_id);
