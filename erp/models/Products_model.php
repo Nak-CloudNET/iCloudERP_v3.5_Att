@@ -1007,6 +1007,7 @@ class Products_model extends CI_Model
 	public function updateQuantityExcelPurchase($data = array())
     {
 		foreach($data as $value){
+            //$this->erp->print_arrays($value);
 			$this->db->select('*');
 			$this->db->from('products');
 			$this->db->where(array('id'=>$value['product_id']));
@@ -1014,6 +1015,7 @@ class Products_model extends CI_Model
             $expiry_date 	= $this->erp->fsd($value['expiry']);//date('Y-m-d', strtotime($expiry));
 			$pur_data = array(
 				'product_id'		=> $value['product_id'],
+                'biller_id'		    => $value['biller_id'],
 				'product_code'		=> $prod->row()->code,
 				'product_name'		=> $prod->row()->name,
 				'warehouse_id'		=> $value['warehouse_id'],
