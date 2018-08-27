@@ -572,7 +572,20 @@ class Purchases_model extends CI_Model
 
         return false;
     }
-	
+
+    public function getReferences()
+    {
+        $this->db->select('reference_no');
+        $q =$this->db->get('erp_purchases');
+        if ($q->num_rows() > 0){
+            foreach (($q->result()) as $row) {
+                $data[] = $row;
+            }
+            return $data;
+        }
+        return FALSE;
+    }
+
     public function getAllProducts()
     {
         $q = $this->db->get('products');

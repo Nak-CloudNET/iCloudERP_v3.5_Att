@@ -9439,7 +9439,7 @@ class Purchases extends MY_Controller
         $this->load->helper('security');
         $this->form_validation->set_message('is_natural_no_zero', $this->lang->line("no_zero_required"));
         $this->form_validation->set_rules('userfile', $this->lang->line("upload_file"), 'xss_clean');
-
+        $refer=$this->erp->purchases_model->getReferences();
         if ($this->form_validation->run() == true) {
 
             $quantity = "quantity";
@@ -9547,10 +9547,24 @@ class Purchases extends MY_Controller
             }
         }
 
-		if ($this->form_validation->run() == true ) {
-			$this->purchases_model->addOpeningAP($purchase, $deposits, $syncda);
-            $this->session->set_flashdata('message', $this->lang->line("supplier_opening_balance"));
-            redirect("purchases/supplier_opening_balance");
+        $ke=array();
+        $i=0;
+        foreach ($refer as $re){
+            $ke[$i] = $re->reference_no;
+            $i++;
+        }
+        //$this->erp->print_arrays($ke);
+        $key = array_search($csv_pr['reference'], $ke);
+
+        if ($this->form_validation->run() == true ) {
+            if($key != ''){
+                $this->session->set_flashdata('error', $this->lang->line("Reference no unique"));
+                redirect("purchases/supplier_opening_balance");
+            }else {
+                $this->purchases_model->addOpeningAP($purchase, $deposits, $syncda);
+                $this->session->set_flashdata('message', $this->lang->line("supplier_opening_balance"));
+                redirect("purchases/supplier_opening_balance");
+            }
         } else {
 
             $data['error'] = (validation_errors() ? validation_errors() : $this->session->flashdata('error'));
