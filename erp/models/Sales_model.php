@@ -3990,6 +3990,18 @@ class Sales_model extends CI_Model
         }
         return FALSE;
 	}
+    public function getReferences()
+    {
+        $this->db->select('reference_no');
+        $q =$this->db->get('erp_sales');
+        if ($q->num_rows() > 0){
+            foreach (($q->result()) as $row) {
+                $data[] = $row;
+            }
+            return $data;
+        }
+        return FALSE;
+    }
 
 
     public function getSaleByRef($ref)

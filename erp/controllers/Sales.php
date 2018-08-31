@@ -13547,6 +13547,8 @@ class Sales extends MY_Controller
         $this->load->library('erp');
 
         $this->form_validation->set_rules('userfile', lang("upload_file"), 'xss_clean');
+
+        $refer=$this->erp->sales_model->getReferences();
         if ($this->form_validation->run() == true) {
 
             if (isset($_FILES["userfile"]))
@@ -13572,8 +13574,9 @@ class Sales extends MY_Controller
                         }
                         fclose($handle);
                     }
+                    //$this->erp->print_arrays($arrResult);
                     $titles = array_shift($arrResult);
-                $keys = array('customer_no', 'customer_name', 'invoice_reference', 'opening_date', 'invoice_date', 'shop_id', 'warehouse_id', 'term', 'sale_id', 'balance', 'deposit');
+                    $keys = array('customer_no', 'customer_name', 'invoice_reference', 'opening_date', 'invoice_date', 'shop_id', 'warehouse_id', 'term', 'sale_id', 'balance', 'deposit');
 
                     $final = array();
                     foreach ($arrResult as $key => $value) {
@@ -13706,14 +13709,27 @@ class Sales extends MY_Controller
 						);
                     }
                 //$this->erp->print_arrays($data_insert);
-						if($data_deposit){
-							$this->db->insert_batch('deposits',$data_deposit);
-						}
+                $ke=array();
+                $i=0;
+                foreach ($refer as $re){
+                    $ke[$i] = $re->reference_no;
+                    $i++;
+                }
+                $key = array_search($value['invoice_reference'], $ke);
+                //$this->erp->print_arrays($key);
 
-					if($data_deposit){
-						$this->db->insert_batch('gl_trans',$deposit_gl);
-						$this->db->insert_batch('gl_trans',$balance_gl);
-					}
+                if($key != ''){
+                    $this->session->set_flashdata('error', $this->lang->line("Reference no unique"));
+                    redirect("sales/customer_opening_balance");
+                }else{
+                    if($data_deposit){
+                        $this->db->insert_batch('deposits',$data_deposit);
+                    }
+
+                    if($data_deposit){
+                        $this->db->insert_batch('gl_trans',$deposit_gl);
+                        $this->db->insert_batch('gl_trans',$balance_gl);
+                    }
 
                     $insert = $this->db->insert_batch('sales',$data_insert);
                     if($insert)
@@ -13721,6 +13737,7 @@ class Sales extends MY_Controller
                         $this->session->set_flashdata('message', $this->lang->line("customer_opening_balance_added"));
                         redirect("sales/customer_opening_balance");
                     }
+                }
             }
         }
         $bc = array(array('link' => base_url(), 'page' => lang('home')), array('link' => site_url('sales'), 'page' => lang('sales')), array('link' => '#', 'page' => lang('customer_opening_balance')));

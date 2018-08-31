@@ -1948,7 +1948,7 @@ class Products extends MY_Controller
 
         }
     }
-    
+
     function update_quantity()
     {
         $this->erp->checkPermissions('import_quantity', NULL, 'products');
@@ -1972,7 +1972,7 @@ class Products extends MY_Controller
                 $config['overwrite'] = TRUE;
 
                 $this->upload->initialize($config);
-                
+
                 if (!$this->upload->do_upload()) {
                     $error = $this->upload->display_errors();
                     $this->session->set_flashdata('error', $error);
@@ -1980,10 +1980,10 @@ class Products extends MY_Controller
                 }
 
                 $csv = $this->upload->file_name;
-                
+
                 $arrResult = array();
                 $handle = fopen($this->digital_upload_path . $csv, "r");
-                
+
                 if ($handle) {
                     while (($row = fgetcsv($handle, 1000, ",")) !== FALSE) {
                         $arrResult[] = $row;
@@ -1991,13 +1991,13 @@ class Products extends MY_Controller
                     fclose($handle);
                 }
                 $titles = array_shift($arrResult);
-                
+
                 $keys           = array('code', 'quantity', 'opening_stock', 'cost');
                 $keys_warehouse = array('quantity', 'warehouse_id');
                 $keys_var_value = array('code', 'option_id', 'cost');
                 $keys_var       = array('quantity', 'option_id','warehouse_id');
-                $keys_purchase  = array('product_code', 'quantity_balance','option_id','warehouse_id','opening_stock', 'expiry', 'serial');
-                
+                $keys_purchase  = array('product_code', 'quantity_balance','option_id','warehouse_id','biller_id','opening_stock', 'expiry', 'serial');
+
                 $final                  = array();
                 $final_ware_product     = array();
                 $final_var              = array();
@@ -2018,16 +2018,18 @@ class Products extends MY_Controller
                     unset($var_value[1]);
                     unset($var_value[3]);
                     unset($var_value[4]);
-                    unset($var_value[6]);
+                    unset($var_value[5]);
                     unset($var_value[7]);
-                    
+                    unset($var_value[8]);
+
                     $final_var_value[] = array_combine($keys_var_value, $var_value);
-                    
+
                     unset($temp_product[2]);
                     unset($temp_product[3]);
-                    unset($temp_product[6]);
+                    unset($temp_product[4]);
                     unset($temp_product[7]);
-                    
+                    unset($temp_product[8]);
+
 
                     unset($temp_warehouse[0]);
                     unset($temp_warehouse[2]);
@@ -2035,21 +2037,24 @@ class Products extends MY_Controller
                     unset($temp_warehouse[5]);
                     unset($temp_warehouse[6]);
                     unset($temp_warehouse[7]);
-                    
+                    unset($temp_warehouse[8]);
+
                     unset($temp_var[0]);
                     unset($temp_var[4]);
                     unset($temp_var[5]);
                     unset($temp_var[6]);
                     unset($temp_var[7]);
-                    unset($value[5]);
+                    unset($temp_var[8]);
+                    unset($value[6]);
 
                     $final[]                = array_combine($keys, $temp_product);
                     $final_ware_product[]   = array_combine($keys_warehouse, $temp_warehouse);
                     $final_var[]            = array_combine($keys_var, $temp_var);
                     $final_purchase_item[]  = array_combine($keys_purchase, $value);
+
                     $implode[]              = implode(',', $value);
                 }
-                
+                //$this->erp->print_arrays($final_var);
                 $rw = 2;
                 $i =0;
 
@@ -2057,6 +2062,7 @@ class Products extends MY_Controller
                 {
                     if (trim($csv_pr['code'])) {
                         $query_product = $this->products_model->getProductByCode(trim($csv_pr['code']));
+                        //$this->erp->print_arrays($final_ware_product);
                         if ($query_product->type == 'service') {
                             $this->session->set_flashdata('error', lang("check_product") . " (" . $csv_pr['code'] . "). " . lang("product_service_cannot_import") . " " . lang("line_no") . " " . $rw);
                             redirect("products/update_quantity");
@@ -2090,8 +2096,8 @@ class Products extends MY_Controller
                 }
 
                 $total_cost = 0;
-                
                 foreach ($final as $csvpr) {
+
                     $cost = $csvpr['quantity'] * $csvpr['cost'];
                     $total_cost += $cost;
                 }
@@ -2108,14 +2114,15 @@ class Products extends MY_Controller
             $this->products_model->updateQuantityExcelVar($final_var);
             $this->products_model->insertGlTran($total_cost);
             $check  = $this->products_model->updateQuantityExcelPurchase($final_purchase_item);
+
             optimizeOpeningQuantity(date('Y-m-d'));
             getUserIdPermission();
             if($check)
             {
-               $this->session->set_flashdata('message', lang("quantity_updated"));
-                redirect('products'); 
+                $this->session->set_flashdata('message', lang("quantity_updated"));
+                redirect('products');
             }
-            
+
         } else {
             $this->data['error'] = (validation_errors() ? validation_errors() : $this->session->flashdata('error'));
             $this->data['userfile'] = array('name' => 'userfile',
