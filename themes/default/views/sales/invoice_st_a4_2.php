@@ -175,7 +175,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-sm-8 col-xs-8">
+				<div class="col-sm-7 col-xs-7">
                     <table style="font-size: 11px;">
                         <?php if(!empty($customer->company)) { ?>
                             <tr>
@@ -222,7 +222,7 @@
                         <?php } ?>
                     </table>
                 </div>
-                <div class="col-sm-4 col-xs-4">
+                <div class="col-sm-5 col-xs-5">
                     <table style="font-size: 11px;">
                         <tr>
                             <td style="width: 20%;white-space: nowrap">លេខរៀង  / No</td>
