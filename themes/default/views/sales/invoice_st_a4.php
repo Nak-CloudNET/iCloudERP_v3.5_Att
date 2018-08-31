@@ -27,6 +27,9 @@
     }
 
     @media print {
+        .cl_padding{
+            padding-left: 0px;
+        }
         .container {
             width: 96% !important;
             margin: 0 auto !important;
@@ -203,8 +206,8 @@
                                 </div>
                             </div>
                             <div class="row" style="text-align: left;">
-                                <div class="col-sm-8 col-xs-8">
-                                    <table >
+                                <div class="col-sm-7 col-xs-7 cl_padding" style="">
+                                    <table>
                                         <?php
 
                                         if(!empty($customer->company)) { ?>
@@ -252,7 +255,7 @@
                                         <?php } ?>
                                     </table>
                                 </div>
-                                <div class="col-sm-4 col-xs-4">
+                                <div class="col-sm-5 col-xs-5">
                                     <table class="noPadding" border="none">
                                         <tr>
                                             <td style="width: 45%;white-space: nowrap">លេខរៀង / N<sup>o</sup></sup></td>
