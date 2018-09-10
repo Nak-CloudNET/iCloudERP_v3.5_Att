@@ -96,7 +96,7 @@ $end_date=str_replace(':','-',$rep_space_end);
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <?= lang("As of Date", "start_date"); ?>
-                                <?php echo form_input('start_date', (isset($_POST['start_date']) ? $_POST['start_date'] : ''), 'class="form-control datetime" id="start_date"'); ?>
+                                <?php echo form_input('start_date', (isset($_POST['start_date']) ? $_POST['start_date'] : $this->erp->hrsd($start_date)), 'class="form-control datetime" id="start_date"'); ?>
                             </div>
                         </div>
                     </div>
@@ -112,7 +112,7 @@ $end_date=str_replace(':','-',$rep_space_end);
                     <table id="SupData" cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-hover table-striped table-condensed">
                         <thead>
                         <tr>
-                            <th><?= lang("account_name"); ?></th>
+                            <th style="width: 20%;"><?= lang("account_name"); ?></th>
                             <?php
                             $new_billers = array();
                             foreach ($billers as $b1) {
@@ -120,19 +120,20 @@ $end_date=str_replace(':','-',$rep_space_end);
                                     $biller_sep = explode('-', $this->uri->segment(7));
                                     for($i=0; $i < count($biller_sep); $i++){
                                         if($biller_sep[$i] == $b1->id){
-                                            echo '<th>' . $b1->company . '</th>';
+                                            echo '<th style="width: 100%;">' . $b1->company . '</th>';
                                             $new_billers[] = array('id' => $b1->id);
                                         }
                                     }
                                 }else{
                                     $new_billers = $billers;
-                                    echo '<th>' . $b1->company . '</th>';
+                                    echo '<th  style="width: 25%;">' . $b1->company . '</th>';
                                 }
                                 $num_col++;
                             }
                             ?>
                             <th><?= lang("total_amount") ?></th>
                         </tr>
+                        <?php if($from_date!=''){ ?>
                         <tr class="primary">
                             <th style="text-align:left;" colspan="<?=$num_col?>"><?= lang("asset"); ?></th>
                         </tr>
@@ -172,9 +173,7 @@ $end_date=str_replace(':','-',$rep_space_end);
                                 }else{
                                     $bill_id = $new_billers[$index]->id;
                                 }
-                                if($from_date==''){
-                                    $from_date=date('Y-m-d h:i:s', time());
-                                }
+
                                 $query = $this->db->query("SELECT
 									SUM(CASE WHEN erp_gl_trans.amount < 0 THEN erp_gl_trans.amount ELSE 0 END) as NegativeTotal,
 									SUM(CASE WHEN erp_gl_trans.amount >= 0 THEN erp_gl_trans.amount ELSE 0 END) as PostiveTotal,
@@ -585,10 +584,9 @@ $end_date=str_replace(':','-',$rep_space_end);
                                 $index++;
                             }
                             if($total_per_eq <= 0){
-                                echo '<td class="right">( '.number_format(abs($total_per_eq),2).' )</td>';
-                            }else{
                                 echo '<td class="right">' .number_format(abs($total_per_eq),2).'</td>';
-
+                            }else{
+                                echo '<td class="right">( '.number_format(abs($total_per_eq),2).' )</td>';
                             }
                             echo '</tr>';
                         }
@@ -635,25 +633,24 @@ $end_date=str_replace(':','-',$rep_space_end);
                                     'amount' => $total_eq_amt
                                 );
                                 if($total_eq_amt<=0){
-                                    echo '<td class="right"><b>( '. number_format(abs($total_eq_amt), 2) .' )</b></td>';
-                                }else{
                                     echo '<td class="right"><b>'. number_format(abs($total_eq_amt), 2) .'</b></td>';
-
+                                }else{
+                                    echo '<td class="right"><b>( '. number_format(abs($total_eq_amt), 2) .' )</b></td>';
                                 }
-                                $total_eq_sum += $total_eq_amt;
+                                $total_eq_amt = $total_eq_amt;
 
                             }
 
+
+                            $total_eq_sum = $total_equity + $total_retained;
                             $end_total_eq = $total_eq_sum;
-                            echo $total_retained;
                             ?>
                             <td class="right">
                                 <?php
                                 if($total_eq_sum <= 0){
-                                    echo '<b>( ' . number_format(abs($total_eq_sum),2) .' )</b>';
-
-                                } else {
                                     echo '<b>' . number_format(abs($total_eq_sum),2) . '</b>';
+                                } else {
+                                    echo '<b>( ' . number_format(abs($total_eq_sum),2) .' )</b>';
                                 } ?>
                             </td>
                         </tr>
@@ -682,10 +679,9 @@ $end_date=str_replace(':','-',$rep_space_end);
                                 }
                                 //echo $total_lib_eq;
                                 if($total_lib_eq<=0){
-                                    $total_lib_eq = '( '.number_format(abs($total_lib_eq),2).' )';
-
-                                }else{
                                     $total_lib_eq = number_format(abs($total_lib_eq),2);
+                                }else{
+                                    $total_lib_eq = '( '.number_format(abs($total_lib_eq),2).' )';
                                 }
                                 echo '<td class="right"><b>'. $total_lib_eq .'</b></td>';
 
@@ -695,13 +691,13 @@ $end_date=str_replace(':','-',$rep_space_end);
                             $end_lib_eq = $end_total_lib + $end_total_eq;
                             $d = 0;
                             if($end_lib_eq <= 0){
-                                $end_lib_eq = '( '.number_format(abs($end_lib_eq),2).' )';
-                            }else{
                                 $end_lib_eq = number_format(abs($end_lib_eq),2);
-
+                            }else{
+                                $end_lib_eq = '( '.number_format(abs($end_lib_eq),2).' )';
                             }
                             ?>
                             <td class="right"><b><?php echo $end_lib_eq;?></b></td>
+                            <?php } ?>
                         </tr>
                         </tbody>
                     </table>

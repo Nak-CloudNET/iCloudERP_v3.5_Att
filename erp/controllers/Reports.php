@@ -14292,11 +14292,11 @@ class Reports extends MY_Controller
 		
         $this->page_construct('reports/income_statement_detail', $meta, $this->data);
 	}
-	
-	function balance_sheet($start_date = NULL, $end_date = NULL, $pdf = NULL, $xls = NULL, $biller_id = NULL)
+
+    function balance_sheet($start_date = NULL, $end_date = NULL, $pdf = NULL, $xls = NULL, $biller_id = NULL)
     {
-		$this->erp->checkPermissions('balance_sheet',NULL,'account_report');
-		$user = $this->site->getUser();
+        $this->erp->checkPermissions('balance_sheet',NULL,'account_report');
+        $user = $this->site->getUser();
         if ($this->input->post('start_date')) {
             $start_date = $this->input->post('start_date');
             $start=explode('/',$start_date);
@@ -14304,7 +14304,10 @@ class Reports extends MY_Controller
             $st=$start['2']."-".$start['1']."-".$start['0'];
 
         } else {
-            $start_date = NULL;
+            $st =$start_date;
+        }
+        if($start_date==''){
+            $start_date=date('Y-m-d');
         }
         if (!$end_date) {
             $end = $this->db->escape(date('Y-m-t 23:59'));
@@ -14312,84 +14315,85 @@ class Reports extends MY_Controller
         } else {
             $end = $this->db->escape(urldecode($end_date));
         }
-		
-		if($biller_id != NULL){
-			
-			$this->data['biller_id_no_sep'] = $biller_id;
-			$biller_sep = explode('-', $biller_id);
-			$this->data['excel_biller_id'] = $biller_id;
-			$bills = '';
-			for($i=0; $i < count($biller_sep); $i++){
-				$bills .= $biller_sep[$i] . ',';
-			}
-			$biller_id =  rtrim($bills, ',');	
-			$this->data['biller_id'] = $biller_id;
-		}else{
-			if($user->biller_id){
-				$this->data['biller_id'] = json_decode($user->biller_id);
-				$biller_id = json_decode($user->biller_id);
-			}else{
-				$biller_id = array();
-				$billers =  $this->site->getAllCompanies('biller');
-				foreach($billers as $biller){
-					$biller_id[] = $biller->id;
-				}
-				$biller_id = implode(',', $biller_id);
-				$this->data['biller_id'] = "";
-			}
-		}
-		if(!$this->Owner && !$this->Admin) {
-			if($user->biller_id){
-				$this->data['billers'] = $this->site->getCompanyByArray($user->biller_id);
-			}else{
-				$this->data['billers'] = $this->site->getAllCompanies('biller');
-			}
-		}else{
-			$this->data['billers'] = $this->site->getAllCompanies('biller');
-		}
-		
-		$this->data['start'] = urldecode($start_date);
+
+        if($biller_id != NULL){
+
+            $this->data['biller_id_no_sep'] = $biller_id;
+            $biller_sep = explode('-', $biller_id);
+            $this->data['excel_biller_id'] = $biller_id;
+            $bills = '';
+            for($i=0; $i < count($biller_sep); $i++){
+                $bills .= $biller_sep[$i] . ',';
+            }
+            $biller_id =  rtrim($bills, ',');
+            $this->data['biller_id'] = $biller_id;
+        }else{
+            if($user->biller_id){
+                $this->data['biller_id'] = json_decode($user->biller_id);
+                $biller_id = json_decode($user->biller_id);
+            }else{
+                $biller_id = array();
+                $billers =  $this->site->getAllCompanies('biller');
+                foreach($billers as $biller){
+                    $biller_id[] = $biller->id;
+                }
+                $biller_id = implode(',', $biller_id);
+                $this->data['biller_id'] = "";
+            }
+        }
+        if(!$this->Owner && !$this->Admin) {
+            if($user->biller_id){
+                $this->data['billers'] = $this->site->getCompanyByArray($user->biller_id);
+            }else{
+                $this->data['billers'] = $this->site->getAllCompanies('biller');
+            }
+        }else{
+            $this->data['billers'] = $this->site->getAllCompanies('biller');
+        }
+
+        $this->data['start'] = urldecode($start_date);
         $this->data['end'] = urldecode($end_date);
-		
+
         $this->data['error'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('error');
-        
+
         $bc = array(array('link' => base_url(), 'page' => lang('home')), array('link' => '#', 'page' => lang('reports/balance_sheet')));
         $meta = array('page_title' => lang('balance_sheet'), 'bc' => $bc);
-		$from_date = $st;//'2014-08-01';
-		$to_date = date('Y-m-d',strtotime(urldecode($end_date)));//'2015-09-01'; before, it use in select query.
-		
-		$this->data['from_date'] = $st;
-		$this->data['to_date'] = $to_date;
-		
-		$rep_space_end=str_replace(' ','_',urldecode($end_date));
-		$end_dates=str_replace(':','-',$rep_space_end);//replace  $to_date.
-		
-		$totalBeforeAyear = date('Y', strtotime($this->data['start'])) - 1;
+        $from_date = $st;//'2014-08-01';
+        $to_date = date('Y-m-d',strtotime(urldecode($end_date)));//'2015-09-01'; before, it use in select query.
+
+        $this->data['from_date'] = $st;
+        $this->data['to_date'] = $to_date;
+
+        $rep_space_end=str_replace(' ','_',urldecode($end_date));
+        $end_dates=str_replace(':','-',$rep_space_end);//replace  $to_date.
+
+        $totalBeforeAyear = date('Y', strtotime($this->data['start'])) - 1;
 
         $this->data['totalBeforeAyear'] = $totalBeforeAyear;
-		
-		$dataAsset = $this->accounts_model->getStatementByBalaneSheetDates('10,11',$from_date,json_decode($biller_id));
-		$this->data['dataAsset'] = $dataAsset;
-		
-		$dataLiability = $this->accounts_model->getStatementByBalaneSheetDates('20,21',$from_date,json_decode($biller_id));
-		$this->data['dataLiability'] = $dataLiability;
-		
-		$dataEquity = $this->accounts_model->getStatementByBalaneSheetDates('30',$from_date,json_decode($biller_id));
-		$this->data['dataEquity'] = $dataEquity;
-		
-		$dataIncome = $this->accounts_model->getStatementByBalaneSheetDates('40,70',$from_date,json_decode($biller_id));
-		$this->data['dataIncome'] = $dataIncome;
-		
-		$dataAllIncome = $this->accounts_model->getStatementBalaneSheetByDateBill('40,70',$from_date,$to_date,json_decode($biller_id));
-		$this->data['dataAllIncome'] = $dataAllIncome;
-		
-		$dataAllExpense = $this->accounts_model->getStatementBalaneSheetByDateBill('50,60,80,90',$from_date,$to_date,json_decode($biller_id));
-		$this->data['dataAllExpense'] = $dataAllExpense;
-		
-		$dataExpense = $this->accounts_model->getStatementByBalaneSheetDate('50,60,80,90',$from_date,$to_date,json_decode($biller_id));
-		$this->data['dataExpense'] = $dataExpense;
-		
-		if ($pdf) {
+
+        $dataAsset = $this->accounts_model->getStatementByBalaneSheetDates('10,11',$from_date,json_decode($biller_id));
+        //$this->erp->print_arrays($dataAsset);
+        $this->data['dataAsset'] = $dataAsset;
+
+        $dataLiability = $this->accounts_model->getStatementByBalaneSheetDates('20,21',$from_date,json_decode($biller_id));
+        $this->data['dataLiability'] = $dataLiability;
+
+        $dataEquity = $this->accounts_model->getStatementByBalaneSheetDates('30',$from_date,json_decode($biller_id));
+        $this->data['dataEquity'] = $dataEquity;
+
+        $dataIncome = $this->accounts_model->getStatementByBalaneSheetDates('40,70',$from_date,json_decode($biller_id));
+        $this->data['dataIncome'] = $dataIncome;
+
+        $dataAllIncome = $this->accounts_model->getStatementBalaneSheetByDateBill('40,70',$from_date,json_decode($biller_id));
+        $this->data['dataAllIncome'] = $dataAllIncome;
+
+        $dataAllExpense = $this->accounts_model->getStatementBalaneSheetByDateBill('50,60,80,90',$from_date,json_decode($biller_id));
+        $this->data['dataAllExpense'] = $dataAllExpense;
+
+        $dataExpense = $this->accounts_model->getStatementByBalaneSheetDate('50,60,80,90',$from_date,json_decode($biller_id));
+        $this->data['dataExpense'] = $dataExpense;
+
+        if ($pdf) {
             $html = $this->load->view($this->theme . 'reports/balance_sheet', $this->data, true);
             $name = lang("balance_sheet") . "_" . date('Y_m_d_H_i_s') . ".pdf";
             $html = str_replace('<p class="introtext">' . lang("reports_balance_text") . '</p>', '', $html);
@@ -15143,20 +15147,23 @@ class Reports extends MY_Controller
         }
 
         $this->page_construct('reports/balance_sheet', $meta, $this->data);
-	}
+    }
 
     function balance_sheet_details($start_date = NULL, $end_date = NULL, $pdf = NULL, $xls = NULL, $biller_id = NULL)
     {
         $this->erp->checkPermissions('balance_sheet',NULL,'account_report');
         $user = $this->site->getUser();
+
         if ($this->input->post('start_date')) {
             $start_date = $this->input->post('start_date');
             $start=explode('/',$start_date);
             $start['0']; $start['1']; $start['2'];
             $st=$start['2']."-".$start['1']."-".$start['0'];
-
         } else {
-            $start_date = NULL;
+            $st =$start_date;
+        }
+        if($start_date==''){
+            $start_date=date('Y-m-d');
         }
         if (!$end_date) {
             $end = $this->db->escape(date('Y-m-t 23:59'));
@@ -15214,6 +15221,16 @@ class Reports extends MY_Controller
         $totalBeforeAyear = date('Y', strtotime($this->data['start'])) - 1;
 
         $this->data['totalBeforeAyear'] = $totalBeforeAyear;
+
+        $assetDetails = $this->accounts_model->getBalanceSheetDetailByAccCodess('', '10,11',$from_date,json_decode($biller_id));
+        $this->data['assetDetails'] = $assetDetails;
+
+        $libDetails = $this->accounts_model->getBalanceSheetDetailPurByAccCodes('', '20,21',$from_date,json_decode($biller_id));
+        $this->data['libDetails'] = $libDetails;
+
+        $eqDetails = $this->accounts_model->getBalanceSheetDetailByAccCodess('', '30',$from_date,json_decode($biller_id));
+        $this->data['eqDetails'] = $eqDetails;
+
         $dataAsset = $this->accounts_model->getStatementByDatess('10,11',$from_date,json_decode($biller_id));
         $this->data['dataAsset'] = $dataAsset;
 
@@ -15226,13 +15243,13 @@ class Reports extends MY_Controller
         $dataIncome = $this->accounts_model->getStatementByDatess('40,70',$from_date,json_decode($biller_id));
         $this->data['dataIncome'] = $dataIncome;
 
-        $dataAllIncome = $this->accounts_model->getStatementByDateBill('40,70',$from_date,$to_date,json_decode($biller_id));
+        $dataAllIncome = $this->accounts_model->getStatementByDateBilled('40,70',$from_date,json_decode($biller_id));
         $this->data['dataAllIncome'] = $dataAllIncome;
 
-        $dataAllExpense = $this->accounts_model->getStatementByDateBill('50,60,80,90',$from_date,$to_date,json_decode($biller_id));
+        $dataAllExpense = $this->accounts_model->getStatementByDateBilled('50,60,80,90',$from_date,json_decode($biller_id));
         $this->data['dataAllExpense'] = $dataAllExpense;
 
-        $dataExpense = $this->accounts_model->getStatementByDate('50,60,80,90',$from_date,$to_date,json_decode($biller_id));
+        $dataExpense = $this->accounts_model->getStatementByDated('50,60,80,90',$from_date,json_decode($biller_id));
         $this->data['dataExpense'] = $dataExpense;
 
         //$this->data['assetDetails'] = $this->accounts_model->getBalanceSheetDetailByAccCode('10,11',$from_date,$to_date,$biller_id);
