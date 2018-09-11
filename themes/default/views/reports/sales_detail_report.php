@@ -297,7 +297,7 @@
 								$table_sale_items 	= "erp_sale_items";
 
 								$sql = "SELECT
-										 erp_sale_itemss.id,
+										 erp_sale_items.id,
 										 erp_sale_items.sale_id,
 										 erp_sale_items.category_id,
 										 erp_sale_items.product_id,
