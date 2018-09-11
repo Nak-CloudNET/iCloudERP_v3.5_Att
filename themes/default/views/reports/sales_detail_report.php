@@ -1,7 +1,7 @@
 <?php
 
 	$v = "";
-	
+
 	if ($this->input->post('reference_no')) {
 		$v .= "&reference_no=" . $this->input->post('reference_no');
 	}
@@ -111,7 +111,7 @@
                             class="icon fa fa-file-picture-o"></i></a></li>
             </ul>
         </div>
-		
+
     </div>
 
     <div style="display: none;">
@@ -143,7 +143,7 @@
                                 <?php
                                 $us[""] = "";
                                 foreach ($users as $user) {
-									
+
                                     $us[$user->id] = $user->first_name . " " . $user->last_name;
                                 }
                                 echo form_dropdown('user', $us, (isset($_POST['user']) ? $_POST['user'] : ""), 'class="form-control" id="user" data-placeholder="' . $this->lang->line("select") . " " . $this->lang->line("user") . '"');
@@ -162,7 +162,7 @@
                                 echo form_dropdown('user', $us, (isset($_POST['user']) ? $_POST['user'] : ""), 'class="form-control" id="user" data-placeholder="' . $this->lang->line("select") . " " . $this->lang->line("user") . '"');
                                 ?>
                             </div>
-                        </div>    
+                        </div>
 					   <?php } ?>
                         <div class="col-sm-3">
                             <div class="form-group">
@@ -223,7 +223,7 @@
                                 ?>
                             </div>
                         </div>
-						
+
 						<div class="col-sm-3">
 							<div class="form-group">
 								<?= lang("type", "type"); ?>
@@ -233,8 +233,8 @@
 								?>
 							</div>
 						</div>
-						
-						
+
+
                     </div>
                     <div class="form-group">
                         <div
@@ -274,14 +274,14 @@
 							</tr>
 						</thead>
                         <tbody>
-						<?php 
-							
+						<?php
+
 							$warehouses_arr = array();
 							$warehouses = $this->db->get("warehouses")->result();
 							foreach($warehouses as $warehouse){
 								$warehouses_arr[$warehouse->id] = $warehouse->name;
 							}
-							
+
 							$g_total = 0;
 							$g_order_discounts = 0;
 							$g_amounts = 0;
@@ -293,11 +293,11 @@
 							if(count($sales) > 0){
 								foreach($sales as $key => $sale){
 								//$this->erp->print_arrays( $sale);
-								$table_return_items = "erp_return_items"; 
+								$table_return_items = "erp_return_items";
 								$table_sale_items 	= "erp_sale_items";
-								
+
 								$sql = "SELECT
-										 erp_sale_items.id,
+										 erp_sale_itemss.id,
 										 erp_sale_items.sale_id,
 										 erp_sale_items.category_id,
 										 erp_sale_items.product_id,
@@ -317,20 +317,20 @@
 										 erp_product_variants.qty_unit,
 										 (CASE WHEN erp_product_variants.name = 0  THEN erp_product_variants.name ELSE erp_units.name END) as unit
 									FROM ";
-									
+
 								$sales_detail = $this->db->query("{$sql}{$table_sale_items} AS erp_sale_items
 											LEFT JOIN `erp_products` ON `erp_products`.`id` = `erp_sale_items`.`product_id`
                                             LEFT JOIN `erp_units` ON `erp_units`.`id` = `erp_products`.`unit`
 											LEFT JOIN `erp_product_variants` ON `erp_sale_items`.`option_id` = `erp_product_variants`.`id`
 											WHERE erp_sale_items.sale_id={$sale->id}  GROUP BY id")->result();
-								//$this->erp->print_arrays( $sales_detail);				
+								//$this->erp->print_arrays( $sales_detail);
 								$sales_detail_returned = $this->db->query("{$sql}{$table_return_items} AS erp_sale_items
 											LEFT JOIN `erp_products` ON `erp_products`.`id` = `erp_sale_items`.`product_id`
 											LEFT JOIN `erp_units` ON `erp_units`.`id` = `erp_products`.`unit`
                                             LEFT JOIN `erp_product_variants` ON `erp_sale_items`.`option_id` = `erp_product_variants`.`id`
 											WHERE erp_sale_items.return_id={$sale->id} GROUP BY id")->result();
-							
-								
+
+
 							?>
 
                                     <?php
@@ -358,11 +358,11 @@
 											<?= $sale->reference_no; ?> <i class="fa fa-angle-double-right" aria-hidden="true"></i>
 											<?= $sale->customer ?> <i class="fa fa-angle-double-right" aria-hidden="true"></i>
 											<?= date('d/M/Y h:i A',strtotime($sale->date)); ?>
-											
+
 										</b>
-									</td>									
+									</td>
 								</tr>
-								<?php 
+								<?php
 									$warehouse = "";
 									$total_item_tax = 0;
 									$total_discount = 0;
@@ -372,10 +372,10 @@
 									$total_amount = 0;
 									$sub_total = 0;
 									$total_amounts=0;
-						            $amount=0;	
+						            $amount=0;
                                     $amounts=0;
 									$total_overh = 0;
-									
+
 									$sales_by_gls = $this->db->query("SELECT
 																	erp_gl_trans.sale_id,
 																	erp_gl_trans.customer_id,
@@ -397,7 +397,7 @@
 
 									if($sale->type == 1){
                                         foreach ($sales_detail as $sale_detail) {
-										
+
 											//$this->erp->print_arrays( $sale_detail);
 											$unit = isset($sale_detail->variant) ? $sale_detail->variant : $sale_detail->unit;
 
@@ -418,12 +418,12 @@
 											$total_gross_margin += $gross_margin;
 											$total_amount += $sale_detail->subtotal - $sale_detail->item_tax;
 											$total_amounts += $sale_detail->subtotal - $sale_detail->item_tax;
-											$total_item_tax += $sale_detail->item_tax; 
+											$total_item_tax += $sale_detail->item_tax;
 										    $amount = $total_amount- $sale->order_discount + $sale->shipping;
 											//$amounts +=	$amount;
 
 								?>
-										<tr>			
+										<tr>
 											<td></td>
                                             <td style="text-align:center !important;">
                                                 <ul class="enlarge">
@@ -442,7 +442,7 @@
                                                 </ul>
                                             </td>
 											<td>(<?= $sale_detail->product_name; ?>) <?= $sale_detail->product_code ?></td>
-											
+
 											<td><?= $sale->biller ?></td>
 											<td class="center"><?= $warehouses_arr[$sale_detail->warehouse_id]; ?></td>
                                             <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
@@ -465,30 +465,30 @@
                                                 <td class="right"><?= $this->erp->formatMoney($gross_margin); ?></td>
                                             <?php } ?>
 										</tr>
-								<?php 
-										
+								<?php
+
 										}
-									
+
 									$html = "";
 									if($sales_by_gls->num_rows() > 0){
 											$e_total = 0;
 											$i_gross_margin = "";
-										
+
 										$html .="<tr style='font-weight:bold;'>
 													<td></td>
 													<td colspan='10'>".lang("OVERHEAD")."</td>
 													<td class='text-right'></td>
 													<td></td>
 												 </tr>";
-													 
+
 										foreach($sales_by_gls->result() as $sales_by_gl){
 											$e_total += $sales_by_gl->amount;
 											$e_amount = $this->erp->formatMoney($sales_by_gl->amount);
 											$d_gross_margin = ($total_gross_margin - $sale->order_discount + $sale->shipping) + (-1)* $e_total;
 											$e_sub_total = "(".$this->erp->formatMoney(abs($e_total)).")";
-											
-											
-											
+
+
+
 											$html .="<tr>
 														<td></td>
 														<td>{$this->erp->hrld($sales_by_gl->tran_date)}</td>
@@ -500,14 +500,14 @@
 													 </tr>";
 										}
 											$total_overh += $e_total;
-											
+
 											$html .="<tr>
 														<td class='right' colspan='10'>".lang("subtotal")." : </td>
 														<td class='text-right'>{$this->erp->formatMoney($e_total)}</td>
 														<td></td>
 														<td class='text-right'>{$e_sub_total}</td>
 													</tr>";
-													
+
 											$html .="<tr>
 														<td class='right' colspan='10'>".lang("total_gross_margin")." : </td>
 														<td></td>
@@ -515,11 +515,11 @@
 														<td class='text-right'>{$this->erp->formatMoney($d_gross_margin)}</td>
 													</tr>";
 								}
-									
-									}else{									
-										foreach($sales_detail_returned as $sale_detail_returned){										
+
+									}else{
+										foreach($sales_detail_returned as $sale_detail_returned){
 											$unit = isset($sale_detail_returned->variant) ? $sale_detail_returned->variant : $sale_detail_returned->unit;
-											
+
 											if ($sale_detail_returned->option_id != 0) {
                                                 $total_cost = ($sale_detail_returned->unit_cost * $sale_detail_returned->qty_unit) * $sale_detail_returned->quantity;
 												$unit_cost	= $sale_detail_returned->unit_cost * $sale_detail_returned->qty_unit;
@@ -527,10 +527,10 @@
 												$total_cost = $sale_detail_returned->unit_cost * $sale_detail_returned->quantity;
 												$unit_cost	= $sale_detail_returned->unit_cost;
                                             }
-																						
+
 											$gross_margin = ($sale_detail_returned->subtotal - $sale_detail_returned->item_tax) - $total_cost;
 											$sub_total = ($total_amount - $sale->order_discount) + $sale->order_tax + $total_item_tax + $sale->shipping;
-											
+
 											$total_discount += $sale_detail_returned->item_discount;
 											$total_quantity += $sale_detail_returned->quantity;
 											$total_costs += $total_cost;
@@ -538,7 +538,7 @@
 											$total_amount += $sale_detail_returned->subtotal - $sale_detail_returned->item_tax;
 											$total_item_tax += $sale_detail_returned->item_tax;
 										    $amount = $total_amount- $sale->order_discount + $sale->shipping;
-											$amounts +=	$amount; 
+											$amounts +=	$amount;
 									?>
                                             <tr>
 											<td></td>
@@ -577,10 +577,10 @@
                                                 <td class="right"><?= $this->erp->formatMoney($gross_margin); ?></td>
                                             <?php } ?>
 										</tr>
-									<?php }										
-									}									
+									<?php }
+									}
 								?>
-									
+
 								<tr style="font-weight:bold;">
 									<td></td>
                                     <td colspan="<?= $fcol; ?>" class="info-reference_no right"><?= lang("total") ?>:
@@ -593,7 +593,7 @@
                                         <td class="right"><?= $this->erp->formatMoney($total_gross_margin); ?></td>
                                     <?php } ?>
 								</tr>
-								
+
 								<tr style="font-weight:bold;">
 									<td></td>
                                     <td colspan="<?= $fcol; ?>"
@@ -655,14 +655,14 @@
 								</tr>
 
                                     <?php
-									
+
 									echo $html;
-									
+
 									if($sale->type == 2 ){
                                         $g_order_discounts -= $sale->order_discount;
                                         $g_amounts -= $total_amount;
                                         $grand_totals -= $amount;
-										
+
 									}else{
                                         $g_order_discounts += $sale->order_discount;
                                         $g_amounts += $total_amount;
@@ -673,10 +673,10 @@
 									//$g_gross_margin = ($g_amounts) - $g_total_costs ;
 									$g_gross_margin = ($g_amounts) - $g_total_costs ;
 									$g_total_shipping += $sale->shipping;
-									$g_total_tax += $sale->order_tax + $total_item_tax;								
-									$g_totals = ($g_amounts + $g_total_shipping + $g_total_tax) - $g_order_discounts; 
-								} 
-								 
+									$g_total_tax += $sale->order_tax + $total_item_tax;
+									$g_totals = ($g_amounts + $g_total_shipping + $g_total_tax) - $g_order_discounts;
+								}
+
 							}else{ ?>
 								<tr>
 									<td colspan="10" class="dataTables_empty"><?= lang('loading_data_from_server') ?></td>
@@ -684,7 +684,7 @@
 						<?php } ?>
                         </tbody>
                         <tfoot>
-					
+
 							<tr>
                                 <th colspan="<?= $fcol2; ?>" style="color:#0586ff"
                                     class="right info-foot"><?= lang("total") ?>:
@@ -697,7 +697,7 @@
                                     <th class="right" style="color:#0586ff" title=" (Amount - Order Discount) - Total Cost "><?= $this->erp->formatMoney($g_amounts - $g_total_costs); ?></th>
                                 <?php } ?>
 							</tr>
-							
+
 							<tr>
                                 <th colspan="<?= $fcol2 ?>" class="right info-foot"
                                     style="color:#0586ff"><?= lang("total_order_discount"); ?> :
@@ -710,7 +710,7 @@
                                     <th class="right" style="color:#0586ff"><?= "(".$this->erp->formatMoney($g_order_discounts).")"; ?></th>
                                 <?php } ?>
 							</tr>
-							
+
 							<tr>
                                 <th colspan="<?= $fcol2; ?>" class="right info-foot"
                                     style="color:#0586ff"><?= lang("total_shipping"); ?> :
@@ -723,9 +723,9 @@
                                     <th class="right" style="color:#0586ff"><?= $this->erp->formatMoney($g_total_shipping); ?></th>
                                 <?php } ?>
 							</tr>
-							
+
 							<!--<tr style="display:none">
-								<th colspan="10" class="right info-foot" style="color:#0586ff"><?= lang("total_tax"); ?> : </th>							
+								<th colspan="10" class="right info-foot" style="color:#0586ff"><?= lang("total_tax"); ?> : </th>
 								<th></th>
 								<th class="right" style="color:#0586ff"><?= $this->erp->formatMoney($g_total_tax); ?></th>
 								<th></th>
@@ -759,7 +759,7 @@
                                     <th class="right" style="color:#0586ff"><?= "(".$this->erp->formatMoney($total_overh).")"; ?></th>
                                 <?php } ?>
 							</tr>
-							
+
 							<tr>
                                 <th colspan="<?= $fcol2; ?>" style="color:#0586ff"
                                     class="right info-foot"><?= lang("total_gross_margin"); ?> :
@@ -772,19 +772,19 @@
                                     <th class="right" style="color:#0586ff"><?= $this->erp->formatMoney($grand_totals-$g_total_costs - ($total_overh !=0 ? $total_overh : 0)); ?></th>
                                 <?php } ?>
 							</tr>
-							
+
                         </tr>
 
-						
+
                         </tfoot>
                     </table>
                 </div>
-				
-				<div class=" text-right">
+
+				<!--<div class=" text-right">
 					<div class="dataTables_paginate paging_bootstrap">
 						<?= $pagination; ?>
 					</div>
-				</div>
+				</div>-->
             </div>
         </div>
     </div>
@@ -792,7 +792,7 @@
 <script type="text/javascript" src="<?= $assets ?>js/html2canvas.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-		
+
         // $('#pdf').click(function (event) {
             // event.preventDefault();
             // window.location.href = "<?=site_url('reports/getSalesReport/pdf/?v=1'.$v)?>";
@@ -803,7 +803,7 @@
             // window.location.href = "<?=site_url('reports/getSalesReport/0/xls/?v=1'.$v)?>";
             // return false;
         // });
-		
+
         $('#image').click(function (event) {
             event.preventDefault();
             html2canvas($('.box'), {
@@ -817,19 +817,19 @@
     });
 </script>
 <style type="text/css">
-	table { 
-		white-space: nowrap; 
-		font-size:12px !important; 
-		overflow-x: scroll; 
+	table {
+		white-space: nowrap;
+		font-size:12px !important;
+		overflow-x: scroll;
 		width:100%;
 		display:block;
 		}
 	table .info-head{
-		
+
 		text-align:center;
 	}
 	table .info-reference_no{
-		
+
 	}
 	table .info-foot{
 		text-transform: uppercase;
