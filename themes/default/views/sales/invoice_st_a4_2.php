@@ -16,13 +16,17 @@
 	.container {
 		width: 16.8cm;
 		margin: 20px auto;
+        box-shadow: 1px 1px 5px 2px rgba(0,0,0,0.6);
+
 	}
 	@media print {
 		.pageBreak {
 			page-break-after: always;
 		}
+
 		.container {
 			height: 20.5cm !important;
+
 		}
 		.customer_label {
 			padding-left: 0 !important;
@@ -51,6 +55,9 @@
 				border-radius: 5px 5px 5px 5px !important;
 				margin-left: 26px !important;
 			}
+        .table{
+            width: 100%!important;
+        }
 	}
 	.thead th {
 		text-align: center !important;
@@ -62,7 +69,7 @@
 	
 	.company_addr h3:first-child {
 		font-family: Khmer OS Muol !important;
-		//padding-left: 12% !important;
+
 	}
 	
 	.company_addr h3:nth-child(2) {
@@ -101,7 +108,12 @@
         -moz-font-family: "Khmer OS System";
         font-size: 18px;
     }
-	
+    .fix-width{
+        /*background:red;*/
+        width:15%;
+        word-break: break-all;
+        padding:3px!important;
+    }
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -308,9 +320,10 @@
 										}
 									}
 							?>
+
 								<tr>
 									<td style="vertical-align: middle; text-align: center"><?php echo $no ?></td>
-									<td style="vertical-align: middle;">
+									<td style="vertical-align: middle;" class="fix-width">
 										<?=$row->product_code;?>
 									</td>
 									<td style="margin: 0; padding: 0">
