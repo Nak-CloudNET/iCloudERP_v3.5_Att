@@ -1854,8 +1854,6 @@ class Accounts_model extends CI_Model
 
         return $query;
     }
-
-
     public function getStatementByBalaneSheetDateByCustomer($section = NULL,$from_date= NULL,$to_date = NULL,$customer_id = NULL){
 		$where_customer = '';
 		if($customer_id != NULL){

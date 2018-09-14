@@ -200,7 +200,6 @@ if (!function_exists('optimizePurchases')) {
                                     WHERE purchase_id = '{$row_purchase->id}' 
                                     AND transaction_type = 'PURCHASE'; ");
 
-
                 if ($q_purchase_items->num_rows() > 0) {
 
                     $items = [];
