@@ -777,7 +777,6 @@ class Pos extends MY_Controller
                     } else {
                         $amount = $g_total - ($pos_b - $paid);
                     }
-
 						 $payment[] = array(
 											'biller_id'				=> $biller_id,
 											'date' 					=> $date,
@@ -932,7 +931,7 @@ class Pos extends MY_Controller
                 $photo = $this->input->post('attachment');
                 $data['attachment'] = $photo;
             }
-            //$this->erp->print_arrays($data, $products, $payment);
+           // $this->erp->print_arrays($data, $products, $payment);
         }
 
         if ($this->form_validation->run() == true ) {
