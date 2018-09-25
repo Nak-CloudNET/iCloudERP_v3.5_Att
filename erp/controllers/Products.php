@@ -4190,6 +4190,7 @@ class Products extends MY_Controller
                 $clause['date']             = date('Y-m-d');
                 $clause['option_id']        = $cIterm_from_uom[$r];
                 $clause['convert_id']       = $id_convert_item;
+                $clause['unit_cost']        = $product_fr->cost;
                 $clause['product_name']     = $cIterm_from_name[$r];
                 $clause['quantity_balance'] = $qtytransfer;
                 $clause['cb_avg']           = $product_fr->cost;

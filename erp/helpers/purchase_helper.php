@@ -491,7 +491,7 @@ if (!function_exists('optimizeConvert')) {
             }
 
             //Will use this function in the future
-            getAvgCost($tran_date, $arr_product_id);
+            //getAvgCost($tran_date, $arr_product_id);
 
         }
     }
