@@ -189,7 +189,7 @@ if (!function_exists('optimizePurchases')) {
     {
         $ci =& get_instance();
 
-        $arr_product_id = [];
+        $arr_product_id  = [];
 
         $q_all_purchases = $ci->db->query("SELECT * FROM erp_purchases 
                             WHERE DATE(`date`) >= DATE('{$tran_date}') ORDER BY `date` ASC; ");
@@ -265,7 +265,7 @@ if (!function_exists('optimizePurchases')) {
             }
 
             //Will use this function in the future
-            getAvgCost($tran_date, $arr_product_id);
+            //getAvgCost($tran_date, $arr_product_id);
 
         }
     }
