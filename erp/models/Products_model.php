@@ -1032,7 +1032,8 @@ class Products_model extends CI_Model
 				'status' 			=> 'received',
 				'date' 				=> date('Y-m-d'),
 				'expiry' 			=> $expiry_date,
-				'serial_no'			=> $value['serial']
+				'serial_no'			=> $value['serial'],
+                'create_id'         => $this->session->userdata('user_id')
 			);
 			
 			if(isset($value['transaction_type'])){
@@ -1044,41 +1045,70 @@ class Products_model extends CI_Model
 		}
 		return true;
     }
-	
-	public function insertGlTran($total_cost)
+
+    public function getWarehostId($project_id = null)
+    {
+        $this->db->select('cf5');
+        $this->db->where('id',$project_id);
+        $q = $this->db->get('erp_companies');
+        if ($q->num_rows() > 0) {
+            foreach (($q->result()) as $row) {
+                $data[] = $row;
+            }
+            return $data;
+        }
+        return FALSE;
+    }
+
+    public function insertGlTran($total_cost, $biller_id)
 	{
-		$v_tran_no = $this->db->select('(COALESCE (MAX(tran_no), 0) + 1) as tran')->from('gl_trans')->get()->row()->tran;
-		$v_reference = $this->db->select('COUNT(*) as trans')->from('purchase_items')->where('option_id', 3)->get()->row()->trans;
-		$tran = $this->getTrans('default_purchase');
-		$dob = $this->getTrans('default_open_balance');
-		$data = array(
-			array(
-				'tran_type'    => 'JOURNAL',
-				'tran_no'      => $v_tran_no,
-				'tran_date'    => date('Y-m-d h:i:s'),
-				'sectionid'    => $tran->sectionid,
-				'account_code' => $tran->accountcode,
-				'narrative'    => $tran->accountname,
-				'amount'       => $total_cost,
-				'reference_no' => '000'.$v_reference,
-				'description'  => 'Import Quantity',
-				'biller_id'    => $this->Settings->default_biller,
-				'created_by'   => $this->session->userdata('user_id')
-			),
-			array(
-				'tran_type'    => 'JOURNAL',
-				'tran_no'      => $v_tran_no,
-				'tran_date'    => date('Y-m-d h:i:s'),
-				'sectionid'    => $dob->sectionid,
-				'account_code' => $dob->accountcode,
-				'narrative'    => $dob->accountname,
-				'amount'       => (-1) * $total_cost,
-				'reference_no' => '000'.$v_reference,
-				'description'  => 'Import Quantity',
-				'biller_id'    => $this->Settings->default_biller,
-				'created_by'   => $this->session->userdata('user_id')
-			)
-		);
+		$v_tran_no      = $this->db->select('(COALESCE (MAX(tran_no), 0) + 1) as tran')->from('gl_trans')->get()->row()->tran;
+		$acc_separate   = $this->db->select('acc_cate_separate')->from('settings')->get()->row()->acc_cate_separate;
+		$tran           = $this->getTrans('default_purchase');
+		$dob            = $this->getTrans('default_open_balance');
+        if ($acc_separate == 1){
+            $data   = array(
+                array(
+                    'tran_type'    => 'Import Quantity',
+                    'tran_no'      => $v_tran_no,
+                    'tran_date'    => date('Y-m-d h:i:s'),
+                    'sectionid'    => $dob->sectionid,
+                    'account_code' => $dob->accountcode,
+                    'narrative'    => $dob->accountname,
+                    'amount'       => (-1) * $total_cost,
+                    'reference_no' => '0000',
+                    'biller_id'    => $biller_id,
+                    'created_by'   => $this->session->userdata('user_id')
+                )
+            );
+        } else {
+            $data   = array(
+                array(
+                    'tran_type'    => 'Import Quantity',
+                    'tran_no'      => $v_tran_no,
+                    'tran_date'    => date('Y-m-d h:i:s'),
+                    'sectionid'    => $tran->sectionid,
+                    'account_code' => $tran->accountcode,
+                    'narrative'    => $tran->accountname,
+                    'amount'       => $total_cost,
+                    'reference_no' => '0000',
+                    'biller_id'    => $biller_id,
+                    'created_by'   => $this->session->userdata('user_id')
+                ),
+                array(
+                    'tran_type'    => 'Import Quantity',
+                    'tran_no'      => $v_tran_no,
+                    'tran_date'    => date('Y-m-d h:i:s'),
+                    'sectionid'    => $dob->sectionid,
+                    'account_code' => $dob->accountcode,
+                    'narrative'    => $dob->accountname,
+                    'amount'       => (-1) * $total_cost,
+                    'reference_no' => '0000',
+                    'biller_id'    => $biller_id,
+                    'created_by'   => $this->session->userdata('user_id')
+                )
+            );
+        }
 		$this->db->insert_batch('gl_trans',$data);
 	}
 	
