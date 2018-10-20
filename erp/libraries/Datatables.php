@@ -34,8 +34,8 @@ class Datatables
     private $columns        = array();
     private $where          = array();
     private $or_where       = array();
-	private $where_in = array();
-	private $having = array();
+    private $where_in = array();
+    private $having = array();
     private $like           = array();
     private $filter         = array();
     private $add_columns    = array();
@@ -174,8 +174,8 @@ class Datatables
         $this->ci->db->where($key_condition, $val, $backtick_protect);
         return $this;
     }
-	
-	/**
+
+    /**
      * Generates the WHERE IN portion of the query
      *
      * @param mixed $key_condition
@@ -204,14 +204,14 @@ class Datatables
         $this->ci->db->or_where($key_condition, $val, $backtick_protect);
         return $this;
     }
-	
-	/**
+
+    /**
      * Generates the HAVING portion of the query
      *
      * @param mixed $key_condition
      * @return mixed
      */
-	public function having($key_condition)
+    public function having($key_condition)
     {
         $this->having[] = array($key_condition);
         $this->ci->db->having($key_condition);
@@ -430,8 +430,10 @@ class Datatables
         $rResult = $this->get_display_result();
 
         if ($output == 'json') {
-            $iTotal = $this->get_total_results();
+
             $iFilteredTotal = $this->get_total_results(TRUE);
+            $iTotal = $iFilteredTotal;//$this->get_total_results();
+
         }
         foreach ($rResult->result_array() as $row_key => $row_val) {
 
@@ -504,11 +506,11 @@ class Datatables
         }
         if($this->fadu != "")
         {
-             $query = $this->ci->db->query($this->table);
+            $query = $this->ci->db->query($this->table);
         }
         else
         {
-             $query = $this->ci->db->get($this->table, NULL, NULL, FALSE);
+            $query = $this->ci->db->get($this->table, NULL, NULL, FALSE);
         }
         return $query->num_rows();
     }
