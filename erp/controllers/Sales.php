@@ -13580,10 +13580,11 @@ class Sales extends MY_Controller
 
                     $final = array();
                     foreach ($arrResult as $key => $value) {
-                        if(!empty($value[0])){
+                        if(empty($value[0]) || $value[0] == ''){ }else{
                             $final[] = array_combine($keys, $value);
                         }
                     }
+
                     $data_deposit = array();
                     $data_insert = array();
                     $data_payment = array();
