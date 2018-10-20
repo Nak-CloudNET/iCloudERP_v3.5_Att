@@ -13580,7 +13580,9 @@ class Sales extends MY_Controller
 
                     $final = array();
                     foreach ($arrResult as $key => $value) {
-                        $final[] = array_combine($keys, $value);
+                        if(!empty($value[0])){
+                            $final[] = array_combine($keys, $value);
+                        }
                     }
                     $data_deposit = array();
                     $data_insert = array();
@@ -13615,29 +13617,28 @@ class Sales extends MY_Controller
                             redirect("sales/customer_opening_balance");
                          }
 
-							 if($value['deposit'] > 0){
-								 // deposit insert
-								$data_deposit[]  = array(
-									'reference'     => $value['invoice_reference'],
-									'company_id'    => $value['customer_no'],
-									'amount'        => $value['deposit'],
-									'paid_by'       => 'cash',
-									'created_by'    => $this->session->userdata()['user_id'],
-									'biller_id'     => $value['shop_id'],
-                                );
-							 }
-                         //}
+                         if($value['deposit'] > 0){
+                             // deposit insert
+                            $data_deposit[]  = array(
+                                'reference'     => $value['invoice_reference'],
+                                'company_id'    => $value['customer_no'],
+                                'amount'        => $value['deposit'],
+                                'paid_by'       => 'cash',
+                                'created_by'    => $this->session->userdata()['user_id'],
+                                'biller_id'     => $value['shop_id'],
+                            );
+                         }
 						 
 						 $tranNo = $this->db->query("SELECT COALESCE (MAX(tran_no), 0) + 1 as tranNo FROM erp_gl_trans")->row()->tranNo;
-						 
+
 						 // account deposit
 						 $deposit = $this->db->select('*')
 															->from('account_settings')
 															->join('gl_charts','gl_charts.accountcode = default_sale_deposit','inner')
 															->join('gl_sections','gl_sections.sectionid = gl_charts.sectionid','inner')
 															->get()->row();
-						// account opening balance
-						$balance = $this->db->select('*')
+						 // account opening balance
+                         $balance = $this->db->select('*')
 															->from('account_settings')
 															->join('gl_charts','gl_charts.accountcode = default_open_balance','inner')
 															->join('gl_sections','gl_sections.sectionid = gl_charts.sectionid','inner')
@@ -13688,7 +13689,6 @@ class Sales extends MY_Controller
 						}
 
 						 // sale insert
-                        //$this->erp->print_arrays($date);
 						 $data_insert[] = array(
 							'reference_no'  =>  $value['invoice_reference'],
 							'customer_id'   =>  $value['customer_no'],
@@ -13708,6 +13708,7 @@ class Sales extends MY_Controller
 							'sale_type'     =>  1,
 						);
                     }
+
                 //$this->erp->print_arrays($data_insert);
                 $ke=array();
                 $i=0;
