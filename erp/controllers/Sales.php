@@ -19055,6 +19055,7 @@ function invoice_concrete_angkor($id=null)
         $this->data['return_items'] = $return ? $this->sales_model->getAllReturnItems($return->id) : NULL;
         $this->data['title'] = "2";
         $this->data['sid'] = $id;
+        $this->data['company'] = $this->site->getCompanyByID($this->default_biller_id);
         $this->load->view($this->theme .'sales/invoice_return_set',$this->data);
     }
 	

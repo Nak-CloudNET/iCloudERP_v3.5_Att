@@ -133,10 +133,7 @@
 									<tr>
 										<td style="width:150px;"><strong><?= lang("paid_by"); ?>:</strong></td>
 										<td>
-											<?php
-														echo $payment->paid_by;
-													
-												?>
+											<?php echo $payment->paid_by; ?>
 										</td>
 									</tr>
 									<tr>

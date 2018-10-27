@@ -113,34 +113,40 @@
 			<div class="row" style="margin-top: 20px !important;">
 		
 			<div class="col-sm-3 col-xs-3">
-				<?php if(!empty($biller->logo)) { ?>
-					<img src="<?= base_url() ?>assets/uploads/logos/<?= $biller->logo; ?>" style="width: 165px; margin-left: 25px;" />
-				<?php } ?>
+				<?php if(!empty($company->logo)) { ?>
+					<img src="<?= base_url() ?>assets/uploads/logos/<?= $company->logo; ?>" style="width: 165px; margin-left: 25px;" />
+				<?php }else{ ?>
+                    <p>គ្មានរូបដំណាងបង្ហាញ</p>
+                <?php } ?>
 			</div>
 			
 			<div class="col-sm-6 col-xs-6 company_addr" style="margin-top: -15px !important">
 				<center>
-					<?php if(!empty($biller->cf1)) { ?>
-						<h3><?= $biller->cf1 ?></h3>
+					<?php if(!empty($company->cf1)) { ?>      <!--  change from $biller to $company-->
+						<h3><?= $company->cf1 ?></h3>
 					<?php }else { ?>
-						<h3>CloudNET Cambodia</h3>
+						<h3><?php echo $company->name; ?></h3>
 					<?php } ?>
-				
-					<?php if(!empty($biller->vat_no)) { ?>
-						<p style="font-size: 11px;">លេខអត្តសញ្ញាណកម្ម អតប (VAT No):&nbsp;<?= $biller->vat_no; ?></p>
-					<?php } ?>
-					
-					<?php if(!empty($biller->address)) { ?>
-						<p style="margin-top:-10px !important;font-size: 11px;">អាសយដ្ឋាន ៖ &nbsp;<?= $biller->address; ?></p>
-					<?php } ?>
-					
-					<?php if(!empty($biller->phone)) { ?>
-						<p style="margin-top:-10px !important;font-size: 11px;">ទូរស័ព្ទលេខ (Tel):&nbsp;<?= $biller->phone; ?></p>
-					<?php } ?>
-					
-					<?php if(!empty($biller->email)) { ?>
-						<p style="margin-top:-10px !important;font-size: 11px;">សារអេឡិចត្រូនិច (E-mail):&nbsp;<?= $biller->email; ?></p>
-					<?php } ?>
+					<?php if(!empty($company->vat_no)) { ?>
+						<p style="font-size: 11px;">លេខអត្តសញ្ញាណកម្ម អតប (VAT No):&nbsp;<?= $company->vat_no; ?></p>
+					<?php }else{ ?>
+                        <p style="font-size: 11px;">គ្មានលេខអត្តសញ្ញាណកម្ម អតប (No VAT No)</p>
+                    <?php } ?>
+					<?php if(!empty($company->address)) { ?>
+						<p style="margin-top:-10px !important;font-size: 11px;">អាសយដ្ឋាន ៖ &nbsp;<?= $company->address; ?></p>
+					<?php }else{ ?>
+                        <p style="margin-top:-10px !important;font-size: 11px;">គ្មានអាសយដ្ឋាន ៖</p>
+                    <?php } ?>
+					<?php if(!empty($company->phone)) { ?>
+						<p style="margin-top:-10px !important;font-size: 11px;">ទូរស័ព្ទលេខ (Tel):&nbsp;<?= $company->phone; ?></p>
+					<?php }else{ ?>
+                        <p style="margin-top:-10px !important;font-size: 11px;">គ្មានទូរស័ព្ទលេខ</p>
+                    <?php } ?>
+					<?php if(!empty($company->email)) { ?>
+						<p style="margin-top:-10px !important;font-size: 11px;">សារអេឡិចត្រូនិច (E-mail):&nbsp;<?= $company->email; ?></p>
+					<?php }else{ ?>
+                        <p style="margin-top:-10px !important;font-size: 11px;">គ្មានសារអេឡិចត្រូនិច (No E-mail)</p>
+                    <?php }?>
 				</center>
 				</div>
 				<div class="col-sm-3 col-xs-3">
