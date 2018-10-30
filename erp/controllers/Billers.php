@@ -44,7 +44,6 @@ class Billers extends MY_Controller
         //->unset_column('id');
         echo $this->datatables->generate();
     }
-
     function add()
     {
         $this->erp->checkPermissions(false, true);

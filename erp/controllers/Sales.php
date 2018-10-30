@@ -19028,10 +19028,12 @@ function invoice_concrete_angkor($id=null)
         $this->data['pos'] = $this->pos_model->getSetting();
         $this->data['error'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('error');
         $inv = $this->sales_model->getReturnByID($id);
+//        $this->erp->print_arrays($inv); to print data as array
         $this->data['barcode'] = "<img src='" . site_url('products/gen_barcode/' . $inv->reference_no) . "' alt='" .$inv->reference_no . "' class='pull-left' />";
         $this->data['customer'] = $this->site->getCompanyByID($inv->customer_id);
         $this->data['payments'] = $this->sales_model->getPaymentsForSale($id);
         $this->data['biller'] = $this->site->getCompanyByID($inv->biller_id);
+//        $this->erp->print_arrays($this->data['biller']);
         $this->data['user'] = $this->site->getUser($inv->created_by);
         $this->data['warehouse'] = $this->site->getWarehouseByID($inv->warehouse_id);
         $this->data['invs'] = $inv;
@@ -19055,7 +19057,6 @@ function invoice_concrete_angkor($id=null)
         $this->data['return_items'] = $return ? $this->sales_model->getAllReturnItems($return->id) : NULL;
         $this->data['title'] = "2";
         $this->data['sid'] = $id;
-        $this->data['company'] = $this->site->getCompanyByID($this->default_biller_id);
         $this->load->view($this->theme .'sales/invoice_return_set',$this->data);
     }
 	

@@ -417,7 +417,7 @@ class Site extends CI_Model
         }
         return FALSE;
     }
-    
+
 	public function getCompanyByIDorder($id) 
 	{
         $this->db->select("erp_companies.*")

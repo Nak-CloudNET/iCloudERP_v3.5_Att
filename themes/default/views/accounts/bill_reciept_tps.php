@@ -70,52 +70,38 @@
 <body>
 	<div class="container">
 			<div class="col-sm-12 col-xs-12" style="margin-top:5px !important; padding: 0;">
-			<div class="row">
-						<div class="col-sm-3 col-xs-3">
-                            <br>
-							<?php if(!empty($company->logo)) { ?>
-								<img src="<?= base_url() ?>assets/uploads/logos/<?= $company->logo; ?>" style="width: 165px; margin-left: 25px;" />
-							<?php }else{ ?>
-                                <p>គ្មាន​រូបដំណាង</p>
-                            <?php } ?>
-						</div>
-				
-						<div class="col-sm-6 col-xs-6 company_addr" style="margin-top: -15px !important">
-						<center>
-							<?php if(!empty($company->cf1)) { ?>       <!-- change from $biller to $company -->
-								<h3><?= $company->cf1 ?></h3>
-							<?php }else { ?>
-								<h3><?php echo $company->company; ?></h3>
+			    <div class="row">
+                    <div class="col-sm-3 col-xs-3">
+                        <br>
+                        <?php if(!empty($biller->logo)) { ?>
+                            <img src="<?= base_url() ?>assets/uploads/logos/<?= $biller->logo; ?>" style="width: 165px; margin-left: 25px;" />
+                        <?php } ?>
+                    </div>
+                    <div class="col-sm-6 col-xs-6 company_addr" style="margin-top: -15px !important">
+                        <center>
+							<?php if(!empty($biller->company)) { ?>
+								<h3><?php echo $biller->name ?></h3>
 							<?php } ?>
-						
-							<?php if(!empty($company->vat_no)) { ?>
-								<p style="font-size: 11px;">លេខអត្តសញ្ញាណកម្ម អតប (VAT No):&nbsp;<?php echo $company->vat_no; ?></p>
-							<?php }else{ ?>
-                                <p style="font-size: 11px;">គ្មានលេខអត្តសញ្ញាណកម្ម អតប (No VAT No) </p>
-                            <?php } ?>
-							<?php if(!empty($company->address)) { ?>
-								<p style="margin-top:-10px !important;font-size: 11px;">អាសយដ្ឋាន ៖ &nbsp;<?php echo $company->address; ?></p>
-							<?php }else{ ?>
-                                <p style="font-size: 11px;">គ្មានអាសយដ្ឋាន ៖ (No address) </p>
-                            <?php } ?>
-							<?php if(!empty($company->phone)) { ?>
-								<p style="margin-top:-10px !important;font-size: 11px;">ទូរស័ព្ទលេខ (Tel):&nbsp;<?php echo $company->phone; ?></p>
-							<?php }else{ ?>
-                                <p style="font-size: 11px;">គ្មានទូរស័ព្ទលេខ (No Tel) </p>
-                            <?php } ?>
-							<?php if(!empty($company->email)) { ?>
-								<p style="margin-top:-10px !important;font-size: 11px;">សារអេឡិចត្រូនិច (E-mail):&nbsp;<?php echo $company->email; ?></p>
-							<?php }else{ ?>
-                                <p style="font-size: 11px;">គ្មានគសារអេឡិចត្រូនិច (​No E-mail)</p>
-                            <?php } ?>
+							<?php if(!empty($biller->vat_no)) { ?>
+								<p style="font-size: 11px;">លេខអត្តសញ្ញាណកម្ម អតប (VAT No):&nbsp;<?php echo $biller->vat_no; ?></p>
+							<?php } ?>
+							<?php if(!empty($biller->address)) { ?>
+								<p style="margin-top:-10px !important;font-size: 11px;">អាសយដ្ឋាន ៖ &nbsp;<?php echo $biller->address; ?></p>
+							<?php } ?>
+							<?php if(!empty($biller->phone)) { ?>
+								<p style="margin-top:-10px !important;font-size: 11px;">ទូរស័ព្ទលេខ (Tel):&nbsp;<?php echo $biller->phone; ?></p>
+							<?php } ?>
+							<?php if(!empty($biller->email)) { ?>
+								<p style="margin-top:-10px !important;font-size: 11px;">សារអេឡិចត្រូនិច (E-mail):&nbsp;<?php echo $biller->email; ?></p>
+							<?php } ?>
 						</center>
-						</div>
-						<div class="col-sm-3 col-xs-3">
-							<button type="button" class="btn btn-xs btn-default no-print pull-right" style="margin-right:15px;" onclick="window.print();">
-								<i class="fa fa-print"></i> <?= lang('print'); ?>
-							</button>
-						</div>
-			</div>
+                    </div>
+                    <div class="col-sm-3 col-xs-3">
+                        <button type="button" class="btn btn-xs btn-default no-print pull-right" style="margin-right:15px;" onclick="window.print();">
+                            <i class="fa fa-print"></i> <?= lang('print'); ?>
+                        </button>
+                    </div>
+			    </div>
 			<div class="row">
 				<div class="col-sm-12 col-xs-12" style="margin-top: -10px !important">
 					<center><h4	style="font-weight:bold;"><u><?= strtoupper(lang('official receipt')) ?></u></h4></center>
