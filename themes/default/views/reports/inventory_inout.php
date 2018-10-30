@@ -172,7 +172,7 @@
                                 <!--<th rowspan="2"><?= lang("amount_total_out") ?></th>-->
                             <?php } ?>
                             <th rowspan="2"><?= lang("Quantity Balance") ?></th>
-                            <th rowspan="2"><?= lang("Amount Balance") ?></th>
+                            <!--<th rowspan="2"><?= lang("Amount Balance") ?></th>-->
                         </tr>
                         <tr class="shead">
 
@@ -203,7 +203,7 @@
                             foreach($ware as $rw){
                                 ?>
                                 <tr>
-                                    <td colspan="<?= $k + $k2 + 6 ?>" style="color:green;"><span
+                                    <td colspan="<?= $k + $k2 + 4 ?>" style="color:green;"><span
                                             style="font-size:19px;"><b>Warehouse <i class="fa fa-angle-double-right"
                                                                                     aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;<?= $rw->name; ?></b></span>
                                     </td>
@@ -225,7 +225,7 @@
 
                                     ?>
                                     <tr>
-                                        <td colspan="<?= $k + $k2 + 6 ?>" style="color:orange;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                        <td colspan="<?= $k + $k2 + 4 ?>" style="color:orange;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
                                                 style="font-size:13px;"><b>Category <i
                                                         class="fa fa-angle-double-right" aria-hidden="true"></i>&nbsp;&nbsp;<?= $rc->name; ?></b></span>
                                         </td>
@@ -426,9 +426,9 @@
                                             </td>
 
                                             <?php if($amount_balance!=''){ ?>
-                                                <td style='text-align:right;'><b><?= '$ '.$this->erp->formatDecimal($amount_balance?$amount_balance:'0.00')?></b> </td>
+                                                <!--<td style='text-align:right;'><b><?= '$ '.$this->erp->formatDecimal($amount_balance?$amount_balance:'0.00')?></b> </td>-->
                                             <?php } else{ ?>
-                                                <td style='text-align:right;'><b><?=$this->erp->formatDecimal($amount_balance?$amount_balance:'0.00')?></b> </td>
+                                                <!--<td style='text-align:right;'><b><?=$this->erp->formatDecimal($amount_balance?$amount_balance:'0.00')?></b> </td>-->
                                             <?php } ?>
 
                                         </tr>
@@ -497,9 +497,9 @@
 
                                         <td style='text-align:right;background:#F0F8FF;'><b><?=$this->erp->formatDecimal($balance?$balance:'')?></b></td>
                                         <?php if($amount_total_balance!=''){ ?>
-                                            <td style='text-align:right;background:#F0F8FF;'><b><?= '$ '.$this->erp->formatDecimal($amount_total_balance?$amount_total_balance:'')?></b></td>
+                                            <!--<td style='text-align:right;background:#F0F8FF;'><b><?= '$ '.$this->erp->formatDecimal($amount_total_balance?$amount_total_balance:'')?></b></td>-->
                                         <?php } else{ ?>
-                                            <td style='text-align:right;background:#F0F8FF;'><b><?=$this->erp->formatDecimal($amount_total_balance?$amount_total_balance:'')?></b></td>
+                                            <!--<td style='text-align:right;background:#F0F8FF;'><b><?=$this->erp->formatDecimal($amount_total_balance?$amount_total_balance:'')?></b></td>-->
                                         <?php } ?>
 
                                     </tr>
@@ -565,9 +565,9 @@
 
                                     <td style="text-align:right; background:#428BCA;color:white;border-color: #357EBD;"><b><?=$this->erp->formatDecimal($total_balance?$total_balance:'')?></b></td>
                                     <?php if($amount_gtotal_balance!=''){ ?>
-                                        <td style="text-align:right; background:#428BCA;color:white;border-color: #357EBD;"><b><?= '$ '.$this->erp->formatDecimal($my_total_balance?$my_total_balance:'0.00')?></b></td>
+                                        <!--<td style="text-align:right; background:#428BCA;color:white;border-color: #357EBD;"><b><?= '$ '.$this->erp->formatDecimal($my_total_balance?$my_total_balance:'0.00')?></b></td>-->
                                     <?php } else{ ?>
-                                        <td style="text-align:right; background:#428BCA;color:white;border-color: #357EBD;"><b><?= $this->erp->formatDecimal($my_total_balance?$my_total_balance:'')?></b></td>
+                                        <!--<td style="text-align:right; background:#428BCA;color:white;border-color: #357EBD;"><b><?= $this->erp->formatDecimal($my_total_balance?$my_total_balance:'')?></b></td>-->
                                     <?php } ?>
 
                                 </tr>
