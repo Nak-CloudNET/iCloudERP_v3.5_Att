@@ -154,6 +154,7 @@
                 <div class="table-responsive" style="width:100%;">
                     <table id="tbstock" class="table table-condensed table-bordered table-hover table-striped" >
                         <thead>
+
                         <tr>
                             <!--<th rowspan="2" style="width:80px;"><?= lang("image") ?></th>-->
                             <th rowspan="2"><span>Location</span> <span style="color:orange;"><i
