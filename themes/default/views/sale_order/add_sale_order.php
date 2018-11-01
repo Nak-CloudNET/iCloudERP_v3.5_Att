@@ -614,7 +614,10 @@
                                                 <?php if ($Owner || $Admin || $GP['customers-add']) { ?>
 
 												<div class="input-group-addon no-print" style="padding: 2px 5px; border-left: 0;">
-													<a href="#" id="view-customer" class="external" data-toggle="modal" data-target="#myModal">
+													<a href="#" id="view-customer" class="external" data
+
+
+                                                       -toggle="modal" data-target="#myModal">
 														<i class="fa fa-2x fa-user" id="addIcon"></i>
 													</a>
 												</div>
@@ -726,7 +729,7 @@
 
                                             <?php
                                                 if ($Settings->product_serial) {
-                                                    echo '<th class="col-md-2">' . lang("serial_no") . '</th>';
+                                                    echo '<th class="col-md-2">' . lang("serial_no") . ' * </th>';
                                                 }
                                             ?>
 
@@ -1145,13 +1148,13 @@
                             <label for="pserial" class="col-sm-4 control-label"><?= lang('serial_no') ?></label>
 
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="pserial">
+                                <input type="text" class="form-control" id="pserial" required="required">
+                                <span id="errorSerialRequired" style="color: red"></span>
                             </div>
                         </div>
                     <?php } ?>
 					<div class="form-group" id="dvpiece">
                         <label for="piece" id="lbpiece" class="col-sm-4 control-label"><?= lang('piece') ?></label>
-
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="piece">
                         </div>
@@ -1275,9 +1278,11 @@
                     <?= lang("card_no", "gccard_no"); ?> *
                     <div class="input-group">
                         <?php echo form_input('gccard_no', '', 'class="form-control" id="gccard_no"'); ?>
-                        <div class="input-group-addon" style="padding-left: 10px; padding-right: 10px;"><a href="#"
-                                                                                                           id="genNo"><i
-                                    class="fa fa-cogs"></i></a></div>
+                        <div class="input-group-addon" style="padding-left: 10px; padding-right: 10px;">
+                            <a href="#" id="genNo">
+                                <i class="fa fa-cogs"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <input type="hidden" name="gcname" value="<?= lang('gift_card') ?>" id="gcname"/>
@@ -2042,9 +2047,8 @@
 			});
 		}
 		$('#modal-loading').hide();
-	}); 
-		
-		 
+	});
+
     });
 	
 	$(window).load(function(){
