@@ -249,8 +249,8 @@
 									$product_unit = '';
 									$total = 0;
 									
-									if($row->variant){
-										$product_unit = $row->variant;
+									if($row->product_unit){
+										$product_unit = $row->product_unit;
 									}else{
 										$product_unit = $row->uname;
 									}
@@ -269,16 +269,16 @@
 									<td style="vertical-align: middle; text-align: center"><?php echo $n ?></td>
 									
 									<td style="vertical-align: middle;">
-										<?=$row->product_name;?>
+										<?= $row->product_name;?>
 									</td>
 									<td style="margin: 0; padding: 0">
-										<?=$row->product_noted;?>
+										<?= $row->product_noted;?>
 									</td>
 									<td style="vertical-align: middle; text-align: center">
 										<?= $product_unit ?>
 									</td>
 									<td style="vertical-align: middle; text-align: center">
-										<?=$this->erp->formatQuantity($row->quantity);?>
+										<?= $this->erp->formatQuantity($row->quantity);?>
 									</td>
 									<td style="vertical-align: middle; text-align: right">
 										$<?= $this->erp->formatMoney($row->real_unit_price); ?>
