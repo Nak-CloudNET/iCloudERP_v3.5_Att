@@ -5810,15 +5810,11 @@ ORDER BY
         return FALSE;
 	}
 	public function getBeginQtyALL($id,$wid,$start,$end,$biller){
-		$numMonth=1;
-		$startDate=date('Y-m-01',strtotime($start . " - $numMonth month"));
-		$endDate=date('Y-m-t',strtotime($start . " - $numMonth month"));
 		$this->db->select("SUM(COALESCE(quantity_balance_unit, 0)) as bqty");
-		$this->db->join("erp_purchases","erp_purchases.id = stock_trans.tran_id","LEFT");
 		if($biller){
-			$this->db->where("erp_purchases.biller_id",$biller);
+			$this->db->where("stock_trans.biller_id",$biller);
 		}
-		$this->db->where('stock_trans.tran_date >="'.$startDate.'" AND stock_trans.tran_date<="'.$endDate.'"');
+		$this->db->where('stock_trans.tran_date <"'.$start.'"');
 		$this->db->where(array("stock_trans.product_id"=>$id,"stock_trans.warehouse_id"=>$wid));
 	
 		$q = $this->db->get("stock_trans");
