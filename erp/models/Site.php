@@ -2466,7 +2466,7 @@ class Site extends CI_Model
     {
         $warehouse_qty = $this->getWarehouseQty($product_id, $warehouse_id)->quantity;
         $warehouse_qty += $old_sqty;
-
+//echo $this->Settings->overselling;exit;
         if (($quantity > $warehouse_qty && !$this->Settings->overselling) || ($warehouse_qty <= 0 && !$this->Settings->overselling)) {
             $pi = $this->site->getProductByID($product_id);
 
@@ -2962,6 +2962,7 @@ class Site extends CI_Model
 
     public function item_costing($item, $pi = NULL)
     {
+        //$this->erp->print_arrays($item);
         $item_quantity = $pi ? $item['aquantity'] : $item['quantity'];
         if (!isset($item['option_id']) || $item['option_id'] == 'null') {
             $item['option_id'] = NULL;
@@ -3286,6 +3287,7 @@ class Site extends CI_Model
 
     public function costing($items)
 	{
+        
 	    $citems = array();
         $cost = array();
         foreach ($items as $item) {
@@ -3296,13 +3298,14 @@ class Site extends CI_Model
                     $citems['p' . $item['product_id'] . 'o' . $item['option_id']. 'e' . $item['expiry']]['aquantity'] += $item['quantity'];
 					$citems['p' . $item['product_id'] . 'o' . $item['option_id']. 'e' . $item['expiry']]['quantity'] += $item['quantity'];
 					$citems['p' . $item['product_id'] . 'o' . $item['option_id']. 'e' . $item['expiry']]['quantity_balance'] += $item['quantity_balance'];
-					$citems['p' . $item['product_id'] . 'o' . $item['option_id']. 'e' . $item['expiry']]['old_sqty'] = $item['old_sqty'];
+					$citems['p' . $item['product_id'] . 'o' . $item['option_id']. 'e' . $item['expiry']]['old_sqty'] += $item['old_sqty'];
+
                 } else {
                     $citems['p' . $item['product_id'] . 'o' . $item['option_id']. 'e' . $item['expiry']] = $item;
                     $citems['p' . $item['product_id'] . 'o' . $item['option_id']. 'e' . $item['expiry']]['aquantity'] = $item['quantity'];
-					$citems['p' . $item['product_id'] . 'o' . $item['option_id']. 'e' . $item['expiry']]['old_sqty'] = $item['old_sqty'];
+					$citems['p' . $item['product_id'] . 'o' . $item['option_id']. 'e' . $item['expiry']]['old_sqty'] += $item['old_sqty'];
                 }
-				
+
             } elseif ($pr->type == 'combo') {
                 $combo_items = $this->getProductComboItems($item['product_id'], $item['warehouse_id']);
                 foreach ($combo_items as $combo_item) {
