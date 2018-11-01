@@ -2202,7 +2202,7 @@ function loadItems() {
 				if(item_type == 'service'){
 					tr_html += '<td class="text-right"></td>';
 				}else{
-					tr_html += '<td class="text-right"><input class="form-control input-sm rserial" name="serial[]" type="text" id="serial_' + row_no + '" value="'+item_serial+'"></td>';
+					tr_html += '<td class="text-right"><input class="form-control input-sm rserial" name="serial[]" type="text" id="serial_' + row_no + '" value="'+item_serial+'" required="required"></td>';
 				}
 			}
 			if (item_promotion == 1 && (current_date >= start_date && current_date <= end_date)){
@@ -2291,9 +2291,7 @@ function loadItems() {
 							invoice_tax = parseFloat(this.rate);
 						}
 						if (this.type == 1) {
-							
-							
-							
+
 							invoice_tax = parseFloat(((total - order_discount + shipping) * this.rate) / 100);
 						}
 					}
