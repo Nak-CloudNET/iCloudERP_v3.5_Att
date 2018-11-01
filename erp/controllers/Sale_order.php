@@ -187,8 +187,11 @@ class Sale_order extends MY_Controller
                 $real_unit_price = $this->erp->formatDecimal($_POST['real_unit_price'][$r]);
                 $unit_price = $this->erp->formatDecimal($_POST['unit_price'][$r]);
                 $item_price_id = $_POST['price_id'][$r];
-				
-				
+
+				$item_serial = $_POST['serial'][$r];    //check if no serial number set required
+                if ($item_serial == NULL) {
+                    $this->form_validation->set_rules('serial'[$r], lang("serial"), 'required');
+                }
                 $item_quantity = $_POST['quantity'][$r];
                 $item_tax_rate = isset($_POST['product_tax'][$r]) ? $_POST['product_tax'][$r] : null;
                 $item_discount = isset($_POST['product_discount'][$r]) ? $_POST['product_discount'][$r] : null;
@@ -268,6 +271,7 @@ class Sale_order extends MY_Controller
                         'warehouse_id' => $warehouse_id,
                         'item_tax' => $pr_item_tax,
                         'tax_rate_id' => $pr_tax,
+						'serial_no' => $item_serial,
 						'piece'	=> $item_peice,
 						'wpiece' => $item_wpeice,
 						'group_price_id'=>$group_price_id,
@@ -2285,6 +2289,9 @@ class Sale_order extends MY_Controller
                 $item_qty_received = $_POST['quantity_received'][$r];
 				$item_unit_quantity = $_POST['quantity'][$r];
                 $item_serial = isset($_POST['serial'][$r]) ? $_POST['serial'][$r] : '';
+                if($item_serial == NULL) {
+                    $this->form_validation->set_rules('serial'[$r], lang("serial"), 'required');
+                }
                 $item_tax_rate = isset($_POST['product_tax'][$r]) ? $_POST['product_tax'][$r] : NULL;
                 $item_discount = isset($_POST['product_discount'][$r]) ? $_POST['product_discount'][$r] : NULL;
 				$item_price_id = $_POST['price_id'][$r];
@@ -2363,6 +2370,7 @@ class Sale_order extends MY_Controller
                         'item_tax' => $pr_item_tax,
                         'tax_rate_id' => $pr_tax,
                         'tax' => $tax,
+						'serial_no' => $item_serial,
 						'piece'		=> $item_peice,
 						'wpiece'	=> $item_wpeice,
                         'discount' => $item_discount,

@@ -1149,7 +1149,6 @@
 
                             <div class="col-sm-8">
                                 <input type="text" class="form-control" id="pserial" required="required">
-                                <span id="errorSerialRequired" style="color: red"></span>
                             </div>
                         </div>
                     <?php } ?>
