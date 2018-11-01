@@ -6921,4 +6921,14 @@ public function getRielCurrency(){
 		}
 		return false;
 	}
+
+	public function getBillerInvoice($id){
+        $query = $this->db->select('*')->from('sales')
+                                        ->where(array('biller_id' => $id));
+        $q = $this->db->get();
+        if ($q->num_rows() > 0) {
+            return $q->row();
+        }
+        return FALSE;
+    }
 }

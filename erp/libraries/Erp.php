@@ -940,11 +940,9 @@ class Erp
 				}
 			}
 			$_string_unit = $this->array_2_string(", ", $_units);
-
 			if(empty($_select_all_units) and $_qty > 0){
 				$_string_unit = '1 <span style="color: #178228;">' . $this->site->getUnitNameByProId($_item_code) .'</span>';
 			}
-			
 			$en = "";
 			if($_string_unit){
 				if ($nu < 0)

@@ -120,24 +120,18 @@
 			
 			<div class="col-sm-6 col-xs-6 company_addr" style="margin-top: -15px !important">
 				<center>
-					<?php if(!empty($biller->cf1)) { ?>
-						<h3><?= $biller->cf1 ?></h3>
-					<?php }else { ?>
-						<h3>CloudNET Cambodia</h3>
+					<?php if(!empty($biller->company)) { ?>
+						<h3><?= $biller->name ?></h3>
 					<?php } ?>
-				
 					<?php if(!empty($biller->vat_no)) { ?>
 						<p style="font-size: 11px;">លេខអត្តសញ្ញាណកម្ម អតប (VAT No):&nbsp;<?= $biller->vat_no; ?></p>
 					<?php } ?>
-					
 					<?php if(!empty($biller->address)) { ?>
 						<p style="margin-top:-10px !important;font-size: 11px;">អាសយដ្ឋាន ៖ &nbsp;<?= $biller->address; ?></p>
 					<?php } ?>
-					
 					<?php if(!empty($biller->phone)) { ?>
 						<p style="margin-top:-10px !important;font-size: 11px;">ទូរស័ព្ទលេខ (Tel):&nbsp;<?= $biller->phone; ?></p>
 					<?php } ?>
-					
 					<?php if(!empty($biller->email)) { ?>
 						<p style="margin-top:-10px !important;font-size: 11px;">សារអេឡិចត្រូនិច (E-mail):&nbsp;<?= $biller->email; ?></p>
 					<?php } ?>
@@ -255,8 +249,8 @@
 									$product_unit = '';
 									$total = 0;
 									
-									if($row->variant){
-										$product_unit = $row->variant;
+									if($row->product_unit){
+										$product_unit = $row->product_unit;
 									}else{
 										$product_unit = $row->uname;
 									}
@@ -275,16 +269,16 @@
 									<td style="vertical-align: middle; text-align: center"><?php echo $n ?></td>
 									
 									<td style="vertical-align: middle;">
-										<?=$row->product_name;?>
+										<?= $row->product_name;?>
 									</td>
 									<td style="margin: 0; padding: 0">
-										<?=$row->product_noted;?>
+										<?= $row->product_noted;?>
 									</td>
 									<td style="vertical-align: middle; text-align: center">
 										<?= $product_unit ?>
 									</td>
 									<td style="vertical-align: middle; text-align: center">
-										<?=$this->erp->formatQuantity($row->quantity);?>
+										<?= $this->erp->formatQuantity($row->quantity);?>
 									</td>
 									<td style="vertical-align: middle; text-align: right">
 										$<?= $this->erp->formatMoney($row->real_unit_price); ?>

@@ -32,6 +32,7 @@ class Account extends MY_Controller
 		} else {
 			$this->permission[] = NULL;
 		}
+        $this->default_biller_id = $this->site->default_biller_id();
 	}
 
 	function index($action = NULL)
@@ -2225,6 +2226,7 @@ class Account extends MY_Controller
 		$this->data['products'] = $this->sales_model->getProductNew($payment->sale_id);
 		$this->data['jl_data'] = $this->sales_model->getJoinlease($payment->sale_id);
 		$this->data['rowpay'] = $this->sales_model->getPayments($payment->reference_no);
+        $this->data['company'] = $this->site->getCompanyByID($this->default_biller_id);
 		$this->load->view($this->theme . 'accounts/bill_reciept_tps', $this->data);
 	}
 	

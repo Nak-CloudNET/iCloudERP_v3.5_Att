@@ -417,7 +417,7 @@ class Site extends CI_Model
         }
         return FALSE;
     }
-    
+
 	public function getCompanyByIDorder($id) 
 	{
         $this->db->select("erp_companies.*")
@@ -2779,25 +2779,12 @@ class Site extends CI_Model
 	}
 	
 	public function calculateCONAVCost($product_id, $total_raw_cost, $total_fin_qty, $unit_qty) {
-		$percent 		= 0;
-		$qty 			= 0;
-		$total_new_cost = 0;
-		$total_qty		= 0;
+
 		$total_old_cost = 0;
 		$old_product	= $this->getProductAllByID($product_id);
 		
 		$total_qty		= $unit_qty;
-		/*
-		if($finish_cost){
-			$percent 	= $each_cost/$finish_cost;
-		}else{
-			$percent	= 1;
-		}
-		$qty 			= $quantity;
-		if(!$qty_unit){
-			$qty_unit 	= 1;
-		}
-		*/
+
 		//========================== AVG Cost ============================//
 
 		if($old_product->cost > 0){
@@ -2806,7 +2793,7 @@ class Site extends CI_Model
 		}
 		
 		$total_new_cost = ($total_raw_cost * $unit_qty)/$total_fin_qty;
-		//echo 'TRC '. $total_raw_cost .' UQTY '. $unit_qty .' TFQ '. $total_fin_qty .' TNC '. $total_new_cost .' TOC '. $total_old_cost .' TQTY '. $total_qty .'<br/>';
+		echo 'TRC '. $total_raw_cost .' UQTY '. $unit_qty .' TFQ '. $total_fin_qty .' TNC '. $total_new_cost .' TOC '. $total_old_cost .' TQTY '. $total_qty .'<br/>';
 		$average_cost 	= ($total_new_cost + $total_old_cost) / $total_qty;
 		
 		//============================ End ===============================//

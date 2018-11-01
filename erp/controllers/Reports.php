@@ -13190,11 +13190,11 @@ class Reports extends MY_Controller
             $billers = $this->site->getAllCompanies('biller', $biller_id, $xls);
         }
 
-        $this->data['billers'] = $billers;
-        $this->data['start'] = urldecode($start_date);
-        $this->data['end'] = urldecode($end_date);
-        $totalBeforeAyear = date('Y', strtotime($this->data['start'])) - 1;
-        $this->data['error'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('error');
+        $this->data['billers']      = $billers;
+        $this->data['start']        = urldecode($start_date);
+        $this->data['end']          = urldecode($end_date);
+        $totalBeforeAyear           = date('Y', strtotime($this->data['start'])) - 1;
+        $this->data['error']        = (validation_errors()) ? validation_errors() : $this->session->flashdata('error');
         $bc = array(array('link' => base_url(), 'page' => lang('home')), array('link' => '#', 'page' => lang('income_statement')));
         $meta = array('page_title' => lang('income_statement'), 'bc' => $bc);
         $from_date = date('Y-m-d',strtotime(urldecode($start_date)));//'2014-08-01';
@@ -13202,15 +13202,14 @@ class Reports extends MY_Controller
         $this->data['from_date'] = $from_date;
         $this->data['to_date'] = $to_date;
 
-        $dataIncome = $this->accounts_model->getStatementByBalaneSheetDate('40,70',$from_date,$to_date,$biller_id);
-
-        $dataCost = $this->accounts_model->getStatementByBalaneSheetDate('50',$from_date,$to_date,$biller_id);
-        $dataExpense = $this->accounts_model->getStatementByBalaneSheetDate('60,80,90',$from_date,$to_date,$biller_id);
-        $IncomeData = $this->accounts_model->getStatementByBalaneSheetDate('40,70',$from_date,$to_date,$biller_id);
+        $dataIncome     = $this->accounts_model->getStatementByBalaneSheetDate('40,70',$from_date,$to_date,$biller_id);
+        $dataCost       = $this->accounts_model->getStatementByBalaneSheetDate('50',$from_date,$to_date,$biller_id);
+        $dataExpense    = $this->accounts_model->getStatementByBalaneSheetDate('60,80,90',$from_date,$to_date,$biller_id);
+        $IncomeData     = $this->accounts_model->getStatementByBalaneSheetDate('40,70',$from_date,$to_date,$biller_id);
         $this->data['totalBeforeAyear'] = $totalBeforeAyear;
-        $this->data['dataIncome'] = $dataIncome;
-        $this->data['dataCost'] = $dataCost;
-        $this->data['dataExpense'] = $dataExpense;
+        $this->data['dataIncome']       = $dataIncome;
+        $this->data['dataCost']         = $dataCost;
+        $this->data['dataExpense']      = $dataExpense;
 
         /*if ($pdf) {
             $html = $this->load->view($this->theme . 'reports/income_statement', $this->data, true);

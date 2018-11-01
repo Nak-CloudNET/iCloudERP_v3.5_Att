@@ -2006,7 +2006,7 @@ class Products extends MY_Controller
 
                     $query_product = $this->products_model->getProductByCode(trim($value[0]));
                     $qty_unit       = 0;
-                    $qty_variant = $this->products_model->getProductVariant($query_product->id, $value[2]);
+                    $qty_variant    = $this->products_model->getProductVariant($query_product->id, $value[2]);
                     $quantity       = isset($qty_variant->qty_unit) ? $value[1] * $qty_variant->qty_unit : $value[1];
                     $cost           = isset($qty_variant->qty_unit) ? $value[5] / $qty_variant->qty_unit : $value[5];
                     $value[1]       = $quantity;
@@ -2096,14 +2096,26 @@ class Products extends MY_Controller
                 }
 
                 $total_cost = 0;
+                $a = 0;
                 foreach ($final as $csvpr) {
-
                     $cost = $csvpr['quantity'] * $csvpr['cost'];
                     $total_cost += $cost;
+                    $biller_id = $final_purchase_item[$a]['biller_id'];
+                    $a++;
                 }
-            }
 
-            //$this->erp->print_arrays($final_purchase_item);
+                foreach ($final_purchase_item as $fpi){
+                    $warehouses=$this->products_model->getWarehostId($fpi['biller_id']);
+                    $wh=explode(',',$warehouses[0]->cf5);
+                    //$this->erp->print_arrays();
+                    if(!in_array($fpi['warehouse_id'],$wh)){
+                        $this->session->set_flashdata('error', lang("Warehouses id is don't have in biller"));
+                        redirect("products/update_quantity");
+                    }
+                }
+
+            }
+            //$this->erp->print_arrays($final);
 
         }
 
@@ -2112,7 +2124,7 @@ class Products extends MY_Controller
             $this->products_model->updateCostVariant($final_var_value);
             $this->products_model->updateQuantityExcelWarehouse($final_ware_product);
             $this->products_model->updateQuantityExcelVar($final_var);
-            $this->products_model->insertGlTran($total_cost);
+            $this->products_model->insertGlTran($total_cost, $biller_id);
             $check  = $this->products_model->updateQuantityExcelPurchase($final_purchase_item);
 
             optimizeOpeningQuantity(date('Y-m-d'));
@@ -4190,6 +4202,7 @@ class Products extends MY_Controller
                 $clause['date']             = date('Y-m-d');
                 $clause['option_id']        = $cIterm_from_uom[$r];
                 $clause['convert_id']       = $id_convert_item;
+                $clause['unit_cost']        = $product_fr->cost;
                 $clause['product_name']     = $cIterm_from_name[$r];
                 $clause['quantity_balance'] = $qtytransfer;
                 $clause['cb_avg']           = $product_fr->cost;

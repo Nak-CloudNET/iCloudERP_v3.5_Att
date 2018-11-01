@@ -3396,9 +3396,13 @@ class system_settings extends MY_Controller
 			
             $idConvert          = $this->settings_model->updateBom($id, $data);
 			$id_convert_item 	= $idConvert;
+			if ($id_convert_item) {
+                $this->settings_model->deleteBom_items($id);
+            }
 				
             $items = array();
             $i = isset($_POST['bom_from_items_code']) ? sizeof($_POST['bom_from_items_code']) : 0;
+
             for ($r = 0; $r < $i; $r++) {
                 $bomitem = array(
 							'bom_id' 		=> $id,
@@ -3409,11 +3413,7 @@ class system_settings extends MY_Controller
 							'option_id'		=> $cIterm_from_uom[$r],
 							'status' 		=> 'deduct'
 						);
-						
-				$pic = $this->settings_model->selectBomItems($id, $cIterm_from_id[$r]);
-				if($pic){
-					$this->settings_model->deleteBom_items($id);
-				}
+
 				$this->settings_model->updateBom_items($bomitem);
 			}
             $j = isset($_POST['convert_to_items_code']) ? sizeof($_POST['convert_to_items_code']) : 0;
@@ -3427,10 +3427,6 @@ class system_settings extends MY_Controller
 							'option_id'		=> $iterm_to_uom[$r],
 							'status' 		=> 'add'
 						);
-				$pic = $this->settings_model->selectBomItems($id, $iterm_to_id[$r]);
-				if($pic){
-					$this->settings_model->deleteBom_items($id);
-				}
 				$this->settings_model->updateBom_items($bomitems);
 			}
 			

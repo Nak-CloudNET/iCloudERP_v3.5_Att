@@ -393,8 +393,8 @@
                 }
                 ?>
                 <?php
-                if($erow<16){
-                    $k=16 - $erow;
+                if($erow<13){
+                    $k=13 - $erow;
                     for($j=1;$j<=$k;$j++) {
                         if($discount != 0) {
                             echo  '<tr class="border">

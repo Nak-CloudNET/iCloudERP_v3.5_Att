@@ -528,14 +528,14 @@ class Pos_model extends CI_Model
                                 $card_info = array("number" => $payment['cc_no'], "exp_month" => $payment['cc_month'], "exp_year" => $payment['cc_year'], "cvc" => $payment['cc_cvv2'], 'type' => $payment['cc_type']);
                                 $result = $this->paypal($payment['amount'], $card_info);
                                 if (!isset($result['error'])) {
-                                    $payment['transaction_id'] = $result['transaction_id'];
-                                    $payment['date'] = $this->erp->fld($result['created_at']);
-                                    $payment['amount'] = $result['amount'];
-                                    $payment['currency'] = $result['currency'];
+                                    $payment['transaction_id']  = $result['transaction_id'];
+                                    $payment['date']            = $this->erp->fld($result['created_at']);
+                                    $payment['amount']          = $result['amount'];
+                                    $payment['currency']        = $result['currency'];
                                     unset($payment['cc_cvv2']);
                                     $this->db->insert('payments', $payment);
+                                    $this->site->updateReference('sp', $payment['biller_id']);
                                     $paid += $payment['amount'];
-
 
                                 } else {
                                     $msg[] = lang('payment_failed');
@@ -552,12 +552,12 @@ class Pos_model extends CI_Model
                                 $result = $this->stripe($payment['amount'], $card_info);
                                 if (!isset($result['error'])) {
                                     $payment['transaction_id'] = $result['transaction_id'];
-                                    $payment['date'] = $this->erp->fld($result['created_at']);
-                                    $payment['amount'] = $result['amount'];
-                                    $payment['currency'] = $result['currency'];
+                                    $payment['date']            = $this->erp->fld($result['created_at']);
+                                    $payment['amount']          = $result['amount'];
+                                    $payment['currency']        = $result['currency'];
                                     unset($payment['cc_cvv2']);
                                     $this->db->insert('payments', $payment);
-                                    $this->site->updateReference('sp');
+                                    $this->site->updateReference('sp', $payment['biller_id']);
                                     $paid += $payment['amount'];
                                 } else {
                                     $msg[] = lang('payment_failed');
@@ -585,7 +585,7 @@ class Pos_model extends CI_Model
 
                             if($payment['paid_by'] == 'Voucher'){
                                 if ($this->site->getReference('sp') == $payment['reference_no']) {
-                                    $this->site->updateReference('sp');
+                                    $this->site->updateReference('sp', $payment['biller_id']);
                                 }
                             }
                         }

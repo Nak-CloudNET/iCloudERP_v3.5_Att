@@ -189,7 +189,7 @@ if (!function_exists('optimizePurchases')) {
     {
         $ci =& get_instance();
 
-        $arr_product_id = [];
+        $arr_product_id  = [];
 
         $q_all_purchases = $ci->db->query("SELECT * FROM erp_purchases 
                             WHERE DATE(`date`) >= DATE('{$tran_date}') ORDER BY `date` ASC; ");
@@ -199,7 +199,6 @@ if (!function_exists('optimizePurchases')) {
                 $q_purchase_items = $ci->db->query("SELECT * FROM erp_purchase_items
                                     WHERE purchase_id = '{$row_purchase->id}' 
                                     AND transaction_type = 'PURCHASE'; ");
-
 
                 if ($q_purchase_items->num_rows() > 0) {
 
@@ -266,7 +265,7 @@ if (!function_exists('optimizePurchases')) {
             }
 
             //Will use this function in the future
-            getAvgCost($tran_date, $arr_product_id);
+            //getAvgCost($tran_date, $arr_product_id);
 
         }
     }
@@ -492,7 +491,7 @@ if (!function_exists('optimizeConvert')) {
             }
 
             //Will use this function in the future
-            getAvgCost($tran_date, $arr_product_id);
+            //getAvgCost($tran_date, $arr_product_id);
 
         }
     }
