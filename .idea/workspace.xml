@@ -3,11 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="5cef3a56-5fab-49e4-8c64-8abdac9fd981" name="Default" comment="Sopheak : add company info to invoice and remove button invoice">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/uploads/barcode1.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/uploads/barcode1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/uploads/qrcode1.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/uploads/qrcode1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/assets/js/edit_sale_order.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/assets/js/edit_sale_order.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/views/sale_order/add_sale_order.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/views/sale_order/add_sale_order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/views/sales/invoice_return_set.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/views/sales/invoice_return_set.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/erp/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/erp/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/erp/controllers/Reports.php" beforeDir="false" afterPath="$PROJECT_DIR$/erp/controllers/Reports.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/erp/models/Reports_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/erp/models/Reports_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/default/views/reports/saleman_detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/views/reports/saleman_detail.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -88,59 +87,142 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="1456255805">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="html" value="2" />
+          <entry key="php" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="HTML" value="2" />
+          <entry key="PHP" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="html" value="20" />
+          <entry key="php" value="177" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="HTML" value="20" />
+          <entry key="PHP" value="177" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.php.rename.constructor" />
+      <usages-collector id="statistics.php.new.test" />
+      <usages-collector id="statistics.js.language.service.starts" />
+      <usages-collector id="statistics.vcs.git.usages" />
+      <usages-collector id="statistics.php.composer.actions" />
+      <usages-collector id="statistics.php.new.class" />
+      <usages-collector id="statistics.php.composer.command.options" />
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/erp/controllers/Sale_order.php">
+        <entry file="file://$PROJECT_DIR$/erp/config/database.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+            <state relative-caret-position="413">
+              <caret line="68" column="31" lean-forward="true" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/erp/models/Sales_model.php">
+        <entry file="file://$PROJECT_DIR$/erp/controllers/Reports.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19448">
-              <caret line="1144" column="36" selection-start-line="1144" selection-start-column="36" selection-end-line="1144" selection-end-column="36" />
+            <state relative-caret-position="195">
+              <caret line="17388" column="29" selection-start-line="17388" selection-start-column="21" selection-end-line="17388" selection-end-column="29" />
+              <folding>
+                <element signature="e#216#220#0" expanded="true" />
+                <element signature="e#220#224#0" expanded="true" />
+                <element signature="e#402#406#0" expanded="true" />
+                <element signature="e#406#410#0" expanded="true" />
+                <element signature="e#1184#1190#0" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="e#233#237#0" expanded="true" />
+                <element signature="e#237#241#0" expanded="true" />
+                <element signature="e#459#463#0" expanded="true" />
+                <element signature="e#463#467#0" expanded="true" />
+                <element signature="e#1241#1247#0" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="e#233#237#0" expanded="true" />
+                <element signature="e#237#241#0" expanded="true" />
+                <element signature="e#459#463#0" expanded="true" />
+                <element signature="e#463#467#0" expanded="true" />
+                <element signature="e#1241#1247#0" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="e#234#238#0" expanded="true" />
+                <element signature="e#238#242#0" expanded="true" />
+                <element signature="e#460#464#0" expanded="true" />
+                <element signature="e#464#468#0" expanded="true" />
+                <element signature="e#1245#1251#0" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="e#245#249#0" expanded="true" />
+                <element signature="e#249#253#0" expanded="true" />
+                <element signature="e#483#487#0" expanded="true" />
+                <element signature="e#487#491#0" expanded="true" />
+                <element signature="e#1367#1373#0" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="e#255#259#0" expanded="true" />
+                <element signature="e#259#263#0" expanded="true" />
+                <element signature="e#453#457#0" expanded="true" />
+                <element signature="e#457#461#0" expanded="true" />
+                <element signature="e#1337#1343#0" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="e#245#249#0" expanded="true" />
+                <element signature="e#249#253#0" expanded="true" />
+                <element signature="e#483#487#0" expanded="true" />
+                <element signature="e#487#491#0" expanded="true" />
+                <element signature="e#1367#1373#0" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/themes/default/views/sale_order/add_sale_order.php">
+        <entry file="file://$PROJECT_DIR$/erp/models/Site.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="33422">
-              <caret line="1966" column="49" selection-start-line="1966" selection-start-column="49" selection-end-line="1966" selection-end-column="49" />
+            <state relative-caret-position="263">
+              <caret line="1182" column="31" selection-start-line="1182" selection-start-column="20" selection-end-line="1182" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/erp/models/Reports_model.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="93">
+              <caret line="386" selection-start-line="386" selection-end-line="386" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/themes/default/assets/js/edit_sale_order.js">
+        <entry file="file://$PROJECT_DIR$/themes/default/views/reports/saleman_detail.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="2216" column="52" selection-start-line="2216" selection-start-column="52" selection-end-line="2216" selection-end-column="52" />
+            <state relative-caret-position="850">
+              <caret line="221" selection-start-line="221" selection-end-line="221" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/erp/controllers/Sales.php">
+        <entry file="file://$USER_HOME$/Desktop/backup-time-shop.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323731">
-              <caret line="19043" column="56" selection-start-line="19043" selection-start-column="39" selection-end-line="19043" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/themes/default/views/sales/invoice_return_set.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4947">
-              <caret line="291" column="8" selection-start-line="291" selection-start-column="8" selection-end-line="291" selection-end-column="8" />
+            <state relative-caret-position="4102">
+              <caret line="408" column="9" selection-start-line="408" selection-start-column="9" selection-end-line="408" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -149,9 +231,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>billReceipt</find>
-      <find>bill_reciept_tps</find>
-      <find>getStaff()</find>
       <find>button</find>
       <find>payment_note</find>
       <find>bill</find>
@@ -179,6 +258,9 @@
       <find>submit</find>
       <find>rserial</find>
       <find>before</find>
+      <find>getAllUsers</find>
+      <find>getSaleman</find>
+      <find>saleman_detail</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -192,7 +274,6 @@
         <option value="$PROJECT_DIR$/themes/default/views/sales/invoice_st_a4.php" />
         <option value="$PROJECT_DIR$/themes/default/views/reports/sales_detail_report.php" />
         <option value="$PROJECT_DIR$/erp/controllers/Purchases.php" />
-        <option value="$PROJECT_DIR$/erp/controllers/Reports.php" />
         <option value="$PROJECT_DIR$/erp/models/Accounts_model.php" />
         <option value="$PROJECT_DIR$/erp/controllers/Pos.php" />
         <option value="$PROJECT_DIR$/erp/models/Pos_model.php" />
@@ -211,6 +292,11 @@
         <option value="$PROJECT_DIR$/themes/default/views/sales/invoice_return_set.php" />
         <option value="$PROJECT_DIR$/themes/default/assets/js/edit_sale_order.js" />
         <option value="$PROJECT_DIR$/themes/default/views/sale_order/add_sale_order.php" />
+        <option value="$PROJECT_DIR$/erp/config/database.php" />
+        <option value="$USER_HOME$/Desktop/backup-time-shop.html" />
+        <option value="$PROJECT_DIR$/erp/models/Reports_model.php" />
+        <option value="$PROJECT_DIR$/erp/controllers/Reports.php" />
+        <option value="$PROJECT_DIR$/themes/default/views/reports/saleman_detail.php" />
       </list>
     </option>
   </component>
@@ -219,6 +305,9 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpServers">
+    <servers />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="140" />
@@ -231,6 +320,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -278,8 +368,7 @@
               <item name="iCloudERP_v3.5_Att" type="462c0819:PsiDirectoryNode" />
               <item name="themes" type="462c0819:PsiDirectoryNode" />
               <item name="default" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="iCloudERP_v3.5_Att" type="b2602c69:ProjectViewProjectNode" />
@@ -287,6 +376,7 @@
               <item name="themes" type="462c0819:PsiDirectoryNode" />
               <item name="default" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="reports" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="iCloudERP_v3.5_Att" type="b2602c69:ProjectViewProjectNode" />
@@ -308,10 +398,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="ChangesTree.GroupingKeys" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../nanas_k" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
@@ -362,6 +452,7 @@
       <workItem from="1540961992489" duration="113000" />
       <workItem from="1540966614483" duration="13518000" />
       <workItem from="1541033780927" duration="923000" />
+      <workItem from="1541053009523" duration="5812000" />
     </task>
     <task id="LOCAL-00001" summary="sreylen">
       <created>1533983112062</created>
@@ -402,12 +493,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79152000" />
+    <option name="totallyTimeSpent" value="84964000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15586796" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15770172" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -418,7 +509,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32922733" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32911393" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" />
@@ -540,13 +631,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/erp/controllers/Reports.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="13205" column="78" selection-start-line="13205" selection-start-column="49" selection-end-line="13205" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/erp/controllers/Pos.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
@@ -558,13 +642,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
           <caret line="559" column="64" selection-start-line="559" selection-start-column="49" selection-end-line="559" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/erp/config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="64" column="34" lean-forward="true" selection-start-line="64" selection-start-column="34" selection-end-line="64" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -586,13 +663,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="808">
           <caret line="493" column="24" selection-start-line="493" selection-start-column="14" selection-end-line="493" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/erp/models/Reports_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -645,13 +715,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/erp/models/Site.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="808">
-          <caret line="396" column="5" selection-start-line="396" selection-start-column="5" selection-end-line="396" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/erp/controllers/Billers.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="587">
@@ -678,27 +741,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/erp/controllers/Sale_order.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/erp/models/Sales_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19448">
-          <caret line="1144" column="36" selection-start-line="1144" selection-start-column="36" selection-end-line="1144" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/default/views/sale_order/add_sale_order.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33422">
-          <caret line="1966" column="49" selection-start-line="1966" selection-start-column="49" selection-end-line="1966" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/erp/controllers/Sales.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323731">
@@ -715,8 +757,151 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/themes/default/assets/js/edit_sale_order.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="2216" column="52" selection-start-line="2216" selection-start-column="52" selection-end-line="2216" selection-end-column="52" />
+        <state relative-caret-position="569">
+          <caret line="2114" column="52" lean-forward="true" selection-start-line="2114" selection-start-column="52" selection-end-line="2114" selection-end-column="52" />
+          <folding>
+            <element signature="e#17#23#0" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="e#17#23#0" expanded="true" />
+            <element signature="e#17#23#0" expanded="true" />
+            <element signature="e#17#23#0" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#th#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/default/views/sale_order/add_sale_order.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="787">
+          <caret line="1966" column="49" selection-start-line="1966" selection-start-column="49" selection-end-line="1966" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/erp/models/Sales_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="787">
+          <caret line="1144" column="36" selection-start-line="1144" selection-start-column="36" selection-end-line="1144" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/erp/controllers/Sale_order.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/erp/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="68" column="31" lean-forward="true" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/backup-time-shop.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4102">
+          <caret line="408" column="9" selection-start-line="408" selection-start-column="9" selection-end-line="408" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/erp/models/Site.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="1182" column="31" selection-start-line="1182" selection-start-column="20" selection-end-line="1182" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/erp/models/Reports_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="386" selection-start-line="386" selection-end-line="386" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/erp/controllers/Reports.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="17388" column="29" selection-start-line="17388" selection-start-column="21" selection-end-line="17388" selection-end-column="29" />
+          <folding>
+            <element signature="e#216#220#0" expanded="true" />
+            <element signature="e#220#224#0" expanded="true" />
+            <element signature="e#402#406#0" expanded="true" />
+            <element signature="e#406#410#0" expanded="true" />
+            <element signature="e#1184#1190#0" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="e#233#237#0" expanded="true" />
+            <element signature="e#237#241#0" expanded="true" />
+            <element signature="e#459#463#0" expanded="true" />
+            <element signature="e#463#467#0" expanded="true" />
+            <element signature="e#1241#1247#0" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="e#233#237#0" expanded="true" />
+            <element signature="e#237#241#0" expanded="true" />
+            <element signature="e#459#463#0" expanded="true" />
+            <element signature="e#463#467#0" expanded="true" />
+            <element signature="e#1241#1247#0" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="e#234#238#0" expanded="true" />
+            <element signature="e#238#242#0" expanded="true" />
+            <element signature="e#460#464#0" expanded="true" />
+            <element signature="e#464#468#0" expanded="true" />
+            <element signature="e#1245#1251#0" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="e#245#249#0" expanded="true" />
+            <element signature="e#249#253#0" expanded="true" />
+            <element signature="e#483#487#0" expanded="true" />
+            <element signature="e#487#491#0" expanded="true" />
+            <element signature="e#1367#1373#0" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="e#255#259#0" expanded="true" />
+            <element signature="e#259#263#0" expanded="true" />
+            <element signature="e#453#457#0" expanded="true" />
+            <element signature="e#457#461#0" expanded="true" />
+            <element signature="e#1337#1343#0" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="e#245#249#0" expanded="true" />
+            <element signature="e#249#253#0" expanded="true" />
+            <element signature="e#483#487#0" expanded="true" />
+            <element signature="e#487#491#0" expanded="true" />
+            <element signature="e#1367#1373#0" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/default/views/reports/saleman_detail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="221" selection-start-line="221" selection-end-line="221" />
         </state>
       </provider>
     </entry>

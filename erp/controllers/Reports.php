@@ -17383,6 +17383,7 @@ class Reports extends MY_Controller
         
         $cust_data[] = "";
         $salemans = $this->reports_model->getSaleman();
+       //$this->erp->print_arrays($salemans);
         
         $this->data['salemans'] = $salemans;
         $this->data['agencies'] = $this->site->getAllUsers();
@@ -17409,6 +17410,7 @@ class Reports extends MY_Controller
             
             foreach($salemans as $saleman){
                 $salemanDatas = $this->reports_model->getSalemanReportDetail($saleman->id, $start_date2, $end_date2, $saleman2, $sales_type2, $issued_by2);
+
                 foreach($salemanDatas as $salemanData){
                     $saleman_data[$i] = array(
                                     "username" => $saleman->username,

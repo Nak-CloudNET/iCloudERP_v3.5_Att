@@ -218,7 +218,8 @@
                                 $total_am2 = 0;
                                 $total_pay_amoun2 = 0;
                                 $total_return_amoun2 = 0;
-                            foreach($salemans as $saleman){
+                            foreach($agencies as $saleman){
+
                                 $items = $this->reports_model->getSalemanReportDetail($saleman->id, $start_date2, $end_date2, $saleman2, $sales_type2, $issued_by2);
 								if(is_array($items)){
 									$am = 0;

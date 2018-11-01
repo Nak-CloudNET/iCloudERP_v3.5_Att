@@ -384,6 +384,7 @@ class Reports_model extends CI_Model
 
     public function getSaleman($saleman=null)
     {
+
         $user_id = $this->session->userdata('user_id');
     	$this->db
     	        ->select("users.id, users.username", false)
