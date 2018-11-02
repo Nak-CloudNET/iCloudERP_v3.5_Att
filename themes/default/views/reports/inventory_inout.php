@@ -254,7 +254,7 @@
                                                 $begin_qty      = $this->reports_model->getBeginQtyALL($rp->product_id,$rw->id,$from_date2,$to_date2,$biller2);
                                                 ?>
                                                 <tr>
-                                                    <?php if($btotal_qty != 0) {?>
+                                                    <?php ?>
                                                         <td style="padding-left: 20px;">
                                                             <?= $rp->name ? $rp->name : $rp->product_id; ?><?= " (" . $rp->name_unit . ")" ?>
                                                         </td>
@@ -550,7 +550,7 @@
                                                 <!--<td style="text-align:right; background:#428BCA;color:white;border-color: #357EBD;"><b><?= '$ '.$this->erp->formatDecimal($my_total_balance?$my_total_balance:'0.00')?></b></td>-->
                                             <?php } else{ ?>
                                                 <!--<td style="text-align:right; background:#428BCA;color:white;border-color: #357EBD;"><b><?= $this->erp->formatDecimal($my_total_balance?$my_total_balance:'')?></b></td>-->
-                                            <?php } ?>
+
 
                                         </tr>
                                         <?php
