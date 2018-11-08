@@ -150,6 +150,9 @@
 								<th><?php echo $this->lang->line("phone_number"); ?></th>
 								<th><?php echo $this->lang->line("amount"); ?></th>
 								<th><?php echo $this->lang->line("paid"); ?></th>
+								<th><?php echo $this->lang->line("return"); ?></th>
+								<th><?php echo $this->lang->line("deposit"); ?></th>
+								<th><?php echo $this->lang->line("discount"); ?></th>
                                 <th><?php echo $this->lang->line("balance"); ?></th>
 								<th><?php echo $this->lang->line("actions"); ?></th>
 							</tr>
@@ -184,10 +187,19 @@
 						$i = 1;
 						$tAmount 	= 0;
 						$tPaid		= 0;
+						$tReturn    = 0;
+						$tDeposit   = 0;
+						$tDiscount  = 0;
 						$tbalance	= 0;
 						foreach ($query as $rows) {
-							$sale = $this->db->select('sum(total) as sale_amount, sum(paid) as sale_paid')
+							$sale = $this->db->select('sum(erp_sales.total) as sale_amount, 
+							                            sum(erp_sales.paid) as sale_paid,
+							                            sum(erp_return_sales.grand_total) AS return_sale,
+	                                                    sum(erp_payments.amount) AS deposit_payment,
+	                                                    sum(erp_payments.discount) AS discount_payment')
 						     	->from('sales')
+                                ->join('payments','payments.sale_id = sales.id','left')
+                                ->join('return_sales','return_sales.sale_id = sales.id','left')
 							    ->where('saleman_by = ' . $rows->id);
 							if($biller){
 								$this->db->where('biller_id', $biller);
@@ -196,13 +208,19 @@
 							    $this->db->where('date_format(date,"%Y-%m-%d") BETWEEN "'.$start_date.'" AND "'.$end_date.'" ');
 							}           
                             $sales = $sale->get()->result();							
-							$samount 	= 0;
-							$spaid		= 0;
+							$samount 	        = 0;
+							$spaid		        = 0;
+							$sreturn_sale       = 0;
+							$sdeposit_payment   = 0;
+							$sdiscount_payment  = 0;
 
 							foreach($sales as $rw)
 							{
-								$samount 	= $rw->sale_amount;
-								$spaid		= $rw->sale_paid;
+								$samount 	        = $rw->sale_amount;
+								$spaid		        = $rw->sale_paid;
+                                $sreturn_sale       = $rw->return_sale;
+                                $sdeposit_payment   = $rw->deposit_payment;
+                                $sdiscount_payment  = $rw->discount_payment;
 							}
 						   ?>
 							<tr class="active">
@@ -214,12 +232,18 @@
 								<td><?=$rows->phone?></td>
 								<td class="text-right"><?= $samount ? $this->erp->formatMoney($samount) : '' ?></td>
 								<td class="text-right"><?= $spaid ? $this->erp->formatMoney($spaid) : '' ?></td>
+								<td class="text-right"><?= $sreturn_sale ? $this->erp->formatMoney($sreturn_sale) : '' ?></td>
+								<td class="text-right"><?= $sdeposit_payment ? $this->erp->formatMoney($sdeposit_payment) : '' ?></td>
+								<td class="text-right"><?= $sdiscount_payment ? $this->erp->formatMoney($sdiscount_payment) : '' ?></td>
                                 <td class="text-right"><?= $samount - $spaid ? $this->erp->formatMoney($samount - $spaid) : '' ?></td>
 								<td class="text-center"><a href="<?= site_url('reports/view_saleman_report/' . $rows->id) ?>"><span class='label label-primary'><?= lang('view_report') ?></span></a></td>
 							</tr>
 						   <?php
 							$tAmount	+= $samount;
 							$tPaid		+= $spaid;
+							$tReturn    += $sreturn_sale;
+							$tDeposit   += $sdeposit_payment;
+							$tDiscount  += $sdiscount_payment;
 							$tbalance	+= ($samount - $spaid);
 						}
 						?>
@@ -234,6 +258,9 @@
                             <th><?= lang('phone_number')?></th>
                             <th class="text-right"><?= $this->erp->formatMoney($tAmount) ?></th>
                             <th class="text-right"><?= $this->erp->formatMoney($tPaid) ?></th>
+                            <th class="text-right"><?= $this->erp->formatMoney($tReturn) ?></th>
+                            <th class="text-right"><?= $this->erp->formatMoney($tDeposit) ?></th>
+                            <th class="text-right"><?= $this->erp->formatMoney($tDiscount) ?></th>
                             <th class="text-right"><?= $this->erp->formatMoney($tbalance) ?></th>
                             <th class="text-center"><?= lang('actions') ?></th>
                         </tr>
