@@ -192,15 +192,24 @@
 						$tDiscount  = 0;
 						$tbalance	= 0;
 						foreach ($query as $rows) {
-							$sale = $this->db->select('sum(erp_sales.total) as sale_amount, 
-							                            sum(erp_sales.paid) as sale_paid,
-							                            sum(erp_return_sales.grand_total) AS return_sale,
-	                                                    sum(erp_payments.amount) AS deposit_payment,
-	                                                    sum(erp_payments.discount) AS discount_payment')
-						     	->from('sales')
-                                ->join('payments','payments.sale_id = sales.id','left')
-                                ->join('return_sales','return_sales.sale_id = sales.id','left')
-							    ->where('saleman_by = ' . $rows->id);
+							$sale = $this->db->select($this->db->dbprefix('sales').".id as id,
+				                        ".$this->db->dbprefix('sales').".date,
+				                        ".$this->db->dbprefix('payments').".date as pdate,
+				                        ".$this->db->dbprefix('sales').".reference_no, biller.company, ".$this->db->dbprefix('sales').".customer,
+										sale_status, ".$this->db->dbprefix('sales').".grand_total,
+										COALESCE((SELECT SUM(erp_return_sales.paid) FROM erp_return_sales WHERE erp_return_sales.sale_id = erp_sales.id), 0) as return_sale,
+										COALESCE((SELECT SUM(IF((erp_payments.paid_by != 'deposit' AND ISNULL(erp_payments.return_id)), erp_payments.amount, IF(NOT ISNULL(erp_payments.return_id), ((-1)*erp_payments.amount), 0))) FROM erp_payments WHERE erp_payments.sale_id = erp_sales.id),0) as paid,
+										COALESCE((SELECT SUM(IF(erp_payments.paid_by = 'deposit', erp_payments.amount, 0)) FROM erp_payments WHERE erp_payments.sale_id = erp_sales.id), 0) as deposit,
+										COALESCE((SELECT SUM(erp_payments.discount) FROM erp_payments WHERE erp_payments.sale_id = erp_sales.id), 0) as discount,
+										(" . $this->db->dbprefix('sales') . ".grand_total - COALESCE((SELECT SUM(erp_return_sales.paid) FROM erp_return_sales WHERE erp_return_sales.sale_id = erp_sales.id), 0) - COALESCE((SELECT SUM(IF((erp_payments.paid_by != 'deposit' AND ISNULL(erp_payments.return_id)), erp_payments.amount, IF(NOT ISNULL(erp_payments.return_id), ((-1)*erp_payments.amount), 0))) FROM erp_payments WHERE erp_payments.sale_id = erp_sales.id),0) - COALESCE((SELECT SUM(IF(erp_payments.paid_by = 'deposit', erp_payments.amount, 0)) FROM erp_payments WHERE erp_payments.sale_id = erp_sales.id), 0) - COALESCE((SELECT SUM(erp_payments.discount) FROM erp_payments WHERE erp_payments.sale_id = erp_sales.id), 0)) as balance,
+										sales.payment_status")
+                                ->from('sales')
+                                ->join('payments', 'payments.sale_id=sales.id', 'left')
+                                ->join('erp_return_sales', 'erp_return_sales.sale_id = sales.id', 'left')
+                                ->join('companies', 'companies.id=sales.customer_id', 'left')
+                                ->join('companies as erp_biller', 'biller.id = sales.biller_id', 'inner')
+                                ->where('sales.saleman_by',$rows->id)
+                                ->group_by('sales.id');
 							if($biller){
 								$this->db->where('biller_id', $biller);
 							}
@@ -213,14 +222,14 @@
 							$sreturn_sale       = 0;
 							$sdeposit_payment   = 0;
 							$sdiscount_payment  = 0;
-
+                            //$this->erp->print_arrays($rows);
 							foreach($sales as $rw)
 							{
-								$samount 	        = $rw->sale_amount;
-								$spaid		        = $rw->sale_paid;
-                                $sreturn_sale       = $rw->return_sale;
-                                $sdeposit_payment   = $rw->deposit_payment;
-                                $sdiscount_payment  = $rw->discount_payment;
+								$samount 	        += $rw->grand_total;
+								$spaid		        += $rw->paid;
+                                $sreturn_sale       += $rw->return_sale;
+                                $sdeposit_payment   += $rw->deposit;
+                                $sdiscount_payment  += $rw->discount;
 							}
 						   ?>
 							<tr class="active">
