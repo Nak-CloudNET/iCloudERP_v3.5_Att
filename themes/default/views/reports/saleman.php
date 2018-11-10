@@ -253,7 +253,7 @@
 							$tReturn    += $sreturn_sale;
 							$tDeposit   += $sdeposit_payment;
 							$tDiscount  += $sdiscount_payment;
-							$tbalance	+= ($samount - $spaid);
+							$tbalance	+= ($samount - $spaid - $sreturn_sale);
 						}
 						?>
                         </tbody>

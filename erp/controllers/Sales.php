@@ -704,7 +704,8 @@ class Sales extends MY_Controller
 				->join('payments', 'payments.sale_id = sales.id', 'left')
 				->join('group_areas', 'group_areas.areas_g_code = sales.group_areas_id', 'left')
 				->join('quotes', 'quotes.id = sales.quote_id', 'left')
-				->join('companies', 'companies.id = sales.customer_id', 'left');
+				->join('companies', 'companies.id = sales.customer_id', 'left')
+                ->where('users.username != ""');
 			
             if (isset($_REQUEST['a'])) {
                 $alert_ids = explode('-', $_GET['a']);
