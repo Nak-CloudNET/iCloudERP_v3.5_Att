@@ -190,6 +190,7 @@
 						$tReturn    = 0;
 						$tDeposit   = 0;
 						$tDiscount  = 0;
+						$sBalance   = 0;
 						$tbalance	= 0;
 						foreach ($query as $rows) {
 							$sale = $this->db->select($this->db->dbprefix('sales').".id as id,
@@ -222,7 +223,8 @@
 							$sreturn_sale       = 0;
 							$sdeposit_payment   = 0;
 							$sdiscount_payment  = 0;
-                            //$this->erp->print_arrays($rows);
+
+                            //$this->erp->print_arrays($query);
 							foreach($sales as $rw)
 							{
 								$samount 	        += $rw->grand_total;
@@ -231,6 +233,7 @@
                                 $sdeposit_payment   += $rw->deposit;
                                 $sdiscount_payment  += $rw->discount;
 							}
+                            $sBalance   = ($samount - ($spaid + $sreturn_sale + $sdeposit_payment + $sdiscount_payment));
 						   ?>
 							<tr class="active">
 								<td style="width: 3% !important; text-align: center;">
@@ -244,7 +247,7 @@
 								<td class="text-right"><?= $sreturn_sale ? $this->erp->formatMoney($sreturn_sale) : '' ?></td>
 								<td class="text-right"><?= $sdeposit_payment ? $this->erp->formatMoney($sdeposit_payment) : '' ?></td>
 								<td class="text-right"><?= $sdiscount_payment ? $this->erp->formatMoney($sdiscount_payment) : '' ?></td>
-                                <td class="text-right"><?= $samount - $spaid ? $this->erp->formatMoney($samount - $spaid) : '' ?></td>
+                                <td class="text-right"><?= $sBalance ? $this->erp->formatMoney($sBalance) : '' ?></td>
 								<td class="text-center"><a href="<?= site_url('reports/view_saleman_report/' . $rows->id) ?>"><span class='label label-primary'><?= lang('view_report') ?></span></a></td>
 							</tr>
 						   <?php
@@ -253,7 +256,7 @@
 							$tReturn    += $sreturn_sale;
 							$tDeposit   += $sdeposit_payment;
 							$tDiscount  += $sdiscount_payment;
-							$tbalance	+= ($samount - $spaid - $sreturn_sale);
+							$tbalance	+= $sBalance;
 						}
 						?>
                         </tbody>
